@@ -1,0 +1,117 @@
+% AMBIENTI PER TEOREMI, DEFINIZIONI ET CETERA (DA AMSTHM)
+\theoremstyle{plain}
+\newtheorem{teorema}{Teorema}
+\newtheorem{problema}{Problema} % usato generalmente nella phorma input - output richiesto
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollario}{Corollario}
+\newmdtheoremenv{postulato}{Postulato}
+
+\theoremstyle{definition}
+\newtheorem{definizione}{Definizione}
+\newtheorem{esempio}{Esempio}
+
+\theoremstyle{remark}
+\newtheorem{osservazione}{Osservazione}
+
+
+% ]----------------------------------------------------------------[ %
+
+
+% COMANDI e RINNOVI per la tesis.
+
+\newcommand{\omissis}{[\textellipsis\unkern]}                           % produce "[...]"
+
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}                             % modulo
+\DeclarePairedDelimiter\norm{\lVert}{\rVert}                            % norma
+% Swap the definition of \abs* and \norm*, so that \abs
+% and \norm resizes the size of the brackets, and the 
+% starred version does not.
+\makeatletter
+    \let\oldabs\abs
+    \def\abs{\@ifstar{\oldabs}{\oldabs*}}
+
+    \let\oldnorm\norm
+    \def\norm{\@ifstar{\oldnorm}{\oldnorm*}}
+\makeatother
+
+\newcommand{\opnorm}[1]{\norm{#1}_{\textup{op}}}                        % norma operatore
+
+\newcommand{\N}{\mathbb{N}}                                             % numeri naturali
+\newcommand{\Z}{\mathbb{Z}}                                             % interi
+\newcommand{\R}{\mathbb{R}}                                             % campo reali
+\newcommand{\Rplus}{\R_{\geq 0}}                                        % reali non negativi
+\newcommand{\C}{\mathbb{C}}                                             % campo complessi
+\newcommand{\K}{\mathbb{K}}                                             % campo generico
+\newcommand{\F}{\mathbb{F}}                                             % campo finito; metti a pedice p^q
+\renewcommand{\P}[1]{\mathbb{P} \left( #1 \right) }                     % spazio proiettivo (su qualcosa!)
+
+\newcommand{\prob}{\mathds{P}}                                          % probabilità
+\newcommand{\E}{\mathds{E}}                                             % valore atteso
+\newcommand{\Borel}{\mathcal{B}}                                        % sigma-algebra di Borel
+
+\newcommand{\U}{\mathds{U}}                                             % standard time evolution (unitaria)
+
+% ]------------------------- SPAZI ----------------------------[ %
+
+\newcommand{\hs}[1]{\mathcal{#1}}                                   % spazi di Hilbert
+
+\newcommand{\duale}[1]{{#1}'}                                           % duale algebrico
+\newcommand{\tduale}[1]{{#1}^{\ast}}                                % duale topologico, usa questo per il duale delle mappe
+
+\newcommand{\base}[1]{\mathcal{#1}}                                 % base (ortonormale?)
+\newcommand{\puri}[1]{\mathcal{P}\left(#1\right)}                   % stati puri, l'argomento è lo spazio di Hilbert
+\newcommand{\stati}[1]{\mathcal{S}\left(#1\right)}                  % stati, c.s.
+
+% CATEGORIE
+\newcommand{\vectcat}[1]{\textbf{Vect}_{#1}}                        % categoria degli spazi vettoriali
+\newcommand{\hilbcat}{\textbf{Hilb}}                                % sottocategoria degli spazi di hilbert
+
+% (SPAZI DI) OPERATORI (FUNTORI NELLA CATEGORIA)
+\newcommand{\hiHom}[2]{\hom\left(\hs{#1},\hs{#2}\right)}            % (handler) per spazi di Hilbert
+\DeclareMathOperator{\End}{End}
+\newcommand{\hiEnd}[1]{\End\left(\hs{#1}\right)}                    % (handler) per spazi di Hilbert
+\DeclareMathOperator{\Bound}{Bou}                                   % omomorfismi limitati
+\newcommand{\hiBound}[2]{\Bound\left(\hs{#1},\hs{#2}\right)}        % (handler) per spazi di Hilbert
+\newcommand{\hiEndBound}[1]{\Bound\left(\hs{#1}\right)}             % (handler) endomorfismi limitati per sp. Hilbert
+
+\newcommand{\Ident}[1]{\mathds{1}_{#1}}                             % operatore identità generico (TODO come fo la matrice?)
+\newcommand{\hiIdent}[1]{\Ident{\hs{#1}}}                           % (handler) operatore identità per spazi di Hilbert
+
+\newcommand{\adj}[1]{{#1}^{\dag}}                                   % aggiunzione (era: \ast)
+
+\DeclareMathOperator{\Tr}{Tr}                                       % traccia
+\DeclareMathOperator{\Sp}{Sp}                                       % spettro
+\DeclareMathOperator{\Imm}{Imm}                                     % immagine di una applicazione
+\DeclareMathOperator{\Span}{Span}                                   % chiusura lineare
+
+\DeclareMathOperator{\alghull}{alg}                                 % chiusura algebrica
+\newcommand{\alg}[1]{\mathscr{#1}}                                  % algebra associativa
+\newcommand{\cstar}{C^{\ast}}                                       % algebre C*
+\newcommand{\cstaralgstati}[1]{\tduale{\alg{#1}}_{+,1}}             % (handler) stati di un'algebra C*
+\newcommand{\matr}{\mathscr{M}}                                     % matrici, si sottintende quadrate e a entrate in \C
+
+%-----------------------------------------------------------%
+
+\newcommand{\conj}[1]{\overline{#1}}
+
+\newcommand{\eg}{\emph{e.g.~}}                                      % per esempio
+\newcommand{\ie}{\emph{i.e.~}}                                      % id est
+\newcommand{\st}{\,\mid\;}                                             % tali che, da usare in mathmode all'interno di \Set
+
+% ]-------------- (CLASSI DI) COMPLESSITÀ -----------------[ %
+
+\newcommand{\cc}[1]{\mathsf{#1}}                                    % classi di complessità
+\newcommand{\lb}[1]{\mathtt{#1}}                                    % blocco logico O ALGORITMO
+\newcommand{\orac}[1]{\mathcal{O}_{#1}}                             % oracolo (black box) come trasformazione: come blocco usa \lb{O}_ <- NO a me questa cosa non mi piace
+\newcommand{\vet}[1]{\mathbf{#1}}                                   % vettorizza
+
+
+
+
+
+
+
+\renewcommand{\epsilon}{\varepsilon}
+\renewcommand{\theta}{\vartheta}
+\renewcommand{\phi}{\varphi}
+% \renewcommand{\rho}{\varrho}

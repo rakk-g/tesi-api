@@ -1,0 +1,122 @@
+\documentclass[11pt,a4paper]{book} % opz. draft per vedere dove sfora i margini
+% \usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english,italian]{babel}
+\usepackage[style=italian/guillemets]{csquotes}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{mathrsfs}
+\usepackage{mdframed}
+\usepackage{dsfont} % per l'operatore identità (unità) (v. \ident)
+\usepackage{makeidx}
+\usepackage{graphicx} % figure
+\usepackage{booktabs} % filetti per le tabelle: [top|mid|bottom]rule
+\usepackage{caption}
+\captionsetup{tableposition=top,figureposition=bottom,font=small}
+\usepackage{subcaption} % spezzare figure in sottofigure
+\usepackage{lmodern} % TODO: ?
+\usepackage{braket}     % \Set, \Bra, \Ket, \Braket
+\usepackage{mathtools}  % norma, modulo
+\usepackage{tikz-cd} % diagrammi commutativi
+\usepackage{qcircuit} % circuiti
+\usepackage[left=3cm,right=3cm,top=4cm,bottom=4cm,heightrounded]{geometry}
+\usepackage{microtype}
+\usepackage[bookmarks]{hyperref} % va caricato per ultimo
+
+\usepackage[bibstyle=alphabetic,citestyle=authoryear-comp,backend=bibtex,useprefix]{biblatex}
+\bibliography{pqc}
+
+
+% TODO rivedere!
+\author{Rachele Grasshopper}
+\title{Crittografia Post-Quantistica\\\normalsize{nuove prospettive di difesa in un mondo sempre più minaccioso}}
+
+
+% COMANDI E AMBIENTI
+\input{comandi}
+
+\begin{document}
+
+%\maketitle % TODO togliere
+
+\frontmatter
+
+\chapter{Intro}
+\input{lorem}
+\section*{Notazione}
+Da inserire certamente: tutti i nuovi comandi definiti, probabilità condizionale, valore atteso, nomenclatura per gli elementi degli Hilbert spaces, notazione bra-ket di Dirac, et cetera...
+
+Notazione $O, \Theta, \Omega$. $\C^\ast = \C \setminus \Set 0$.
+\input{lorem}
+
+\tableofcontents
+
+
+% MAIN
+\mainmatter
+
+\part{Computazione Quantistica}
+\chapter{Meccanica Quantistica}
+Introduzione agli strumenti algebrici (spazi di Hilbert, strutture di $R$-modulo, prodotti tensori, $*$-algebre di operatori, ...) e analitici (per quanto riguarda le POVM) e ai metodi per ``maneggiare'' sistemi quantistici: stati (puri e misti), sistemi composti, misurazioni, osservabili, trasformazioni di stato.
+Questo ``impianto'' dovrebbe essere la cornice di riferimento per tutto il seguito; perciò seppure non eccessivamente approfondito (trascurerei le questioni pratiche legate alla realizzazione fisica di esperimenti quantistici) vorrei farlo abbastanza ``solido'' e autocontenuto.
+
+Passerei poi a presentare le principali novità e opportunità offerte dalla meccanica quantistica, soprattutto in relazione alla computazione e alla crittografia (entanglement, teletrasporto di stati, no-cloning), ma vorrei anche accennare a delle differenze di fondo rispetto alla Fisica Classica (esperimento di Aspect) che ci impongono di riconsiderare sotto una nuova luce le teorie della Probabilità e dell'Informazione (da approfondire nel secondo capitolo).
+\input{pezzi/postulati_qm}
+\input{pezzi/nuove}
+
+\chapter{Teoria dell'Informazione Quantistica}
+\label{chap:tiq}
+Le teorie della Probabilità e della Informazione classiche non sono sufficienti a descrivere il mondo su scala quantistica; per questo vorrei presentare le loro ``rivisitazioni'' in chiave quantistica: entropia e informazione, i canali quantistici, una caratterizzazione degli errori su tali canali, e alcuni risultati teorici che hanno un impatto diretto sull'approccio quantistico alla trasmissione ed elaborazione delle informazioni (Holevo bound, capacità dei canali).
+\section{Entropie di Shannon e di Von Neumann}
+\section{Canali quantistici}
+\subsection{Errori}
+\subsection{Informazione accessibile: il limite di Holevo}
+\subsection{Capacità di un canale quantistico}
+    
+\chapter{Computazione Quantistica}
+Vorrei utilizzare il modello dei Quantum Gate Array e presentare alcune peculiarità importanti della computazione in ambito quantistico: reversibilità, parallelismo, ... con dei cenni anche alla calcolabilità/complessità (universalità, classi di complessità). Non vorrei entrare esageratamente nel dettaglio sulle classi di complessità (relazioni con le classi di complessità classiche, parallelismo, ...) perché credo ci sia il rischio di allontanarsi dall'obiettivo (crittografia).
+
+Per quanto riguarda gli algoritmi vorrei presentare quelli più emblematici, che rivelano un vantaggio rispetto alle controparti classiche, e analizzare i limiti superiori/inferiori imposti alla complessità di un problema su cui basare una primitiva crittografica quantistica/post-quantistica; con questo spirito vorrei parlare del problema del sottogruppo nascosto (HSP), delle sue riduzioni, dei problemi aperti nel caso non simmetrico.
+\input{pezzi/modello}
+\input{pezzi/algos}
+
+
+\part{Crittografia Quantistica e Post-Quantistica}
+    \chapter{Crittografia Quantistica}
+    Credo che un ``assaggio'' di crittografia quantistica potrebbe aiutare a marcare le differenze con quella post-quantistica e a delineare il contesto di riferimento (p.e. caratterizzando le classi di attacchi portabili con una macchina quantistica, disturbanza e guadagno di informazione da parte dell'attaccante...)
+        \section{Gli schemi BB84, B92, Ekert}
+            \subsection{Sicurezza incondizionale di BB84}
+            \subsection{Sfruttare l'entanglement}
+        \section{Attacchi ai cifrari quantistici}
+            \subsection{Disturbanza e guadagno di informazione}
+
+    \chapter{Crittografia Post-Quantistica}
+    Per gli schemi basati su hash parlerei del MSS (Merkle) ma senza approfondire troppo questioni che risulterebbero veramente moooolto lunghe (nello specifico: visita dell'albero di autenticazione).
+    Qualche riguardo in più, anche dal punto di vista teorico e algebrico, lo userei nell'affrontare la crittografia basata sui codici (McEliece, Niederreiter, il problema dell'equivalenza di codici) ma l'argomento su cui investirei di più è quello dei reticoli.
+    
+    Per i reticoli i prerequisiti algebrici sono piuttosto pesanti ma una volta fatto ciò potremmo derivare molte applicazioni crittografiche e mostrarne la robustezza spesso tramite riduzioni dal caso medio al caso pessimo. Di questo parlerei ampiamente e dal nostro ultimo colloquio (e dai materiali che mi ha dato) mi sembra che si possa definire l'argomento centrale della tesi; se nonostante ciò quest'ultimo capitolo sembra poco delineato, in parte è dovuto al fatto che sto ancora cercando di organizzare le idee e i molti risultati per coglierne gli aspetti essenziali (p.e. ho trovato molti articoli che presentano uno stesso cifrario/algoritmo ma a volte la riduzione dell'uno all'altro non è palese, oppure ancora ci sono differenze nelle complessità dell'ordine dello zerovirgola, ... ).
+    Le ultime due sezioni (Hidden Field Equations e Multivariate Quadratic Equations, nell'ordine) hanno il punto interrogativo perché riguardano primitive crittografiche che ho incontrato solo di sfuggita e non ho ancora approfondito; per questo non so se è il caso di includerle o meno.
+        \section{Schemi di firma basati su funzioni hash}
+        \section{Crittografia basata su codici autocorrettori}
+        \section{Crittografia basata su reticoli}
+                \subsection{Funzioni hash resistenti alle collisioni}
+                \subsection{Schemi pubblici semanticamente sicuri}
+        \section{$HFE^{-v}$ (?)}
+        \section{MQE (?)}
+
+        
+        
+        
+% /MAIN
+
+
+\backmatter
+\cleardoublepage
+\addcontentsline{toc}{chapter}{\bibname}
+\nocite{*} % per fargli stampare anche i riferimenti non citati nella tesi
+\printbibliography
+
+
+\end{document}
