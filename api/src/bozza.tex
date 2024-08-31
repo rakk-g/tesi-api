@@ -1,5 +1,5 @@
 \documentclass[11pt,a4paper]{book} % opz. draft per vedere dove sfora i margini
-% \usepackage[latin1]{inputenc}
+\usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[english,italian]{babel}
 \usepackage[style=italian/guillemets]{csquotes}
@@ -9,29 +9,30 @@
 \usepackage{amsthm}
 \usepackage{mathrsfs}
 \usepackage{mdframed}
-\usepackage{dsfont} % per l'operatore identit‡ (unit‡) (v. \ident)
+\usepackage{dsfont} % per l'operatore identit√† (unit√†) (v. \ident)
 \usepackage{makeidx}
 \usepackage{graphicx} % figure
 \usepackage{booktabs} % filetti per le tabelle: [top|mid|bottom]rule
+
 \usepackage{caption}
 \captionsetup{tableposition=top,figureposition=bottom,font=small}
+
 \usepackage{subcaption} % spezzare figure in sottofigure
-\usepackage{lmodern} % TODO: ?
-\usepackage{braket}     % \Set, \Bra, \Ket, \Braket
+\usepackage{esdiff} % comandi per le derivate: \diff, \diffp, c'√® anche la valutazione in un punto!
 \usepackage{mathtools}  % norma, modulo
-\usepackage{tikz-cd} % diagrammi commutativi
-\usepackage{qcircuit} % circuiti
+% \usepackage{tikz-cd} % diagrammi commutativi
+% \usepackage{qcircuit} % circuiti
 \usepackage[left=3cm,right=3cm,top=4cm,bottom=4cm,heightrounded]{geometry}
 \usepackage{microtype}
 \usepackage[bookmarks]{hyperref} % va caricato per ultimo
 
 \usepackage[bibstyle=alphabetic,citestyle=authoryear-comp,backend=bibtex,useprefix]{biblatex}
-\bibliography{pqc}
+\bibliography{api}
 
 
 % TODO rivedere!
-\author{Rachele Grasshopper}
-\title{Crittografia Post-Quantistica\\\normalsize{nuove prospettive di difesa in un mondo sempre pi˘ minaccioso}}
+\author{De Leo, Martino}
+\title{Modelli di dinamica delle popolazioni di \emph{Apis Mellifera}}
 
 
 % COMANDI E AMBIENTI
@@ -39,77 +40,126 @@
 
 \begin{document}
 
-%\maketitle % TODO togliere
+\maketitle % TODO togliere p. via del frontespizio
 
 \frontmatter
 
 \chapter{Intro}
+\section*{Sommario}
 \input{lorem}
-\section*{Notazione}
-Da inserire certamente: tutti i nuovi comandi definiti, probabilit‡ condizionale, valore atteso, nomenclatura per gli elementi degli Hilbert spaces, notazione bra-ket di Dirac, et cetera...
 
-Notazione $O, \Theta, \Omega$. $\C^\ast = \C \setminus \Set 0$.
-\input{lorem}
+\section*{Notazione}
+Da inserire certamente: tutti i nuovi comandi definiti
+
 
 \tableofcontents
 
+\chapter{Biologia dell'ape europea}
+Questo studio si concentra sulla specie \emph{Apis Mellifera} (Linneo, 1758) del genere \emph{Apis};
+comunemente nota come ``ape europea'' o ``ape occidentale'', questa specie ha avuto origine in Medio Oriente e si √® dispersa su ogni continente (esclusa l'Antartide) durante gli scorsi 2 milioni di anni.
 
-% MAIN
+Il rapporto tra \emph{H. Sapiens} e \emph{A. Mellifera} ha origine nel Pleistocene con le prime rudimentali interazioni;
+tale rapporto perdura ancora oggi articolandosi in forme complesse che comprendono
+\begin{itemize}
+    \item La selezione genetica
+    \item La dispersione antropocora
+    \item La dimensione economica: il valore di mercato ``diretto'' dei prodotti dell'apicoltura √® superato di X ordini di grandezza dal valore ``indiretto'' dovuto all'impollinazione delle colture nel settore agricolo;
+    \item La presenza di \emph{A. Mellifera} contribuisce al mantenimento della biodiversit√† negli ecosistemi non disturbati dall'attivit√† antropica;
+\end{itemize}
+
+regina operaie fuchi
+
+varroa
+
+pesticidi
+
+
+% <MAIN>
 \mainmatter
 
-\part{Computazione Quantistica}
-\chapter{Meccanica Quantistica}
-Introduzione agli strumenti algebrici (spazi di Hilbert, strutture di $R$-modulo, prodotti tensori, $*$-algebre di operatori, ...) e analitici (per quanto riguarda le POVM) e ai metodi per ``maneggiare'' sistemi quantistici: stati (puri e misti), sistemi composti, misurazioni, osservabili, trasformazioni di stato.
-Questo ``impianto'' dovrebbe essere la cornice di riferimento per tutto il seguito; perciÚ seppure non eccessivamente approfondito (trascurerei le questioni pratiche legate alla realizzazione fisica di esperimenti quantistici) vorrei farlo abbastanza ``solido'' e autocontenuto.
+\part{Dinamica delle popolazioni di \emph{A. Mellifera}}
 
-Passerei poi a presentare le principali novit‡ e opportunit‡ offerte dalla meccanica quantistica, soprattutto in relazione alla computazione e alla crittografia (entanglement, teletrasporto di stati, no-cloning), ma vorrei anche accennare a delle differenze di fondo rispetto alla Fisica Classica (esperimento di Aspect) che ci impongono di riconsiderare sotto una nuova luce le teorie della Probabilit‡ e dell'Informazione (da approfondire nel secondo capitolo).
-\input{pezzi/postulati_qm}
-\input{pezzi/nuove}
 
-\chapter{Teoria dell'Informazione Quantistica}
-\label{chap:tiq}
-Le teorie della Probabilit‡ e della Informazione classiche non sono sufficienti a descrivere il mondo su scala quantistica; per questo vorrei presentare le loro ``rivisitazioni'' in chiave quantistica: entropia e informazione, i canali quantistici, una caratterizzazione degli errori su tali canali, e alcuni risultati teorici che hanno un impatto diretto sull'approccio quantistico alla trasmissione ed elaborazione delle informazioni (Holevo bound, capacit‡ dei canali).
-\section{Entropie di Shannon e di Von Neumann}
-\section{Canali quantistici}
-\subsection{Errori}
-\subsection{Informazione accessibile: il limite di Holevo}
-\subsection{Capacit‡ di un canale quantistico}
-    
+
+
+
+\chapter[Modelli]{Modelli matematici}
+\section{Sistemi dinamici}
+
+\subsection{Ratti2017}
+Esaminiamo un modello proposto da \citeauthor{ratti2017} che tenta di integrare alcune proposte precedenti con lo scopo di studiare gli effetti diretti e indiretti di \emph{Varroa destructor}.
+
+\subsubsection{Assunzioni}
+\begin{enumerate}
+    \item La popolazione delle operaie √® suddivisa in due comparti: le operaie pi√π giovani che svolgono mansioni all'interno dell'alveare e le bottinatrici/esploratrici.
+    \item La popolazione degli acari √® suddivisa in due comparti: le varroe portatrici di ABPV e le varroe libere dal virus.
+    \item Le operaie infette con ABPV perdono rapidamente l'abilit√† al volo, le capacit√† di orientamento degradano rapidamente e muoiono in breve tempo. Per questo motivo le api infette sono considerate ``di alveare'', e non vengono reclutate per bottinare.
+\end{enumerate}
+
+I compartimenti del modello sono dunque cinque: operaie ``di alveare'' sane, operaie bottinatrici sane, operaie infette, varroe portatrici di ABPV e varroe senza virus.
+
+\begin{enumerate}
+    \setcounter{enumi}{3}
+    \item Il tasso massimale di riproduzione delle varroe √® lo stesso, che siano portatrici di virus o meno.
+    \item
+\end{enumerate}
+
+
+\subsubsection{Equazione del modello}
+Il modello a compartimenti proposto in \cite{ratti2017} √® il seguente:
+\begin{align}
+    % hive sane
+    \diff{x_h}{t} &= \mu g( x_h + x_f ) h(m) - \beta_1 m \frac{x_h}{x_h + x_f + y} - \left( d_1 + \delta_1 \right) x_h \notag \\ % barbatrucco
+    \label{eq:r17xh}
+        &{\;} - \gamma_1 (m+n) x_h - x_h \cdot R(x_h, x_f) \\ % barbatrucco
+    % foragers sane
+    \label{eq:r17xf}
+    \diff{x_f}{t} &= x_h \cdot R(x_h, x_f) - \beta_1 m \frac{x_f}{x_h + x_f + y}
+    - \left( p + d_2 + \delta_2 \right) x_f - \gamma_2 (m+n) x_f \\
+    % (hive) infette
+    \label{eq:r17y}
+    \diff{y}{t} &= \beta_1 m \frac{x_h + x_f}{x_h + x_f + y} - \left( d_3 + \delta_3 \right) y - \gamma_3 (m+n) y \\
+    % varroe con ABPV
+    \label{eq:r17m}
+    \diff{m}{t} &= rm \left( 1 - \frac{m+n}{ \alpha (x_h + x_f + y) } \right) + \beta_2 n \frac{y}{x_h + x_f + y}
+    - \beta_3 m \frac{x_h + x_f}{x_h + x_f + y} - \delta_4 m \\
+    % varroe senza ABPV
+    \label{eq:r17n}
+    \diff{n}{t} &= rn \left( 1 - \frac{m+n}{ \alpha (x_h + x_f + y) } \right) - \beta_2 n \frac{y}{x_h + x_f + y}
+    + \beta_3 m \frac{x_h + x_f}{x_h + x_f + y} - \delta_5 n
+\end{align}
+
+dove
+\begin{itemize}
+    \item $x_h$ √® il numero di operaie sane che vivono all'interno dell'alveare (\emph{hive})
+    \item $x_f$ √® il numero di operaie bottinatrici (\emph{foragers})
+    \item $y$ √® il numero di operaie infette da ABPV
+    \item $m$ √® il numero di varroe portatrici di ABPV
+    \item $n$ √® il numero di varroe non portatrici di virus.
+\end{itemize}
+
+
+Il termine ``di reclutamento'' $x_h \cdot R(x_h, x_f)$ nelle equazioni \ref{eq:r17xh} e \ref{eq:r17xf} rappresenta appunto il passaggio di ruolo delle operaie, da impiegate \emph{all'interno} dell'alveare a \emph{bottinatrici} che escono dall'arnia per esplorare e raccogliere il cibo.
+
+
+
+
+
+
+
+
+\section{Modelli computazionali}
+
+
+
+
+
+
 \chapter{Computazione Quantistica}
-Vorrei utilizzare il modello dei Quantum Gate Array e presentare alcune peculiarit‡ importanti della computazione in ambito quantistico: reversibilit‡, parallelismo, ... con dei cenni anche alla calcolabilit‡/complessit‡ (universalit‡, classi di complessit‡). Non vorrei entrare esageratamente nel dettaglio sulle classi di complessit‡ (relazioni con le classi di complessit‡ classiche, parallelismo, ...) perchÈ credo ci sia il rischio di allontanarsi dall'obiettivo (crittografia).
-
-Per quanto riguarda gli algoritmi vorrei presentare quelli pi˘ emblematici, che rivelano un vantaggio rispetto alle controparti classiche, e analizzare i limiti superiori/inferiori imposti alla complessit‡ di un problema su cui basare una primitiva crittografica quantistica/post-quantistica; con questo spirito vorrei parlare del problema del sottogruppo nascosto (HSP), delle sue riduzioni, dei problemi aperti nel caso non simmetrico.
-\input{pezzi/modello}
-\input{pezzi/algos}
+Vorrei utilizzare il modello dei Quantum Gate Array e presentare alcune peculiarit√† importanti della computazione in ambito quantistico: reversibilit√†, parallelismo, ... con dei cenni anche alla calcolabilit√†/complessit√† (universalit√†, classi di complessit√†). Non vorrei entrare esageratamente nel dettaglio sulle classi di complessit√† (relazioni con le classi di complessit√† classiche, parallelismo, ...) perch√© credo ci sia il rischio di allontanarsi dall'obiettivo (crittografia).
 
 
-\part{Crittografia Quantistica e Post-Quantistica}
-    \chapter{Crittografia Quantistica}
-    Credo che un ``assaggio'' di crittografia quantistica potrebbe aiutare a marcare le differenze con quella post-quantistica e a delineare il contesto di riferimento (p.e. caratterizzando le classi di attacchi portabili con una macchina quantistica, disturbanza e guadagno di informazione da parte dell'attaccante...)
-        \section{Gli schemi BB84, B92, Ekert}
-            \subsection{Sicurezza incondizionale di BB84}
-            \subsection{Sfruttare l'entanglement}
-        \section{Attacchi ai cifrari quantistici}
-            \subsection{Disturbanza e guadagno di informazione}
-
-    \chapter{Crittografia Post-Quantistica}
-    Per gli schemi basati su hash parlerei del MSS (Merkle) ma senza approfondire troppo questioni che risulterebbero veramente moooolto lunghe (nello specifico: visita dell'albero di autenticazione).
-    Qualche riguardo in pi˘, anche dal punto di vista teorico e algebrico, lo userei nell'affrontare la crittografia basata sui codici (McEliece, Niederreiter, il problema dell'equivalenza di codici) ma l'argomento su cui investirei di pi˘ Ë quello dei reticoli.
-    
-    Per i reticoli i prerequisiti algebrici sono piuttosto pesanti ma una volta fatto ciÚ potremmo derivare molte applicazioni crittografiche e mostrarne la robustezza spesso tramite riduzioni dal caso medio al caso pessimo. Di questo parlerei ampiamente e dal nostro ultimo colloquio (e dai materiali che mi ha dato) mi sembra che si possa definire l'argomento centrale della tesi; se nonostante ciÚ quest'ultimo capitolo sembra poco delineato, in parte Ë dovuto al fatto che sto ancora cercando di organizzare le idee e i molti risultati per coglierne gli aspetti essenziali (p.e. ho trovato molti articoli che presentano uno stesso cifrario/algoritmo ma a volte la riduzione dell'uno all'altro non Ë palese, oppure ancora ci sono differenze nelle complessit‡ dell'ordine dello zerovirgola, ... ).
-    Le ultime due sezioni (Hidden Field Equations e Multivariate Quadratic Equations, nell'ordine) hanno il punto interrogativo perchÈ riguardano primitive crittografiche che ho incontrato solo di sfuggita e non ho ancora approfondito; per questo non so se Ë il caso di includerle o meno.
-        \section{Schemi di firma basati su funzioni hash}
-        \section{Crittografia basata su codici autocorrettori}
-        \section{Crittografia basata su reticoli}
-                \subsection{Funzioni hash resistenti alle collisioni}
-                \subsection{Schemi pubblici semanticamente sicuri}
-        \section{$HFE^{-v}$ (?)}
-        \section{MQE (?)}
-
-        
-        
-        
-% /MAIN
+% </MAIN>
 
 
 \backmatter

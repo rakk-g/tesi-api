@@ -7,7 +7,8 @@ xmin=-2*pi; xmax=2*pi;
 ymin=-pi; ymax=pi;
 
 % df = @(t,y) [y(2); (1 - y(1)^2) * y(2) - y(1)]; % Van der Pol
-df = @(t,y) [y(2); -y(1)]; % harmonic? how to damp?
+% df = @(t,y) [y(2); -y(1)]; % harmonic
+df = @(t,y) [ y(2); -y(1)-y(2)  ]; % damped harmonic
 %df = @(t,y) [sin(y(2)*pi); -cos(y(1)*pi)];
 
 hold off
