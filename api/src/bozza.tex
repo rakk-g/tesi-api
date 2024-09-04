@@ -25,22 +25,23 @@
 \usepackage[left=3cm,right=3cm,top=4cm,bottom=4cm,heightrounded]{geometry}
 \usepackage{microtype}
 
-\usepackage[bibstyle=alphabetic,citestyle=authoryear-comp,backend=bibtex,useprefix]{biblatex}
+% \usepackage[bibstyle=alphabetic,citestyle=authoryear-comp,backend=bibtex,useprefix]{biblatex}
+\usepackage[bibstyle=alphabetic,citestyle=alphabetic,backend=bibtex,useprefix]{biblatex}
 \bibliography{api}
 
 \usepackage[bookmarks,hidelinks]{hyperref} % va caricato per ultimo
 
 % TODO rivedere!
 \author{De Leo, Martino}
-\title{Dinamica delle popolazioni di \emph{Apis Mellifera}}
+\title{Dinamica delle popolazioni di \emph{Apis mellifera}}
 
 \input{comandi} % COMANDI E AMBIENTI
 
 \begin{document}
+\frontmatter
 
 \maketitle % TODO togliere p. via del frontespizio
 
-\frontmatter
 
 \section*{Sommario}
 \input{lorem}
@@ -53,33 +54,58 @@ Da inserire certamente: tutti i nuovi comandi definiti
 
 \listoffigures
 
-\chapter{Biologia dell'ape europea}
-Questo studio si concentra sulla specie \emph{Apis Mellifera} (Linneo, 1758) del genere \emph{Apis};
-comunemente nota come ``ape europea'' o ``ape occidentale''.
-Questa specie ha avuto origine in Medio Oriente e si è dispersa su ogni continente (esclusa l'Antartide) durante gli scorsi 2 milioni di anni.
 
-Il rapporto tra \emph{H. Sapiens} e \emph{A. Mellifera} ha origine nel Pleistocene con le prime rudimentali interazioni;
-tale relazione perdura ancora oggi articolandosi in forme complesse che comprendono:
+
+% <MAIN>
+\mainmatter
+
+\part{Dinamica delle popolazioni ed epidemiologia}
+
+\begin{figure}
+    \centering
+    \includegraphics[keepaspectratio,width=0.56\textwidth]{img/AranaCaves}
+
+    \caption[Pittura rupestre di Arana.]{Pittura rupestre ``The Hive and the Honey Bee'' nelle grotte di Arana (Cuevas de la Arana), Valencia, Spagna. Datate circa 8000 a.C.. \\ (Museo Nacional de Ciencias Naturales, Madrid)}
+    \label{img:arana}
+\end{figure}
+
+\chapter{Biologia dell'ape europea}
+Questo studio si concentra sulla specie \emph{Apis mellifera} (Linneo, 1758) del genere \emph{Apis},
+comunemente nota come ``ape europea'' o ``ape occidentale''.
+Questa specie ha avuto origine in Medio Oriente e si è diffusa su ogni continente (esclusa l'Antartide) durante gli scorsi 2 milioni di anni.
+
+Il rapporto tra \emph{H. sapiens} e \emph{A. mellifera} ha origine nel Pleistocene con le prime rudimentali interazioni
+di tipo puramente predatorio (figura~\ref{img:arana}), evolvendosi nell'arco dei millenni in forme complesse e reciprocanti.
+
+\begin{displayquote}[\cite{honeyreligion}]
+``Humans have eaten, and fixed their wounds with honey and traded with it since history has been recorded.''
+\end{displayquote}
+
+L'interazione simbiotica uomo--ape è oggi articolata in forme complesse, che comprendono:
 \begin{itemize}
     \item La selezione genetica;
     \item La dispersione antropocora;
-    \item La dimensione economica: il valore di mercato ``diretto'' dei prodotti dell'apicoltura è stimato intorno agli 8 miliardi di \$ annui \pcite{honeymarket1}. Il valore ``indiretto'' dovuto all'impollinazione delle colture nel settore agricolo è di gran lunga superiore, stimato tra i 235 e i 570 miliardi di \$ all'anno \pcite{honeymarket2,honeymarket3}.
-    \item La dimensione ecologica: la presenza del genere \emph{Apis} contribuisce -- assieme ad altri impollinatori -- al mantenimento della biodiversità negli ecosistemi non disturbati dall'attività umana, alla stabilizzazione degli ambienti antropizzati; il declino degli impollinatori aggrava gli effetti negativi del cambiamento climatico e dell'industrializzazione dell'agricoltura \pcite{decline}.
+    \item La dimensione economica: il valore di mercato ``diretto'' dei prodotti dell'apicoltura è stimato intorno agli 8 miliardi di \$ annui. \cite{honeymarket1}
+
+        Il valore ``indiretto'' dovuto all'impollinazione delle colture nel settore agricolo è di gran lunga superiore, stimato tra i 235 e i 570 miliardi di \$ all'anno. \cite{honeymarket2,honeymarket3}
+    \item La dimensione ecologica: la presenza del genere \emph{Apis} contribuisce -- assieme ad altri impollinatori -- al mantenimento della biodiversità negli ecosistemi non disturbati dall'attività umana, alla stabilizzazione degli ambienti antropizzati; il declino degli impollinatori aggrava gli effetti negativi del cambiamento climatico e dell'industrializzazione dell'agricoltura. \cite{decline}
 \end{itemize}
 
 L'ape occidentale presenta una organizzazione \emph{eusociale} e per questo conviene concettualizzare l'intero alveare come un macro--organismo, le cui capacità trofiche, riproduttive e di interazione con l'ambiente sono il risultato emergente dalla collettività dei comportamenti degli individui che costituiscono l'alveare.
 
-La suddivisione del lavoro all'interno di un alveare riflette la partizione in caste fertili (regina, fuchi) e non fertili (operaie) della popolazione.
+La suddivisione del lavoro in un alveare riflette la partizione in caste fertili (regina, fuchi) e non fertili (operaie) della popolazione.
 
 \begin{figure}
     \centering
     \includegraphics[keepaspectratio,width=0.86\textwidth]{img/uovaLarve}
 
-    \caption[Covata giovane.]{Porzione di favo con covata: le celle in alto a sinistra contengono larve di 5--8 giorni; nelle altre celle è presente un uovo (< 3 giorni) \\ (Waugsberg -- 22 Aprile 2007 -- CC BY-SA 3.0)}
+    \caption[Covata giovane.]{Porzione di favo con covata: le celle in alto a sinistra contengono larve di 5--8 giorni; nelle altre celle è presente un uovo (< 3 giorni). \\ (Waugsberg -- 22 Aprile 2007 -- CC BY-SA 3.0)}
     \label{img:uovaLarve}
 \end{figure}
 
-L'allevamento della covata (figure~\ref{img:uovaLarve},~\ref{img:lifecycle}) avviene in modo collettivo: la regina depone le uova fecondate, mentre le operaie nutrici si occupano della pulizia, nutrimento e cura della covata.
+L'allevamento della covata (figure~\ref{img:uovaLarve},~\ref{img:lifecycle}) avviene in modo collettivo: la regina depone le uova fecondate, mentre le operaie nutrici si occupano della pulizia, nutrimento e cura delle uova e delle larve.
+
+Al termine dello stadio larvale le operaie nutrici chiudono la cella con un opercolo di cera; all'interno della cella la pupa svolge una metamorfosi da cui emerge dopo 10--11 giorni un'ape adulta.
 
 \begin{figure}
     \centering
@@ -89,16 +115,42 @@ L'allevamento della covata (figure~\ref{img:uovaLarve},~\ref{img:lifecycle}) avv
             2) Larva (da 3 a 8/9 giorni).
             3) Le nutrici chiudono la cella con l'opercolo (9° giorno).
             4) La pupa dentro la cella (dal 10° giorno).
-            5) L'ape adulta emerge dall cella (21° giorno)
-        \\ (illustrazione di Jennifer Sartell -- 22 Aprile 2017 -- ©)}
+            5) L'ape adulta emerge dall cella (21° giorno).
+        \\ (illustrazione di Jennifer Sartell (dett.) -- 22 Aprile 2017 -- ©)}
     \label{img:lifecycle}
 \end{figure}
 
+\paragraph{}
 La popolazione di un alveare varia notevolmente col ciclo delle stagioni e mediamente comprende un'ape regina (unica femmina fertile), da 20000 a 100000 operaie (femmine sterili) e qualche centinaia di fuchi (maschi fertili) in primavera/estate.
 
 Le tre caste presentano notevoli differenze morfologiche, che riflettono le mansioni di ognuna all'interno dell'alveare.
 Ad esempio nei fuchi e nella regina le ghiandole ceripare e faringee sono decisamente meno sviluppate che nelle operaie; anche il loro apparato boccale è ridotto e per questo motivo sia la regina che i maschi vengono alimentati dalle operaie nutrici.
 
+\paragraph{}
+È importante precisare che un'ape operaia svolge ruoli differenti nella colonia durante l'arco della sua vita.
+
+Una giovane adulta rimane perlopiù all'interno del nido:
+\begin{itemize}
+    \item come \emph{nutrice} curando la covata, la regina e i fuchi,
+    \item come \emph{ceraiola} modellando la cera secreta da speciali ghiandole per costruire il favo,
+    \item come \emph{spazzina} che pulisce il nido e cura l'igiene della matrice cerea,
+    \item come \emph{guardiana} difendendo l'ingresso da animali estranei
+    \item \dots
+\end{itemize}
+
+\paragraph{}
+Soltanto in età avanzata, con un bagaglio di esperienze che informa le abilità cognitive avanzate di cui è capace, l'ape operaia si avventura fuori dal nido per esplorare, individuare e discriminare le fonti di cibo, raccogliere polline e nettare (``bottinare'') dalle fioriture, scambiare informazioni, \dots
+
+Le capacità cognitive per svolgere tali compiti richiedono la coordinazione di svariate abilità, tra cui la navigazione, il conteggio, la misura di distanze ed angoli.
+È dimostrato che le bottinatrici più anziane sono più efficienti nelle attività all'esterno del nido, rispetto alle operaie reclutate in età precoce che sono più lente e imprecise nel volo.
+
+\paragraph{}
+Dunque le operaie giovani svolgono ruoli fondamentali all'interno dell'alveare come la cura della covata e dell'igiene, e attraverso il reclutamento diventano abili bottinatrici in volo in età più avanzata.
+È importante notare la crucialità di entrambe le dinamiche, perché riguardano due aspetti fondamentali di ogni organismo vivente: la \emph{riproduzione} (la cura della covata) e l'approvvigionamento di \emph{energia} (la raccolta di cibo).
+
+La colonia deve costantemente perseguire un delicato equilibrio nell'allocazione di risorse per soddisfare questi due bisogni fondamentali.
+Ne segue che ogni modello matematico che voglia risultare sufficientemente accurato nel riassumere la dinamica di una colonia di \emph{A. mellifera} debba comprendere un effetto Allee perlomeno sulla popolazione di operaie giovani
+\emph{ed anche} sulla popolazione di operaie bottinatrici più anziane.
 
 \section{Organismi patogeni per l'ape}
 L'ape europea presenta una varietà di antagonisti naturali, appartenenti a diversi regni.
@@ -111,81 +163,102 @@ Le api sono predate abitualmente da alcune specie di uccelli (ad es. il gruccion
 
 Alcune specie non parassitano direttamente le api ma altre componenti dell'alveare, come la falena \emph{Galleria mellonella} che si nutre degli esoscheletri delle pupe di ape sfarfallate, di cera e di tracce di polline che trova nelle celle abbandonate dalle api adulte.
 
-\paragraph{}
+\subsection{\emph{Varroa}}
 Il patogeno di gran lunga più studiato è la varroa, acaro appartenente alle due specie \emph{Varroa destructor} e \emph{V.~jacobsoni}. La varroa parassita le larve, le pupe e le api adulte, nutrendosi delle componenti grasse e dell'emolinfa.
 
+\paragraph{}
 Il ciclo vitale della varroa è suddiviso nella fase riproduttiva e nella fase foretica:
 \begin{itemize}
-    \item durante la fase riproduttiva, una femmina feconda di varroa si introduce in una cella contenente una larva, prima dell'opercolazione. Dopo l'opercolazione depone le uova da cui fuoriescono gli individui fertili, che si accoppiano immediatamente e si nutrono sulla larva. Con lo sfarfallamento dell'ape, la varroa madre e le giovani femmine fecondate fuoriescono dalla cella, eventualmente attaccandosi al corpo dell'ape adulta. I maschi muoiono dentro la cella.
-    \item La fase foretica avviene nelle varroe adulte che si attaccano sulle operaie, nascondendosi negli spazi interstiziali tra i segmenti dell'addome dell'ape, oppure parassitano le larve nelle celle non opercolate.
+    \item Durante la fase riproduttiva, una femmina feconda di varroa si introduce in una cella contenente una larva, prima dell'opercolazione. Dopo l'opercolazione depone le uova da cui fuoriescono gli individui fertili, che si accoppiano immediatamente e si nutrono sulla larva.
+
+    Con lo sfarfallamento dell'ape adulta, la varroa madre e le giovani femmine fecondate fuoriescono dalla cella, eventualmente attaccandosi al corpo dell'ape.
+    I maschi, terminata la loro funzione riproduttiva, muoiono dentro la cella.
+    \item La fase foretica avviene nelle varroe adulte che si attaccano sulle api operaie, nascondendosi negli spazi interstiziali tra i segmenti dell'addome.
+    [le varroe adulte non parassitano le larve in fase foretica??] % TODO
 \end{itemize}
 
-La varroa accorcia l'aspettativa di vita e indebolisce le api adulte che attacca; determina inoltre malformazioni (ad es. alle ali) nelle operaie che vengono parassitate allo stadio larvale, compromettendone le capacità da adulte.
+La varroa accorcia l'aspettativa di vita e indebolisce le api adulte che attacca; determina inoltre malformazioni (ad es. alle ali) nelle operaie che vengono parassitate allo stadio larvale, compromettendone le abilità al volo.
 
-È dimostrato inoltre che la varroa funge da vettore per molti patogeni delle api, sia virali che batterici, tra cui l'ABPV.
+È dimostrato inoltre che la varroa funge da vettore per molti patogeni delle api, sia batterici che virali, tra cui l'ABPV.
 
+\paragraph{}
+Il sistema immunitario di una colonia, che comprende le barriere fisiologiche a livello di individuo ed i comportamenti sociali di tipo igienico, viene compromesso dal parassitaggio di \emph{V.~destructor} e dalle patologie che essa trasmette.
+
+Questo meccanismo di indebolimento di un sistema di difesa della colonia aggiunge un ulteriore livello di complessità ai processi di interazione tra api e varroe.
+
+\paragraph{}
+Una assunzione ubiquitaria nei modelli matematici apistici che considerano l'infestazione da \emph{V.~destructor} è
+che le attività sostanziali della regina all'interno della colonia non sono disturbate dalla presenza di varroa e dei patogeni ad essa correlati.
+
+Ciò corrisponde all'esperienza sul campo\cite{privFDL,privFPan} ed alla letteratura disponibile, secondo le quali l'acaro non si trova \emph{praticamente mai} sul corpo della regina. Non è chiaro  se ciò sia dovuto alla particolare attenzione con cui le operaie attorno alla regina svolgono attività di \emph{grooming}.
 
 \subsection{Declino dovuto all'attività umana}
 Molte classi di pesticidi, erbicidi ed altri antiparassitari di sintesi impiegati in agricoltura danneggiano le api: le bottinatrici entrano in contatto con queste sostanze chimiche posandosi sulle colture trattate, importano nel nido polline e nettare contaminati, dove vengono manipolati anche dalle operaie di alveare.
 
-Le molecole imidacloprid, clothianidina, e thiamethoxam (nella classe dei neonicotinoidi) sono state correlate alla sindrome di spopolamento (Colony Collapse Disorder -- CCD) in cui si verifica un crollo repentino della popolazione in alveari apparentemente sani, che rende impossibile la sopravvivenza della famiglia.
+Le molecole \emph{imidacloprid}, \emph{clothianidin}, e \emph{thiamethoxam} (nella classe dei neonicotinoidi) sono state correlate alla sindrome di spopolamento (Colony Collapse Disorder -- CCD) in cui si verifica un crollo repentino della popolazione in alveari apparentemente sani, che rende impossibile la sopravvivenza della famiglia.
 Queste molecole vengono considerate anche causa o concausa di patologie cognitive delle api adulte, tra cui una riduzione della memoria a breve termine ed il deterioramento delle facoltà di navigazione: le bottinatrici affette perdono l'orientamento e non riescono a tornare al nido, morendo in breve tempo (per il sopraggiungere della notte o di un predatore).
+
+\paragraph{}
+Gli studi più recenti ridimensionano il ruolo dei pesticidi chimici nel CCD ed indicano piuttosto \emph{la combinazione di una molteplicità di fattori} come causa scatenante del declino delle colonie di ape europea.
+
+Tali fattori includono l'uso di pesticidi ed erbicidi sulle colture, la perdita di biodiversità, il cambiamento climatico, l'alterazione delle fioriture (disponibilità di cibo per la colonia) e la proliferazione di patologie, soprattutto legate a \emph{V.~destructor}.
+
+Questa combinazione di concause produce effetti ramificati sul comportamento degli alveari, che a loro volta influenzano il processo di declino della popolazione di api.
+
+\paragraph{}
+Ad esempio, sia \emph{imidacloprid} che il parassitaggio da \emph{V.~destructor} inibiscono la memoria spaziale e le abilità di volo delle bottinatrici esperte, che ``si perdono'' più spesso e non riescono a tornare all'alveare (\emph{homing failure}), circostanza quasi sempre fatale. Ciò determina un deficit di operaie anziane rispetto all'equilibrio della popolazione, a cui la colonia reagisce innescando meccanismi sociali che accellerano il processo di reclutamento, per cui le operaie vengono ``promosse'' all'esterno del nido in età precoce.
+
+Le bottinatrici più giovani sono quindi più inesperte e meno efficienti nel bottinare, l'importazione di cibo nella colonia diminuisce; inoltre si perdono più spesso, aumentando così il ``costo unitario'' che la colonia sostiene per una unità di miele importato.
+
+Il reclutamento precoce causa anche una diminuzione del numero di operaie di alveare e più precisamente di nutrici:
+con meno cure, la frazione di covata che raggiunge l'età adulta diminuisce per l'aumento di morti precoci allo stadio larvale.
+
+\paragraph{}
+Il meccanismo di regolazione sociale del reclutamento è un comportamento naturale di \emph{A.~mellifera}
+di risposta allo stress su due elementi vitali principali della colonia -- la \emph{riproduzione} e l'\emph{alimentazione} -- ed in condizioni tipiche garantisce la sopravvivenza della stessa.
+
+Nello scenario d'esempio qui sopra, le attività dannose dell'uomo e di altre specie si intersecano ai molti piani delle attività biologiche di una colonia o di un apiario, i cui parametri vitali sembrano abbastanza stabili nel tempo, ma che improvvisamente collassano per l'occorrenza contemporanea di danni irreversibili a \emph{molti} processi fondamnetali che sostengono la vita eusociale dell'ape.
 
 
 \begin{figure}
     \centering
     \includegraphics[keepaspectratio,width=0.86\textwidth]{img/fanning}
 
-    \caption[Ventilazione forzata per raffrescare l'interno dell'arnia.]{Gruppo di operaie in prossimità dell'ingresso dell'alveare ``ventilano'' per abbassare la temperatura interna dell'arnia. \\ (Ken Thomas -- 26 Maggio 2008 -- Pubblico dominio)}
+    \caption[Ventilazione forzata per raffrescare l'interno dell'arnia.]{Gruppo di operaie in prossimità dell'ingresso dell'alveare ``ventilano'' per abbassare la temperatura interna dell'arnia. Una colonia sana riesce a mantenere una temperatura interna di XX°C con variazioni stagionali all'esterno tra XX°C e XX°C.
+        \\ (Ken Thomas -- 26 Maggio 2008 -- Pubblico dominio)}
 \end{figure}
-
-asfaljfafsh
 
 \begin{figure}
     \centering
     \includegraphics[keepaspectratio,width=0.86\textwidth]{img/calabron}
 
-    \caption[Ape predata da un calabrone.]{Una calabrone operaia (\emph{Vespa Crabro}) si nutre di una ape operaia (\emph{Apis Mellifera}) appena catturata. \\ (Böhringer Friedrich -- 20 Agosto 2004 -- CC BY-SA 2.5)}
+    \caption[Ape predata da un calabrone.]{Una calabrone operaia (\emph{Vespa Crabro}) si nutre di una ape operaia (\emph{Apis mellifera}) appena catturata. \\ (Böhringer Friedrich -- 20 Agosto 2004 -- CC BY-SA 2.5)}
     \label{img:calabron}
 \end{figure}
 
-asfaljfafsh
-
-
-
-
-
-% <MAIN>
-\mainmatter
-
-\part{Dinamica delle popolazioni ed epidemiologia}
-
-
-
 
 \chapter[Modelli]{Modelli matematici}
-\section{Sistemi dinamici}
 
-\subsection{Ratti2017}
+\section{Ratti2017}
 Esaminiamo un modello proposto da \citeauthor{ratti2017}, che estende alcune proposte precedenti con lo scopo di studiare gli effetti diretti e indiretti di \emph{Varroa destructor} sulla popolazione di un alveare.
 
-
-\subsubsection{Assunzioni}
+\subsection{Derivazione del modello}
+Per la derivazione del modello, gli autori di \cite{ratti2017} propongono le seguenti assunzioni preliminari:
 \begin{enumerate}
-    \item La popolazione delle operaie è suddivisa in due comparti: le operaie più giovani che svolgono mansioni all'interno dell'alveare ($x_h$) e le bottinatrici/esploratrici ($x_f$).
+    \item La popolazione delle operaie sane (non infette da ABPV) è suddivisa in due comparti: le operaie più giovani che svolgono mansioni all'interno dell'alveare ($x_h$) e le bottinatrici/esploratrici ($x_f$).
 
-    Questa impostazione ricalca lo studio \pcite{khoury2011}, in cui si propone un modello a due dimensioni per esaminare gli effetti del tasso di schiusa delle pupe e del tasso di reclutamento da operaie d'alveare a bottinatrici sulla dinamica di una popolazione sana.
+    Questa impostazione ricalca lo studio \cite{khoury2011}, in cui si propone un modello a due dimensioni per esaminare gli effetti del tasso di schiusa delle pupe e del tasso di reclutamento da operaie d'alveare a bottinatrici sulla dinamica di una popolazione sana.
     \item La popolazione degli acari è suddivisa in due comparti: le varroe portatrici di ABPV ($m$) e le varroe libere dal virus ($n$).
     \item Le operaie infette con ABPV ($y$) perdono rapidamente l'abilità al volo, le loro capacità di orientamento degradano e muoiono in breve tempo. Per questo motivo le api infette sono considerate ``di alveare'', e non vengono reclutate per bottinare.
 \end{enumerate}
 
 I compartimenti del modello sono dunque cinque:
 \begin{itemize}
-    \item operaie ``di alveare'' sane,
-    \item operaie bottinatrici sane,
-    \item operaie infette,
-    \item varroe portatrici di ABPV,
-    \item varroe senza virus.
+    \item operaie ``di alveare'' sane, $x_h$
+    \item operaie bottinatrici sane, $x_f$
+    \item operaie infette, $y$
+    \item varroe portatrici di ABPV, $m$
+    \item varroe senza virus, $n$
 \end{itemize}
 
 Abbiamo inoltre
@@ -193,10 +266,12 @@ $$\text{Pop. totale api} = x_h + x_f + y,$$
 e
 $$\text{Pop. totale varroe} = m + n.$$
 
+Proseguiamo con l'esame delle assunzioni del modello:
 \begin{enumerate}
     \setcounter{enumi}{3}
     \item Il tasso massimale di riproduzione delle varroe è lo stesso, che siano portatrici di virus o meno.
-    \item Sappiamo che la covata necessita di cure da parte delle operaie nutrici, quindi il tasso di schiusa è dipendente dal numero di operaie nella popolazione, che seguendo \cite{khoury2011} assumiamo pari alla somma $x_h + x_f$.
+    Ciò si riflette nelle equazioni \ref{eq:r17m} e \ref{eq:r17n}, in cui il primo termine descrive le nuove nascite: esso è proporzionale alla popolazione del compartimento ed il fattore di proporzionalità è lo stesso in entrambe le equazioni. In esso, $r$ è il tasso massimo di riproduzione del parassita \emph{Varroa}, $\alpha$ la capacità portante dell'ospite \emph{Apis}.
+    \item Sappiamo che la covata necessita di cure da parte delle operaie nutrici, quindi il tasso di schiusa è dipendente dal numero di operaie sane nella popolazione, che seguendo \cite{khoury2011} assumiamo pari alla somma $x_h + x_f$.
     \item L'ape regina non subisce gli affetti avversi di ABPV e dell'infestazione da varroe; di conseguenza, il tasso di schiusa non dipende dalla preminenza nell'alveare di varroe o di virus.
     \item La trasmissione di ABPV è esclusivamente orizzontale. Le varroe sono un vettore puramente meccanico per il virus.
     \item Poiché le pupe infette con ABPV muoiono rapidamente prima della schiusa, tutte le giovani operaie che giungono all'età adulta si assumono libere dal virus. L'effetto limitante sul tasso di schiusa dovuto alla presenza di varroe infette viene incorporato in un fattore di modulazione $h(m)$.
@@ -204,7 +279,6 @@ $$\text{Pop. totale varroe} = m + n.$$
     \item In tutti e tre i compartimenti delle api, si assume un tasso di mortalità naturale $d_i$ in aggiunta alla mortalità dovuta alle varroe $\gamma_i$ (a sua volta dipendente sia dal parassitismo che dalla trasmissione del virus). Nelle api indebolite dall'infezione da ABPV entrambi questi tassi sono maggiori rispetto alle operaie sane: $d_3 > d_1, d_2$ e $\gamma_3 > \gamma_1, \gamma_2$.
 
     Inoltre per le bottinatrici si tiene conto anche della mortalità da disorientamento (fattore $p$), dovuto principalmente al degrado delle facoltà cognitive e di navigazione per effetto dei pesticidi sintetici sulle colture.
-    \item sfaaf
 \end{enumerate}
 
 
@@ -241,24 +315,63 @@ dove
     \item $n$ è il numero di varroe non portatrici di virus.
 \end{itemize}
 
-
+\paragraph{}
 Il termine ``di reclutamento'' $x_h \cdot R(x_h, x_f)$ nelle equazioni \ref{eq:r17xh} e \ref{eq:r17xf} rappresenta appunto il passaggio di ruolo delle operaie, da impiegate \emph{all'interno} dell'alveare a \emph{bottinatrici} che escono dall'arnia per esplorare e raccogliere il cibo.
 
+Esattamente come nello studio precedente \cite{khoury2011}, il fattore $R$ rappresenta gli effetti \emph{sociali}
+della colonia sul tasso di reclutamento, con la seguente formulazione:
+\begin{equation}
+    \label{eq:reclutam}
+    R(x_h, x_f) = \sigma_1 - \sigma_2 \left( \frac{x_f}{x_h + x_f} \right)
+\end{equation}
+in cui $\sigma_1$ è il tasso massimo di reclutamento delle operaie, quando non ci sono bottinatrici nella colonia.
+Il termine $\sigma_2 \left( \frac{x_f}{x_h + x_f} \right)$ descrive l'inibizione sociale del reclutamento, ossia il rallentamento del processo di ``promozione'' all'esterno del nido, proporzionale alla frazione di popolazione impiegata nella bottinatura; quando tale frazione è in surplus, le bottinatrici vengono ``riallocate'' in attività interne all'alveare.
+
+\paragraph{}
+Il tasso di nuove nascite è descritto dal primo termine nella equazione \ref{eq:r17xh}, in cui troviamo il parametro $\mu$ che è determinato principalmente dalla regina e dalla stagione, e rappresenta il tasso massimo di schiusa (in unità di numero di api al giorno).
+
+La funzione $g$ descrive il bisogno di un numero minimo di operaie sane nella colonia per allevare la covata; se questo numero scende sotto una certa soglia -- che può presentare variazioni stagionali -- la covata non produce più api adulte.
+\begin{displayquote}[\cite{ratti2017}]
+``We think of $g(x_h + x_f)$ as a switch function.''
+\end{displayquote}
+
+Abbiamo dunque $g(0)=0$, $\diff{g}{x_h} \geq 0$ e $\diff{g}{x_f} \geq 0$. Inoltre $\lim_{x_h+x_f \to \infty} g(x_h+x_f)=1$, e dunque un'utile formulazione per $g$ è data dalla sigmoide di Hill (figura~\ref{img:hillSigmoid}):
+$$g(x_h + x_f) = \frac{ (x_h+x_f)^i }{ K^i + (x_h+x_f)^i }$$
+
+\begin{figure}
+    \centering
+    \includegraphics[keepaspectratio,width=0.86\textwidth]{img/hillSigmoid}
+
+    \caption[Sigmoidi di Hill.]{Illustrazione del grafico della sigmoide di Hill per diversi valori dell'esponente $i$.
+        \\ Il parametro $K$ rappresenta la retroimmagine del semimassimo.}
+    \label{img:hillSigmoid}
+\end{figure}
+
+dove $K$ è la dimensione della popolazione di operaie nell'alveare corrispondente al tasso di schiusa semimassimo, e l'esponente $i>1$ si assume intero per semplicità di analisi.
+
+\paragraph{}
+Sempre nel termine delle nascite di api adulte, un altro fattore modulante tiene conto degli effetti deleteri per la covata dovuti alla presenza degli acari portanti ABPV nell'alveare: le larve e le pupe infette con ABPV muoiono rapidamente prima di raggiungere lo stadio di adulte, quindi la funzione $h(m)$ nell'equazione~\ref{eq:r17xh} verifica le condizioni $h(0)=1$, $\diff{h}{m} <0$ e $\lim_{m \to \infty} h(m) = 0$.
+
+In \cite{sumMar04} si suggerisce $h(m) \approx e^{-km}$ con $k\geq0$, e questa è la forma utilizzata in \cite{ratti2017} per le simulazioni numeriche.
+
+
+\section{Riduzioni ai modelli precedenti}
+Se nella $g$ prendiamo $K=0$ ci si riduce al modello di \cite{sumMar04}
 
 
 
 
 
 
-
-\part{Modelli computazionali}
+\part{Modelli computazionali e simulazioni}
 
 
 
 
 % </MAIN>
-
 \backmatter
+
+
 \cleardoublepage
 \addcontentsline{toc}{chapter}{\bibname}
 \nocite{*} % per fargli stampare anche i riferimenti non citati nella tesi
