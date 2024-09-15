@@ -1,0 +1,22 @@
+
+# keep only the main source(s)
+api/src/bozza*
+!api/src/bozza.tex
+
+# mainly PDF files
+api/modellini
+api/da\ Panella
+
+# moar stuff to exclude
+api/src/img
+api/src/prof
+api/src/francescoDeLeo.md
+api/src/lorem.tex
+api/contatti
+
+# exclude big files (remind that ** matches zero or more dirs)
+**/*.pdf
+**/*.png
+
+# in simulations
+simulaz/result.txt
