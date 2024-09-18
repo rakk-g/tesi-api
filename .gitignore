@@ -1,10 +1,14 @@
 
 # keep only the main source(s)
-api/src/bozza*
+api/src/tesiApi*
 !api/src/bozza.tex
+
+# exclude more auxiliary files
+api/src/pezzi/*.aux
 
 # mainly PDF files
 api/modellini
+api/paperi
 api/da\ Panella
 
 # moar stuff to exclude

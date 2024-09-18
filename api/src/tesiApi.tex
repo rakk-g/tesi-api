@@ -1,0 +1,83 @@
+\documentclass[11pt,a4paper,oneside,hidelinks]{book} % opz. draft per vedere dove sfora i margini
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english,italian]{babel}
+\usepackage[italian=guillemets]{csquotes}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{mathrsfs}
+\usepackage{mdframed}
+% \usepackage{dsfont} % per l'operatore identità (unità) (v. \ident)
+\usepackage{makeidx}
+\usepackage{graphicx} % figure
+\usepackage{booktabs} % filetti per le tabelle: [top|mid|bottom]rule
+
+\usepackage{caption}
+\captionsetup{tableposition=top,figureposition=bottom,font=small}
+
+\usepackage{subcaption} % spezzare figure in sottofigure
+\usepackage{esdiff} % comandi per le derivate: \diff, \diffp, c'è anche la valutazione in un punto!
+\usepackage{mathtools}  % norma, modulo
+\usepackage[left=3cm,right=3cm,top=4cm,bottom=4cm,heightrounded]{geometry}
+\usepackage{microtype}
+
+\usepackage[bibstyle=alphabetic,citestyle=alphabetic,backend=biber,useprefix]{biblatex}
+\bibliography{api}
+
+% \usepackage[bookmarks,hidelinks]{hyperref} % va caricato per ultimo
+\usepackage[]{bookmark} % carica da solo hyperref
+
+\input{comandi} % COMANDI E AMBIENTI
+
+% TODO rivedere!
+\author{De Leo, Martino}
+\title{Dinamica delle popolazioni di \emph{Apis mellifera}}
+
+\begin{document}
+\maketitle % TODO togliere p. via del frontespizio
+
+\frontmatter
+
+\section*{Sommario}
+\input{lorem}
+
+\section*{Notazione}
+Da inserire certamente: tutti i nuovi comandi definiti
+
+\cleardoublepage
+
+\tableofcontents
+
+\listoffigures
+
+
+
+% <MAIN>
+\mainmatter
+
+\clearpage
+\part{Dinamica delle popolazioni ed epidemiologia}
+
+
+\input{pezzi/biologia}
+
+\input{pezzi/models}
+
+\part{Modelli computazionali e simulazioni}
+
+
+
+
+% </MAIN>
+\backmatter
+
+
+\cleardoublepage
+\addcontentsline{toc}{chapter}{\bibname}
+\nocite{*} % per fargli stampare anche i riferimenti non citati nella tesi
+\printbibliography
+
+
+\end{document}

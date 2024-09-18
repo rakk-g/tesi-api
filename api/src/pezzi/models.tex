@@ -1,0 +1,134 @@
+\chapter[Modelli]{Modelli matematici}
+In questo capitolo discuteremo alcuni modelli proposti in letteratura per descrivere la dinamica della popolazione di una colonia di \emph{Apis Mellifera}.
+
+\paragraph{}
+Il primo modello che prendiamo in considerazione \parencite{ratti2017} suddivide la popolazione di operaie in api ``di alveare'' -- che svolgono mansioni di cura e manutenzione all'interno del nido -- e in bottinatrici.
+Gli altri compartimenti del modello riguardano la popolazione di \emph{V.~destructor} e le api infette dal virus della paralisi (ABPV), trasmesso dagli acari.
+
+\section{Modello a due compartimenti di operaie, con \emph{Varroa} e ABPV}
+Esaminiamo il modello proposto da \citeauthor{ratti2017} nel \citeyear{ratti2017}, che estende alcune proposte precedenti con lo scopo di studiare gli effetti diretti e indiretti di \emph{Varroa destructor} sulla popolazione di un alveare.
+
+\subsection{Derivazione del modello}
+Per la derivazione del modello, gli autori di \cite{ratti2017} propongono le seguenti assunzioni preliminari:
+\begin{enumerate}
+    \item La popolazione delle operaie sane (non infette da ABPV) è suddivisa in due comparti: le operaie più giovani che svolgono mansioni all'interno dell'alveare ($x_h$) e le bottinatrici/esploratrici ($x_f$).
+
+    Questa impostazione ricalca lo studio \cite{khoury2011}, in cui si propone un modello a due compartimenti per esaminare gli effetti del tasso di schiusa delle pupe e del tasso di reclutamento da operaie d'alveare a bottinatrici sulla dinamica di una popolazione sana.
+    \item La popolazione degli acari è suddivisa in due comparti: le varroe portatrici di ABPV ($m$) e le varroe libere dal virus ($n$).
+    \item Le operaie infette con ABPV ($y$) perdono rapidamente l'abilità al volo, le loro capacità di orientamento degradano e muoiono in breve tempo. Per questo motivo le api infette sono considerate ``di alveare'', e non vengono reclutate per bottinare.
+\end{enumerate}
+
+I compartimenti del modello sono dunque cinque:
+\begin{itemize}
+    \item operaie ``di alveare'' sane, $x_h$
+    \item operaie bottinatrici sane, $x_f$
+    \item operaie infette, $y$
+    \item varroe portatrici di ABPV, $m$
+    \item varroe senza virus, $n$
+\end{itemize}
+
+Abbiamo inoltre
+$$\text{Pop. totale api} = x_h + x_f + y,$$
+e
+$$\text{Pop. totale varroe} = m + n.$$
+
+Proseguiamo con l'esame delle assunzioni del modello:
+\begin{enumerate}
+    \setcounter{enumi}{3}
+    \item Il tasso massimale di riproduzione delle varroe è lo stesso, che siano portatrici di virus o meno.
+    Ciò si riflette nelle equazioni \eqref{eq:r17m} e \eqref{eq:r17n}, in cui il primo termine descrive le nuove nascite: esso è proporzionale alla popolazione del compartimento ed il fattore di proporzionalità è lo stesso in entrambe le equazioni. In esso, $r$ è il tasso massimo di riproduzione del parassita \emph{Varroa}, $\alpha$ la capacità portante dell'ospite \emph{Apis}.
+    \item Sappiamo che la covata necessita di cure da parte delle operaie nutrici, quindi il tasso di schiusa è dipendente dal numero di operaie sane nella popolazione, che seguendo \cite{khoury2011} assumiamo pari alla somma $x_h + x_f$.
+    \item L'ape regina non subisce gli affetti avversi di ABPV e dell'infestazione da varroe; di conseguenza, il tasso di schiusa non dipende dalla preminenza nell'alveare di varroe o di virus.
+    \item La trasmissione di ABPV è esclusivamente orizzontale: ciò significa che l'infezione di una operaia avviene per trasmissione del virus da una operaia infetta.\footnote{La trasmissione \emph{verticale} di un patogeno riguarda invece l'infezione della prole a causa dei genitori già infetti.}
+
+    Le varroe sono un vettore puramente meccanico per il virus: la carica virale non è incentivata né inibita dalle varroe, che per ABPV fungono meramente da ``mezzo di trasporto'' tra le api.
+    \item Poiché le pupe infette con ABPV muoiono rapidamente prima della schiusa, tutte le giovani operaie che giungono all'età adulta si assumono libere dal virus. L'effetto limitante sul tasso di schiusa dovuto alla presenza di varroe infette viene incorporato in un fattore di modulazione $h(m)$.
+    \item Per studiare l'effetto dei trattamenti acaricidi, introduciamo un ulteriore termine di pozzo $\delta_i$ in ogni equazione. Assumiamo che l'impatto dei trattamenti sia di gran lunga maggiore sulle varroe che sulle api: $\delta_4, \delta_5 > \delta_1, \delta_2, \delta_3$.
+    \item In tutti e tre i compartimenti delle api, si assume un tasso di mortalità naturale $d_i$ in aggiunta alla mortalità dovuta alle varroe $\gamma_i$ (a sua volta dipendente sia dal parassitismo che dalla trasmissione del virus). Nelle api indebolite dall'infezione da ABPV entrambi questi tassi sono maggiori rispetto alle operaie sane: $d_3 > d_1, d_2$ e $\gamma_3 > \gamma_1, \gamma_2$.
+
+    Inoltre per le bottinatrici si tiene conto anche della mortalità da disorientamento (fattore $p$), dovuto principalmente al degrado delle facoltà cognitive e di navigazione per effetto dei pesticidi sintetici sulle colture.
+\end{enumerate}
+
+
+\subsubsection{Equazione del modello}
+Il modello a compartimenti proposto in \cite{ratti2017} è il seguente:
+\begin{align}
+    % hive sane
+    \diff{x_h}{t} &= \mu g( x_h + x_f ) h(m) - \beta_1 m \frac{x_h}{x_h + x_f + y} - \left( d_1 + \delta_1 \right) x_h \notag \\ % barbatrucco
+    \label{eq:r17xh}
+        &{\;} - \gamma_1 (m+n) x_h - x_h \cdot R(x_h, x_f) \\ % barbatrucco
+    % foragers sane
+    \label{eq:r17xf}
+    \diff{x_f}{t} &= x_h \cdot R(x_h, x_f) - \beta_1 m \frac{x_f}{x_h + x_f + y}
+    - \left( p + d_2 + \delta_2 \right) x_f - \gamma_2 (m+n) x_f \\
+    % (hive) infette
+    \label{eq:r17y}
+    \diff{y}{t} &= \beta_1 m \frac{x_h + x_f}{x_h + x_f + y} - \left( d_3 + \delta_3 \right) y - \gamma_3 (m+n) y \\
+    % varroe con ABPV
+    \label{eq:r17m}
+    \diff{m}{t} &= rm \left( 1 - \frac{m+n}{ \alpha (x_h + x_f + y) } \right) + \beta_2 n \frac{y}{x_h + x_f + y}
+    - \beta_3 m \frac{x_h + x_f}{x_h + x_f + y} - \delta_4 m \\
+    % varroe senza ABPV
+    \label{eq:r17n}
+    \diff{n}{t} &= rn \left( 1 - \frac{m+n}{ \alpha (x_h + x_f + y) } \right) - \beta_2 n \frac{y}{x_h + x_f + y}
+    + \beta_3 m \frac{x_h + x_f}{x_h + x_f + y} - \delta_5 n
+\end{align}
+
+% ELIMINO RIPETIZIONE
+% dove
+% \begin{itemize}
+%     \item $x_h$ è il numero di operaie sane che vivono all'interno dell'alveare (\emph{hive})
+%     \item $x_f$ è il numero di operaie bottinatrici (\emph{foragers})
+%     \item $y$ è il numero di operaie infette da ABPV
+%     \item $m$ è il numero di varroe portatrici di ABPV
+%     \item $n$ è il numero di varroe non portatrici di virus.
+% \end{itemize}
+
+\paragraph{}
+Il termine ``di reclutamento'' $x_h \cdot R(x_h, x_f)$ nelle equazioni \eqref{eq:r17xh} e \eqref{eq:r17xf} rappresenta appunto il passaggio di ruolo delle operaie, da impiegate \emph{all'interno} dell'alveare a \emph{bottinatrici} che escono dall'arnia per esplorare e raccogliere il cibo.
+
+Come nello studio precedente \cite{khoury2011}, il fattore $R$ rappresenta gli effetti \emph{sociali}
+della colonia sul tasso di reclutamento, con la seguente formulazione:
+\begin{equation}
+    \label{eq:reclutam}
+    R(x_h, x_f) = \sigma_1 - \sigma_2 \left( \frac{x_f}{x_h + x_f} \right)
+\end{equation}
+in cui $\sigma_1$ è il tasso massimo di reclutamento delle operaie, quando non ci sono bottinatrici nella colonia.
+Il termine $\sigma_2 \left( \frac{x_f}{x_h + x_f} \right)$ descrive l'inibizione sociale del reclutamento, ossia il rallentamento del processo di ``promozione'' all'esterno del nido, proporzionale alla frazione di popolazione impiegata nella bottinatura; quando tale frazione è in surplus, le bottinatrici vengono ``riallocate'' in attività interne all'alveare.
+
+\paragraph{}
+Il tasso di nuove nascite è descritto dal primo termine nella equazione \eqref{eq:r17xh}, in cui troviamo il parametro $\mu$ che è determinato principalmente dalla regina e dalla stagione, e rappresenta il tasso massimo di schiusa (in unità di numero di api al giorno).
+
+La funzione $g$ descrive il bisogno di un numero minimo di operaie sane nella colonia per allevare la covata; se questo numero scende sotto una certa soglia -- che può presentare variazioni stagionali -- la covata non produce più api adulte.
+La $g$ rappresenta la risposta funzionale dell'allevamento della covata, nelle parole degli autori:
+\begin{displayquote}[\cite{ratti2017}]
+``We think of $g(x_h + x_f)$ as a switch function.''
+\end{displayquote}
+
+Abbiamo dunque $g(0)=0$, $\diff{g}{x_h} \geq 0$ e $\diff{g}{x_f} \geq 0$. Inoltre $\lim_{x_h+x_f \to \infty} g(x_h+x_f)=1$, e dunque un'utile formulazione per $g$ è data dalla sigmoide di Hill (figura~\ref{img:hillSigmoid}):
+\begin{equation}
+    g(x_h + x_f) = \frac{ (x_h+x_f)^i }{ K^i + (x_h+x_f)^i }
+    \label{eq:hillSigmoid}
+\end{equation}
+
+\begin{figure}
+    \centering
+    \includegraphics[keepaspectratio,width=0.86\textwidth]{img/hillSigmoid}
+
+    \caption[Sigmoidi di Hill.]{Sigmoide di Hill per diversi valori dell'esponente $i$.
+        \\ Il parametro $K$ rappresenta la retroimmagine del semimassimo.}
+    \label{img:hillSigmoid}
+\end{figure}
+
+dove $K$ è la dimensione della popolazione di operaie nell'alveare corrispondente al tasso di schiusa semimassimo, e l'esponente $i>1$ si assume intero per semplicità di analisi.
+
+\paragraph{}
+Sempre nel termine delle nascite di api adulte, un altro fattore modulante tiene conto degli effetti deleteri per la covata dovuti alla presenza degli acari portanti ABPV nell'alveare: le larve e le pupe infette con ABPV muoiono rapidamente prima di raggiungere lo stadio di adulte, quindi la funzione $h(m)$ nell'equazione~\ref{eq:r17xh} verifica le condizioni $h(0)=1$, $\diff{h}{m} <0$ e $\lim_{m \to \infty} h(m) = 0$.
+
+In \cite{sumMar04} si suggerisce $h(m) \approx e^{-km}$ con $k\geq0$, e questa è la forma utilizzata in \cite{ratti2017} per le simulazioni numeriche.
+
+
+\section{Riduzioni ai modelli precedenti}
+Se nell'espressione di $g$ (equazione~\eqref{eq:hillSigmoid}) prendiamo $K=0$ ci si riduce al modello di \cite{sumMar04}
+
+
