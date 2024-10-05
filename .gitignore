@@ -17,6 +17,9 @@ api/src/prof
 api/src/francescoDeLeo.md
 api/src/lorem.tex
 api/contatti
+aiutoCalcoli.wxmx
+api/appti.md
+
 
 # exclude big files (remind that ** matches zero or more dirs)
 **/*.pdf
@@ -24,3 +27,4 @@ api/contatti
 
 # in simulations
 simulaz/result.txt
+

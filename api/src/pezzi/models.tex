@@ -218,7 +218,7 @@ Ciò significa che l'equilibrio senza varroe è stabile se la \eqref{eq:rattiRid
 ed il tasso massimo di natalità delle varroe è inferiore alla loro mortalità dovuta ai trattamenti.
 Si osservi inoltre che in assenza di trattamenti varroacidi l'alveare non riesce a debellare l'infestazione dell'acaro.
 
-Nel caso instabile, non è chiaro se il sistema converge all'equilibrio banale oppure ad un equilibrio endemico. \cite[15]{ratti2017}.
+Nel caso instabile, non è chiaro se il sistema converge all'equilibrio banale oppure ad un equilibrio endemico. \cite[15]{ratti2017}
 
 
 \subsubsection{Modello completo api--\emph{Varroa}--ABPV}
@@ -263,7 +263,29 @@ Questo ultimo passaggio è fondamentale per incorporare nel modello le variazion
 
 Il periodo dei coefficienti è dunque $T= 1 \text{ anno}$.
 
+suloz non banali, Floquet
 
+\begin{proposizione}[4.1, Stability of mite--free periodic solution {\cite[19]{ratti2017}} ]
+    Sia $\left( x_h^*(t), x_f^*(t) \right)$ sia una soluzione periodica per il modello ridotto alle sole api \eqref{eq:rattiRidotto1prima}--\eqref{eq:rattiRidotto1seconda}.
+
+    Allora $\left( x_h^*(t), x_f^*(t), 0 \right)$ è una soluzione periodica per il modello ridotto api--acaro \eqref{eq:rattiRidotto2prima}--\eqref{eq:rattiRidotto2terza}; è stabile se
+    \begin{enumerate}
+        \item $\left( x_h^*(t), x_f^*(t) \right)$ è stabile per il modello ridotto alle sole api;
+        \item $\int_0^T (r - \delta_5) dt \leq 0$.
+    \end{enumerate}
+\end{proposizione}
+
+
+\begin{proposizione}[4.2, Stability of the disease--free periodic solution {\cite[21]{ratti2017}} ]
+    Sia $\left( x_h^*(t), x_f^*(t) \right)$ sia una soluzione periodica per il modello ridotto alle sole api \eqref{eq:rattiRidotto1prima}--\eqref{eq:rattiRidotto1seconda}.
+
+    Allora $\left( x_h^*(t), x_f^*(t), 0, 0, 0 \right)$ è una soluzione periodica per il modello completo \eqref{eq:r17xh}--\eqref{eq:r17n}; è stabile se
+    \begin{enumerate}
+        \item $\left( x_h^*(t), x_f^*(t) \right)$ è stabile per il modello ridotto alle sole api;
+        \item $\int_0^T (r - \delta_5) dt \leq 0$;
+        \item $\int_0^T (r -\beta_3 - \delta_4) dt \leq 0$.
+    \end{enumerate}
+\end{proposizione}
 
 
 
