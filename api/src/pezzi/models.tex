@@ -1,9 +1,16 @@
 \chapter[Modelli]{Modelli matematici}
 In questo capitolo discuteremo alcuni modelli proposti in letteratura per descrivere la dinamica della popolazione di una colonia di \emph{Apis Mellifera}.
 
+[[Per una panoramica di modelli si rimanda alla review di Kang, [tabella caratteristiche], che fa anche un lavoro di omogeneizzare la notazione]]
+
 \paragraph{}
-Il primo modello che prendiamo in considerazione \parencite{ratti2017} suddivide la popolazione di operaie in api ``di alveare'' -- che svolgono mansioni di cura e manutenzione all'interno del nido -- e in bottinatrici.
+Il primo modello preso in considerazione è \parencite{khoury2011} BLABLA
+
+\paragraph{}
+Il secondo modello che prendiamo in considerazione \parencite{ratti2017} suddivide la popolazione di operaie sane in api ``di alveare'' -- che svolgono mansioni di cura e manutenzione all'interno del nido -- e in bottinatrici.
 Gli altri compartimenti del modello riguardano la popolazione di \emph{V.~destructor} e le api infette dal virus della paralisi (ABPV), trasmesso dagli acari.
+
+\input{pezzi/mod_khoury11}
 
 \section{Modello a tre compartimenti di operaie, con \emph{Varroa} e ABPV}
 Esaminiamo il modello proposto da \citeauthor{ratti2017} nel \citeyear{ratti2017}, che estende alcune proposte precedenti con lo scopo di studiare gli effetti diretti e indiretti di \emph{Varroa destructor} sulla popolazione di un alveare.
@@ -28,10 +35,11 @@ I compartimenti del modello sono dunque cinque:
 \end{itemize}
 
 Abbiamo inoltre
-$$\text{Pop. totale api} = x_h + x_f + y,$$
+$$\text{Pop. totale api operaie} = x_h + x_f + y,$$
 e
 $$\text{Pop. totale varroe} = m + n.$$
 
+\paragraph{}
 Proseguiamo con l'esame delle assunzioni del modello:
 \begin{enumerate}
     \setcounter{enumi}{3}
@@ -91,10 +99,10 @@ Come nello studio precedente \cite{khoury2011}, il fattore $R$ rappresenta gli e
 della colonia sul tasso di reclutamento, con la seguente formulazione:
 \begin{equation}
     \label{eq:reclutam}
-    R(x_h, x_f) = \sigma_1 - \sigma_2 \left( \frac{x_f}{x_h + x_f} \right)
+    R(x_h, x_f) = \sigma_1 - \sigma_2 \frac{x_f}{x_h + x_f}
 \end{equation}
 in cui $\sigma_1$ è il tasso massimo di reclutamento delle operaie, quando non ci sono bottinatrici nella colonia.
-Il termine $\sigma_2 \left( \frac{x_f}{x_h + x_f} \right)$ descrive l'inibizione sociale del reclutamento, ossia il rallentamento del processo di ``promozione'' all'esterno del nido, proporzionale alla frazione di popolazione impiegata nella bottinatura; quando tale frazione è in surplus, le bottinatrici vengono ``riallocate'' in attività interne all'alveare.
+Il termine $\sigma_2 \frac{x_f}{x_h + x_f}$ descrive l'inibizione sociale del reclutamento, ossia il rallentamento del processo di ``promozione'' all'esterno del nido, proporzionale alla frazione di popolazione impiegata nella bottinatura; quando tale frazione è in surplus, le bottinatrici vengono ``riallocate'' in attività interne all'alveare.
 
 \paragraph{}
 Il tasso di nuove nascite è descritto dal primo termine nella equazione \eqref{eq:r17xh}, in cui troviamo il parametro $\mu$ che è determinato principalmente dalla regina e dalla stagione, e rappresenta il tasso massimo di schiusa (in unità di numero di api al giorno).
@@ -129,13 +137,17 @@ In \cite{sumMar04} si suggerisce $h(m) \approx e^{-km}$ con $k\geq0$, e questa �
 
 
 \subsection{Analisi del modello con parametri costanti}
-Seguiamo l'impostazione dello studio \cite{ratti2017} per l'analisi del modello, iniziando con l'esame di sotto-casi più semplici, estendendo progressivamente i risultati fino al modello completo.
+Seguiamo l'impostazione dello studio \cite{ratti2017} per l'analisi degli equilibri, iniziando con l'esame di sotto-casi più semplici ed estendendo progressivamente i risultati fino al modello completo.
 
 \paragraph{}
 Dapprima assumiamo l'ipotesi di lavoro di coefficienti costanti; utilizzeremo in seguito la teoria di Floquet per analizzare il caso di coefficienti periodici (sottosezione~\ref{sez:paramPeriodici}).
 
-\paragraph{}
-Per le dimostrazioni dei risultati esposti in questa sottosezione, si rimanda all'articolo originale \cite[11--15]{ratti2017}.
+% \paragraph{}
+% Per le dimostrazioni dei risultati esposti in questa sottosezione, si rimanda all'articolo originale \cite[11--15]{ratti2017}.
+Una volta stabilite le condizioni per l'esistenza dei punti di equilibrio, la metodologia standard per analizzarne la stabilità consiste nel linearizzare il sistema in un intorno di un punto di equilibrio: il carattere attrattivo o repulsivo dell'equilibrio è determinato dagli \emph{esponenti di Lyapounov locali}, ossia dalle parti reali degli autovalori della matrice jacobiana.
+
+Questo approccio metodologico costituisce la base delle dimostrazioni in questa sottosezione e nella successiva.
+
 
 \subsubsection{Modello bidimensionale senza patogeni}
 In assenza di \emph{Varroa} e di virus, il modello \eqref{eq:r17xh}--\eqref{eq:r17n} si riduce alle due sole equazioni per le api sane:
@@ -149,9 +161,9 @@ In assenza di \emph{Varroa} e di virus, il modello \eqref{eq:r17xh}--\eqref{eq:r
 dove $g(x_h + x_f) = \frac{ (x_h+x_f)^i }{ K^i + (x_h+x_f)^i }$ come nella \eqref{eq:hillSigmoid}.
 
 \paragraph{}
-L'equilibrio banale $(x_h, x_f) = (0,0)$ esiste sempre, ed è asintoticamente stabile.
+L'equilibrio banale $(x_h^*, x_f^*) = (0,0)$ esiste sempre, ed è asintoticamente stabile; questo risultato è contenuto nelle due proposizioni che seguono.
 
-Nelle parole degli autori, ciò significa che
+Nelle parole degli autori, la stabilità asintotica dell'equilibrio banale significa che
 \begin{displayquote}[\cite{ratti2017}]
 ``\omissis in order to establish itself as a properly working colony, a sufficiently large healthy adult bee population is required to take care of the brood.''
 \end{displayquote}
@@ -160,20 +172,40 @@ E viceversa, se il numero di operaie sane scende sotto un valore critico, la col
 Si noti che questo effetto di tipo Allee si osserva già nel modello senza patogeni; l'introduzione di \emph{Varroa} e virus non può che esacerbare tale fenomeno.
 
 \paragraph{}
-Se $\frac{\sigma_2 F}{1+F} - d_1 - \sigma_1 >0$ allora il modello ammette soltanto l'equilibrio banale.
-
-Viceversa, se tale disequazione è invertita, possiamo formulare una condizione sufficiente per l'esistenza di due equilibri strettamente positivi.
-Poniamo per comodità
+Proponiamo adesso una analisi dei punti di equilibrio del modello \eqref{eq:rattiRidotto1prima}--\eqref{eq:rattiRidotto1seconda}, introducendo per comodità di notazione le due costanti
 $$
     F \coloneq \frac{1}{2} \left( \frac{ \sigma_1 - \sigma_2 - p - d_2 }{p+d_2} +
     \sqrt{ {\left( \frac{ \sigma_1 - \sigma_2 - p - d_2 }{p+d_2} \right)}^2 + \frac{4 \sigma_1}{p+d_2} } \, \right),
 $$
+e
+$$ a \coloneq - \frac{ \mu }{ \frac{\sigma_2 F}{1+F} - d_1 - \sigma_1 }.$$
+
+\begin{proposizione}[3.1, Existence of equilibria {\cite[11]{ratti2017}}]
+    Il modello ridotto alle sole api \eqref{eq:rattiRidotto1prima}--\eqref{eq:rattiRidotto1seconda} ammette sempre l'equilibrio banale $(0,0)$, e se $\frac{\sigma_2 F}{1+F} - d_1 - \sigma_1 >0$ allora esso è unico.
+
+    Viceversa, se $\frac{\sigma_2 F}{1+F} - d_1 - \sigma_1 <0$ allora il sistema ammette due ulteriori equilibri strettamente positivi, a patto che sia verificata l'ulteriore condizione
+    $$a > \frac{Ki}{1+F} (i-1)^{- (1+ 1/i)}.$$
+\end{proposizione}
+
+\begin{proof}
+    Le equazioni del modello sono omogenee, dunque l'equilibrio banale $(0,0)$ esiste sempre.
+    Dalla \eqref{eq:rattiRidotto1seconda} segue che ogni punto di equilibrio strettamente positivo $(x_h^*, x_f^*)$ verifica
+    $$x_f^2 + \frac{\sigma_2 - \sigma_1 + p + d_2}{p +d_2} x_h x_f - \frac{\sigma_1}{p+d_2} x_h^2 = 0,$$
+    da cui ricaviamo la relazione tra le componenti $x_f^* = F x_h^*$.
+\end{proof}
+
+
+
+
+Viceversa, se tale disequazione è invertita, possiamo formulare una condizione sufficiente per l'esistenza di due equilibri strettamente positivi.
+Poniamo per comodità
+
 ed osserviamo che la \eqref{eq:rattiRidotto1seconda} implica che ogni punto di equilibrio positivo $(x_h^*, x_f^*)$ verifica la relazione $x_f^* = F x_h^*$.
 
 Definiamo inoltre la quantità
-$$ a \coloneq - \frac{ \mu }{ \frac{\sigma_2 F}{1+F} - d_1 - \sigma_1 }, $$
+
 che ci permette di stabilire il seguente criterio: se $\frac{\sigma_2 F}{1+F} - d_1 - \sigma_1 <0$ ed inoltre
-$$a > \frac{Ki}{1+F} (i-1)^{- (1+ 1/i)},$$
+
 allora esistono due equilibri non banali (positivi).
 
 \paragraph{}

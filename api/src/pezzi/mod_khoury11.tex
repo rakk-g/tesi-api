@@ -1,0 +1,47 @@
+\section{Modello a due compartimenti di operaie, con reclutamento sociale}
+
+In \citeyear{khoury2011} a simple model was proposed by \citeauthor{khoury2011} to explore the social dynamics in the population interplay between castes of female workers.
+
+Two compartment equations are given, where the non--negative real variables $H$ and $F$ represent the number of hive workers and the number of forager workers, respectively.
+
+\paragraph{}
+We believe the main contribution in this paper is the recruitment factor $R(H,F)$ in the $H \to F$ transfer term.
+It has proven insightful and incorporated in later and more sophisticated models.\footcite{ratti2017}
+In the recruitment function
+\begin{equation}
+    \label{eq:Recr}
+    R(H,F) = \alpha - \sigma \frac{F}{H+F}
+\end{equation}
+
+The maximum rate of recruitment $\alpha$ is attained when there are no foragers present in the colony.
+The second term represents social inhibition, and the authors \textquote{\omissis assumed that social inhibition is directly proportional to the fraction of the total number of adult bees that are foragers, such that a high fraction of foragers in the hive results in low recruitment.}
+
+\blockquote[{\cite[1]{khoury2011}}]{Old forager bees transfer ethyl oleate to young hive bees via trophallaxis, which delays the age at which they begin foraging.}
+
+Via this pheromonal mechanism the hive tries to mantain an equilibrium where its basic necessities (brood care and food import) are satisfied: note that the collective pheromonal response varies with the fraction of foragers over the whole worker population, which is to say, the fraction $\frac{F}{H+F}$.
+
+As we noted before, forager workers are subjected to more stress factors than hive workers, whence the average lifespan of a female honeybee is longer as a hive worker and is significantly shorter as a forager: \textquote[{\cite[1]{khoury2011}}]{Survival of bees in the protected hive environment is high, but the survival of forager bees is much lower. \omissis The average foraging life of a bee has been estimated as less than seven days, because of the many risks and severe metabolic costs associated with foraging.}
+
+
+
+ad eclosion \figurename~\ref{img:kh11phasePlane} est bella assai.
+
+\begin{figure}
+    \centering
+    \includegraphics[keepaspectratio,width=0.86\textwidth]{img/pone.0018491.g003}
+
+    \caption[\figurename~3 from \parencite{khoury2011}]{
+%         \figurename~3 from \parencite[3]{khoury2011}
+        \textquote[{\figurename~3 from \cite[3]{khoury2011}}]{
+            Phase plane diagrams of solutions to the model for different values of m.
+            Each line on the diagrams represents a solution trajectory, giving the number of foragers $F$ and the number of hive bees $H$.
+            As time $t$ increases the solutions change along the trajectory in the direction of the arrows.
+            In (a) $m = 0.24$ and the populations tend to a stable equilibrium population, marked by a dot.
+            In (b), $m = 0.40$ there is no nonzero equilibrium and the hive populations collapses to zero.
+
+            Parameter values are $L = 2000$,  $\alpha= 0.25$,  $\sigma= 0.75$ and $w = 27 000$.
+        }
+    }
+
+    \label{img:kh11phasePlane}
+\end{figure}
