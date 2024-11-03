@@ -1,32 +1,90 @@
-\section{Modello a due compartimenti di operaie, con reclutamento sociale}
+\section[Two--compartments model with social recruitment]{Two--compartments model of workers with social recruitment}
 
-In \citeyear{khoury2011} a simple model was proposed by \citeauthor{khoury2011} to explore the social dynamics in the population interplay between castes of female workers.
+In \citeyear{khoury2011} a simple model was proposed by \citeauthor{khoury2011} to explore the social dynamics in
+population interplay between castes of female workers.
 
-Two compartment equations are given, where the non--negative real variables $H$ and $F$ represent the number of hive workers and the number of forager workers, respectively.
+Two compartment equations are given, where the non--negative real variables $H$ and $F$ represent the number of hive workers and the number of forager workers, respectively:
 
-\paragraph{}
-We believe the main contribution in this paper is the recruitment factor $R(H,F)$ in the $H \to F$ transfer term.
-It has proven insightful and incorporated in later and more sophisticated models.\footcite{ratti2017}
+\begin{align}
+    \diff{H}{t} &= \overbrace{E(H,F)}^{\text{eclosion}}- H \cdot R(H,F) \label{eq:kh11h} \\
+    \diff{F}{t} &= H \cdot R(H,F)  - m \cdot F \label{eq:kh11f}
+\end{align}
+
+where $m$ is the forager mortality rate, and $R$ represents the \emph{recruitment} factor in the $H \to F$ transfer term.
+This proposal has proven insightful, and later incorporated in more sophisticated models with slight variations.\footcite{ratti2017}
+
+\paragraph{Social recruitment.}
 In the recruitment function
 \begin{equation}
     \label{eq:Recr}
-    R(H,F) = \alpha - \sigma \frac{F}{H+F}
+    R(H,F) = \alpha - \sigma \frac{F}{H+F} \; ,
 \end{equation}
+the maximum rate of recruitment $\alpha$ is attained when there are no foragers present in the colony.
+The second term represents social inhibition in the recruitment process, and the authors
+\textquote[{\cite[3]{khoury2011}}]{\omissis assumed that social inhibition is directly proportional to the fraction of the total number of adult bees that are foragers, such that a high fraction of foragers in the hive results in low recruitment.}
 
-The maximum rate of recruitment $\alpha$ is attained when there are no foragers present in the colony.
-The second term represents social inhibition, and the authors \textquote{\omissis assumed that social inhibition is directly proportional to the fraction of the total number of adult bees that are foragers, such that a high fraction of foragers in the hive results in low recruitment.}
+\paragraph{}
+Biological research hints at ethyl oleate exchange between honeybee workers as the main modulating process in social recruitment: for example, a colony will respond to a high mortality of foragers by \emph{reducing} social inhibition and thereby \textquote[\cite{khoury2011}]{resulting in a precocious onset of foraging behaviour in young bees}.
 
-\blockquote[{\cite[1]{khoury2011}}]{Old forager bees transfer ethyl oleate to young hive bees via trophallaxis, which delays the age at which they begin foraging.}
+In the opposite situation -- \emph{i.e.} when forager mortality is low -- the colony responds by \emph{increasing} social inhibition: more foragers feel the urge to refrain from flying outside and revert to in--hive duties.
+This inhibition response in the recruitment process is allegedly driven by higher concentrations of ethyl oleate:
+\textquote[{\cite[1]{khoury2011}}]{Old forager bees transfer ethyl oleate to young hive bees via trophallaxis, which delays the age at which they begin foraging.}
 
-Via this pheromonal mechanism the hive tries to mantain an equilibrium where its basic necessities (brood care and food import) are satisfied: note that the collective pheromonal response varies with the fraction of foragers over the whole worker population, which is to say, the fraction $\frac{F}{H+F}$.
+\paragraph{}
+Via this pheromonal mechanism the hive can mantain an equilibrium where its basic necessities (brood care and food flow) are satisfied.
+In this scenario, the collective pheromonal response inhibiting recruitment increases with the intensity of ethyl oleate exchanges, which in turn is related to the ratio $\frac{F}{H+F}$: these assumptions motivate the presence of this factor in Equation~\eqref{eq:Recr}.
 
-As we noted before, forager workers are subjected to more stress factors than hive workers, whence the average lifespan of a female honeybee is longer as a hive worker and is significantly shorter as a forager: \textquote[{\cite[1]{khoury2011}}]{Survival of bees in the protected hive environment is high, but the survival of forager bees is much lower. \omissis The average foraging life of a bee has been estimated as less than seven days, because of the many risks and severe metabolic costs associated with foraging.}
+\paragraph{}
+As we noted before, forager workers are subjected to more diverse and intense stress factors than hive workers, whence the average lifespan of a female honeybee is longer as a hive worker, and is significantly shorter as a forager: \textquote[{\cite[1]{khoury2011}}]{Survival of bees in the protected hive environment is high, but the survival of forager bees is much lower. \omissis The average foraging life of a bee has been estimated as less than seven days, because of the many risks and severe metabolic costs associated with foraging.}
 
+\paragraph{Eclosion.}
+The term $E(H,F)$ accounts for eclosion of adult young workers in the hive class.
+\textquote[{\cite[2]{khoury2011}}]{\omissis the number of eggs reared in a colony (and hence the eclosion rate) is related to the number of bees in the hive. Big colonies raise more brood.}
 
+The authors have chosen the form
+\begin{equation}
+    \label{eq:eclos}
+    E(H,F) = L \frac{H+F}{w + H + F} \; ,
+\end{equation}
+where $L$ is the queen's laying rate and $w$ determines the rate at which $E$ increases to $L$ as $E+F$ gets very large.
+\footnote{In this section we will often use the shorthand $N=H+F$, the total number of workers present in the colony at a given time.}
 
-ad eclosion \figurename~\ref{img:kh11phasePlane} est bella assai.
+This is a Holling type II function where the attack rate is $a=\frac{1}{w}$ and $w$ is the reverse image of the half--maximal output; in \figurename~\ref{img:eclos} we can see that increasing values of $w$ ``flatten'' the curve
+as saturation is attained for greater values of $N$, and the graph of $E(N)$ ``leans'' to the right.
 
-\begin{figure}
+\begin{figure}[pbh]
+    \centering
+    \includegraphics[keepaspectratio,width=0.86\textwidth]{img/hollingTypeII-eclosion}
+
+    \caption[Holling type II Eclosion]{$E$ models how many of the laid eggs eventually reach adult stage as a functional response of the total number of adult workers $N=H+F$.
+    \\
+    Drawn for three different values of $w$, with constant laying rate $L=2000$.}
+    \label{img:eclos}
+\end{figure}
+
+Later models\footcite{ratti2017} incorporated this basic proposal with type III Holling functional response and added modulating factors, but retained the core formulation very similar to what     \citeauthor{khoury2011} proposed in Equation~\refeq{eq:eclos}.
+
+\paragraph{}
+The absence of a mortality factor in the hive compartment \refeq{eq:kh11h} is a strong simplifying assumption,
+justified by the focus of this paper in relating CCD to higher than normal forager mortality rates.\footcite[1,2,3,5]{khoury2011}
+
+\subsection{Stability analysis}
+The authors used \textquote[{\cite[3]{khoury2011}}]{standard linear stability analysis and phase plane analysis} to examine Equations \refeq{eq:kh11h}--\refeq{eq:kh11f}.
+
+They give the two inequalities
+\begin{align}
+    m &< \frac{L}{2w} \cdot \frac{\alpha + \sigma + \sqrt{{(\alpha - \sigma)}^2
+            + 4 \frac{L \sigma}{w} } }{\alpha - \frac{L}{w}}
+    \label{eq:posEq1} \\
+    \alpha - \frac{L}{w} &> 0 \label{eq:posEq2}
+\end{align}
+as sufficient conditions for a positive equilibrium $(H_0, F_0)$ to exist in the system; it is globally stable.
+
+If any of these inequalities is reversed, then the trivial equilibrium $(0,0)$ is the only attractor, meaning that the population goes to zero.
+
+This branching in the model is illustrated in \figurename~\ref{img:kh11phasePlane}.
+
+\begin{figure}[pbh]
     \centering
     \includegraphics[keepaspectratio,width=0.86\textwidth]{img/pone.0018491.g003}
 
@@ -45,3 +103,38 @@ ad eclosion \figurename~\ref{img:kh11phasePlane} est bella assai.
 
     \label{img:kh11phasePlane}
 \end{figure}
+
+\subsubsection{Trivial equilibrium}
+The trivial $(0,0)$ equilibrium is clearly a solution of $\dot{H}=\dot{F}=0$, and its stability is an important matter of study. Parameter regions where this equilibrium is stable and attractive usually mean the inevitable doom of the entire colony.
+
+We calculate its jacobian matrix as:
+
+BBBB
+
+\subsubsection{Positive equilibrium}
+When both equations \eqref{eq:posEq1} and \eqref{eq:posEq2} hold, we have the positive steady state $(H_0, F_0)$:
+\begin{align}
+    F_0 &= \frac{L}{m} -w \frac{J}{J+1}, \; H_0 = \frac{1}{J} F_0 \quad \text{where}
+    \label{eq:kh11posEqJSol} \\
+    J &= \frac{1}{2} \left[
+    \frac{\alpha}{m} - \frac{\sigma}{m} - 1 +
+    \sqrt{ {\left( \frac{\alpha}{m} - \frac{\sigma}{m} - 1 \right)}^2
+        + 4 \frac{\alpha}{m}
+    }
+    \right]
+    \label{eq:kh11posEqJ}
+\end{align}
+
+Observe that by requesting a strictly positive equilibrium, we get from Equation~\eqref{eq:kh11f} that
+$$F_0 = J H_0,$$
+as stated in the second half of Equation~\eqref{eq:kh11posEqJSol}.
+
+By substitution, now the \eqref{eq:kh11h} becomes
+$$L \frac{(1+J)H}{w +(1+J)H} - H \left( \alpha - \sigma \frac{F}{J}{1+J} \right) = 0, $$
+which gives us the first part of \eqref{eq:kh11posEqJSol}.
+
+
+
+
+
+
