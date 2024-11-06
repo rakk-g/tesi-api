@@ -12,8 +12,11 @@
 ## Salva un file nominato uniquely each time.
 ##
 
+# number of simulations
+N = 500;
+# number of days to run per each simulations
+nDays= 370;
 
-N = 10;
 
 # UNIFORM SPACE for initial conditions
 xmin=0;
@@ -51,7 +54,7 @@ for in = 1:N
 
   x0=(xmax-xmin)*rand() +xmin;
   y0=(ymax-ymin)*rand() +ymin;
-  [t,y] = ode45(df, [0:1:365], [x0, y0]);
+  [t,y] = ode45(df, [0:1:nDays], [x0, y0]);
   res = [t,y];
 
   prefix= "output/";

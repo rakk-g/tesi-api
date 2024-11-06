@@ -4,101 +4,138 @@
 """
 
 from math import sqrt
+import os
 
-# params
-w = -1
-L = -1
-alpha = -1
-sigma = -1
-m = -1
+class simulation():
 
-def R( t, H, F ):
-    """ Recruitment
+    def __init__( self ):
+        # params
+        self.w = -1
+        self.L = -1
+        self.alpha = -1
+        self.sigma = -1
+        self.m = -1
 
-        Useful for calculating Age of Onset of Precocious Foraging
-    """
-    return alpha - sigma*F/(H+F)
+    def R( self, t, H, F ):
+        """ Recruitment
 
-def E( t, H, F ):
-    """ Eclosion """
-    return L*( (H+F)/(w+H+F) )
+            Useful for calculating Age of Onset of Precocious Foraging
+        """
+        return ( self.alpha - self.sigma*F/(H+F) )
 
-def cond6b( t, H, F ):
-    return ( alpha - L/w > 0 )
+    def E( self, t, H, F ):
+        """ Eclosion """
+        return self.L*( (H+F)/( self.w+H+F) )
 
-def cond6a( t, H, F ):
-    num = alpha + sigma +sqrt( (alpha-sigma)**2 + 4*L*sigma/w )
-    den = alpha - L/w
-    fact = L /(2*w)
-    return ( m < fact * num / den )
+    def cond6b( self ):
+        return ( self.alpha - self.L/self.w > 0 ) and 1 or 0
 
-
-
-def calculateFromParams( t, H, F ):
-    pass
-
-
-def processRow( r ):
-    """ r contains t, H, F
-        of one simulation. It is a vector of strings.
-
-        Adds to the right end:
-        - R recruitment
-        - 1 or 0, if it verifies condition (6a)
-        - 1 or 0, if it verifies conditio (6b)
-        -
-    """
-
-    # keep trace if I have params or not
-
-    if not r: # empty line
-        return False
-
-    elif r[1] == 'parameters:' : # set parameters
-        w = float( r[2] )
-        L = float( r[3] )
-        alpha = float( r[4] )
-        sigma = float( r[5] )
-        m = float( r[6] )
-        print ("Parameters set.")
-        print( w, L, alpha, sigma, m)
-        print("deve ser pos: %f" % ((alpha-sigma)**2 + 4*L*sigma/w ) )
-        return False
-
-    elif r[0] == '#' : # another comment w/o parameters
-        return False
-
-    else: # it contains a line of data: t, H, F and parameters are set (we hope)
-        [t, H, F ] = [ float( a ) for a in r ]
-        print("deve ser pos: %f" % ((alpha-sigma)**2 + 4*L*sigma/w ) )
-        newData = [ t, H, F, \
-            E( t, H, F ), \
-            R( t, H, F ), \
-            cond6a( t, H, F ), \
-            cond6b( t, H, F )
-        ]
-        return newData
-    # processRow END.
+    def cond6a( self ):
+        num = self.alpha + self.sigma +sqrt( (self.alpha - self.sigma)**2 + 4*self.L*self.sigma/self.w )
+        den = self.alpha - self.L/self.w
+        fact = self.L /(2*self.w)
+        return ( self.m < fact * num / den ) and 1 or 0
 
 
-def parseFile ( path ):
-    """ Parsa il file e produce un analogo con tutti i numerelli ben calcolati per graficare
-    """
+    def processRow( self, r ):
+        """ r contains t, H, F
+            of one simulation. It is a vector of strings.
 
-    faile = open( path, 'r' )
+            Adds to the right end:
+            - R recruitment
+            - 1 or 0, if it verifies condition (6a)
+            - 1 or 0, if it verifies conditio (6b)
+            -
+        """
+        print("row: ", r)
 
-    while( True ):
-        s = faile.readline()
-        if not s:
-            break
-        r = s.split()
-        prr = processRow( r )
-        print("old row: %s" % s)
-        print("new row: ", prr)
-        input()
-    faile.close()
+        # keep trace if I have params or not
 
+        if not r: # empty line
+            return False
+
+        elif r[1] == 'parameters:' : # set parameters
+            self.w = float( r[2] )
+            self.L = float( r[3] )
+            self.alpha = float( r[4] )
+            self.sigma = float( r[5] )
+            self.m = float( r[6] )
+            print ("Parameters set.")
+            print( self.w, self.L, self.alpha, self.sigma, self.m)
+            return False
+
+        elif r[0] == '#' : # another comment w/o parameters
+            return False
+
+        else: # it contains a line of data: t, H, F and parameters are set (we hope)
+            [t, H, F ] = [ float( a ) for a in r ]
+            # print( t, H, F )
+            # print("deve ser pos: %f" % ((self.alpha-self.sigma)**2 + 4*self.L*self.sigma/self.w ) )
+            newData = [ t, H, F, \
+                self.E( t, H, F ), \
+                self.R( t, H, F ), \
+                self.cond6a(  ), \
+                self.cond6b(  )
+            ]
+            # print("row ending, return: ", newData)
+            return newData
+        # processRow END.
+
+
+    def parseFile ( self, path ):
+        """ Parsa il file e produce un analogo con tutti i numerelli ben calcolati per graficare
+        """
+
+        faile = open( path, 'r' )
+        li = path.split('.')
+        outPath = '.'.join(li[:-1]) + '.clean.' + li[-1]
+        fbile = open ( outPath, 'w' )
+        fbile.write("# t H F E R cond6a cond6b w L alpha sigma m\n")
+
+        while( True ):
+            s = faile.readline()
+            if not s:
+                print("readline: break")
+                break
+            # else we split here since file mostly contains data
+            r = s.split()
+            prr = self.processRow( r )
+            if prr:
+                # print("prr: ", type(prr), prr )
+                paramz = [ self.w, self.L, self.alpha, self.sigma, self.m ]
+                # print("paramz: ", type(paramz), paramz )
+                prr.extend( paramz )
+                # writeThis = tuple( writeThis )
+                print( prr )
+                fbile.write("%f \t %f \t %f \t %f \t %f \t %f \t %f \t %f \t %f \t %f \t %f \t %f \n" % tuple(prr) )
+                # input()
+
+        # print("closing files.")
+        faile.close()
+        fbile.close()
+        #make clean
+        os.remove( path )
+        return
 
 
 # aka MAIN()
-parseFile( "output/khoury2011-739561.335199.dat" )
+directory_path = "output"
+# Itera su tutti gli elementi nella directory
+for filename in os.listdir(directory_path):
+    file_path = os.path.join(directory_path, filename)
+
+    if os.path.isfile(file_path) and filename.endswith(".dat"): # WARNING non distingue .clean
+        simu = simulation()
+        print("processing ", filename)
+        simu.parseFile( file_path )
+
+
+
+
+
+
+
+
+
+
+
