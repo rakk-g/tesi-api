@@ -11,9 +11,10 @@ Two compartment equations are given, where the non--negative real variables $H$ 
 \end{align}
 
 where $m$ is the forager mortality rate, and $R$ represents the \emph{recruitment} factor in the $H \to F$ transfer term.
-This proposal has proven insightful, and later incorporated in more sophisticated models with slight variations.\footcite{ratti2017}
+Objects proposed in this model have proven insightful, and have been later incorporated in more sophisticated models, with slight variations.\footcite{ratti2017}
 
-\paragraph{Social recruitment.}
+
+\paragraph{Recruitment with social inhibition.}
 In the recruitment function
 \begin{equation}
     \label{eq:Recr}
@@ -32,10 +33,19 @@ This inhibition response in the recruitment process is allegedly driven by highe
 
 \paragraph{}
 Via this pheromonal mechanism the hive can mantain an equilibrium where its basic necessities (brood care and food flow) are satisfied.
-In this scenario, the collective pheromonal response inhibiting recruitment increases with the intensity of ethyl oleate exchanges, which in turn is related to the ratio $\frac{F}{H+F}$: these assumptions motivate the presence of this factor in Equation~\eqref{eq:Recr}.
+In this scenario, the collective pheromonal response -- which reduces the recruitment rate -- increases with the intensity of ethyl oleate exchanges, which in turn is related to the ratio $\frac{F}{H+F}$: these assumptions motivate the presence of this factor in Equation~\eqref{eq:Recr}.
+
+
+\paragraph{Death rates.}
+As noted before, foragers are subjected to more diverse and intense stress factors than hive bees, whence the average lifespan of a female honeybee is longer as a hive worker, and is significantly shorter as a forager: \textquote[{\cite[1]{khoury2011}}]{Survival of bees in the protected hive environment is high, but the survival of forager bees is much lower. \omissis The average foraging life of a bee has been estimated as less than seven days, because of the many risks and severe metabolic costs associated with foraging.}
+
+The sink term $-mF$ in Equation~\eqref{eq:kh11f} accounts for foragers mortality;
+the parameter $m$ sets the fraction of forager population that dies every day.
 
 \paragraph{}
-As we noted before, forager workers are subjected to more diverse and intense stress factors than hive workers, whence the average lifespan of a female honeybee is longer as a hive worker, and is significantly shorter as a forager: \textquote[{\cite[1]{khoury2011}}]{Survival of bees in the protected hive environment is high, but the survival of forager bees is much lower. \omissis The average foraging life of a bee has been estimated as less than seven days, because of the many risks and severe metabolic costs associated with foraging.}
+The absence of a mortality factor in the hive compartment (Equation~\eqref{eq:kh11h}) is a bold simplifying assumption,
+justified by the focus of this paper in relating CCD to higher than normal forager mortality rates.\footcite[1,2,3,5]{khoury2011}
+
 
 \paragraph{Eclosion.}
 The term $E(H,F)$ accounts for eclosion of adult young workers in the hive class.
@@ -64,34 +74,116 @@ as saturation is attained for greater values of $N$, and the graph of $E(N)$ ``l
 
 Later models\footcite{ratti2017} incorporated this basic proposal with type III Holling functional response and added modulating factors, but retained the core formulation very similar to what     \citeauthor{khoury2011} proposed in Equation~\refeq{eq:eclos}.
 
-\paragraph{}
-The absence of a mortality factor in the hive compartment \refeq{eq:kh11h} is a strong simplifying assumption,
-justified by the focus of this paper in relating CCD to higher than normal forager mortality rates.\footcite[1,2,3,5]{khoury2011}
 
 \subsection{Stability analysis}
-The authors used \textquote[{\cite[3]{khoury2011}}]{standard linear stability analysis and phase plane analysis} to examine Equations \refeq{eq:kh11h}--\refeq{eq:kh11f}.
+We now carefully review the results given in the paper about the existence and stability of equilibria in the model \eqref{eq:kh11h}--\eqref{eq:kh11f}.
 
-They give the two inequalities
-\begin{align}
-    m &< \frac{L}{2w} \cdot \frac{\alpha + \sigma + \sqrt{{(\alpha - \sigma)}^2
-            + 4 \frac{L \sigma}{w} } }{\alpha - \frac{L}{w}}
-    \label{eq:posEq1} \\
-    \alpha - \frac{L}{w} &> 0 \label{eq:posEq2} % aka (6b) nel papero
-\end{align}
+The authors used \textquote[{\cite[3]{khoury2011}}]{standard linear stability analysis and phase plane analysis} to examine the model equations.
+Re--tracing their steps, we will look for criteria for the existence of trivial and non--trivial equilibria, \ie zeroes of the right--hand side of our model equations.
+
+When existence of an equilibrium point is estabilished, the jacobian matrix of the dynamical system is calculated and
+evaluated at that point; then a simple sufficient criterion for asymptotic stability\footnote{See SAFSFA in appendix.}
+is that $\Re (\lambda) < 0$ for each eigenvalue $\lambda$.
+Another simple technique due to Lyapounov is to exhibit a function that has a strong local minimum over the equilibrium point.\footnote{See SAFDAF in appendix.}
+
+\paragraph{}
+Note that $H, E$ have non--negative range, \ie $H(t), E(t) \geq 0$ for all $t$.
+Also, all parameters in the model have to be strictly positive.
+
+The next result states a necessary condition for all equilibria.
+
+\begin{lemma}
+    \label{lem:necessJ}
+    All equilibrium points $(H^*, F^*)$, if they exist, have to verify $F^* = J H^*$, where
+    \begin{equation}
+        J \coloneq \frac{1}{2} \left[
+            \frac{\alpha}{m} - \frac{\sigma}{m} - 1 +
+            \sqrt{ {\left( \frac{\alpha}{m} - \frac{\sigma}{m} - 1 \right)}^2
+                + 4 \frac{\alpha}{m}
+            }
+        \right].
+        \label{eq:kh11posEqJ}
+    \end{equation}
+\end{lemma}
+
+That is to say, equilibria lie on the ray $F= JH$ in the phase plane, when they exist.
+
+\subsubsection{Trivial equilibrium}
+The trivial $(0,0)$ equilibrium is clearly a solution\footnote{Hence, the trivial equilibrium always exists.}
+of $\dot{H}=\dot{F}=0$, and its stability is an important matter of study. Parameter regions where this equilibrium is stable and attractive usually mean the inevitable doom of the entire colony.
+
+We calculate its jacobian matrix as:
+
+\texttt{TODO}  % TODO
 
 
+\subsubsection{Positive equilibrium}
+We now investigate in detail the existence and stability of positive equilibria; such points should represent a positive outcome for a surviving colony.
+
+\paragraph{}
+A couple of results is presented in order to build a criterion for the existence of a positive equilibrium point.
+
+\begin{teorema}[Uniqueness of the positive equilibrium]
+    If the model \refeq{eq:kh11h}--\refeq{eq:kh11f} admits a positive equilibrium $(H^*, F^*)$, then it is unique.
+
+    It is determined by both Eq.~\refeq{eq:kh11posEqJ} and the following:
+    \begin{equation}
+        F^* = \frac{L}{m} - w \frac{J}{1+J} \; .
+        \label{eq:kh11posEqF}
+    \end{equation}
+
+    \label{teo:exUniqFstarPos}
+\end{teorema}
+
+This model always admits one or two distinct equilibrium points, based on the next result:
+
+\begin{teorema}[Existence criterion]
+    A necessary and sufficient condition for the model \refeq{eq:kh11h}--\refeq{eq:kh11f} to have a strictly positive equilibrium $P^* \coloneq (H^*, F^*)$ is given by cases:
+    \begin{itemize}
+        \item[1.] If $\alpha - \frac{L}{w} >0$, then $P^*$ exists $\iff m_1^* < m < m_2^*$;
+        \item[2.] If $\alpha - \frac{L}{w} <0$, then $P^*$ exists $\iff m > m_2^*$;
+        \item[3.] If $\alpha - \frac{L}{w} =0$, then $P^*$ exists $\iff m > m_3^*$;
+    \end{itemize}
+    where
+    \begin{equation}
+        m_3^* = \frac{ \sigma L}{ w (\alpha + \sigma) } \; ,
+        \label{eq:FstarPosM3}
+    \end{equation}
+    and $m_1^*, m_2^*$ are taken alwas in the order $m_1 < m_2$ from the following
+    \begin{equation}
+        m_{1,2} = \frac{L}{2w} \frac{ \alpha + \sigma + \sqrt{ {(\alpha - \sigma)}^2 +\frac{4 \sigma L}{w}  } }
+        {\alpha -\frac{L}{w}} \; .
+        \label{eq:FstarPosM12}
+    \end{equation}
+
+    \label{teo:esistenzPosF}
+\end{teorema}
+
+\paragraph{Interpretation.}
+\label{par:interpretationCond6b}
+We note that all situations where $m$ is given a lower bound can be discarded as they relate to intrinsic simplifications in the model, and cannot describe accurately a hive in a real apiary on a real field; the non--existence of a positive equilibrium when $m< \hat{m}$ for some $\hat{m}$ is simply because the total population diverges to infinity in such cases.
+
+Conversely, the condition
+\begin{equation}
+\alpha - \frac{L}{w} > 0
+    \label{eq:cond6b}
+\end{equation}
+can be read easily as $w \alpha >L$, where both sides have unit of bees/day; note also that the right--hand one captures the ``efficiency'' of the social recruitment process in the hive, while the left--hand side is the ``egg--laying efficiency'' of the queen.
+
+That is to say, Equation~\eqref{eq:cond6b} means that the recruitment process $R= R(H, F)$ is capable of sustaining the level $L$ of egg--laying in the hive, by balancing the need for bees in the $H$ compartment (for brood care) and the need for bees in the $F$ compartment (for food intake).
+
+\paragraph{} % moar interpr TODO
+cfr. condiz pr 0
+
+
+
+
+\pagebreak % WARNING
 % WOLFRAM ALPHA:
 %
 % solve α*m - α*L/w -m*L/w > 0 for m assuming α > 0, L > 0, w > 0, m > 0
 %
 % conferma il mio risultato @KHB1
-
-
-
-
-as sufficient conditions for a positive equilibrium $(H_0, F_0)$ to exist in the system; it is globally stable.
-
-If any of these inequalities is reversed, then the trivial equilibrium $(0,0)$ is the only attractor, meaning that the population goes to zero.
 
 This branching in the model is illustrated in \figurename~\ref{img:kh11phasePlane}.
 
@@ -111,41 +203,6 @@ This branching in the model is illustrated in \figurename~\ref{img:kh11phasePlan
             Parameter values are $L = 2000$,  $\alpha= 0.25$,  $\sigma= 0.75$ and $w = 27 000$.
         }
     }
-
     \label{img:kh11phasePlane}
 \end{figure}
-
-\subsubsection{Trivial equilibrium}
-The trivial $(0,0)$ equilibrium is clearly a solution of $\dot{H}=\dot{F}=0$, and its stability is an important matter of study. Parameter regions where this equilibrium is stable and attractive usually mean the inevitable doom of the entire colony.
-
-We calculate its jacobian matrix as:
-
-BBBB
-
-\subsubsection{Positive equilibrium}
-When both equations \eqref{eq:posEq1} and \eqref{eq:posEq2} hold, we have the positive steady state $(H_0, F_0)$:
-\begin{align}
-    F_0 &= \frac{L}{m} -w \frac{J}{J+1}, \; H_0 = \frac{1}{J} F_0 \quad \text{where}
-    \label{eq:kh11posEqJSol} \\
-    J &= \frac{1}{2} \left[
-    \frac{\alpha}{m} - \frac{\sigma}{m} - 1 +
-    \sqrt{ {\left( \frac{\alpha}{m} - \frac{\sigma}{m} - 1 \right)}^2
-        + 4 \frac{\alpha}{m}
-    }
-    \right]
-    \label{eq:kh11posEqJ}
-\end{align}
-
-Observe that by requesting a strictly positive equilibrium, we get from Equation~\eqref{eq:kh11f} that
-$$F_0 = J H_0,$$
-as stated in the second half of Equation~\eqref{eq:kh11posEqJSol}.
-
-By substitution, now the \eqref{eq:kh11h} becomes
-$$L \frac{(1+J)H}{w +(1+J)H} - H \left( \alpha - \sigma \frac{F}{J}{1+J} \right) = 0, $$
-which gives us the first part of \eqref{eq:kh11posEqJSol}.
-
-
-
-
-
 

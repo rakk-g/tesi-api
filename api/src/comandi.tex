@@ -1,18 +1,18 @@
 % contributor: from PQC2015
 % AMBIENTI PER TEOREMI, DEFINIZIONI ET CETERA (DA AMSTHM)
 \theoremstyle{plain}
-\newtheorem{teorema}{Teorema}
+\newtheorem{teorema}{Theorem}
 \newtheorem{lemma}{Lemma}
-\newtheorem{corollario}{Corollario}
-\newtheorem*{proposizione}{Proposizione}
-\newmdtheoremenv{postulato}{Postulato}
+\newtheorem{corollario}{Corollary}
+\newtheorem*{proposizione}{Proposition}
+% \newmdtheoremenv{postulato}{Postulato}
 
 \theoremstyle{definition}
-\newtheorem{definizione}{Definizione}
-\newtheorem{esempio}{Esempio}
+\newtheorem{definizione}{Definition}
+\newtheorem{esempio}{Example}
 
-\theoremstyle{remark}
-\newtheorem{osservazione}{Osservazione}
+% \theoremstyle{remark}
+% \newtheorem{osservazione}{Osservazione}
 
 
 % ]----------------------------------------------------------------[ %
@@ -42,7 +42,10 @@
 \newcommand{\Z}{\mathbb{Z}}                                             % interi
 \newcommand{\R}{\mathbb{R}}                                             % campo reali
 \newcommand{\Rplus}{\R_{\geq 0}}                                        % reali non negativi
+
 \newcommand{\C}{\mathbb{C}}                                             % campo complessi
+\renewcommand{\Re}{\mathfrak{Re}}                                        % parte reale
+
 \newcommand{\K}{\mathbb{K}}                                             % campo generico
 \newcommand{\F}{\mathbb{F}}                                             % campo finito; metti a pedice p^q
 \renewcommand{\P}[1]{\mathbb{P} \left( #1 \right) }                     % spazio proiettivo (su qualcosa!)

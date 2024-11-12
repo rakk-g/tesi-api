@@ -1,0 +1,123 @@
+
+\chapter{Proofs}
+
+\section{About KH11}
+\subsection{ Lemma~\ref{lem:necessJ} }
+From page~\pageref{lem:necessJ}.
+\begin{proof}
+    By equating to zero the right--hand side of Equation~\eqref{eq:kh11f} we get
+    $$F^2 - \left( \frac{\alpha}{m} - \frac{\sigma}{m} -1
+        \right) H F - \frac{\alpha}{m} H^2 = 0 \; ,$$
+    which has discriminant
+    $$\Delta = \left[ {\left( \frac{\alpha}{m} - \frac{\sigma}{m} -1
+        \right)}^2 + 4 \frac{\alpha}{m}
+        \right] H^2 \; ; $$
+    we incidentally note that the parametric factor is always strictly positive.
+
+    \paragraph{}
+    Adopting the definition of $J$ from Equation~\eqref{eq:kh11posEqJ} we can see that any equilibrium point $(H^*, F^*)$ has to verify $F^* = J H^*$.
+\end{proof}
+
+\subsection{ Theorem~\ref{teo:exUniqFstarPos} }
+From page~\pageref{teo:exUniqFstarPos}
+
+\begin{proof}
+    We get the proof done by somewhat tedious, but quite elementary calculations.
+
+    Since we are looking for a non--trival equilibrium point $(H^*, F^*)$, by
+    Lemma~\ref{lem:necessJ} we can suppose both components strictly positive in the following.
+
+    By Lemma~\ref{lem:necessJ} we can substitute for $H=\frac{1}{J} F$ in the right--hand side of the first equation~\eqref{eq:kh11h} of the model, which is equal to zero by the equilibrium condition. From
+    $$L \frac{ \left( \frac{1}{J} +1 \right) F }{ w +\left( \frac{1}{J} +1 \right) F }
+    - \frac{1}{J} F \left( \alpha - \sigma \frac{\cancel{F}}{ \left( \frac{1}{J} +1 \right) \cancel{F} } \right) = 0$$
+    we can simplify $F$, for it is non--zero, in order to get
+    $$L \left( \frac{1}{J} +1 \right) \cancel{F} - \frac{1}{J} \left( \alpha - \frac{\sigma}{ \frac{1}{J} +1 } \right)
+    \left[ w + \left( \frac{1}{J} +1 \right) F \right] \cancel{F} = 0 \; ,$$
+    where the simplification of $F$ goes by the same argument as before; note that this amounts to discarding the zero solution, in which we are not interested by hypothesis.
+
+    We get the uniqueness of the positive equilibrium by further algebraic manipulation of the above equations to finally get
+    $$F^* = \frac{LJ}{ \alpha - \frac{\sigma}{ 1 + \frac{1}{J} } } - w \frac{J}{1+J} \; ,$$
+    where we can see that the right--hand side is entirely dependent on the parameters.
+
+    \paragraph{}
+    Since we got last equation holding, in order to conclude our proof --
+    \ie to estabilish equation \eqref{eq:kh11posEqF} -- it remains to prove that
+    $$J m = \alpha - \sigma \frac{J}{1+J} \; ,$$
+    where again we simplified the factor $L$ at both sides, for it is non--zero.
+
+    To estabilish this last equation could be useful to rationalize the expression $\frac{J}{1+J}$ as
+    $$\frac{J}{1+J} = \frac{ \alpha + \sigma + m - \sqrt{ {(\alpha - \sigma -m)}^2 - 4 \alpha m } }{2 \sigma}$$
+    and get to it via algebraic manipulation.
+
+    \paragraph{}
+    We have estabilished Equation~\eqref{eq:kh11posEqF} and this concludes the proof.
+\end{proof}
+
+
+\subsection{ Theorem~\ref{teo:esistenzPosF} }
+From page \pageref{teo:esistenzPosF}.
+
+\begin{proof}
+We can use Equation~\eqref{eq:kh11posEqF} from Theorem~\ref{teo:exUniqFstarPos} and then study the
+inequality $F^* >0$ to prove the existence criterion:
+$$F^* > 0 \; \iff \;
+\left( \frac{2 \alpha w}{L} -1 \right) m - \alpha - \sigma < \sqrt{ {(\alpha - \sigma -m)}^2 + 4 \alpha m }$$
+
+we can square both sides in order to get the following inequality in $m$:
+\begin{equation}
+    \left( \frac{\alpha w}{L} -1 \right) m^2 -( \alpha + \sigma) m + \frac{\sigma L}{w} < 0
+    \label{eq:mDiseq}
+\end{equation}
+which has always positive discriminant
+$$\Delta = {(\alpha -\sigma)}^2 +4 \frac{\sigma L}{w} \; .$$
+
+Via the quadratic roots formula we get Equation~\eqref{eq:FstarPosM12}.
+We will select the nomenclature as to always have $m_1^* < m_2^*$ in the rest of this proof.
+
+\paragraph{Case 1.}
+If $\alpha - \frac{L}{w} >0$ then $F^*>0$ exists for $m_1^* < m < m_2^*$, and the lower bound makes sense since
+$m_1^* > 0$ reduces to $\alpha - \frac{L}{w}>0$, which is true by case hypothesis.
+
+\paragraph{Case 2.}
+If $\alpha -\frac{L}{w} <0$ then we must take $m < m_1^*$ or $m > m_2^*$ for $F^* >0$ to exist.
+The first inequality can be discarded as is $m_1^* <0$ by case hypothesis.
+
+The second one must be kept since $m_2^* >0$ reduces to our case hypothesis $\alpha - \frac{L}{w} < 0$.
+
+\paragraph{Case 3.}
+When $\alpha - \frac{L}{w} =0$ our inequality~\eqref{eq:mDiseq} becomes linear and its solution is
+$$m > \frac{\sigma L}{w (\alpha +\sigma)} \; ,$$
+which concludes our last case and the proof.
+\end{proof}
+
+
+
+
+
+
+
+
+
+\chapter{Theory}
+
+\begin{definizione} % Lyapounov function
+    Let $\dot{x} = F(x)$ be a continuous dynamical system with $F \in C^1(W,\R^n)$, where $W \subseteq \R^n$ is open.
+
+    We say that a function $V \in C^1(B, \R)$, for some open $B \subseteq W$, is a \emph{Lyapounov function} for the equilibrium point $x_S \in B$ if:
+    \begin{itemize}
+        \item $\dot{V} (x) \leq 0 \; (\forall x \in B),$
+        \item $V(x_S) \lneq V(x) \; (\forall x \in B, x \neq x_S).$
+    \end{itemize}
+
+    We also say that a Lyapounov function $V$ is \emph{strict} if $\dot{V}(x) \lneq 0 \; (\forall x \in B, x \neq x_S)$.
+\end{definizione}
+
+comment.
+
+\begin{teorema}{Stability via Lyapounov function}
+
+\end{teorema}
+
+\begin{corollario}{Asymptotic stability via Lyapounov function}
+
+\end{corollario}

@@ -47,7 +47,8 @@ class simulation():
             - 1 or 0, if it verifies conditio (6b)
             -
         """
-        print("row: ", r)
+
+        # print("row: ", r)
 
         # keep trace if I have params or not
 
@@ -61,7 +62,7 @@ class simulation():
             self.sigma = float( r[5] )
             self.m = float( r[6] )
             print ("Parameters set.")
-            print( self.w, self.L, self.alpha, self.sigma, self.m)
+            # print( self.w, self.L, self.alpha, self.sigma, self.m)
             return False
 
         elif r[0] == '#' : # another comment w/o parameters
@@ -69,6 +70,9 @@ class simulation():
 
         else: # it contains a line of data: t, H, F and parameters are set (we hope)
             [t, H, F ] = [ float( a ) for a in r ]
+            if ( H <= 0 or F <= 0 ):
+                return False
+
             # print( t, H, F )
             # print("deve ser pos: %f" % ((self.alpha-self.sigma)**2 + 4*self.L*self.sigma/self.w ) )
             newData = [ t, H, F, \
@@ -99,14 +103,19 @@ class simulation():
                 break
             # else we split here since file mostly contains data
             r = s.split()
-            prr = self.processRow( r )
+            try:
+                prr = self.processRow( r )
+            except ZeroDivisionError:
+                # I think R fails because H+F=0, we stop processing the file
+                break
+
             if prr:
                 # print("prr: ", type(prr), prr )
                 paramz = [ self.w, self.L, self.alpha, self.sigma, self.m ]
                 # print("paramz: ", type(paramz), paramz )
                 prr.extend( paramz )
                 # writeThis = tuple( writeThis )
-                print( prr )
+                # print( prr )
                 fbile.write("%f \t %f \t %f \t %f \t %f \t %f \t %f \t %f \t %f \t %f \t %f \t %f \n" % tuple(prr) )
                 # input()
 

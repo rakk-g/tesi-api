@@ -1,0 +1,44 @@
+\section{Experiment C, iteration 2, data A and B}
+Two iterations were made of this simulation with constant parameters $\alpha = 0.25$, $\sigma=0.75$, $L=2500$:
+data \texttt{A} was obtained with $w=27000$, while the value $w=9800$ was used for data \texttt{B}.
+
+In both experiments a random value for the parameter $m$ was obtained from a uniform distribution on $[0.006, \, 0.6]$
+with a resolution of 30. For each $m$ we selected at random initial values $1 \leq H_0 \leq 15000$ and $1 \leq F_0 \leq 6000$ and ran 30 such simulations for a total of 900 days.
+
+\subsection{Data A}
+\label{sec:kh11expC2A}
+Note that with $w=27000$ and the other parameter values, the condition~\eqref{eq:cond6b} from Theorem~\ref{teo:esistenzPosF} is true: $\alpha - \frac{L}{w} > 0$, which is case 1 of the Theorem,
+when a positive equilibrium exists for mortalities $m$ bound from above and from below.
+
+In the remainder of this section, we will call ``weak'' colonies those which have final total
+population $N(900)$ less than $N_- = 100$ bees. We will say that a colony is ``strong'' if
+its final population is more than $N_+ = 40000$ workers.
+
+Results are plotted in Figure~\ref{img:kh11expC2A}.
+
+\paragraph{}
+Outside the shown plot range were final populations in the unreasonable order of
+magnitude of $10^6$ and beyond, clearly indicating a diverging behaviour.
+All these points lie on the left of $m_1^* \simeq 0.0804$.\footnote{Cfr.~interpretation at page~\pageref{par:interpretationCond6b}.}
+
+\begin{figure}[pbh]
+    \centering
+    \includegraphics[keepaspectratio,width=0.96\textwidth]{img/kh11expC2A}
+
+    \caption[Experiment C2A]{Experiment C2A: total number of worker bees $N(t)= H(t)+F(t)$ is shown at $t=0$ and $t=900$ for different levels of forager mortality $m$.
+
+    With the terminology estabilished in page \pageref{sec:kh11expC2A}, we see that
+    initial conditions of colonies that become ``weak'' (blue squares) lie all in
+    the half--plane $m>0.5078$ (dotted vertical line).
+    Similarly, initial conditions of colonies that eventually become ``strong''
+    (red x's) all lie around the line $m=0.0804$ (dashed).
+
+    In black we see the initial conditions (+) and final populations (triangles) for colonies that
+    don't get to be ``strong'' nor ``weak'' at day $t=900$.
+
+    Final population numbers for ``strong'' hives (purple circles) all happen in the left--hand side
+    of the spectrum $0.0804 < m < 0.5078$.
+    }
+
+    \label{img:kh11expC2A}
+\end{figure}
