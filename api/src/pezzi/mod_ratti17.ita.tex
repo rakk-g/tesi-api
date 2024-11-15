@@ -1,55 +1,50 @@
-\section{Five--Compartment Model with \emph{Varroa} and ABPV}
-We examine the model proposed by \citeauthor{ratti2017} in \citeyear{ratti2017}, which extends some previous proposals to study the direct and indirect effects of \emph{Varroa destructor} on a colony population.
+\section{Modello a cinque compartimenti operaie, con \emph{Varroa} e ABPV}
+Esaminiamo il modello proposto da \citeauthor{ratti2017} nel \citeyear{ratti2017}, che estende alcune proposte precedenti con lo scopo di studiare gli effetti diretti e indiretti di \emph{Varroa destructor} sulla popolazione di un alveare.
 
-\subsection{Model Derivation}
-To establish the model formulation, the authors propose the following preliminary assumptions:
+\subsection{Derivazione del modello}
+Per ottenere una formulazione del modello, gli autori di \cite{ratti2017} propongono le seguenti assunzioni preliminari:
 \begin{enumerate}
-    \item The population of healthy workers (uninfected with ABPV) is divided into two compartments: younger workers that perform tasks within the hive ($x_h$) and foragers/scouts ($x_f$).
+    \item La popolazione delle operaie sane (non infette da ABPV) è suddivisa in due comparti: le operaie più giovani che svolgono mansioni all'interno dell'alveare ($x_h$) e le bottinatrici/esploratrici ($x_f$).
 
-    This setup mirrors the study in \cite{khoury2011}, where a two-compartment model is proposed to examine the
-    combined effects of pupa emergence rate, recruitment rate from hive bees to foragers, and foragers mortality
-    on the dynamics of a healthy honeybee population.
-    \item The mite population is divided into two compartments: mites carrying ABPV ($m$) and virus-free mites ($n$).
-    \item Workers infected with ABPV ($y$) quickly lose the ability to fly, experience degraded orientation skills, and die within a short time. Therefore, infected bees are considered ``hive bees'' and can't be recruited
-    for foraging no more.
+    Questa impostazione ricalca lo studio \cite{khoury2011}, in cui si propone un modello a due compartimenti per esaminare gli effetti del tasso di schiusa delle pupe e del tasso di reclutamento da operaie d'alveare a bottinatrici sulla dinamica di una popolazione sana.
+    \item La popolazione degli acari è suddivisa in due comparti: le varroe portatrici di ABPV ($m$) e le varroe libere dal virus ($n$).
+    \item Le operaie infette con ABPV ($y$) perdono rapidamente l'abilità al volo, le loro capacità di orientamento degradano e muoiono in breve tempo. Per questo motivo le api infette sono considerate ``di alveare'', e non vengono reclutate per bottinare.
 \end{enumerate}
 
-Thus, the model's compartments are as follows:
+I compartimenti del modello sono dunque cinque:
 \begin{itemize}
-    \item the number of healthy hive bees, $x_h$
-    \item the number of healthy foragers, $x_f$
-    \item the number of infected bees, $y$
-    \item the number of ABPV-carrying mites, $m$
-    \item the number of virus-free mites, $n$
+    \item il numero di operaie di nido sane, $x_h$
+    \item il numero di operaie bottinatrici sane, $x_f$
+    \item il numero di operaie infette, $y$
+    \item il numero di varroe portatrici di ABPV, $m$
+    \item il numero di varroe senza virus, $n$
 \end{itemize}
 
-Additionally, we have
-$$\text{Total worker bee population} = x_h + x_f + y,$$
-and
-$$\text{Total mite population} = m + n.$$
+Abbiamo inoltre
+$$\text{Pop. totale api operaie} = x_h + x_f + y,$$
+e
+$$\text{Pop. totale varroe} = m + n.$$
 
 \paragraph{}
-We proceed with examining the model's assumptions:
+Proseguiamo con l'esame delle assunzioni del modello:
 \begin{enumerate}
     \setcounter{enumi}{3}
-    \item The maximum reproduction rate of mites is the same whether or not they carry the virus. This is reflected in equations \eqref{eq:r17m} and \eqref{eq:r17n}, where the first term describes new births: it is proportional to the population of the compartment, and the proportionality factor is the same in both equations. Here, $r$ is the maximum reproduction rate of the \emph{Varroa} parasite, while $\alpha$ is the carrying capacity of the \emph{Apis} host.
-    \item We know that brood requires care from nurse bees, so the hatching rate depends on the number of healthy workers in the population, which, following \cite{khoury2011}, is assumed to be the sum $x_h + x_f$.
-    \item The queen bee is unaffected by ABPV and mite infestation; therefore, the hatching rate does not depend on the prevalence of mites or viruses in the hive.
-%     \footnote{Cfr. TODO } % TODO
-    \item The transmission of ABPV is exclusively horizontal: this means that the infection of a healthy worker
-    occurs through transmission from another infected bee via a virus--carrying mite.
-    \footnote{In \emph{vertical} transmission, a pathogen is passed to the offspring due to already-infected parents.}
+    \item Il tasso massimale di riproduzione delle varroe è lo stesso, che siano portatrici di virus o meno.
+    Ciò si riflette nelle equazioni \eqref{eq:r17m} e \eqref{eq:r17n}, in cui il primo termine descrive le nuove nascite: esso è proporzionale alla popolazione del compartimento ed il fattore di proporzionalità è lo stesso in entrambe le equazioni. In esso, $r$ è il tasso massimo di riproduzione del parassita \emph{Varroa}, mentre $\alpha$ è la capacità portante dell'ospite \emph{Apis}.
+    \item Sappiamo che la covata necessita di cure da parte delle operaie nutrici, quindi il tasso di schiusa è dipendente dal numero di operaie sane nella popolazione, che seguendo \cite{khoury2011} assumiamo pari alla somma $x_h + x_f$.
+    \item L'ape regina non subisce gli effetti avversi di ABPV e dell'infestazione da varroe; di conseguenza, il tasso di schiusa non dipende dalla preminenza nell'alveare di varroe o di virus.
+    \item La trasmissione di ABPV è esclusivamente orizzontale: ciò significa che l'infezione di una operaia avviene per trasmissione del virus da un'altra operaia infetta.\footnote{La trasmissione \emph{verticale} di un patogeno riguarda invece l'infezione della prole a causa dei genitori già infetti.}
 
-    Mites are a purely mechanical vector for the virus: the viral load is neither enhanced nor inhibited by the mites, which simply act as a ``transport'' medium for ABPV among bees.
-    \item Since ABPV--infected pupae die quickly before hatching, all young bees that reach adulthood are assumed to be virus-free. The limiting effect on the hatching rate due to infected mites is incorporated in a modulation factor $h(m)$.
-    \item To study the effect of acaricidal treatments, we introduce an additional sink term $\delta_i$ in each equation. We assume that treatment impact is significantly greater on mites than on bees: $\delta_4, \delta_5 > \delta_1, \delta_2, \delta_3$.
-    \item In all three bee compartments, a natural mortality rate $d_i$ is assumed in addition to mite-induced mortality $\gamma_i$ (depending on both parasitism and virus transmission). For bees weakened by ABPV infection, both these rates are higher than for healthy bees: $d_3 > d_1, d_2$ and $\gamma_3 > \gamma_1, \gamma_2$.
+    Le varroe sono un vettore puramente meccanico per il virus: la carica virale non è incentivata né inibita dalle varroe, che per ABPV fungono meramente da ``mezzo di trasporto'' tra le api.
+    \item Poiché le pupe infette con ABPV muoiono rapidamente prima della schiusa, tutte le giovani operaie che giungono all'età adulta si assumono libere dal virus. L'effetto limitante sul tasso di schiusa dovuto alla presenza di varroe infette viene incorporato in un fattore di modulazione $h(m)$.
+    \item Per studiare l'effetto dei trattamenti acaricidi, introduciamo un ulteriore termine di pozzo $\delta_i$ in ogni equazione. Assumiamo che l'impatto dei trattamenti sia di gran lunga maggiore sulle varroe che sulle api: $\delta_4, \delta_5 > \delta_1, \delta_2, \delta_3$.
+    \item In tutti e tre i compartimenti delle api, si assume un tasso di mortalità naturale $d_i$ in aggiunta alla mortalità dovuta alle varroe $\gamma_i$ (a sua volta dipendente sia dal parassitismo che dalla trasmissione del virus). Nelle api indebolite dall'infezione da ABPV entrambi questi tassi sono maggiori rispetto alle operaie sane: $d_3 > d_1, d_2$ e $\gamma_3 > \gamma_1, \gamma_2$.
 
-    Additionally, for foragers, disorientation mortality is considered (factor $p$), mainly due to the degradation of cognitive and navigational abilities from synthetic pesticides used on crops.
+    Inoltre per le bottinatrici si tiene conto anche della mortalità da disorientamento (fattore $p$), dovuto principalmente al degrado delle facoltà cognitive e di navigazione per effetto dei pesticidi sintetici sulle colture.
 \end{enumerate}
 
-% ITA
-\subsubsection{Model equations}
+
+\subsubsection{Equazione del modello}
 Il modello a compartimenti proposto in \cite{ratti2017} è il seguente:
 \begin{align}
     % hive sane
@@ -171,17 +166,33 @@ $$
 ed
 $$ a \coloneq - \frac{ \mu }{ \frac{\sigma_2 F}{1+F} - d_1 - \sigma_1 }.$$
 
-\begin{proposizione}[Existence of equilibria\footnote{Cfr.~Proposition~3.1. from {\cite[11]{ratti2017}}}]
+\begin{proposizione}[3.1, Existence of equilibria {\cite[11]{ratti2017}}]
     Il modello ridotto alle sole api \eqref{eq:rattiRidotto1prima}--\eqref{eq:rattiRidotto1seconda} ammette sempre l'equilibrio banale $(0,0)$, e se $\frac{\sigma_2 F}{1+F} - d_1 - \sigma_1 >0$ allora esso è unico.
 
     Viceversa, se $\frac{\sigma_2 F}{1+F} - d_1 - \sigma_1 <0$ allora il sistema ammette due ulteriori equilibri strettamente positivi, a patto che sia verificata l'ulteriore condizione
-    $$a > \frac{Ki}{1+F} (i-1)^{\frac{1}{i} -1}.$$
-    \label{prop:rExist}
+    $$a > \frac{Ki}{1+F} (i-1)^{- (1+ 1/i)}.$$
 \end{proposizione}
+
+\begin{proof}
+    Le equazioni del modello sono omogenee, dunque l'equilibrio banale $(0,0)$ esiste sempre.
+    Dalla \eqref{eq:rattiRidotto1seconda} segue che ogni punto di equilibrio strettamente positivo $(x_h^*, x_f^*)$ verifica
+    $$x_f^2 + \frac{\sigma_2 - \sigma_1 + p + d_2}{p +d_2} x_h x_f - \frac{\sigma_1}{p+d_2} x_h^2 = 0,$$
+    da cui ricaviamo la relazione tra le componenti $x_f^* = F x_h^*$.
+\end{proof}
+
+
 
 
 Viceversa, se tale disequazione è invertita, possiamo formulare una condizione sufficiente per l'esistenza di due equilibri strettamente positivi.
 Poniamo per comodità
+
+ed osserviamo che la \eqref{eq:rattiRidotto1seconda} implica che ogni punto di equilibrio positivo $(x_h^*, x_f^*)$ verifica la relazione $x_f^* = F x_h^*$.
+
+Definiamo inoltre la quantità
+
+che ci permette di stabilire il seguente criterio: se $\frac{\sigma_2 F}{1+F} - d_1 - \sigma_1 <0$ ed inoltre
+
+allora esistono due equilibri non banali (positivi).
 
 \paragraph{}
 Se esistono, gli equilibri positivi sono stabili se
@@ -190,7 +201,7 @@ Se esistono, gli equilibri positivi sono stabili se
 <
 \frac{d_1 + (p+d_2) F}{{(1+F)}^2}.
 \label{eq:rattiRidotto1stability}
-\end{equation} % TODO
+\end{equation}
 
 \subsubsection{Modello tridimensionale api--acaro}
 Introduciamo adesso nella colonia le varroe senza virus, ed indaghiamo la conseguente alterazione della stabilità degli equilibri individuati nel caso precedente.
@@ -270,9 +281,7 @@ Questo ultimo passaggio è fondamentale per incorporare nel modello le variazion
 
 Il periodo dei coefficienti è dunque $T= 1 \text{ anno}$.
 
-
-\paragraph{}
-Floquet theory is used in investigating the stability of equilibria in the system.
+suloz non banali, Floquet
 
 \begin{proposizione}[4.1, Stability of mite--free periodic solution {\cite[19]{ratti2017}} ]
     Sia $\left( x_h^*(t), x_f^*(t) \right)$ sia una soluzione periodica per il modello ridotto alle sole api \eqref{eq:rattiRidotto1prima}--\eqref{eq:rattiRidotto1seconda}.
@@ -297,11 +306,8 @@ Floquet theory is used in investigating the stability of equilibria in the syste
 \end{proposizione}
 
 
+
 \subsection{Riduzioni ai modelli precedenti}
-
-Se nell'espressione di $g$ (equazione~\eqref{eq:hillSigmoid}) prendiamo $K=0$ ci riduciamo al modello di \cite{sumMar04}.
-
-Con $i=1$ e togliendo virus e varroe e mortalità nel comparto $x_h$ ci si riduce a \cite{khoury2011}.
-
+Se nell'espressione di $g$ (equazione~\eqref{eq:hillSigmoid}) prendiamo $K=0$ ci riduciamo al modello di \cite{sumMar04}
 
 

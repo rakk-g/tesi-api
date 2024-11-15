@@ -22,14 +22,14 @@ In the recruitment function
 \end{equation}
 the maximum rate of recruitment $\alpha$ is attained when there are no foragers present in the colony.
 The second term represents social inhibition in the recruitment process, and the authors
-\textquote[{\cite[3]{khoury2011}}]{\omissis assumed that social inhibition is directly proportional to the fraction of the total number of adult bees that are foragers, such that a high fraction of foragers in the hive results in low recruitment.}
+\textquote[{\footcite[3]{khoury2011}}]{\omissis assumed that social inhibition is directly proportional to the fraction of the total number of adult bees that are foragers, such that a high fraction of foragers in the hive results in low recruitment.}
 
 \paragraph{}
-Biological research hints at ethyl oleate exchange between honeybee workers as the main modulating process in social recruitment: for example, a colony will respond to a high mortality of foragers by \emph{reducing} social inhibition and thereby \textquote[\cite{khoury2011}]{resulting in a precocious onset of foraging behaviour in young bees}.
+Biological research hints at ethyl oleate exchange between honeybee workers as the main modulating process in social recruitment: for example, a colony will respond to a high mortality of foragers by \emph{reducing} social inhibition and thereby \textquote[\footcite{khoury2011}]{resulting in a precocious onset of foraging behaviour in young bees}.
 
 In the opposite situation -- \emph{i.e.} when forager mortality is low -- the colony responds by \emph{increasing} social inhibition: more foragers feel the urge to refrain from flying outside and revert to in--hive duties.
 This inhibition response in the recruitment process is allegedly driven by higher concentrations of ethyl oleate:
-\textquote[{\cite[1]{khoury2011}}]{Old forager bees transfer ethyl oleate to young hive bees via trophallaxis, which delays the age at which they begin foraging.}
+\textquote[{\footcite[1]{khoury2011}}]{Old forager bees transfer ethyl oleate to young hive bees via trophallaxis, which delays the age at which they begin foraging.}
 
 \paragraph{}
 Via this pheromonal mechanism the hive can mantain an equilibrium where its basic necessities (brood care and food flow) are satisfied.
@@ -37,7 +37,7 @@ In this scenario, the collective pheromonal response -- which reduces the recrui
 
 
 \paragraph{Death rates.}
-As noted before, foragers are subjected to more diverse and intense stress factors than hive bees, whence the average lifespan of a female honeybee is longer as a hive worker, and is significantly shorter as a forager: \textquote[{\cite[1]{khoury2011}}]{Survival of bees in the protected hive environment is high, but the survival of forager bees is much lower. \omissis The average foraging life of a bee has been estimated as less than seven days, because of the many risks and severe metabolic costs associated with foraging.}
+As noted before, foragers are subjected to more diverse and intense stress factors than hive bees, whence the average lifespan of a female honeybee is longer as a hive worker, and is significantly shorter as a forager: \textquote[{\footcite[1]{khoury2011}}]{Survival of bees in the protected hive environment is high, but the survival of forager bees is much lower. \omissis The average foraging life of a bee has been estimated as less than seven days, because of the many risks and severe metabolic costs associated with foraging.}
 
 The sink term $-mF$ in Equation~\eqref{eq:kh11f} accounts for foragers mortality;
 the parameter $m$ sets the fraction of forager population that dies every day.
@@ -49,7 +49,7 @@ justified by the focus of this paper in relating CCD to higher than normal forag
 
 \paragraph{Eclosion.}
 The term $E(H,F)$ accounts for eclosion of adult young workers in the hive class.
-\textquote[{\cite[2]{khoury2011}}]{\omissis the number of eggs reared in a colony (and hence the eclosion rate) is related to the number of bees in the hive. Big colonies raise more brood.}
+\textquote[{\footcite[2]{khoury2011}}]{\omissis the number of eggs reared in a colony (and hence the eclosion rate) is related to the number of bees in the hive. Big colonies raise more brood.}
 
 The authors have chosen the form
 \begin{equation}
@@ -72,7 +72,7 @@ as saturation is attained for greater values of $N$, and the graph of $E(N)$ ``l
     \label{img:eclos}
 \end{figure}
 
-Later models\footcite{ratti2017} incorporated this basic proposal with type III Holling functional response and added modulating factors, but retained the core formulation very similar to what     \citeauthor{khoury2011} proposed in Equation~\refeq{eq:eclos}.
+Later models\footcite{ratti2017} incorporated this basic proposal with type III Holling functional response and added modulating factors, but retained the core formulation very similar to what~\citeauthor{khoury2011} proposed in Equation~\refeq{eq:eclos}.
 
 
 \subsection{Stability analysis}
@@ -81,10 +81,12 @@ We now carefully review the results given in the paper about the existence and s
 The authors used \textquote[{\cite[3]{khoury2011}}]{standard linear stability analysis and phase plane analysis} to examine the model equations.
 Re--tracing their steps, we will look for criteria for the existence of trivial and non--trivial equilibria, \ie zeroes of the right--hand side of our model equations.
 
-When existence of an equilibrium point is estabilished, the jacobian matrix of the dynamical system is calculated and
-evaluated at that point; then a simple sufficient criterion for asymptotic stability\footnote{See SAFSFA in appendix.}
+When existence of an equilibrium point is estabilished, the jacobian matrix of the dynamical system is
+evaluated at that point; then a simple sufficient criterion for asymptotic
+stability\footnote{See Theorem~\ref{teo:pozzoLineare}.}
 is that $\Re (\lambda) < 0$ for each eigenvalue $\lambda$.
-Another simple technique due to Lyapounov is to exhibit a function that has a strong local minimum over the equilibrium point.\footnote{See SAFDAF in appendix.}
+Another simple technique due to Lyapounov is to exhibit a function that has a strong local minimum
+over the equilibrium point.\footnote{See Theorem~\ref{teo:lyapounovFunc}.}
 
 \paragraph{}
 Note that $H, E$ have non--negative range, \ie $H(t), E(t) \geq 0$ for all $t$.
@@ -108,13 +110,68 @@ The next result states a necessary condition for all equilibria.
 
 That is to say, equilibria lie on the ray $F= JH$ in the phase plane, when they exist.
 
+\paragraph{}
+We calculated the jacobian matrix of this system as:
+\begin{equation}
+    \begin{pmatrix}
+        L \frac{w}{{(w + H + F)}^2} - \alpha + \sigma \frac{F^2}{{(H+F)}^2} &
+        L \frac{w}{{(w + H + F)}^2} + \sigma \frac{H^2}{{(H+F)}^2}
+        \\
+        \alpha - \sigma \frac{F^2}{{(H+F)}^2} &
+        - \sigma \frac{H^2}{{(H+F)}^2} - m
+    \end{pmatrix}
+    \label{eq:jacoGeneral}
+\end{equation}
+
+It is interesting to note that the last row of the jacobian is constant under
+condition~\eqref{eq:kh11posEqJ},
+\ie substituting $H$ for $\frac{1}{J} F$ in Equation~\eqref{eq:jacoGeneral},
+we get:
+\begin{gather}
+    \diffp*{ \dot{H} }{H}{H= \frac{1}{J} F} =
+    L \frac{w}{ {\left[ w + \left( \frac{1}{J} +1 \right) F \right]}^2 } - \alpha
+    + \frac{ \sigma }{ {\left( \frac{1}{J} + 1 \right)}^2 } \; ,
+    \\
+    \diffp*{ \dot{H} }{F}{H= \frac{1}{J} F} =
+    L \frac{w}{ {\left[ w + \left( \frac{1}{J} +1 \right) F \right]}^2 }
+    + \frac{ \sigma }{ {\left( J + 1 \right)}^2 } \; ,
+    \\
+    \diffp*{ \dot{F} }{H}{H= \frac{1}{J} F} =
+    \alpha - \frac{ \sigma }{ {\left( \frac{1}{J} + 1 \right)}^2 } \; ,
+    \\
+    \diffp*{ \dot{F} }{F}{H= \frac{1}{J} F} =
+    - \frac{ \sigma }{ {\left( J + 1 \right)}^2 } - m \; ,
+    \label{eq:jacoOnJFH}
+\end{gather}
+the last two equations depend only on the parameters and not on the variables H and F.
+
 \subsubsection{Trivial equilibrium}
 The trivial $(0,0)$ equilibrium is clearly a solution\footnote{Hence, the trivial equilibrium always exists.}
 of $\dot{H}=\dot{F}=0$, and its stability is an important matter of study. Parameter regions where this equilibrium is stable and attractive usually mean the inevitable doom of the entire colony.
 
-We calculate its jacobian matrix as:
+The system jacobian evaluated at the origin is:
+\begin{equation}
+    D_{00} \coloneq
+    \begin{pmatrix}
+        \frac{L}{w} -\alpha &
+        \frac{L}{w}
+        \\
+        \alpha & -m
+    \end{pmatrix}
+    \label{eq:jacoEquZero}
+\end{equation}
 
-\texttt{TODO}  % TODO
+By Theorem~\ref{teo:pozzoLineare}, we can see why
+condition~\ref{eq:cond6b}
+$$\alpha -\frac{L}{w}>0$$
+is useful for characterization of stability in the origin.\footcite[3]{khoury2011}
+
+Under that hypothesis,
+$$\det  J_{00} > 0 \quad \iff \quad
+m > \frac{\alpha L}{w} {\left( \alpha - \frac{L}{w} \right)}^{-1}$$
+implies
+$$\tr J_{00} = - \left( \alpha - \frac{L}{w} \right) - m < 0$$
+then, positive determinant and negative trace implies stability of the trivial equilibrium.
 
 
 \subsubsection{Positive equilibrium}
@@ -151,7 +208,7 @@ This model always admits one or two distinct equilibrium points, based on the ne
     \end{equation}
     and $m_1^*, m_2^*$ are taken alwas in the order $m_1 < m_2$ from the following
     \begin{equation}
-        m_{1,2} = \frac{L}{2w} \frac{ \alpha + \sigma + \sqrt{ {(\alpha - \sigma)}^2 +\frac{4 \sigma L}{w}  } }
+        m_{1,2} = \frac{L}{2w} \frac{ \alpha + \sigma \pm \sqrt{ {(\alpha - \sigma)}^2 +\frac{4 \sigma L}{w}  } }
         {\alpha -\frac{L}{w}} \; .
         \label{eq:FstarPosM12}
     \end{equation}
@@ -161,7 +218,7 @@ This model always admits one or two distinct equilibrium points, based on the ne
 
 \paragraph{Interpretation.}
 \label{par:interpretationCond6b}
-We note that all situations where $m$ is given a lower bound can be discarded as they relate to intrinsic simplifications in the model, and cannot describe accurately a hive in a real apiary on a real field; the non--existence of a positive equilibrium when $m< \hat{m}$ for some $\hat{m}$ is simply because the total population diverges to infinity in such cases.
+We note that all situations where $m$ is given a lower bound can be related to intrinsic simplifications in the model, and cannot describe accurately a hive in a real apiary on a real field; the non--existence of a positive equilibrium when $m< \hat{m}$ for some $\hat{m}$ is simply because the total population diverges to infinity in such cases.
 
 Conversely, the condition
 \begin{equation}
@@ -172,20 +229,23 @@ can be read easily as $w \alpha >L$, where both sides have unit of bees/day; not
 
 That is to say, Equation~\eqref{eq:cond6b} means that the recruitment process $R= R(H, F)$ is capable of sustaining the level $L$ of egg--laying in the hive, by balancing the need for bees in the $H$ compartment (for brood care) and the need for bees in the $F$ compartment (for food intake).
 
-\paragraph{} % moar interpr TODO
-cfr. condiz pr 0
+\paragraph{}
+Conditions in the form $m< \hat{m}$ typically ensure the survival of the colony;
+in such parameter regions, this model can also exhibit the non--existence of a
+positive equilibrium, simply because of the divergence of total population numbers.
 
+As noted before, this model doesn't have a mortality factor for the $H$ compartment: in light of this fact, we
+can explain condition~\eqref{eq:cond6b} as it as a lower bound for a steady transfer of hive bees to the
+forager compartment, in which they have a finite life expectancy.
 
+In the asymptotic limit, $\frac{L}{w} H$ bees enter the hive compartment through eclosion and $\alpha H$ bees
+are withdrawn to the $F$ compartment: condition~\eqref{eq:cond6b} then says that the maximal recruitment rate
+must be sufficiently large to unload the excess hive bees towards the foragers compartment.
+%  moar interpr? TODO
+% cfr. condiz per 0
 
-
-\pagebreak % WARNING
-% WOLFRAM ALPHA:
-%
-% solve α*m - α*L/w -m*L/w > 0 for m assuming α > 0, L > 0, w > 0, m > 0
-%
-% conferma il mio risultato @KHB1
-
-This branching in the model is illustrated in \figurename~\ref{img:kh11phasePlane}.
+\paragraph{}
+Branching of equilibria in this model is illustrated in \figurename~\ref{img:kh11phasePlane}.
 
 \begin{figure}[pbh]
     \centering

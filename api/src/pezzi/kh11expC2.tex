@@ -3,27 +3,37 @@ Two iterations were made of this simulation with constant parameters $\alpha = 0
 data \texttt{A} was obtained with $w=27000$, while the value $w=9800$ was used for data \texttt{B}.
 
 In both experiments a random value for the parameter $m$ was obtained from a uniform distribution on $[0.006, \, 0.6]$
-with a resolution of 30. For each $m$ we selected at random initial values $1 \leq H_0 \leq 15000$ and $1 \leq F_0 \leq 6000$ and ran 30 such simulations for a total of 900 days.
+with a resolution of 30. For each $m$ we selected at random initial values $1 \leq H_0 \leq 15000$ and $1 \leq F_0 \leq 6000$ and ran 30 such simulations for a total of 900 days each.
 
 \subsection{Data A}
 \label{sec:kh11expC2A}
-Note that with $w=27000$ and the other parameter values, the condition~\eqref{eq:cond6b} from Theorem~\ref{teo:esistenzPosF} is true: $\alpha - \frac{L}{w} > 0$, which is case 1 of the Theorem,
-when a positive equilibrium exists for mortalities $m$ bound from above and from below.
+Note that with $w=27000$ the condition~\eqref{eq:cond6b} from Theorem~\ref{teo:esistenzPosF} is true: $\alpha - \frac{L}{w} > 0$, which is case 1 of the Theorem,
+when a positive equilibrium exists for mortalities $m$ bound from above and from below:
+$$ 0.0804 \simeq m_1^* < m < m_2^* \simeq 0.5078 \; .$$
 
-In the remainder of this section, we will call ``weak'' colonies those which have final total
-population $N(900)$ less than $N_- = 100$ bees. We will say that a colony is ``strong'' if
+In the remainder of this section, we will call ``weak'' those colonies which have final total
+population $N(900) < N_- = 100$ bees. We will say that a colony is ``strong'' if
 its final population is more than $N_+ = 40000$ workers.
 
 Results are plotted in Figure~\ref{img:kh11expC2A}.
 
+All colonies which eventually die off have a high rate of forager mortality: $m > m_2^*$.
+Some of them don't collapse in 2.5 years and we don't call them ``weak'' in the sense above.
+
+\paragraph{}
+For mortalities above a reasonable value and below a fatal threshold, \ie for $m_1^* < m < m_2^*$,
+we get steadily close to a positive equilibrium $N^*$: final workers number can get even into
+the ``strong'' classification for hives with lower mortality rates, and become lower
+(in the hundreds) near the $m_2^*$ end of the spectrum.
+
 \paragraph{}
 Outside the shown plot range were final populations in the unreasonable order of
-magnitude of $10^6$ and beyond, clearly indicating a diverging behaviour.
-All these points lie on the left of $m_1^* \simeq 0.0804$.\footnote{Cfr.~interpretation at page~\pageref{par:interpretationCond6b}.}
+magnitude of $10^6$ and beyond, clearly indicating a diverging behaviour, even with low values of $N(0)$.
+All these points lie on the left of $m_1^* \simeq 0.0804$.\footnote{Cfr.~Interpretation at page~\pageref{par:interpretationCond6b}.}
 
 \begin{figure}[pbh]
     \centering
-    \includegraphics[keepaspectratio,width=0.96\textwidth]{img/kh11expC2A}
+    \includegraphics[keepaspectratio,width=0.98\textwidth]{img/kh11expC2A}
 
     \caption[Experiment C2A]{Experiment C2A: total number of worker bees $N(t)= H(t)+F(t)$ is shown at $t=0$ and $t=900$ for different levels of forager mortality $m$.
 
@@ -42,3 +52,31 @@ All these points lie on the left of $m_1^* \simeq 0.0804$.\footnote{Cfr.~interpr
 
     \label{img:kh11expC2A}
 \end{figure}
+
+\subsection{Data B}
+In this experiment we ran 900 simulations for 900 days each, within the same setting as above,
+where we changed the value of the parameter $w$ only.
+
+Note that in this case inequality~\eqref{eq:cond6b} is reversed, since
+$$ \alpha - \frac{L}{w} = \frac{1}{4} - \frac{2500}{9800} < 0 \; .$$
+
+Results are plotted in Figure~\ref{img:kh11expC2B}: for each simulation the fraction $\frac{N(900)}{N(0)}$ is plotted against its level of forager mortality.
+This is a rough measure of performance of the hive, for it depends on the colony ability to secure
+trophic and reproductive capabilities, within the limits of its given initial conditions.
+
+\paragraph{}
+We can see that initial population levels definitely increased in a span of 2.5 years for
+almost all initial conditions. A slight decreasing trend in final population levels is
+noted for higher mortality rates; still, these higher values for $m$ cannot keep the colony
+population at reasonably stable levels and only lower the speed at which population is diverging.
+
+\begin{figure}[pbh]
+    \centering
+    \includegraphics[keepaspectratio,width=0.98\textwidth]{img/kh11expC2B}
+
+    \caption[Experiment C2B]{Experiment C2B: the ratio $\frac{N(900)}{N(0)}$ of final and initial
+    total populations is plotted against $m$ in abscissa.}
+
+    \label{img:kh11expC2B}
+\end{figure}
+

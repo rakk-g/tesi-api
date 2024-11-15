@@ -1,4 +1,3 @@
-
 \chapter{Proofs}
 
 \section{About KH11}
@@ -91,6 +90,19 @@ which concludes our last case and the proof.
 \end{proof}
 
 
+\section{About Ratti17}
+\subsection{ Proposition~\ref{prop:rExist} }
+From page~\pageref{prop:rExist}.
+
+\begin{proof}
+    Le equazioni del modello sono omogenee, dunque l'equilibrio banale $(0,0)$ esiste sempre.
+    Dalla \eqref{eq:rattiRidotto1seconda} segue che ogni punto di equilibrio strettamente positivo $(x_h^*, x_f^*)$ verifica
+    $$x_f^2 + \frac{\sigma_2 - \sigma_1 + p + d_2}{p +d_2} x_h x_f - \frac{\sigma_1}{p+d_2} x_h^2 = 0,$$
+    da cui ricaviamo la relazione tra le componenti $x_f^* = F x_h^*$.
+
+    [DA CONCLUDERE QUANDO SI SPIEGA L'ESPONENTE $i$] % TODO
+\end{proof}
+
 
 
 
@@ -100,7 +112,14 @@ which concludes our last case and the proof.
 
 \chapter{Theory}
 
-\begin{definizione} % Lyapounov function
+\begin{teorema}[Linear Well]
+    If $\Re{\lambda} < 0$ for all eigenvalues \omissis % TODO
+
+    \label{teo:pozzoLineare}
+\end{teorema}
+
+
+\begin{definizione}[Lyapounov function]
     Let $\dot{x} = F(x)$ be a continuous dynamical system with $F \in C^1(W,\R^n)$, where $W \subseteq \R^n$ is open.
 
     We say that a function $V \in C^1(B, \R)$, for some open $B \subseteq W$, is a \emph{Lyapounov function} for the equilibrium point $x_S \in B$ if:
@@ -112,12 +131,13 @@ which concludes our last case and the proof.
     We also say that a Lyapounov function $V$ is \emph{strict} if $\dot{V}(x) \lneq 0 \; (\forall x \in B, x \neq x_S)$.
 \end{definizione}
 
-comment.
+% comment. % TODO
 
-\begin{teorema}{Stability via Lyapounov function}
+\begin{teorema}[Stability via Lyapounov function]
 
+    \label{teo:lyapounovFunc}
 \end{teorema}
 
-\begin{corollario}{Asymptotic stability via Lyapounov function}
+\begin{corollario}[Asymptotic stability via Lyapounov function]
 
 \end{corollario}
