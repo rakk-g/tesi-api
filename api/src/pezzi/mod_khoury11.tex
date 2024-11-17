@@ -83,7 +83,7 @@ Re--tracing their steps, we will look for criteria for the existence of trivial 
 
 When existence of an equilibrium point is estabilished, the jacobian matrix of the dynamical system is
 evaluated at that point; then a simple sufficient criterion for asymptotic
-stability\footnote{See Theorem~\ref{teo:pozzoLineare}.}
+stability\footnote{See Theorem~\ref{teo:pozzoNonLineare}.}
 is that $\Re (\lambda) < 0$ for each eigenvalue $\lambda$.
 Another simple technique due to Lyapounov is to exhibit a function that has a strong local minimum
 over the equilibrium point.\footnote{See Theorem~\ref{teo:lyapounovFunc}.}
@@ -161,17 +161,17 @@ The system jacobian evaluated at the origin is:
     \label{eq:jacoEquZero}
 \end{equation}
 
-By Theorem~\ref{teo:pozzoLineare}, we can see why
+By Theorem~\ref{teo:pozzoNonLineare}, we can see why
 condition~\ref{eq:cond6b}
 $$\alpha -\frac{L}{w}>0$$
 is useful for characterization of stability in the origin.\footcite[3]{khoury2011}
 
 Under that hypothesis,
-$$\det  J_{00} > 0 \quad \iff \quad
+$$\det  D_{00} > 0 \quad \iff \quad
 m > \frac{\alpha L}{w} {\left( \alpha - \frac{L}{w} \right)}^{-1}$$
 implies
-$$\tr J_{00} = - \left( \alpha - \frac{L}{w} \right) - m < 0$$
-then, positive determinant and negative trace implies stability of the trivial equilibrium.
+$$\tr D_{00} = - \left( \alpha - \frac{L}{w} \right) - m < 0$$
+then, positive determinant and negative trace imply stability of this equilibrium.
 
 
 \subsubsection{Positive equilibrium}
@@ -206,7 +206,7 @@ This model always admits one or two distinct equilibrium points, based on the ne
         m_3^* = \frac{ \sigma L}{ w (\alpha + \sigma) } \; ,
         \label{eq:FstarPosM3}
     \end{equation}
-    and $m_1^*, m_2^*$ are taken alwas in the order $m_1 < m_2$ from the following
+    and $m_1^*, m_2^*$ are taken always in the order $m_1 < m_2$ from the following
     \begin{equation}
         m_{1,2} = \frac{L}{2w} \frac{ \alpha + \sigma \pm \sqrt{ {(\alpha - \sigma)}^2 +\frac{4 \sigma L}{w}  } }
         {\alpha -\frac{L}{w}} \; .
@@ -260,8 +260,7 @@ Branching of equilibria in this model is illustrated in \figurename~\ref{img:kh1
             In (a) $m = 0.24$ and the populations tend to a stable equilibrium population, marked by a dot.
             In (b), $m = 0.40$ there is no nonzero equilibrium and the hive populations collapses to zero.
 
-            Parameter values are $L = 2000$,  $\alpha= 0.25$,  $\sigma= 0.75$ and $w = 27 000$.
-        }
+            Parameter values are $L = 2000$,  $\alpha= 0.25$,  $\sigma= 0.75$ and $w = 27 000$.}
     }
     \label{img:kh11phasePlane}
 \end{figure}

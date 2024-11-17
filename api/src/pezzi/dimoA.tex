@@ -1,4 +1,4 @@
-\chapter{Proofs}
+\chapter{Stated results}
 
 \section{About KH11}
 \subsection{ Lemma~\ref{lem:necessJ} }
@@ -112,32 +112,124 @@ From page~\pageref{prop:rExist}.
 
 \chapter{Theory}
 
-\begin{teorema}[Linear Well]
-    If $\Re{\lambda} < 0$ for all eigenvalues \omissis % TODO
+In this chapter we recall some useful results from the theory of dynamical systems.
 
-    \label{teo:pozzoLineare}
+It is useful to define some preliminary notation, to be used in the rest of this chapter.
+Let
+$$\begin{sistema}
+\dot{\mathbf{x}} = F ( \mathbf{x} ) \\
+\mathbf{x} (t_0) = \mathbf{x}_0
+\end{sistema}$$
+be a dynamical system with initial condition $\mathbf{x}_0$. We will suppose throughout the rest of this
+chapter that $F$ is defined on some open $W \subseteq \R^n$ and that it is of class $C^1$ at least.
+
+If
+$$\diffp{F}{t} = 0 \; ,$$
+\ie the system equation does not depend explicitly on time, we say that the system is \emph{autonomous}.
+For such system is unrestrictive to suppose the initial condition is given at the instant $t_0=0$.
+
+\paragraph{}
+We can describe synthetically the solutions of a dynamical system via the \emph{general solution}\footnote{Sometimes
+\emph{``integral flow''}.} map
+$$\Phi \, : \, D \to W, \quad (t, \mathbf{x}_0 ) \mapsto \Phi_t ( \mathbf{x}_0 ) \; ,$$
+that sends $(t, \mathbf{x}_0 )$ to the solution $\mathbf{x} (t)$ with initial condition $\mathbf{x}_0$, evaluated at time $t$. This is a well--defined application via the Existence/Uniqueness Theorem; it does not, however,
+state any condition on the form the domain of each solution, which still depend on the initial condition.
+Thus $D \subseteq \R times W$ is not known in advance.
+
+If we denote the projection $D \to W$ by $p$, we know that each fiber $p^{-1} ( \mathbf{x}_0 )$ is an open interval
+containing $t_0$.
+
+By definition, the map $t \mapsto \Phi_t ( \mathbf{x}_0 )$ is a solution to the dynamical system
+$$\begin{sistema}
+\diff{ \Phi_t ( \mathbf{x}_0 ) }{t} = F \left( \Phi_t ( \mathbf{x}_0 ) \right) \\
+\Phi_{t_0} ( \mathbf{x}_0 ) = \mathbf{x}_0
+\end{sistema}$$
+
+We recall the \emph{semigroup property} of the general solution
+$$\Phi_h \circ \Phi_t = \Phi_{h+t}$$
+for all $h, t \geq t_0$.
+
+\begin{definizione}[Equilibrium point]
+    We say that $\mathbf{x}_S \in W$ is an \emph{equilibrium point} for our dynamical system,
+    if $F( \mathbf{x}_s ) = \mathbf{0}$.
+\end{definizione}
+
+On any equilibrium point we have a constant orbit $\mathbf{x} (t) \equiv \mathbf{x}_S$, but any different solution
+-- however near $\mathbf{x}_S$ -- cannot reach this point for any finite $t$ value.
+
+\begin{definizione}[Stable point]
+    A point $\mathbf{x}_S \in W$ is said to be \emph{stable} if for every neighbourhood $U$ of $\mathbf{x}_S$
+    there exists a neighbourhood $V$ of $\mathbf{x}_S$\footnote{Without loss of generality $U, V, \subseteq W$.}
+    such that
+    $$(\forall \mathbf{x}_0 \in V) \; \Phi_t ( \mathbf{x}_0 ) \; ,$$
+    for every $t \geq 0$.
+\end{definizione}
+
+By definition, solutions can be constrained to remain arbitrarily near a stable point, provided that we choose
+initial conditions sufficiently close to it.
+
+Observe that any stable point is an equilibrium point also.
+
+\begin{definizione}[Attractive point]
+    We say that a point $\mathbf{x}_S \in W$ is \emph{attractive} if there exists a
+    neighbourhood $U$ of $\mathbf{x}_S$ such that
+    $$(\forall \mathbf{x}_0 \in U) \; \exists \lim_{t \to +\infty} \Phi_t (\mathbf{x}_0) = \mathbf{x}_S \; .$$
+
+    When we get the same with $t \to -\infty$, we say that $\mathbf{x}_S$ is \emph{repulsive}.
+\end{definizione}
+
+Note that, being a limit point, any attractive or repulsive point is an equilibrium point also.
+
+\begin{definizione}[Asymptotic stability]
+    A point which is both attractive and forward stable, is said \emph{asymptotically stable}.
+\end{definizione}
+
+\begin{definizione}{Lyapounov Exponents}
+    Let $J = DF (\mathbf{x}_S)$ be the jacobian matrix evaluated on the equilibrium point $\mathbf{x}_S$.
+
+    The \emph{Lyapounov exponents} of this equilibrium are the real parts o the eigenvalues of $J$.
+    We say that $\mathbf{x}_S$ is a \emph{sink} if every Lyapounov exponent is strictly negative.
+\end{definizione}
+
+\begin{teorema}[Non--linear sink]
+    Let $\mathbf{x}_S \in W$ be a sink for the continuous system $\dot{ \mathbf{x} } = F(\mathbf{x})$,
+    let $c>0$ be such that $\Re ( \lambda ) < -c$ for each eigenvalue $\lambda$ of $DF (\mathbf{x}_S)$.
+
+    There exists a neighbourhood $U$ of $\mathbf{x}_S$ such that:
+    \begin{enumerate}
+        \item $\Phi_t (\mathbf{x}_0)$ is defined for $t \geq 0$, for all $\mathbf{x}_0 \in U$;
+        \item $(\exists B>0) \, (\forall \mathbf{x}_0 \in U) \;
+        \norm{ \Phi_t (\mathbf{x}_0) - \mathbf{x}_S } \leq
+        B e^{-ct} \norm{ \mathbf{x}_0 - \mathbf{x}_S }.$
+    \end{enumerate}
+    \label{teo:pozzoNonLineare}
 \end{teorema}
 
 
 \begin{definizione}[Lyapounov function]
-    Let $\dot{x} = F(x)$ be a continuous dynamical system with $F \in C^1(W,\R^n)$, where $W \subseteq \R^n$ is open.
+    Let $\dot{\mathbf{x}} = F(\mathbf{x})$ be a continuous dynamical system with $F \in C^1(W,\R^n)$, where $W \subseteq \R^n$ is open.
 
-    We say that a function $V \in C^1(B, \R)$, for some open $B \subseteq W$, is a \emph{Lyapounov function} for the equilibrium point $x_S \in B$ if:
+    We say that a function $V \in C^1(B, \R)$, for some open $B \subseteq W$, is a \emph{Lyapounov function} for the equilibrium point $\mathbf{x}_S \in B$ if:
     \begin{itemize}
-        \item $\dot{V} (x) \leq 0 \; (\forall x \in B),$
-        \item $V(x_S) \lneq V(x) \; (\forall x \in B, x \neq x_S).$
+        \item $\dot{V} ( \mathbf{x} ) \leq 0 \; (\forall \mathbf{x} \in B),$
+        \item $V( \mathbf{x}_S ) \lneq V( \mathbf{x} ) \; (\forall \mathbf{x} \in B, \mathbf{x} \neq \mathbf{x}_S).$
     \end{itemize}
 
-    We also say that a Lyapounov function $V$ is \emph{strict} if $\dot{V}(x) \lneq 0 \; (\forall x \in B, x \neq x_S)$.
+    We also say that a Lyapounov function $V$ is \emph{strict} if $\dot{V}(\mathbf{x}) \lneq 0 \; (\forall \mathbf{x} \in B, \mathbf{x} \neq \mathbf{x}_S)$.
 \end{definizione}
 
-% comment. % TODO
+We can see that $\dot{V} ( \mathbf{x} )$ is a measure of $V$ growth along solutions of the dynamical system
+defined by the vector field $F$, since
+$$\dot{V} ( \mathbf{x} ) = \diff{}{t} \left( \dot{V} \left( \mathbf{x} (t) \right) \right) =
+\sum_{i=1}^n \diffp{V}{{\mathbf{x}_i}} \left( \mathbf{x} (t) \right) \cdot \diff{ \mathbf{x}_i }{t} (t) =
+\langle \nabla V ( \mathbf{x} ) , \dot{ \mathbf{x} } \rangle.$$
+
 
 \begin{teorema}[Stability via Lyapounov function]
-
+    If an equilibrium point admits a Lyapounov function, then it is stable.
     \label{teo:lyapounovFunc}
 \end{teorema}
 
 \begin{corollario}[Asymptotic stability via Lyapounov function]
-
+    If an equilibrium point admits a strict Lyapounov function, then it is asymptotically stable.
 \end{corollario}
