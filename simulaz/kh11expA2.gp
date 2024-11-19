@@ -1,6 +1,6 @@
-# set terminal pngcairo size 1366,768
-# unset key
-aggrFname="kh11ExpA2-AGGR.dat"
+set terminal pngcairo size 1366,768
+unset key
+aggrFname="kh11ExpA2-AGGR2.dat"
 
 line(x) = m*x +q
 parab(x) = a*x**2 +b*x +c
@@ -11,36 +11,55 @@ set style line 1 lc rgb 'blue' pt 5 ps 1.2 lw 2  # square
 set style line 2 lc rgb '0x0A0A0F' pt 5 ps 1.2 lw 1.5 dt 2  # square, dashed
 set style line 3 lc rgb 'red' pt 5 ps 1.2 lw 2  # square red
 
+# m_i^* contro w
+set title "m_1^*, m_2^*, m_3^* against w"
+set xlabel 'w'
+set ylabel "m_1^*, m_2^*, m_3^*"
+set xrange[3000:*]
+set yrange[0.05:100]
+set logscale y
+set output "k11EA2-mistarVSw.png"
+set arrow from 8000,0.05 to 8000,100 nohead dashtype 2 # evidenzia la soglia di 6b!
+# filtro che toglie le altre, che sono tutte zero o negative TODO chk
+plot aggrFname using 1:($6>0?$7:1/0) with points ls 1 title 'm_1 6b', \
+aggrFname using 1:($6>0?$8:1/0) with points ls 1 lc rgb 'red' title 'm_2 6b', \
+aggrFname using 1:($6<0?$8:1/0) with points ls 1 lc rgb 'red' pt 1 title 'm_2 NO 6b', \
+aggrFname using 1:($6>0?$9:1/0) with points ls 1 lc rgb 'green' title 'm_3 6b', \
+aggrFname using 1:($6<0?$9:1/0) with points ls 1 lc rgb 'green' pt 1 title 'm_3 NO 6b'
+# aggrFname using 1:($6<0?$7:1/0) with points ls 1 , \ # questi sono negativi
+
+# final pop vs initial pop
 set title "Final Pop. against initial Pop."
 set logscale y
 set xrange [10:*]
 set xlabel 'Initial population'
 set ylabel 'Final population'
+set output "k11EA2-fpopVSipop.png"
 plot aggrFname using 10:($6>0?$11:1/0) with points ls 1 title 'data cond6b', \
 aggrFname using 10:($6<0?$11:1/0) with points ls 1 lc rgb 'red' title 'data NO cond6b'
 
 
-# # Final Pop. contro w
-# set title "Final Population against w."
-# set xrange [3000:30000]
-# set yrange [*:100000] # c'è una linea di roba che scoppia! Ma ricalca l'andamento sotto
-# set xlabel 'w'
-# set ylabel 'Final Pop.'
-# fit parab(x) aggrFname using 1:11 via a, b, c
-# set output "k11EA2-finpopVSw"
-# plot aggrFname using 1:($6>0?$11:1/0) with points ls 1 lc rgb 'blue' title "data cond6b.", \
-# aggrFname using 1:($6<0?$11:1/0) with points ls 1 lc rgb '0x2AFA3C' title "data NO cond6b.", \
-# parab(x) w l ls 3 title 'quadratic fit'
+# Final Pop. contro w
+set title "Final Population against w."
+set xrange [3000:30000]
+set yrange [*:100000] # c'è una linea di roba che scoppia! Ma ricalca l'andamento sotto
+set xlabel 'w'
+set ylabel 'Final Pop.'
+fit parab(x) aggrFname using 1:11 via a, b, c
+set output "k11EA2-finpopVSw"
+plot aggrFname using 1:($6>0?$11:1/0) with points ls 1 lc rgb 'blue' title "data cond6b.", \
+aggrFname using 1:($6<0?$11:1/0) with points ls 1 lc rgb '0x2AFA3C' title "data NO cond6b.", \
+parab(x) w l ls 3 title 'quadratic fit'
 
 
-# # FDOD contro m
-# fit [0.35:1] [0:800] line(x) aggrFname using 5:12 via m, q
-# set xlabel "m"
-# set title "First Day Of (colony) Death against mortality."
-# set ylabel "FDOO"
-# set xrange [0.324:0.725]
-# set output "k11EA2-fdooVSm.png"
-# plot aggrFname using 5:12 w points ls 1 title "data", line(x) w l ls 3 title "linear fit"
+# FDOD contro m
+fit [0.35:1] [0:800] line(x) aggrFname using 5:12 via m, q
+set xlabel "m"
+set title "First Day Of (colony) Death against mortality."
+set ylabel "FDOO"
+set xrange [0.324:*]
+set output "k11EA2-fdooVSm.png"
+plot aggrFname using 5:12 w points ls 1 title "data", line(x) w l ls 3 title "linear fit"
 
 
 

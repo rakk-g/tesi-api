@@ -62,15 +62,15 @@ tic();
 
 for in = 0:N
   # set m
-  m= mMin + (in/N)*(mMax -mMin) ;
+  m= mMin + rand()*(mMax -mMin) ;
 
     for iw=0:Nwc
       # set w
-      w = wMin + (iw/Nwc)*(wMax-wMin) ;
+      w = wMin + rand()*(wMax-wMin) ;
       E = @(y) [ L*g(y)/( w + g(y) ) ] ;  # eclosion
 
       for p=0:Npop
-        popTot = popMin + (p/Npop)*(popMax-popMin) ;
+        popTot = popMin + rand()*(popMax-popMin) ;
 
         df = @(t,y) [ (E(y) - y(1)*R(y)) ; (y(1)*R(y) -m*y(2)) ] ;
 
