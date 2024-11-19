@@ -21,9 +21,9 @@
 ##
 
 # number of simulations (resolution on m)
-N = 24 ;
+N = 12 ;
 # number of c.i. for each simulation
-Nci = 24 ;
+Nci = 12 ;
 # number of cycles on w
 Nwc = 12 ;
 # number of cycles on total population
@@ -35,9 +35,9 @@ fdodThres = 20;
 
 
 # condizioni iniziali: random, scelgo solo la pop.
-popMin = 25    ;
-popMax = 15000 ;
-mMin   = 0.006 ;
+popMin = 15    ;
+popMax = 9000 ;
+mMin   = 0.016 ;
 mMax   = 0.7   ; # WARNING
 wMin   = 3000  ;
 wMax   = 30000 ;
