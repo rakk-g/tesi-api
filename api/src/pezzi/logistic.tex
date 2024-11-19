@@ -1,0 +1,66 @@
+\subsubsection{Funzione Logistica}
+La \emph{funzione logistica} è una famiglia di sigmoidi che
+
+\blockquote[WEN:Logistic_function]{\ellipsis trova applicazione in molti campi,
+compresi: biologia (specialmente ecologia), biomatematica, chimica, Demografia, economia,
+geoscienze, psicomatematica, probabilità, sociologia, scienze politiche, linguistica,
+statistica e reti neurali.
+
+Ne esistono varie generalizzazioni, a seconda del campo di applicazione.}
+
+\paragraph{}
+L'equazione della funzione logistica standard è
+\begin{equation}
+    f(x) \coloneq \frac{1}{1 + e^{-x}} = \frac{e^x}{1+e^x} \; ,
+    \label{eq:logisticF}
+\end{equation}
+ed è definita per ogni $x \in \R$, anche se in pratica $f(x)$ satura intorno a $\abs{x} > 6$.
+Vedasi la figura~\ref{img:logisticF}.
+
+\begin{figure}[pbh]
+    \centering
+    \includegraphics[keepaspectratio,width=0.86\textwidth]{img/logisticF}
+
+    \caption[Funzione logistica]{Funzione logistica.}
+    \label{img:logisticF}
+\end{figure}
+
+La funzione logistica è dispari rispetto a  $y=\frac{1}{2}$ e $0 = f^{-1} \left( \frac{1}{2} \right)$. Queste osservazioni si applicano anche alla logistica generalizzata, con parametri $L$, $k$ ed $x_0$:
+\begin{equation}
+    \hat{f}(x) \coloneq \frac{L}{1+e^{-k(x -x_0)}} \; ,
+    \label{eq:logisticFgen}
+\end{equation}
+che è una versione traslata lungo $x$ e riscalata su entrambi gli assi:
+\begin{itemize}
+    \item $x_0$ adesso è la retroimmagine del semimassimo $\frac{L}{2}$;
+    \item è applicata un'omotetia di fattore $\frac{1}{k}$ lungo $x$ ed $L$ lungo $x$.
+\end{itemize}
+
+\paragraph{}
+Nelle applicazioni, può essere utile conoscere le derivate della $f$ logistica:
+nelle figg.~\ref{img:logisticV}, \ref{img:logisticA}, \ref{img:logisticJ}.
+
+\begin{figure}[pbh]
+    \centering
+    \includegraphics[keepaspectratio,width=0.86\textwidth]{img/logisticV}
+
+    \caption{Derivata logistica prima.}
+    \label{img:logisticV}
+\end{figure}
+\begin{figure}[pbh]
+    \centering
+    \includegraphics[keepaspectratio,width=0.86\textwidth]{img/logisticA}
+
+    \caption{Derivata logistica seconda.}
+    \label{img:logisticA}
+\end{figure}
+\begin{figure}[pbh]
+    \centering
+    \includegraphics[keepaspectratio,width=0.86\textwidth]{img/logisticJ}
+
+    \caption{Derivata logistica terza.}
+    \label{img:logisticJ}
+\end{figure}
+
+lei e sue derivate, ocio ai valori che assumono.
+e l'integrale?
