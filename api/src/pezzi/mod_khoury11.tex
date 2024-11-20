@@ -1,42 +1,59 @@
 \section[Modello a due compartimenti con reclutamento]{Modello a due compartimenti con reclutamento sociale}
 
-In \citeyear{khoury2011} a simple model was proposed by \citeauthor{khoury2011} to explore the social dynamics in
-population interplay between castes of female workers.
+Nel \citeyear{khoury2011} è stato proposto\footcite{khoury2011} un modello per indagare le dinamiche sociali
+tra le caste della popolazione operaia in \emph{Apis~mellifera}.
 
-Two compartment equations are given, where the non--negative real variables $H$ and $F$ represent the number of hive workers and the number of forager workers, respectively:
+Nello studio si ottengono due equazioni, in cui le variabili reali e non negative $H$ ed $F$ rappresentano
+le operaie di nido e le foraggiatrici, rispettivamente:
 
 \begin{align}
     \diff{H}{t} &= \overbrace{E(H,F)}^{\text{eclosion}}- H \cdot R(H,F) \label{eq:kh11h} \\
     \diff{F}{t} &= H \cdot R(H,F)  - m \cdot F \label{eq:kh11f}
 \end{align}
+dove $m$ è il tasso di mortalità, mentre $R$ rappresenta il fattore di \emph{reclutamento} nel termine di
+trasferimento $H \to F$.
 
-where $m$ is the forager mortality rate, and $R$ represents the \emph{recruitment} factor in the $H \to F$ transfer term.
-Objects proposed in this model have proven insightful, and have been later incorporated in more sophisticated models, with slight variations.\footcite{ratti2017}
+Alcuni oggetti proposti in questo modello si sono dimostrati molto interessanti e sono stati incorporati
+in diversi modelli successivi, con variazioni minime.\footcite{ratti2017}
 
-
-\paragraph{Recruitment with social inhibition.}
-In the recruitment function
+\paragraph{Reclutamento con inibizione sociale.}
+Nella funzione di reclutamento
 \begin{equation}
     \label{eq:Recr}
     R(H,F) = \alpha - \sigma \frac{F}{H+F} \; ,
 \end{equation}
-the maximum rate of recruitment $\alpha$ is attained when there are no foragers present in the colony.
-The second term represents social inhibition in the recruitment process, and the authors
-\textquote[{\footcite[3]{khoury2011}}]{\omissis assumed that social inhibition is directly proportional to the fraction of the total number of adult bees that are foragers, such that a high fraction of foragers in the hive results in low recruitment.}
+il massimo tasso di reclutamento $\alpha$ si ha quando non c'è nessuna foraggiatrice nella colonia, la quale
+dunque risponde forzando il reclutamento precoce delle operaie di nido.
+
+Il secondo termine rappresenta l'inibizione sociale del processo di reclutamento; gli autori assumono
+\textquote[{\footcite[3]{khoury2011}}]{\omissis that social inhibition is directly proportional to the fraction of the total number of adult bees that are foragers, such that a high fraction of foragers in the hive results in low recruitment.}
 
 \paragraph{}
-Biological research hints at ethyl oleate exchange between honeybee workers as the main modulating process in social recruitment: for example, a colony will respond to a high mortality of foragers by \emph{reducing} social inhibition and thereby \textquote[\footcite{khoury2011}]{resulting in a precocious onset of foraging behaviour in young bees}.
+La ricerca -- che interseca matematica, biologia e molte altre discipline -- suggerisce che
+l'ethyl~oleate\footnote{CAS 111-62-6.} % SURE? TODO
+scambiato tra le api operaie sia il principale modulatore nel processo di reclutamento sociale.
 
-In the opposite situation -- \emph{i.e.} when forager mortality is low -- the colony responds by \emph{increasing} social inhibition: more foragers feel the urge to refrain from flying outside and revert to in--hive duties.
-This inhibition response in the recruitment process is allegedly driven by higher concentrations of ethyl oleate:
+Ad esempio una colonia risponderà ad una elevata mortalità di bottinatrici (più anziane) attraverso
+la riduzione dell'inibizione del reclutamento (dati i livelli pù bassi di feromone) che dunque
+\textquote[\footcite{khoury2011}]{resulting in a precocious onset of foraging behaviour in young bees}.
+
+Nella situazione opposta -- \ie quando vi sono molte bottinatrici e la loro mortalità è bassa -- la colonia
+risponde \emph{aumentando} l'inibizione sociale: un maggior numero di bottinatrici si astiene dal volo e
+dalle attività all'esterno, ripiegando sui lavori di cura all'interno del nido. Questa risposta inibitoria
+è probabilmente dovuta alla maggiore concentrazione di ethyl~oleate:
 \textquote[{\footcite[1]{khoury2011}}]{Old forager bees transfer ethyl oleate to young hive bees via trophallaxis, which delays the age at which they begin foraging.}
 
 \paragraph{}
-Via this pheromonal mechanism the hive can mantain an equilibrium where its basic necessities (brood care and food flow) are satisfied.
-In this scenario, the collective pheromonal response -- which reduces the recruitment rate -- increases with the intensity of ethyl oleate exchanges, which in turn is related to the ratio $\frac{F}{H+F}$: these assumptions motivate the presence of this factor in Equation~\eqref{eq:Recr}.
+Tramite questo meccanismo mediato dai segnali feromonici, l'alveare tenta di mantenere un equilibrio
+demografico tra le due classi sufficiente a soddisfare le necessità della covata e dell'importazione
+di polline, nettare, acqua.
+
+In questo scenario la risposta collettiva -- che riduce il tasso di reclutamento -- aumenta con
+l'intensità degli scambi di ethyl oleate, che a loro volta sono correlati al rapporto $\frac{F}{H+F}$:
+queste assunzioni motivano la presenza di tale fattore nell'Equazione~\eqref{eq:Recr}.
 
 
-\paragraph{Death rates.}
+\paragraph{Tassi di mortalità.}
 As noted before, foragers are subjected to more diverse and intense stress factors than hive bees, whence the average lifespan of a female honeybee is longer as a hive worker, and is significantly shorter as a forager: \textquote[{\footcite[1]{khoury2011}}]{Survival of bees in the protected hive environment is high, but the survival of forager bees is much lower. \omissis The average foraging life of a bee has been estimated as less than seven days, because of the many risks and severe metabolic costs associated with foraging.}
 
 The sink term $-mF$ in Equation~\eqref{eq:kh11f} accounts for foragers mortality;

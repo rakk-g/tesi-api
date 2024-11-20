@@ -111,6 +111,7 @@ Abbiamo dunque $g(0)=0$, $\diff{g}{x_h} \geq 0$ e $\diff{g}{x_f} \geq 0$. Inoltr
 
     \caption[Sigmoidi di Hill.]{Sigmoide di Hill per diversi valori dell'esponente $i$.
         \\ Il parametro $K$ rappresenta la retroimmagine del semimassimo.}
+        % TODO citarla negli strumenti quando si dicono le Holling
     \label{img:hillSigmoid}
 \end{figure}
 
@@ -170,29 +171,9 @@ $$ a \coloneq - \frac{ \mu }{ \frac{\sigma_2 F}{1+F} - d_1 - \sigma_1 }.$$
     Il modello ridotto alle sole api \eqref{eq:rattiRidotto1prima}--\eqref{eq:rattiRidotto1seconda} ammette sempre l'equilibrio banale $(0,0)$, e se $\frac{\sigma_2 F}{1+F} - d_1 - \sigma_1 >0$ allora esso è unico.
 
     Viceversa, se $\frac{\sigma_2 F}{1+F} - d_1 - \sigma_1 <0$ allora il sistema ammette due ulteriori equilibri strettamente positivi, a patto che sia verificata l'ulteriore condizione
-    $$a > \frac{Ki}{1+F} (i-1)^{- (1+ 1/i)}.$$
+    $$a > \frac{Ki}{1+F} (i-1)^{\frac{1}{i} -1}.$$
+    \label{prop:rExist}
 \end{proposizione}
-
-\begin{proof}
-    Le equazioni del modello sono omogenee, dunque l'equilibrio banale $(0,0)$ esiste sempre.
-    Dalla \eqref{eq:rattiRidotto1seconda} segue che ogni punto di equilibrio strettamente positivo $(x_h^*, x_f^*)$ verifica
-    $$x_f^2 + \frac{\sigma_2 - \sigma_1 + p + d_2}{p +d_2} x_h x_f - \frac{\sigma_1}{p+d_2} x_h^2 = 0,$$
-    da cui ricaviamo la relazione tra le componenti $x_f^* = F x_h^*$.
-\end{proof}
-
-
-
-
-Viceversa, se tale disequazione è invertita, possiamo formulare una condizione sufficiente per l'esistenza di due equilibri strettamente positivi.
-Poniamo per comodità
-
-ed osserviamo che la \eqref{eq:rattiRidotto1seconda} implica che ogni punto di equilibrio positivo $(x_h^*, x_f^*)$ verifica la relazione $x_f^* = F x_h^*$.
-
-Definiamo inoltre la quantità
-
-che ci permette di stabilire il seguente criterio: se $\frac{\sigma_2 F}{1+F} - d_1 - \sigma_1 <0$ ed inoltre
-
-allora esistono due equilibri non banali (positivi).
 
 \paragraph{}
 Se esistono, gli equilibri positivi sono stabili se
@@ -308,6 +289,9 @@ suloz non banali, Floquet
 
 
 \subsection{Riduzioni ai modelli precedenti}
-Se nell'espressione di $g$ (equazione~\eqref{eq:hillSigmoid}) prendiamo $K=0$ ci riduciamo al modello di \cite{sumMar04}
+
+Se nell'espressione di $g$ (equazione~\eqref{eq:hillSigmoid}) prendiamo $K=0$ ci riduciamo al modello di \cite{sumMar04}.
+
+Con $i=1$ e togliendo virus e varroe e mortalità nel comparto $x_h$ ci si riduce a \cite{khoury2011}.
 
 

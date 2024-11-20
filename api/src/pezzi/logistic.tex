@@ -1,7 +1,6 @@
 \subsubsection{Funzione Logistica}
 La \emph{funzione logistica} è una famiglia di sigmoidi che
-
-\blockquote[WEN:Logistic_function]{\ellipsis trova applicazione in molti campi,
+\textquote[WEN:LogisticFunction]{\omissis trova applicazione in molti campi,
 compresi: biologia (specialmente ecologia), biomatematica, chimica, Demografia, economia,
 geoscienze, psicomatematica, probabilità, sociologia, scienze politiche, linguistica,
 statistica e reti neurali.
@@ -38,7 +37,11 @@ che è una versione traslata lungo $x$ e riscalata su entrambi gli assi:
 
 \paragraph{}
 Nelle applicazioni, può essere utile conoscere le derivate della $f$ logistica:
-nelle figg.~\ref{img:logisticV}, \ref{img:logisticA}, \ref{img:logisticJ}.
+nelle figg.~\ref{img:logisticV}, \ref{img:logisticA}, \ref{img:logisticJ} si osservi che
+la $f'$ è sempre positiva, e le derivate sono alternativamente pari e dispari, secondo la
+facile generalizzazione di un noto risultato.\footnote{Ossia che $f \text{ pari} \implies
+    f' \text{ dispari}$ ed analogamente al contrario,
+producendo una catena di alternanze.}
 
 \begin{figure}[pbh]
     \centering
@@ -62,5 +65,16 @@ nelle figg.~\ref{img:logisticV}, \ref{img:logisticA}, \ref{img:logisticJ}.
     \label{img:logisticJ}
 \end{figure}
 
-lei e sue derivate, ocio ai valori che assumono.
+Il calcolo esplicito delle derivate della $f$ logistica è facilitato parecchio osservando che
+$$\diff{}{x} f(x) = f(x) \left( {1-f(x)} \right) \; ,$$
+da cui tutte le derivate successive possono ricavarsi algebricamente.
+
+\paragraph{}
+La proprietà di simmetria della logistica
+$$1 -f(x) = f(-x)$$
+riflette il fatto che la crescita sopra $0$ intorno a valori piccoli di $x$ è
+simmetrica rispetto al decadimento al raggiungere il valore--limite di saturazione,
+per grandi valori di $x$.
+
+
 e l'integrale?

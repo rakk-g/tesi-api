@@ -1,4 +1,4 @@
-% was: ITA
+% % was: ITA
 % \chapter{Mathematical models}
 % In this chapter we will discuss
 % In questo capitolo discuteremo alcuni modelli proposti in letteratura per descrivere la dinamica della popolazione di una colonia di \emph{Apis Mellifera}.
@@ -13,8 +13,31 @@
 % Gli altri compartimenti del modello riguardano la popolazione di \emph{V.~destructor} e le api infette dal virus della paralisi (ABPV), trasmesso dagli acari.
 
 
-% now: ENG
-\chapter{Mathematical models}
+% % now: ENG
+% In this chapter, we will discuss some models proposed in the literature to describe the population dynamics of an \emph{Apis mellifera} colony.
+%
+% For an overview including these models, see the review by \citeauthor{chen_review}\footcite{chen_review},
+% in which the authors compare the models and provide a useful table with the ranges of
+% parameter values observed in the field and supported by the literature.
+%
+% They also provide a useful table summarizing the main characteristics of the models,
+% facilitating their comparison.
+%
+% \paragraph{}
+% The first model explored is a very simple one\footcite{khoury2011},
+% yet it emphasizes some key features of \emph{A. mellifera} hive dynamics,
+% and it success really lies in later more sophisticated models that draw from its key elements.
+%
+% \blockquote[\citeauthor{khoury2011}]{The model that we present here is very simple and focuses on the effect of varying forager death rate on brood and adult bee population dynamics.}
+%
+% \paragraph{}
+% The second model we consider\footcite{ratti2017} divides the healthy worker population into ``hive bees'' -- those that perform care and maintenance tasks inside the nest -- and foragers that bring food from the outside environment.
+%
+% The other compartments of the model involve the population of \emph{V.~destructor} and bees infected by the Acute Bee Paralysis Virus (ABPV), transmitted by the mites.
+
+
+% now: ITA AGAIN!
+\chapter{Modelli matematici}
 \begin{flushright}
     \small
     \textquote[Andrea~Milani~Comparetti]{Adesso vi dirò \emph{la mia} definizione di stabilità asintotica.
@@ -22,27 +45,38 @@
         che studiano i sistemi dinamici.}
 \end{flushright}
 
-In this chapter, we will discuss some models proposed in the literature to describe the population dynamics of an \emph{Apis mellifera} colony.
-
-For an overview including these models, see the review by \citeauthor{chen_review}\footcite{chen_review},
-in which the authors compare the models and provide a useful table with the ranges of
-parameter values observed in the field and supported by the literature.
-
-They also provide a useful table summarizing the main characteristics of the models,
-facilitating their comparison.
+In questo capitolo discuteremo alcuni modelli proposti in letteratura per descrivere alveari o apiari di
+\emph{A.~mellifera}, e le sue interazioni con patogeni e altri fattori di stress.
 
 \paragraph{}
-The first model explored is a very simple one\footcite{khoury2011},
-yet it emphasizes some key features of \emph{A. mellifera} hive dynamics,
-and it success really lies in later more sophisticated models that draw from its key elements.
+Per una panoramica sui modelli a proposito di api si rimanda alla review di
+\citeauthor{chen_review}\footcite{chen_review}, in cui si comparano molti modelli e si forniscono utili
+tabelle di parametri coi valori rilevati sul campo durante gli studi citati.
+
+Risulta efficace anche una tabella in cui si riassumono le caratteristiche dei modelli, facilitando
+la loro comparazione.
+
+
+\paragraph{}
+Il primo modello esaminato è piuttosto semplice\footcite{khoury2011}, eppure esprime efficacemente alcune
+caratteristiche critiche nei procesi demografici di \emph{A. mellifera}, e le proposte--chiave di questo
+articolo sono state integrate spesso in modelli successivi e più sofisticati.
 
 \blockquote[\citeauthor{khoury2011}]{The model that we present here is very simple and focuses on the effect of varying forager death rate on brood and adult bee population dynamics.}
 
 \paragraph{}
-The second model we consider\footcite{ratti2017} divides the healthy worker population into ``hive bees'' -- those that perform care and maintenance tasks inside the nest -- and foragers that bring food from the outside environment.
+Il secondo modello che consideriamo\footcite{ratti2017} divide la popolazione di operaie sane tra ``api di casa''
+e ``api di campo'', caratteristica ereditata dallo studio precedente\footcite{khoury2011}.
 
-The other compartments of the model involve the population of \emph{V.~destructor} and bees infected by the Acute Bee Paralysis Virus (ABPV), transmitted by the mites.
+Gli altri compartimenti del modello riguardano le api infette dal virus della paralisi (ABPV) e degli acari
+\emph{V.~destructor} che possono trasportare o meno il virus.
+
+Lo studio originale di questo modello\footcite{ratti2017} è focalizzato sull'evidenziare il ruolo \emph{preventivo}
+dei trattamenti anti--\emph{Varroa} nel contrastare lo spopolamento degli alveari.
+In questo contesto, la \emph{Varroa} è uno soltanto dei molteplici fattori di stress, ma sembra giocare
+un ruolo centrale nel \emph{catalizzare} altri effetti nefasti, il cui effetto combinato porta al collasso
+della colonia se sostenuto nel tempo oltre i livelli--limite.
 
 \input{pezzi/mod_khoury11}
 
-\input{pezzi/mod_ratti17}
+\input{pezzi/mod_ratti17.ita}

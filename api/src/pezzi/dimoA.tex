@@ -1,98 +1,104 @@
-\chapter{Stated results}
+\chapter{Risultati}
 
-\section{About KH11}
+\section{A proposito di KH11}
 \subsection{ Lemma~\ref{lem:necessJ} }
-From page~\pageref{lem:necessJ}.
+L'enunciato si trova a pagina~\pageref{lem:necessJ}.
 \begin{proof}
-    By equating to zero the right--hand side of Equation~\eqref{eq:kh11f} we get
+    Annullando il membro destro dell'equazione~\eqref{eq:kh11f} otteniamo
     $$F^2 - \left( \frac{\alpha}{m} - \frac{\sigma}{m} -1
         \right) H F - \frac{\alpha}{m} H^2 = 0 \; ,$$
-    which has discriminant
+    che ha determinante
     $$\Delta = \left[ {\left( \frac{\alpha}{m} - \frac{\sigma}{m} -1
         \right)}^2 + 4 \frac{\alpha}{m}
         \right] H^2 \; ; $$
-    we incidentally note that the parametric factor is always strictly positive.
+    notiamo incidentalmente che il fattore parametrico è sempre strettamente positivo.
 
     \paragraph{}
-    Adopting the definition of $J$ from Equation~\eqref{eq:kh11posEqJ} we can see that any equilibrium point $(H^*, F^*)$ has to verify $F^* = J H^*$.
+    Adottando la definizione di $J$ dell'equazione~\eqref{eq:kh11posEqJ}, possiamo vedere
+    che ogni punto d'equilibrio $(H^*, F^*)$ deve necessariamente verificare $F^* = J H^*$.
 \end{proof}
 
-\subsection{ Theorem~\ref{teo:exUniqFstarPos} }
-From page~\pageref{teo:exUniqFstarPos}
+
+\subsection{ Proposizione~\ref{teo:exUniqFstarPos} }
+L'enunciato si trova a pagina~\pageref{teo:exUniqFstarPos}
 
 \begin{proof}
-    We get the proof done by somewhat tedious, but quite elementary calculations.
+    Otteniamo la dimostrazione con alcuni calcoli elementari.
 
-    Since we are looking for a non--trival equilibrium point $(H^*, F^*)$, by
-    Lemma~\ref{lem:necessJ} we can suppose both components strictly positive in the following.
+    Dal momento che stiamo cercando un equilibrio non banale $(H^*, F^*)$, per il
+    Lemma~\ref{lem:necessJ} possiamo supporre ambo le componenti strettamente positive nel seguito.
 
-    By Lemma~\ref{lem:necessJ} we can substitute for $H=\frac{1}{J} F$ in the right--hand side of the first equation~\eqref{eq:kh11h} of the model, which is equal to zero by the equilibrium condition. From
+    Ancora per il Lemma~\ref{lem:necessJ}, possiamo sostituire $H=\frac{1}{J} F$ nel membro destro della
+    prima equazione~\eqref{eq:kh11h} del modello, ed usare la condizione di equilibrio per uguagliare
+    a zero quanto ottenuto. Da
     $$L \frac{ \left( \frac{1}{J} +1 \right) F }{ w +\left( \frac{1}{J} +1 \right) F }
     - \frac{1}{J} F \left( \alpha - \sigma \frac{\cancel{F}}{ \left( \frac{1}{J} +1 \right) \cancel{F} } \right) = 0$$
-    we can simplify $F$, for it is non--zero, in order to get
+    possiamo semplificare $F$ perché non nulla, così da ottenere
     $$L \left( \frac{1}{J} +1 \right) \cancel{F} - \frac{1}{J} \left( \alpha - \frac{\sigma}{ \frac{1}{J} +1 } \right)
     \left[ w + \left( \frac{1}{J} +1 \right) F \right] \cancel{F} = 0 \; ,$$
-    where the simplification of $F$ goes by the same argument as before; note that this amounts to discarding the zero solution, in which we are not interested by hypothesis.
+    dove la semplificazione di $F$ procede con lo stesso argomento di sopra; si noti che ciò ammonta a scartare la
+    soluzione nulla, che non ci interessa per ipotesi.
 
-    We get the uniqueness of the positive equilibrium by further algebraic manipulation of the above equations to finally get
+    L'unicità dell'equilibrio positivo si ottiene manipolando ulteriormente l'equazione sopra, ottenendo infine
     $$F^* = \frac{LJ}{ \alpha - \frac{\sigma}{ 1 + \frac{1}{J} } } - w \frac{J}{1+J} \; ,$$
-    where we can see that the right--hand side is entirely dependent on the parameters.
+    in cui possiamo osservare che il membro destro dipende esclusivamente dai parametri.
 
     \paragraph{}
-    Since we got last equation holding, in order to conclude our proof --
-    \ie to estabilish equation \eqref{eq:kh11posEqF} -- it remains to prove that
+    Avendo a disposizione l'ultima equazione, per concludere la dimostrazione -- \ie stabilire
+    l'equazione~\eqref{eq:kh11posEqF} -- resta soltanto da provare che
     $$J m = \alpha - \sigma \frac{J}{1+J} \; ,$$
-    where again we simplified the factor $L$ at both sides, for it is non--zero.
+    dove abbiamo semplificato il fattore $L$ ad ambo i membri, essendo non nullo.
 
-    To estabilish this last equation could be useful to rationalize the expression $\frac{J}{1+J}$ as
+    Per stabilire quest'ultima equazione può essere utile razionalizzare l'espressione $\frac{J}{1+J}$ come
     $$\frac{J}{1+J} = \frac{ \alpha + \sigma + m - \sqrt{ {(\alpha - \sigma -m)}^2 - 4 \alpha m } }{2 \sigma}$$
-    and get to it via algebraic manipulation.
+    e raggiungere l'obiettivo tramite manipolazioni algebriche.
 
     \paragraph{}
-    We have estabilished Equation~\eqref{eq:kh11posEqF} and this concludes the proof.
+    Abbiamo stabilito l'equazione~\eqref{eq:kh11posEqF} e ciò conclude la prova.
 \end{proof}
 
 
-\subsection{ Theorem~\ref{teo:esistenzPosF} }
-From page \pageref{teo:esistenzPosF}.
+\subsection{ Proposizione~\ref{teo:esistenzPosF} }
+Dalla pagina~\pageref{teo:esistenzPosF}.
 
 \begin{proof}
-We can use Equation~\eqref{eq:kh11posEqF} from Theorem~\ref{teo:exUniqFstarPos} and then study the
-inequality $F^* >0$ to prove the existence criterion:
+Possiamo usare la equazione~\eqref{eq:kh11posEqF} dalla Proposizione~\ref{teo:exUniqFstarPos} e studiare
+la disequazione $F^* >0$ per dimostrare il criterio di esistenza:
 $$F^* > 0 \; \iff \;
 \left( \frac{2 \alpha w}{L} -1 \right) m - \alpha - \sigma < \sqrt{ {(\alpha - \sigma -m)}^2 + 4 \alpha m }$$
 
-we can square both sides in order to get the following inequality in $m$:
+possiamo elevare al quadrato ambo i membri per ottenere la seguente disuguaglianza in $m$:
 \begin{equation}
     \left( \frac{\alpha w}{L} -1 \right) m^2 -( \alpha + \sigma) m + \frac{\sigma L}{w} < 0
     \label{eq:mDiseq}
 \end{equation}
-which has always positive discriminant
+la quale ha determinante sempre positivo
 $$\Delta = {(\alpha -\sigma)}^2 +4 \frac{\sigma L}{w} \; .$$
 
-Via the quadratic roots formula we get Equation~\eqref{eq:FstarPosM12}.
-We will select the nomenclature as to always have $m_1^* < m_2^*$ in the rest of this proof.
+L'equazione~\eqref{eq:FstarPosM12} si ottiene applicando la formula delle radici quadratiche.
+Nel seguito selezioneremo la nomenclatura per avere sempre $m_1^* < m_2^*$ nel resto della dimostrazione.
 
-\paragraph{Case 1.}
-If $\alpha - \frac{L}{w} >0$ then $F^*>0$ exists for $m_1^* < m < m_2^*$, and the lower bound makes sense since
-$m_1^* > 0$ reduces to $\alpha - \frac{L}{w}>0$, which is true by case hypothesis.
+\paragraph{Caso 1.}
+Se $\alpha - \frac{L}{w} >0$ allora $F^*>0$ esiste $m_1^* < m < m_2^*$, ed il limite inferiore ha senso,
+dal momento che
+$m_1^* > 0$ si riduce a $\alpha - \frac{L}{w}>0$, vera per ipotesi del caso.
 
-\paragraph{Case 2.}
-If $\alpha -\frac{L}{w} <0$ then we must take $m < m_1^*$ or $m > m_2^*$ for $F^* >0$ to exist.
-The first inequality can be discarded as is $m_1^* <0$ by case hypothesis.
+\paragraph{Caso 2.}
+Se $\alpha -\frac{L}{w} <0$ allora dobbiamo prendere $m < m_1^*$ oppure $m > m_2^*$ affinché $F^* >0$ esista.
+La prima disequazione si può scartare dal momento che $m_1^* <0$ per ipotesi del caso.
 
-The second one must be kept since $m_2^* >0$ reduces to our case hypothesis $\alpha - \frac{L}{w} < 0$.
+La seconda va mantenuta dal momento che $m_2^* >0$ si riduce alla ipotesi del caso $\alpha - \frac{L}{w} < 0$.
 
-\paragraph{Case 3.}
-When $\alpha - \frac{L}{w} =0$ our inequality~\eqref{eq:mDiseq} becomes linear and its solution is
+\paragraph{Case 0.}
+Quando $\alpha - \frac{L}{w} =0$ la nostra disequazione~\eqref{eq:mDiseq} diviene lineare e la sua soluzione è
 $$m > \frac{\sigma L}{w (\alpha +\sigma)} \; ,$$
-which concludes our last case and the proof.
+ciò che conclude l'ultimo caso restante della dimostrazione.
 \end{proof}
 
 
-\section{About Ratti17}
-\subsection{ Proposition~\ref{prop:rExist} }
-From page~\pageref{prop:rExist}.
+\section{A proposito di Ratti17}
+\subsection{ Proposizione~\ref{prop:rExist} }
+Da pagina~\pageref{prop:rExist}.
 
 \begin{proof}
     Le equazioni del modello sono omogenee, dunque l'equilibrio banale $(0,0)$ esiste sempre.
@@ -110,78 +116,81 @@ From page~\pageref{prop:rExist}.
 
 
 
-\chapter{Theory}
+\chapter{Teoria}
+In questo capitolo si richiamano alcuni risultati nell'ambito dei sistemi dinamici, utili strumenti ai fini
+di questa tesi. [ RIF BIB] % TODO
 
-In this chapter we recall some useful results from the theory of dynamical systems.
-
-It is useful to define some preliminary notation, to be used in the rest of this chapter.
-Let
+È utile definire un po' di notazione preliminare, prima di procedere oltre.
+Sia
 $$\begin{sistema}
 \dot{\mathbf{x}} = F ( \mathbf{x} ) \\
 \mathbf{x} (t_0) = \mathbf{x}_0
 \end{sistema}$$
-be a dynamical system with initial condition $\mathbf{x}_0$. We will suppose throughout the rest of this
-chapter that $F$ is defined on some open $W \subseteq \R^n$ and that it is of class $C^1$ at least.
+un sistema dinamico con condizione iniziale $\mathbf{x}_0$. Supporremo nel seguito del capitolo che $F$ sia
+definita su qualche aperto $W \subseteq \R^n$ e che sia di classe $C^1$ almeno.
 
-If
+Se
 $$\diffp{F}{t} = 0 \; ,$$
-\ie the system equation does not depend explicitly on time, we say that the system is \emph{autonomous}.
-For such system is unrestrictive to suppose the initial condition is given at the instant $t_0=0$.
+\ie il sistema non dipende esplicitamente dal tempo, esso si dice\emph{autonomo}.
+Per tali sistemi non è restrittivo supporre la condizione iniziale data all'istante zero: $t_0=0$.
 
 \paragraph{}
-We can describe synthetically the solutions of a dynamical system via the \emph{general solution}\footnote{Sometimes
-\emph{``integral flow''}.} map
+Possiamo descrivere sinteticamente le soluzioni di un sistema dinamico tramite la
+\emph{soluzione generale}\footnote{Talvolta anche \emph{``flusso integrale''}.}
 $$\Phi \, : \, D \to W, \quad (t, \mathbf{x}_0 ) \mapsto \Phi_t ( \mathbf{x}_0 ) \; ,$$
-that sends $(t, \mathbf{x}_0 )$ to the solution $\mathbf{x} (t)$ with initial condition $\mathbf{x}_0$, evaluated at time $t$. This is a well--defined application via the Existence/Uniqueness Theorem; it does not, however,
-state any condition on the form the domain of each solution, which still depend on the initial condition.
-Thus $D \subseteq \R times W$ is not known in advance.
+che mappa $(t, \mathbf{x}_0 )$ nella soluzione $\mathbf{x} (t)$ con condizioni iniziali $\mathbf{x}_0$,
+valutata al tempo $t$. Questa è una applicazione ben definita grazie al Teorema di esistenza e unicità delle
+soluzioni; purtroppo non abbiamo condizioni garantite sulla forma del dominio di ogni soluzione, che dipende
+comunque dalle condizioni iniziali.
+Dunque la forma di $D \subseteq \R times W$ non è nota a priori.
 
-If we denote the projection $D \to W$ by $p$, we know that each fiber $p^{-1} ( \mathbf{x}_0 )$ is an open interval
-containing $t_0$.
+Se indichiamo con $p$ la proiezione $D \to W$, sappiamo che ogni fibra
+$p^{-1} ( \mathbf{x}_0 )$ è un intervallo aperto contenente $t_0$.
 
-By definition, the map $t \mapsto \Phi_t ( \mathbf{x}_0 )$ is a solution to the dynamical system
+Per definizione, la mappa $t \mapsto \Phi_t ( \mathbf{x}_0 )$ è la soluzione del problema di Cauchy
 $$\begin{sistema}
 \diff{ \Phi_t ( \mathbf{x}_0 ) }{t} = F \left( \Phi_t ( \mathbf{x}_0 ) \right) \\
 \Phi_{t_0} ( \mathbf{x}_0 ) = \mathbf{x}_0
 \end{sistema}$$
 
-We recall the \emph{semigroup property} of the general solution
+Richiamiamo la \emph{proprietà di semigruppo} del flusso integrale:
 $$\Phi_h \circ \Phi_t = \Phi_{h+t}$$
-for all $h, t \geq t_0$.
+per ogni $h, t \geq t_0$.
 
-\begin{definizione}[Equilibrium point]
-    We say that $\mathbf{x}_S \in W$ is an \emph{equilibrium point} for our dynamical system,
-    if $F( \mathbf{x}_s ) = \mathbf{0}$.
+\begin{definizione}[Punto di Equilibrio]
+    Diciamo che $\mathbf{x}_S \in W$ è un \emph{punto di equilibrio} per il sistema dinamico,
+    se $F( \mathbf{x}_s ) = \mathbf{0}$.
 \end{definizione}
 
-On any equilibrium point we have a constant orbit $\mathbf{x} (t) \equiv \mathbf{x}_S$, but any different solution
--- however near $\mathbf{x}_S$ -- cannot reach this point for any finite $t$ value.
+Su ogni punto di equilibrio abbiamo la soluzione costante $\mathbf{x} (t) \equiv \mathbf{x}_S$, che è un'orbita,
+ma ogni altra soluzione -- comunque vicina a $\mathbf{x}_S$ -- non può raggiungere $x_S$ per nessun $t$ finito.
 
-\begin{definizione}[Stable point]
-    A point $\mathbf{x}_S \in W$ is said to be \emph{stable} if for every neighbourhood $U$ of $\mathbf{x}_S$
-    there exists a neighbourhood $V$ of $\mathbf{x}_S$\footnote{Without loss of generality $U, V, \subseteq W$.}
-    such that
+\begin{definizione}[Stabilità]
+    Un punto $\mathbf{x}_S \in W$ si dice \emph{stabile} se per ogni intorno $U$ di $\mathbf{x}_S$
+    esiste un intorno $V$ di $\mathbf{x}_S$
+    tale che
+    \footnote{Senza perdita di generalità $U, V, \subseteq W$.}
     $$(\forall \mathbf{x}_0 \in V) \; \Phi_t ( \mathbf{x}_0 ) \; ,$$
-    for every $t \geq 0$.
+    per ogni $t \geq 0$.
 \end{definizione}
 
-By definition, solutions can be constrained to remain arbitrarily near a stable point, provided that we choose
-initial conditions sufficiently close to it.
+Per definizione, le soluzioni possono essere ``costrette'' a restare arbitrariamente vicine ad un punto
+stabile, purché si scelgano condizioni iniziali sufficiente vicine ad esso.
 
-Observe that any stable point is an equilibrium point also.
+Si osservi che ogni punto stabile è anche di equilibrio.
 
-\begin{definizione}[Attractive point]
-    We say that a point $\mathbf{x}_S \in W$ is \emph{attractive} if there exists a
-    neighbourhood $U$ of $\mathbf{x}_S$ such that
+\begin{definizione}[Attrazione e repulsione]
+    Diciamo che un punto $\mathbf{x}_S \in W$ è \emph{attrattivo} se esiste un intorno
+    $U$ di $\mathbf{x}_S$ tale che
     $$(\forall \mathbf{x}_0 \in U) \; \exists \lim_{t \to +\infty} \Phi_t (\mathbf{x}_0) = \mathbf{x}_S \; .$$
 
-    When we get the same with $t \to -\infty$, we say that $\mathbf{x}_S$ is \emph{repulsive}.
+    Quando otteniamo la stessa cosa con $t \to -\infty$, diciamo che $\mathbf{x}_S$ è \emph{repulsivo}.
 \end{definizione}
 
-Note that, being a limit point, any attractive or repulsive point is an equilibrium point also.
+Si noti che essendo un punto limite, ogni punto attrattivo o repulsivo è anche un punto di equilibrio.
 
-\begin{definizione}[Asymptotic stability]
-    A point which is both attractive and forward stable, is said \emph{asymptotically stable}.
+\begin{definizione}[Stabilità asintotica]
+    Un punto che è sia attrattivo che stabile in avanti si dice \emph{asintoticamente stabile}.
 \end{definizione}
 
 \begin{definizione}{Lyapounov Exponents}
