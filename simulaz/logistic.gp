@@ -11,13 +11,15 @@ set style line 2 lc rgb '0x0A0A0F' pt 5 ps 1.2 lw 1.5 dt 2  # square, dashed
 set title "Logistic function"
 set ylabel "f(x)"
 set output "logisticF.png"
-plot 1/(1+exp(-x)) with lines ls 1
+plot 1/(1+exp(-x)) with lines ls 1, 0.5 with lines ls 2
 
 # logistic velocity
+set yrange [0:0.55]
 set title "Logistic velocity"
 set ylabel "f'(x)"
 set output "logisticV.png"
-plot exp(-x)/(1+exp(-x))**2 with lines ls 1
+plot exp(-x)/(1+exp(-x))**2 with lines ls 1, 0.5 with lines ls 2
+set yrange [*:*]
 
 # logistic acceleration
 set title "Logistic acceleration"

@@ -1,7 +1,7 @@
 import os
 import random
 
-def remove_random_files(directory, percentage=90):
+def remove_random_files(directory, percentage=80):
     """
     Rimuove casualmente una percentuale specificata di file da una directory.
 

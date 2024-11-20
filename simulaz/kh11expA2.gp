@@ -11,22 +11,6 @@ set style line 1 lc rgb 'blue' pt 5 ps 1.2 lw 2  # square
 set style line 2 lc rgb '0x0A0A0F' pt 5 ps 1.2 lw 1.5 dt 2  # square, dashed
 set style line 3 lc rgb 'red' pt 5 ps 1.2 lw 2  # square red
 
-# m_i^* contro w
-set title "m_1^*, m_2^*, m_3^* against w"
-set xlabel 'w'
-set ylabel "m_1^*, m_2^*, m_3^*"
-set xrange[3000:*]
-set yrange[0.05:100]
-set logscale y
-set output "k11EA2-mistarVSw.png"
-set arrow from 8000,0.05 to 8000,100 nohead dashtype 2 # evidenzia la soglia di 6b!
-# filtro che toglie le altre, che sono tutte zero o negative TODO chk
-plot aggrFname using 1:($6>0?$7:1/0) with points ls 1 title 'm_1 6b', \
-aggrFname using 1:($6>0?$8:1/0) with points ls 1 lc rgb 'red' title 'm_2 6b', \
-aggrFname using 1:($6<0?$8:1/0) with points ls 1 lc rgb 'red' pt 1 title 'm_2 NO 6b', \
-aggrFname using 1:($6>0?$9:1/0) with points ls 1 lc rgb 'green' title 'm_3 6b', \
-aggrFname using 1:($6<0?$9:1/0) with points ls 1 lc rgb 'green' pt 1 title 'm_3 NO 6b'
-# aggrFname using 1:($6<0?$7:1/0) with points ls 1 , \ # questi sono negativi
 
 # final pop vs initial pop
 set title "Final Pop. against initial Pop."
@@ -46,7 +30,7 @@ set yrange [*:100000] # c'è una linea di roba che scoppia! Ma ricalca l'andamen
 set xlabel 'w'
 set ylabel 'Final Pop.'
 fit parab(x) aggrFname using 1:11 via a, b, c
-set output "k11EA2-finpopVSw"
+set output "k11EA2-finpopVSw.png"
 plot aggrFname using 1:($6>0?$11:1/0) with points ls 1 lc rgb 'blue' title "data cond6b.", \
 aggrFname using 1:($6<0?$11:1/0) with points ls 1 lc rgb '0x2AFA3C' title "data NO cond6b.", \
 parab(x) w l ls 3 title 'quadratic fit'
@@ -62,7 +46,22 @@ set output "k11EA2-fdooVSm.png"
 plot aggrFname using 5:12 w points ls 1 title "data", line(x) w l ls 3 title "linear fit"
 
 
-
+# m_i^* contro w
+set title "m_1^*, m_2^*, m_3^* against w"
+set xlabel 'w'
+set ylabel "m_1^*, m_2^*, m_3^*"
+set xrange[3000:*]
+set yrange[0.05:100]
+set logscale y
+set output "k11EA2-mistarVSw.png"
+set arrow from 8000,0.05 to 8000,100 nohead dashtype 2 # evidenzia la soglia di 6b!
+# filtro che toglie le altre, che sono tutte zero o negative TODO chk
+plot aggrFname using 1:($6>0?$7:1/0) with points ls 1 title 'm_1 6b', \
+aggrFname using 1:($6>0?$8:1/0) with points ls 1 lc rgb 'red' title 'm_2 6b', \
+aggrFname using 1:($6<0?$8:1/0) with points ls 1 lc rgb 'red' pt 1 title 'm_2 NO 6b', \
+aggrFname using 1:($6>0?$9:1/0) with points ls 1 lc rgb 'green' title 'm_3 6b', \
+aggrFname using 1:($6<0?$9:1/0) with points ls 1 lc rgb 'green' pt 1 title 'm_3 NO 6b'
+# aggrFname using 1:($6<0?$7:1/0) with points ls 1 , \ # questi sono negativi
 
 
 
