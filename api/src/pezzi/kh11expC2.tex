@@ -1,81 +1,104 @@
-\section{Experiment C, iteration 2}
-Two iterations were made of this simulation with constant parameters $\alpha = 0.25$, $\sigma=0.75$, $L=2500$:
-data \texttt{A} was obtained with $w=27000$, while the value $w=9800$ was used for data \texttt{B}.
+\section{Esperimento C, iterazione 2}
+Due iterazioni di simulazione sono state svolte mantenendo costanti i parametri $\alpha = 0.25$, $\sigma=0.75$,
+$L=2500$: impostando infine $w=27000$ si è ottenuto il dataset \texttt{A}, mentre col valore
+$w=9800$ il risultato delle simulazioni è denominato \texttt{B}.
 
-In both experiments a random value for the parameter $m$ was obtained from a uniform distribution on $[0.006, \, 0.6]$
-with a resolution of 30. For each $m$ we selected at random initial values $1 \leq H_0 \leq 15000$ and $1 \leq F_0 \leq 6000$ and ran 30 such simulations for a total of 900 days each.
+In entrambi gli esperimenti il valore della mortalità $m$ è estratto in maniera pseudocasuale dalla distribuzione
+uniforme su $[0.006, \, 0.6]$
+con una risoluzione di 30 passi.
+Per ogni $m$ abbiamo selezionato condizioni iniziali pseudocasuali $1 \leq H_0 \leq 15000$ e
+$1 \leq F_0 \leq 6000$, quindi eseguito la simulazione corrispondente per 900 giorni.
+Per ogni tupla di parametri sono state selezionate 30 condizioni iniziali.
 
-\subsection{Data A}
+\subsection{Dataset A}
 \label{sec:kh11expC2A}
-Note that with $w=27000$ the condition~\eqref{eq:cond6b} from Theorem~\ref{teo:esistenzPosF} is true: $\alpha - \frac{L}{w} > 0$, which is case 1 of the Theorem,
-when a positive equilibrium exists for mortalities $m$ bound from above and from below:
+Si noti che con $w=27000$ la condizione~\eqref{eq:cond6b} dalla Proposizione~\ref{teo:esistenzPosF} è vera:
+$\alpha - \frac{L}{w} > 0$, che corrisponde al Caso 1 della Proposizione,
+in cui l'equilibrio positivo esiste per valori di mortalità $m$ limitati da sopra e da sotto:
 $$ 0.0804 \simeq m_1^* < m < m_2^* \simeq 0.5078 \; .$$
 
-In the remainder of this section, we will call ``weak'' those colonies which have final total
-population $N(900) < N_- = 100$ bees. We will say that a colony is ``strong'' if
-its final population is more than $N_+ = 40000$ workers.
+Nel resto di questa sezione, sarà utile definire ``deboli'' quelle colonie nella simulazione che hanno
+una popolazione finale $N(900) < N_- = 100$.
+Diremo che una colonia simulata è ``forte'' se la sua popolazione finale $N(900)$
+è maggiore di $N_+ = 40000$ operaie.
 
-Results are plotted in Figure~\ref{img:kh11expC2A}.
+I risultati della simulazione sono illustrati in figura~\ref{img:kh11expC2A}.
 
-All colonies which eventually die off have a high rate of forager mortality: $m > m_2^*$.
-Some of them don't collapse in 2.5 years and we don't call them ``weak'' in the sense above.
-
-\paragraph{}
-For mortalities above a reasonable value and below a fatal threshold, \ie for $m_1^* < m < m_2^*$,
-we get steadily close to a positive equilibrium $N^*$: final workers number can get even into
-the ``strong'' classification for hives with lower mortality rates, and become lower
-(in the hundreds) near the $m_2^*$ end of the spectrum.
+Tutte le colonie che prima o poi collassano presentano alti tassi di mortalità tra le bottinatrici: $m > m_2^*$.
+Alcune di quelle che non muoiono nell'arco di 2 anni e mezzo, e che non chiamiamo ``deboli'' nel senso sopra,
+potrebbero comunque finire per diventarlo avanzando la simulazione per altri mesi.
 
 \paragraph{}
-Outside the shown plot range were final populations in the unreasonable order of
-magnitude of $10^6$ and beyond, clearly indicating a diverging behaviour, even with low values of $N(0)$.
-All these points lie on the left of $m_1^* \simeq 0.0804$.\footnote{Cfr.~Interpretation at page~\pageref{par:interpretationCond6b}.}
+Per valori di mortalità\footnote{Cfr.~Interpretazione a p.~\pageref{par:interpretationCond6b}.}
+entro una soglia fatale, cioè per $m_1^* < m < m_2^*$,
+la popolazione delle colonie si avvicina rapidamente all'equilibrio positivo $P^*$.
+
+Si può osservare che il numero finale di operaie rientra nella classificazione di ``forti'' per valori
+bassi nello spettro delle mortalità, e che si abbassa (fino all'ordine delle centinaia) per $m$ vicino a
+$m_2^*$.
+
+\paragraph{}
+Al di fuori della regione inserita nel grafico sono presenti popolazioni finali di irragionevoli
+magnitudini intorno a $10^7$ ed oltre, chiaramente indicanti un comportamento divergente, perfino
+con valori molto bassi di $N(0)$.
+
+Tutti questi punti giacciono nel semipiano alla sinistra di
+$m_1^* \simeq 0.0804$.\footnote{Cfr.~Interpretazione a p.~\pageref{par:interpretationCond6b}.}
 
 \begin{figure}[pbh]
     \centering
     \includegraphics[keepaspectratio,width=0.98\textwidth]{img/kh11expC2A}
 
-    \caption[Experiment C2A]{Experiment C2A: total number of worker bees $N(t)= H(t)+F(t)$ is shown at $t=0$ and $t=900$ for different levels of forager mortality $m$.
+    \caption[Esperimento C2A]{Viene mostrato il numero totale di operaie $N(t)= H(t)+F(t)$
+    al tempo $t=0$ e $t=900$, per valori differenti di mortalità nel comparto bottinatrici $m$.
 
-    With the terminology estabilished in page \pageref{sec:kh11expC2A}, we see that
-    initial conditions of colonies that become ``weak'' (blue squares) lie all in
-    the half--plane $m>0.5078$ (dotted vertical line).
-    Similarly, initial conditions of colonies that eventually become ``strong''
-    (red x's) all lie around the line $m=0.0804$ (dashed).
+    Con la terminologia stabilita a p.~\pageref{sec:kh11expC2A}, vediamo che le condizioni iniziali
+    per le colonie che diventano ``deboli'' (quadrati blu) giacciono tutte nel semipiano
+    $m>0.5078$ (linea a punti).
 
-    In black we see the initial conditions (+) and final populations (triangles) for colonies that
-    don't get to be ``strong'' nor ``weak'' at day $t=900$.
+    In maniera simile, condizioni iniziali per le colonie che alla fine della simulazione
+    risultano ``forti'' (x rosse) giacciono tutte attorno alla soglia $m=0.0804$ (linea a tratti).
+    Gli alveari con mortalità inferiore alla soglia divergono rapidamente entro i 900 giorni della
+    simulazione, mentre i valori di $m$ alla destra $m_1^*$ la popolazione totale converge verso
+    valori assai grandi, ma finiti.
 
-    Final population numbers for ``strong'' hives (purple circles) all happen in the left--hand side
-    of the spectrum $0.0804 < m < 0.5078$.
+    In nero vediamo le condizioni iniziali (+) e popolazioni finali (triangoli) per le colonie che
+    non diventano né ``forti'' né ``deboli'' entro il giorno $t=900$.
+
+    Le popolazioni finali per le colonie ``forti'' (punti viola) occorrono tutte nel lato sinistro
+    dello spettro $0.0804 < m < 0.5078$.
     }
 
     \label{img:kh11expC2A}
 \end{figure}
 
-\subsection{Data B}
-In this experiment we ran 900 simulations for 900 days each, within the same setting as above,
-where we changed the value of the parameter $w$ only.
+\subsection{Dataset B}
+In questo esperimento sono state eseguite 900 simulazioni di 900 giorni ognuna, entro la configurazione di
+cui sopra, in cui cambiamo esclusivamente il valore di $w$.
 
-Note that in this case inequality~\eqref{eq:cond6b} is reversed, since
+Si noti che in questo caso $w=9800$ la disequazione~\eqref{eq:cond6b} si inverte, dal momento che
 $$ \alpha - \frac{L}{w} = \frac{1}{4} - \frac{2500}{9800} < 0 \; .$$
 
-Results are plotted in Figure~\ref{img:kh11expC2B}: for each simulation the fraction $\frac{N(900)}{N(0)}$ is plotted against its level of forager mortality.
-This is a rough measure of performance of the hive, for it depends on the colony ability to secure
-trophic and reproductive capabilities, within the limits of its given initial conditions.
+I risultati sono mostrati nel grafico in figura~\ref{img:kh11expC2B}:
+per ogni simulazione la frazione $\frac{N(900)}{N(0)}$ viene plottata contro il livello $m$ di mortalità
+tra le foraggiatrici.
+Ciò corrisponde a una misura molto grezza e rudimentale delle prestazioni della colonia, perché dipende
+dalla abilità dell'alveare di ``conquistare'' livelli trofici e di capacità riproduttiva che ne garantiscano
+la sopravvivenza; entro i limiti dei parametri impostati e delle condizioni iniziali estratte.
 
 \paragraph{}
-We can see that initial population levels definitely increased in a span of 2.5 years for
-almost all initial conditions. A slight decreasing trend in final population levels is
-noted for higher mortality rates; still, these higher values for $m$ cannot keep the colony
-population at reasonably stable levels and only lower the speed at which population is diverging.
+Possiamo vedere che i livelli di popolazione aumentano decisamente nell'arco di 2 anni e mezzo, per
+quasi ogni condizione iniziale. Una leggera tendenza alla decrescita nei livelli finali di popolazione
+si può notare per tassi più elevati di mortalità. Ad ogni modo, anche i valori alti di $m$ non contengono
+la popolazione della colonia entro livelli ragionevolmente stabili, e rallentano soltanto la rapidità
+con cui la popolazione diverge.
 
 \begin{figure}[pbh]
     \centering
     \includegraphics[keepaspectratio,width=0.98\textwidth]{img/kh11expC2B}
 
-    \caption[Experiment C2B]{Experiment C2B: the ratio $\frac{N(900)}{N(0)}$ of final and initial
-    total populations is plotted against $m$ in abscissa.}
+    \caption[Esperimento C2B]{Il rapporto $\frac{N(900)}{N(0)}$ tra le popolazioni totali iniziale e
+    finale è mostrato nel grafico, contro $m$ in ascissa.}
 
     \label{img:kh11expC2B}
 \end{figure}

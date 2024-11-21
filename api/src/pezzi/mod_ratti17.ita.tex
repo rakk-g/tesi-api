@@ -1,5 +1,5 @@
-\section{Modello a cinque compartimenti operaie, con \emph{Varroa} e ABPV}
-Esaminiamo il modello proposto da \citeauthor{ratti2017} nel \citeyear{ratti2017}, che estende alcune proposte precedenti con lo scopo di studiare gli effetti diretti e indiretti di \emph{Varroa destructor} sulla popolazione di un alveare.
+\section{Modello a cinque compartimenti con operaie, \emph{Varroa} e ABPV}
+Esaminiamo adesso il modello proposto da \citeauthor{ratti2017} nel \citeyear{ratti2017}, che estende alcune proposte precedenti con lo scopo di studiare gli effetti diretti e indiretti di \emph{Varroa destructor} sulla popolazione di un alveare.
 
 \subsection{Derivazione del modello}
 Per ottenere una formulazione del modello, gli autori di \cite{ratti2017} propongono le seguenti assunzioni preliminari:
@@ -8,7 +8,9 @@ Per ottenere una formulazione del modello, gli autori di \cite{ratti2017} propon
 
     Questa impostazione ricalca lo studio \cite{khoury2011}, in cui si propone un modello a due compartimenti per esaminare gli effetti del tasso di schiusa delle pupe e del tasso di reclutamento da operaie d'alveare a bottinatrici sulla dinamica di una popolazione sana.
     \item La popolazione degli acari è suddivisa in due comparti: le varroe portatrici di ABPV ($m$) e le varroe libere dal virus ($n$).
-    \item Le operaie infette con ABPV ($y$) perdono rapidamente l'abilità al volo, le loro capacità di orientamento degradano e muoiono in breve tempo. Per questo motivo le api infette sono considerate ``di alveare'', e non vengono reclutate per bottinare.
+    \item Le operaie infette con ABPV ($y$) perdono rapidamente l'abilità al volo, le loro capacità di
+    orientamento degradano e muoiono in breve tempo. Per questo motivo le api infette sono considerate
+    ``di alveare'', e non vengono più reclutate per bottinare.
 \end{enumerate}
 
 I compartimenti del modello sono dunque cinque:
@@ -292,6 +294,31 @@ suloz non banali, Floquet
 
 Se nell'espressione di $g$ (equazione~\eqref{eq:hillSigmoid}) prendiamo $K=0$ ci riduciamo al modello di \cite{sumMar04}.
 
-Con $i=1$ e togliendo virus e varroe e mortalità nel comparto $x_h$ ci si riduce a \cite{khoury2011}.
+Con $i=1$ e togliendo i compartimenti di virus e varroe, e riducendo a zero la mortalità nel
+comparto $x_h$, ci si riduce a \cite{khoury2011}. Si veda in proposito la tabella~\ref{tab:kh11VSratti17} per
+un confronto tra le notazioni.
 
+\begin{table}[pbh]
+    $$\begin{array}{ccc}
+        \toprule
+        \text{Khoury~2011}
+        & \text{Ratti~2017}
+        & \text{u.m.} \\
+        \midrule
+        H & x_h & \text{api} \\
+        F & x_f & \text{api} \\
+        m & d_2 & \\ % TODO
+        L & \mu & \\
+        \alpha & \sigma_1 & \\
+        \sigma & \sigma_2 & \\
+        E & g & \\
+        \midrule
+        \multicolumn{2}{c}{R} & \\
+        \midrule
+        J & F & \\
+        \bottomrule
+    \end{array}$$
+    \caption{Notazione in Khoury~2011 vs. Ratti~2017.}
+    \label{tab:kh11VSratti17}
+\end{table}
 

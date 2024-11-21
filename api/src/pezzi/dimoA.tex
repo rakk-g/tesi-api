@@ -76,7 +76,7 @@ la quale ha determinante sempre positivo
 $$\Delta = {(\alpha -\sigma)}^2 +4 \frac{\sigma L}{w} \; .$$
 
 L'equazione~\eqref{eq:FstarPosM12} si ottiene applicando la formula delle radici quadratiche.
-Nel seguito selezioneremo la nomenclatura per avere sempre $m_1^* < m_2^*$ nel resto della dimostrazione.
+Nel seguito selezioneremo la nomenclatura per avere sempre $m_1^* < m_2^*$ fino al termine della dimostrazione.
 
 \paragraph{Caso 1.}
 Se $\alpha - \frac{L}{w} >0$ allora $F^*>0$ esiste $m_1^* < m < m_2^*$, ed il limite inferiore ha senso,
@@ -89,7 +89,7 @@ La prima disequazione si può scartare dal momento che $m_1^* <0$ per ipotesi de
 
 La seconda va mantenuta dal momento che $m_2^* >0$ si riduce alla ipotesi del caso $\alpha - \frac{L}{w} < 0$.
 
-\paragraph{Case 0.}
+\paragraph{Caso 3.}
 Quando $\alpha - \frac{L}{w} =0$ la nostra disequazione~\eqref{eq:mDiseq} diviene lineare e la sua soluzione è
 $$m > \frac{\sigma L}{w (\alpha +\sigma)} \; ,$$
 ciò che conclude l'ultimo caso restante della dimostrazione.
@@ -117,9 +117,15 @@ Da pagina~\pageref{prop:rExist}.
 
 
 \chapter{Teoria}
+\label{chap:teoria}
 In questo capitolo si richiamano alcuni risultati nell'ambito dei sistemi dinamici, utili strumenti ai fini
-di questa tesi. [ RIF BIB] % TODO
+di questa tesi.
 
+Presentiamo qui soltanto i teoremi e le definizioni che si applicano all'ambito generale; alcuni oggetti
+e risultati riguardanti più nello specifico i sistemi biomatematici, di modellazione ecologica delle popolazioni
+e delle patologie sono stati esaminati nella sezione~\ref{sec:ingredientiBioMat}.
+
+\paragraph{}
 È utile definire un po' di notazione preliminare, prima di procedere oltre.
 Sia
 $$\begin{sistema}
@@ -131,7 +137,7 @@ definita su qualche aperto $W \subseteq \R^n$ e che sia di classe $C^1$ almeno.
 
 Se
 $$\diffp{F}{t} = 0 \; ,$$
-\ie il sistema non dipende esplicitamente dal tempo, esso si dice\emph{autonomo}.
+\ie il sistema non dipende esplicitamente dal tempo, esso si dice \emph{autonomo}.
 Per tali sistemi non è restrittivo supporre la condizione iniziale data all'istante zero: $t_0=0$.
 
 \paragraph{}
@@ -140,9 +146,9 @@ Possiamo descrivere sinteticamente le soluzioni di un sistema dinamico tramite l
 $$\Phi \, : \, D \to W, \quad (t, \mathbf{x}_0 ) \mapsto \Phi_t ( \mathbf{x}_0 ) \; ,$$
 che mappa $(t, \mathbf{x}_0 )$ nella soluzione $\mathbf{x} (t)$ con condizioni iniziali $\mathbf{x}_0$,
 valutata al tempo $t$. Questa è una applicazione ben definita grazie al Teorema di esistenza e unicità delle
-soluzioni; purtroppo non abbiamo condizioni garantite sulla forma del dominio di ogni soluzione, che dipende
+soluzioni; purtroppo non abbiamo garanzie a priori sulla forma del dominio di ogni soluzione, che dipende
 comunque dalle condizioni iniziali.
-Dunque la forma di $D \subseteq \R times W$ non è nota a priori.
+Dunque la forma di $D \subseteq \R \times W$ non ci è nota a priori.
 
 Se indichiamo con $p$ la proiezione $D \to W$, sappiamo che ogni fibra
 $p^{-1} ( \mathbf{x}_0 )$ è un intervallo aperto contenente $t_0$.
@@ -162,8 +168,9 @@ per ogni $h, t \geq t_0$.
     se $F( \mathbf{x}_s ) = \mathbf{0}$.
 \end{definizione}
 
-Su ogni punto di equilibrio abbiamo la soluzione costante $\mathbf{x} (t) \equiv \mathbf{x}_S$, che è un'orbita,
-ma ogni altra soluzione -- comunque vicina a $\mathbf{x}_S$ -- non può raggiungere $x_S$ per nessun $t$ finito.
+Sopra ogni punto di equilibrio abbiamo la soluzione costante $\mathbf{x} (t) \equiv \mathbf{x}_S$, che è un'orbita,
+ma ogni altra soluzione -- comunque vicina a $\mathbf{x}_S$ -- non può raggiungere $\mathbf{x}_S$
+per nessun $t$ finito.
 
 \begin{definizione}[Stabilità]
     Un punto $\mathbf{x}_S \in W$ si dice \emph{stabile} se per ogni intorno $U$ di $\mathbf{x}_S$
@@ -193,20 +200,21 @@ Si noti che essendo un punto limite, ogni punto attrattivo o repulsivo è anche 
     Un punto che è sia attrattivo che stabile in avanti si dice \emph{asintoticamente stabile}.
 \end{definizione}
 
-\begin{definizione}{Lyapounov Exponents}
-    Let $J = DF (\mathbf{x}_S)$ be the jacobian matrix evaluated on the equilibrium point $\mathbf{x}_S$.
+\begin{definizione}{Esponenti di Lyapounov}
+    Sia $J = DF (\mathbf{x}_S)$ la matrice jacobiana di $F$ valutata sul punto di equilibrio $\mathbf{x}_S$.
 
-    The \emph{Lyapounov exponents} of this equilibrium are the real parts o the eigenvalues of $J$.
-    We say that $\mathbf{x}_S$ is a \emph{sink} if every Lyapounov exponent is strictly negative.
+    Gli \emph{esponenti di Lyapounov} di questo equilibrio sono le parti reali degli autovalori di $J$.
+
+    Diciamo che $\mathbf{x}_S$ è un \emph{pozzo} se tutti gli esponenti di Lyapounov sono strettamente negativi.
 \end{definizione}
 
-\begin{teorema}[Non--linear sink]
-    Let $\mathbf{x}_S \in W$ be a sink for the continuous system $\dot{ \mathbf{x} } = F(\mathbf{x})$,
-    let $c>0$ be such that $\Re ( \lambda ) < -c$ for each eigenvalue $\lambda$ of $DF (\mathbf{x}_S)$.
+\begin{teorema}[del pozzo non lineare]
+    Sia $\mathbf{x}_S \in W$ un pozzo per il sistema dinamico continuo $\dot{ \mathbf{x} } = F(\mathbf{x})$,
+    sia $c>0$ tale che $\Re ( \lambda ) < -c$ per ogni autovalore $\lambda$ di $DF (\mathbf{x}_S)$.
 
-    There exists a neighbourhood $U$ of $\mathbf{x}_S$ such that:
+    Allora esiste un intorno $U$ di $\mathbf{x}_S$ tale che:
     \begin{enumerate}
-        \item $\Phi_t (\mathbf{x}_0)$ is defined for $t \geq 0$, for all $\mathbf{x}_0 \in U$;
+        \item la mappa $\Phi_t (\mathbf{x}_0)$ è definita per ogni $t \geq 0$, per ogni $\mathbf{x}_0 \in U$;
         \item $(\exists B>0) \, (\forall \mathbf{x}_0 \in U) \;
         \norm{ \Phi_t (\mathbf{x}_0) - \mathbf{x}_S } \leq
         B e^{-ct} \norm{ \mathbf{x}_0 - \mathbf{x}_S }.$
@@ -215,30 +223,34 @@ Si noti che essendo un punto limite, ogni punto attrattivo o repulsivo è anche 
 \end{teorema}
 
 
-\begin{definizione}[Lyapounov function]
-    Let $\dot{\mathbf{x}} = F(\mathbf{x})$ be a continuous dynamical system with $F \in C^1(W,\R^n)$, where $W \subseteq \R^n$ is open.
+\begin{definizione}[Funzione di Lyapounov]
+    Sia $\dot{\mathbf{x}} = F(\mathbf{x})$ un sistema dinamico continuo con $F \in C^1(W,\R^n)$, dove
+    $W \subseteq \R^n$ è aperto.
 
-    We say that a function $V \in C^1(B, \R)$, for some open $B \subseteq W$, is a \emph{Lyapounov function} for the equilibrium point $\mathbf{x}_S \in B$ if:
+    Diciamo che una funzione $V \in C^1(B, \R)$, per qualche aperto $B \subseteq W$, è una
+    \emph{funzione di Lyapounov} per l'equilibrio $\mathbf{x}_S \in B$ se:
     \begin{itemize}
         \item $\dot{V} ( \mathbf{x} ) \leq 0 \; (\forall \mathbf{x} \in B),$
         \item $V( \mathbf{x}_S ) \lneq V( \mathbf{x} ) \; (\forall \mathbf{x} \in B, \mathbf{x} \neq \mathbf{x}_S).$
     \end{itemize}
 
-    We also say that a Lyapounov function $V$ is \emph{strict} if $\dot{V}(\mathbf{x}) \lneq 0 \; (\forall \mathbf{x} \in B, \mathbf{x} \neq \mathbf{x}_S)$.
+    Diciamo inoltre che una funzione di Lyapounov $V$ è \emph{stretta} se
+    $$\dot{V}(\mathbf{x}) \lneq 0 \; (\forall \mathbf{x} \in B, \mathbf{x} \neq \mathbf{x}_S) \; .$$
 \end{definizione}
 
-We can see that $\dot{V} ( \mathbf{x} )$ is a measure of $V$ growth along solutions of the dynamical system
-defined by the vector field $F$, since
+In pratica, $V$ ha un minimo locale forte sul punto di equilibrio, ed è non crescente lungo le soluzioni vicine.
+
+Possiamo vedere come $\dot{V} ( \mathbf{x} )$ sia una misura della crescita di $V$ lungo le soluzioni del sistema
+dinamico definito dal campo vettoriale $F$, dal momento che
 $$\dot{V} ( \mathbf{x} ) = \diff{}{t} \left( \dot{V} \left( \mathbf{x} (t) \right) \right) =
 \sum_{i=1}^n \diffp{V}{{\mathbf{x}_i}} \left( \mathbf{x} (t) \right) \cdot \diff{ \mathbf{x}_i }{t} (t) =
-\langle \nabla V ( \mathbf{x} ) , \dot{ \mathbf{x} } \rangle.$$
+\langle \nabla V ( \mathbf{x} ) , \dot{ \mathbf{x} } \rangle \; .$$
 
-
-\begin{teorema}[Stability via Lyapounov function]
-    If an equilibrium point admits a Lyapounov function, then it is stable.
+\begin{teorema}[della funzione di Lyapounov]
+    Se un punto di equilibrio ammette una funzione di Lyapounov, allora esso è stabile.
     \label{teo:lyapounovFunc}
 \end{teorema}
 
-\begin{corollario}[Asymptotic stability via Lyapounov function]
-    If an equilibrium point admits a strict Lyapounov function, then it is asymptotically stable.
+\begin{corollario}
+    Se un punto di equilibrio ammette una funzione di Lyapounov stretta, allora esso è asintoticamente stabile.
 \end{corollario}

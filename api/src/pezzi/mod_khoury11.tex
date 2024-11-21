@@ -16,13 +16,13 @@ trasferimento $H \to F$.
 Alcuni oggetti proposti in questo modello si sono dimostrati molto interessanti e sono stati incorporati
 in diversi modelli successivi, con variazioni minime.\footcite{ratti2017}
 
-\paragraph{Reclutamento con inibizione sociale.}
+\subsection{Reclutamento con inibizione sociale.}
 Nella funzione di reclutamento
 \begin{equation}
     \label{eq:Recr}
     R(H,F) = \alpha - \sigma \frac{F}{H+F} \; ,
 \end{equation}
-il massimo tasso di reclutamento $\alpha$ si ha quando non c'è nessuna foraggiatrice nella colonia, la quale
+il massimo tasso di reclutamento $\alpha$ si ha quando non c'è nessuna foraggiatrice nella colonia, che
 dunque risponde forzando il reclutamento precoce delle operaie di nido.
 
 Il secondo termine rappresenta l'inibizione sociale del processo di reclutamento; gli autori assumono
@@ -34,86 +34,116 @@ l'ethyl~oleate\footnote{CAS 111-62-6.} % SURE? TODO
 scambiato tra le api operaie sia il principale modulatore nel processo di reclutamento sociale.
 
 Ad esempio una colonia risponderà ad una elevata mortalità di bottinatrici (più anziane) attraverso
-la riduzione dell'inibizione del reclutamento (dati i livelli pù bassi di feromone) che dunque
-\textquote[\footcite{khoury2011}]{resulting in a precocious onset of foraging behaviour in young bees}.
+la riduzione dell'inibizione del reclutamento (dati i livelli più bassi di feromone) che dunque risulta
+\textquote[\footcite{khoury2011}]{\omissis in a precocious onset of foraging behaviour in young bees}.
 
 Nella situazione opposta -- \ie quando vi sono molte bottinatrici e la loro mortalità è bassa -- la colonia
-risponde \emph{aumentando} l'inibizione sociale: un maggior numero di bottinatrici si astiene dal volo e
+risponde \emph{aumentando} l'inibizione sociale: un maggior numero di bottinatrici si astiene dunque dal volo e
 dalle attività all'esterno, ripiegando sui lavori di cura all'interno del nido. Questa risposta inibitoria
 è probabilmente dovuta alla maggiore concentrazione di ethyl~oleate:
 \textquote[{\footcite[1]{khoury2011}}]{Old forager bees transfer ethyl oleate to young hive bees via trophallaxis, which delays the age at which they begin foraging.}
 
 \paragraph{}
 Tramite questo meccanismo mediato dai segnali feromonici, l'alveare tenta di mantenere un equilibrio
-demografico tra le due classi sufficiente a soddisfare le necessità della covata e dell'importazione
+demografico tra le due classi, sufficiente a soddisfare le necessità della covata e dell'importazione
 di polline, nettare, acqua.
 
 In questo scenario la risposta collettiva -- che riduce il tasso di reclutamento -- aumenta con
 l'intensità degli scambi di ethyl oleate, che a loro volta sono correlati al rapporto $\frac{F}{H+F}$:
-queste assunzioni motivano la presenza di tale fattore nell'Equazione~\eqref{eq:Recr}.
+queste assunzioni motivano la presenza di tale fattore nell'equazione~\eqref{eq:Recr}.
 
 
 \paragraph{Tassi di mortalità.}
-As noted before, foragers are subjected to more diverse and intense stress factors than hive bees, whence the average lifespan of a female honeybee is longer as a hive worker, and is significantly shorter as a forager: \textquote[{\footcite[1]{khoury2011}}]{Survival of bees in the protected hive environment is high, but the survival of forager bees is much lower. \omissis The average foraging life of a bee has been estimated as less than seven days, because of the many risks and severe metabolic costs associated with foraging.}
+Come si è notato in precedenza,\footnote{}
+le operaie adulte -- esploratrici e bottinatrici -- sono soggette ad una gamma più ampia di fattori di stress
+nell'ambiente esterno, rispetto alle operaie di nido. Di conseguenza l'aspettativa di vita per le operaie di
+nido è più lunga rispetto quella delle foraggiatrici:
+\textquote[{\footcite[1]{khoury2011}}]{Survival of bees in the protected hive environment is high, but the
+survival of forager bees is much lower. \omissis The average foraging life of a bee has been estimated as less
+than seven days, because of the many risks and severe metabolic costs associated with foraging.}
 
-The sink term $-mF$ in Equation~\eqref{eq:kh11f} accounts for foragers mortality;
-the parameter $m$ sets the fraction of forager population that dies every day.
+Il termine di pozzo $-mF$ nell'equazione~\eqref{eq:kh11f} rappresenta la mortalità delle foraggiatrici;
+il tasso parametrico $m$ imposta la frazione del comparto $F$ che muore ogni giorno.
 
 \paragraph{}
-The absence of a mortality factor in the hive compartment (Equation~\eqref{eq:kh11h}) is a bold simplifying assumption,
-justified by the focus of this paper in relating CCD to higher than normal forager mortality rates.\footcite[1,2,3,5]{khoury2011}
+L'assenza di un fattore di mortalità nel comparto delle operaie di nido nell'equazione~\eqref{eq:kh11h} è
+una assunzione piuttosto severa, e comporta una netta semplificazione del modello.
 
+Tuttavia, essa è giustificata dall'obiettivo principale dell'articolo, ossia modellare la relazione tra le varie
+forme di collasso nella popolazione di colonie di \emph{A.~mellifera} e gli eccezionali tassi di mortalità
+tra le foraggiatrici.
+\footcite[1,2,3,5]{khoury2011}
 
-\paragraph{Eclosion.}
-The term $E(H,F)$ accounts for eclosion of adult young workers in the hive class.
-\textquote[{\footcite[2]{khoury2011}}]{\omissis the number of eggs reared in a colony (and hence the eclosion rate) is related to the number of bees in the hive. Big colonies raise more brood.}
+\subsection{Tasso di schiusa.}
+Il termine $E(H,F)$ tiene conto della schiusa della covata che emerge come giovani operaie adulte nel
+comparto $H$ delle api di nido.
+\blockquote[{\footcite[2]{khoury2011}}]{\omissis the number of eggs reared in a colony (and hence the eclosion rate) is related to the number of bees in the hive. Big colonies raise more brood.}
 
-The authors have chosen the form
+Come ricordato nel capitolo~\ref{chap:bio}, il sostentamento di una popolazione numerosa dipende non soltanto
+dal tasso di deposizione della regina, ma anche dal numero di operaie giovani che rimangono nel nido per
+accudire uova e larve, al fine di massimizzare il numero di esse che giunge sana al termine di tutti gli stadi
+della metamorfosi.
+
+\paragraph{}
+Gli autori scelgono la formulazione
 \begin{equation}
     \label{eq:eclos}
     E(H,F) = L \frac{H+F}{w + H + F} \; ,
 \end{equation}
-where $L$ is the queen's laying rate and $w$ determines the rate at which $E$ increases to $L$ as $E+F$ gets very large.
-\footnote{In this section we will often use the shorthand $N=H+F$, the total number of workers present in the colony at a given time.}
+ove $L$ rappresenta il tasso di deposizione della regina e $w$ è la rapidità con cui $E$ cresce verso $L$ quando
+la popolazione totale $H+F$ aumenta.\footnote{In questa sezione useremo spesso l'abbreviazione
+$N=H+F$ per il numero totale di operaie, di nido e di campo, presenti nella colonia ad un dato istante $t$.}
 
-This is a Holling type II function where the attack rate is $a=\frac{1}{w}$ and $w$ is the reverse image of the half--maximal output; in \figurename~\ref{img:eclos} we can see that increasing values of $w$ ``flatten'' the curve
-as saturation is attained for greater values of $N$, and the graph of $E(N)$ ``leans'' to the right.
+Questa è una funzione Holling di tipo II, in cui il tasso di attacco è $a=\frac{1}{w}$ e $w$
+è la retroimmagine del semimassimo nella risposta. In figura~\ref{img:eclos} possiamo vedere come valori
+crescenti di $w$ ``schiacciano'' la curva mentre la saturazione è raggiunta per valori sempre maggiori di $N$,
+e il grafico di $E(N)$ si ``inclina'' verso la destra.
 
 \begin{figure}[pbh]
     \centering
     \includegraphics[keepaspectratio,width=0.86\textwidth]{img/hollingTypeII-eclosion}
 
-    \caption[Holling type II Eclosion]{$E$ models how many of the laid eggs eventually reach adult stage as a functional response of the total number of adult workers $N=H+F$.
+    \caption[Schiusa, Holling tipo II]{$E$ rappresenta la quantità di uova deposte dalla regina che raggiunge lo
+    stadio adulto, come risposta funzionale al numero totale di operaie $N=H+F$.
     \\
-    Drawn for three different values of $w$, with constant laying rate $L=2000$.}
+    Sono illustrati tre diversi valori di $w$, mantenendo costante il tasso di deposizione $L=2000$.}
     \label{img:eclos}
 \end{figure}
 
-Later models\footcite{ratti2017} incorporated this basic proposal with type III Holling functional response and added modulating factors, but retained the core formulation very similar to what~\citeauthor{khoury2011} proposed in Equation~\refeq{eq:eclos}.
+Modelli successivi\footcite{ratti2017} hanno incorporato questa proposta, modificandola in una funzione Holling
+di tipo III e aggiungendo certi fattori di modulazione ulteriori, ma tutto sommato hanno mantenuto il nucleo
+della formulazione molto simile a quanto~\citeauthor{khoury2011} propongono nell'equazione~\refeq{eq:eclos}.
 
 
-\subsection{Stability analysis}
-We now carefully review the results given in the paper about the existence and stability of equilibria in the model \eqref{eq:kh11h}--\eqref{eq:kh11f}.
+\subsection{Analisi della stabilità}
+Rivediamo adesso con cautela i risultati forniti nell'articolo, a proposito dell'esistenza e della stabilità
+dei punti di equilibrio nel modello~\eqref{eq:kh11h}--\eqref{eq:kh11f}.
 
-The authors used \textquote[{\cite[3]{khoury2011}}]{standard linear stability analysis and phase plane analysis} to examine the model equations.
-Re--tracing their steps, we will look for criteria for the existence of trivial and non--trivial equilibria, \ie zeroes of the right--hand side of our model equations.
+Gli autori hanno utilizzato \textquote[{\footcite[3]{khoury2011}}]{standard linear stability analysis and phase
+plane analysis} per esaminare le equazioni del modello.
 
-When existence of an equilibrium point is estabilished, the jacobian matrix of the dynamical system is
-evaluated at that point; then a simple sufficient criterion for asymptotic
-stability\footnote{See Theorem~\ref{teo:pozzoNonLineare}.}
-is that $\Re (\lambda) < 0$ for each eigenvalue $\lambda$.
-Another simple technique due to Lyapounov is to exhibit a function that has a strong local minimum
-over the equilibrium point.\footnote{See Theorem~\ref{teo:lyapounovFunc}.}
+Ripercorrendo i loro passi, forniremo criteri per l'esistenza di equilibri banali e non, \ie zeri del membro
+destro delle equazioni del modello.
+
+Una volta stabilita l'esistenza di un punto di equilibrio, calcoliamo la matrice jacobiana del sistema e
+la valutiamo sull'equilibrio stesso; un semplice criterio sufficiente per la stabilità asintotica
+\footnote{Vedasi il Teorema~\ref{teo:pozzoNonLineare}.}
+è che $\Re (\lambda) < 0$ per ogni autovalore $\lambda$ della matrice.
+
+Un'altra semplice tecnica, dovuta a Lyapounov, consiste nell'esibire una funzione che abbia un minimo
+locale forte sul punto di equilibrio e che sia localmente debolmente decrescente lungo le
+soluzioni.\footnote{Vedasi il Teorema~\ref{teo:lyapounovFunc}.}
 
 \paragraph{}
-Note that $H, E$ have non--negative range, \ie $H(t), E(t) \geq 0$ for all $t$.
-Also, all parameters in the model have to be strictly positive.
+Si noti che $H, E$ hanno immagine non--negativa, \ie $H(t), E(t) \geq 0$ per ogni $t$.
+Inoltre, tutti i parametri del modello debbono essere strettamente positivi.
 
-The next result states a necessary condition for all equilibria.
+Il prossimo risultato stabilisce una condizione necessaria per tutti i punti d'equilibrio.
 
 \begin{lemma}
     \label{lem:necessJ}
-    All equilibrium points $(H^*, F^*)$, if they exist, have to verify $F^* = J H^*$, where
+    Tutti i punti di equilibrio $(H^*, F^*)$
+    del modello~\eqref{eq:kh11h}--\eqref{eq:kh11f} verificano $F^* = J H^*$, dove
     \begin{equation}
         J \coloneq \frac{1}{2} \left[
             \frac{\alpha}{m} - \frac{\sigma}{m} - 1 +
@@ -125,10 +155,10 @@ The next result states a necessary condition for all equilibria.
     \end{equation}
 \end{lemma}
 
-That is to say, equilibria lie on the ray $F= JH$ in the phase plane, when they exist.
+Vale a dire, i punti di equilibrio giacciono sulla semiretta $F= JH$ nello spazio delle fasi, quando esistono.
 
 \paragraph{}
-We calculated the jacobian matrix of this system as:
+Calcoliamo la matrice jacobiana del sistema:
 \begin{equation}
     \begin{pmatrix}
         L \frac{w}{{(w + H + F)}^2} - \alpha + \sigma \frac{F^2}{{(H+F)}^2} &
@@ -140,10 +170,9 @@ We calculated the jacobian matrix of this system as:
     \label{eq:jacoGeneral}
 \end{equation}
 
-It is interesting to note that the last row of the jacobian is constant under
-condition~\eqref{eq:kh11posEqJ},
-\ie substituting $H$ for $\frac{1}{J} F$ in Equation~\eqref{eq:jacoGeneral},
-we get:
+È interessante notare che la seconda riga della jacobiana diventa costante sotto la
+condizione~\eqref{eq:kh11posEqJ}, infatti sostituendo $H$ con $\frac{1}{J} F$
+nell'equazione~\eqref{eq:jacoGeneral}, otteniamo
 \begin{gather}
     \diffp*{ \dot{H} }{H}{H= \frac{1}{J} F} =
     L \frac{w}{ {\left[ w + \left( \frac{1}{J} +1 \right) F \right]}^2 } - \alpha
@@ -160,13 +189,16 @@ we get:
     - \frac{ \sigma }{ {\left( J + 1 \right)}^2 } - m \; ,
     \label{eq:jacoOnJFH}
 \end{gather}
-the last two equations depend only on the parameters and not on the variables H and F.
+e le ultime due equazioni dipendono soltanto dai parametri, non dalle variabili $H$ ed $F$.
 
-\subsubsection{Trivial equilibrium}
-The trivial $(0,0)$ equilibrium is clearly a solution\footnote{Hence, the trivial equilibrium always exists.}
-of $\dot{H}=\dot{F}=0$, and its stability is an important matter of study. Parameter regions where this equilibrium is stable and attractive usually mean the inevitable doom of the entire colony.
+\subsubsection{Equilibrio banale}
+L'equilibrio banale $(0,0)$ è chiaramente sempre soluzione\footnote{Dunque il sistema ammette
+\emph{sempre} l'equilibrio banale.}
+di $\dot{H}=\dot{F}=0$, e lo studio della sua stabilità è cruciale.
+Nelle regioni di parametri per cui questo equilibrio è stabile e attrattivo generalmente si ha il declino
+inevitabile dell'intera colonia.
 
-The system jacobian evaluated at the origin is:
+La matrice jacobiana del modello valutata nell'origine è:
 \begin{equation}
     D_{00} \coloneq
     \begin{pmatrix}
@@ -178,107 +210,134 @@ The system jacobian evaluated at the origin is:
     \label{eq:jacoEquZero}
 \end{equation}
 
-By Theorem~\ref{teo:pozzoNonLineare}, we can see why
-condition~\ref{eq:cond6b}
-$$\alpha -\frac{L}{w}>0$$
-is useful for characterization of stability in the origin.\footcite[3]{khoury2011}
+Con il Teorema del pozzo non lineare\footnote{Cfr. p.~\pageref{teo:pozzoNonLineare}}
+possiamo vedere il motivo per cui la condizione~\ref{eq:cond6b}
+$\alpha -\frac{L}{w}>0$
+sia utile per caratterizzare la stabilità dell'origine.\footcite[3]{khoury2011}
 
-Under that hypothesis,
+Sotto tale ipotesi,
 $$\det  D_{00} > 0 \quad \iff \quad
 m > \frac{\alpha L}{w} {\left( \alpha - \frac{L}{w} \right)}^{-1}$$
-implies
+implica che
 $$\tr D_{00} = - \left( \alpha - \frac{L}{w} \right) - m < 0$$
-then, positive determinant and negative trace imply stability of this equilibrium.
+dunque abbiamo determinante positivo e traccia negativa, da cui segue che lo spettro di $D_{00}$ è
+strettamente negativo. Riassumiamo quanto appena trovato nel
+
+\begin{lemma}[Condizione sufficiente per la stabilità dell'equilibrio banale]
+    Se $\alpha - \frac{L}{w} > 0$ e
+    $$m > \frac{\alpha L}{w \alpha -L} \; ,$$
+    allora l'equilibrio banale del modello \eqref{eq:kh11h}--\eqref{eq:kh11f} è asintoticamente stabile.
+\end{lemma}
 
 
-\subsubsection{Positive equilibrium}
-We now investigate in detail the existence and stability of positive equilibria; such points should represent a positive outcome for a surviving colony.
+\subsubsection{Equilibrio positivo}
+Indaghiamo adesso nel dettaglio le condizioni per l'esistenza e la stabilità di un equilibrio non banale, ossia
+con popolazione strettamente positiva. Tali punti dovrebbero rappresentare l'esito favorevole di una colonia che
+sopravvive alle avversità.
 
 \paragraph{}
-A couple of results is presented in order to build a criterion for the existence of a positive equilibrium point.
+Presentiamo una successione di risultati più semplici, al fine di costituire un criterio per l'esistenza di
+un punto d'equilibrio positivo.
 
-\begin{teorema}[Uniqueness of the positive equilibrium]
-    If the model \refeq{eq:kh11h}--\refeq{eq:kh11f} admits a positive equilibrium $(H^*, F^*)$, then it is unique.
+\begin{proposizione}[Unicità dell'equilibrio positivo]
+    Se il modello~\refeq{eq:kh11h}--\refeq{eq:kh11f} ammette un equilibrio positivo $(H^*, F^*)$, allora
+    questi è unico.
 
-    It is determined by both Eq.~\refeq{eq:kh11posEqJ} and the following:
+    Esso è determinato dall'equazione~\refeq{eq:kh11posEqJ}, insieme con la seguente:
     \begin{equation}
         F^* = \frac{L}{m} - w \frac{J}{1+J} \; .
         \label{eq:kh11posEqF}
     \end{equation}
 
-    \label{teo:exUniqFstarPos}
-\end{teorema}
+    \label{teo:exUniqFstarPos} % WARNING prima era teorema, ho cambiato idea dopo.
+\end{proposizione}
 
-This model always admits one or two distinct equilibrium points, based on the next result:
+Questo modello dunque ammette sempre un solo equilibrio o due equilibri distinti, in base alla seguente
 
-\begin{teorema}[Existence criterion]
-    A necessary and sufficient condition for the model \refeq{eq:kh11h}--\refeq{eq:kh11f} to have a strictly positive equilibrium $P^* \coloneq (H^*, F^*)$ is given by cases:
+\begin{proposizione}[Criterio di esistenza]
+    Una condizione necessaria e sufficiente affinché il modello~\refeq{eq:kh11h}--\refeq{eq:kh11f} abbia
+    un equilibrio strettamente positivo $P^* \coloneq (H^*, F^*)$ è data per casi:
     \begin{itemize}
-        \item[1.] If $\alpha - \frac{L}{w} >0$, then $P^*$ exists $\iff m_1^* < m < m_2^*$;
-        \item[2.] If $\alpha - \frac{L}{w} <0$, then $P^*$ exists $\iff m > m_2^*$;
-        \item[3.] If $\alpha - \frac{L}{w} =0$, then $P^*$ exists $\iff m > m_3^*$;
+        \item[1.] se $\alpha - \frac{L}{w} >0$, allora $P^*$ esiste $\iff m_1^* < m < m_2^*$;
+        \item[2.] se $\alpha - \frac{L}{w} <0$, allora $P^*$ esiste $\iff m > m_2^*$;
+        \item[3.] se $\alpha - \frac{L}{w} =0$, allora $P^*$ esiste $\iff m > m_3^*$;
     \end{itemize}
-    where
+    dove
     \begin{equation}
         m_3^* = \frac{ \sigma L}{ w (\alpha + \sigma) } \; ,
         \label{eq:FstarPosM3}
     \end{equation}
-    and $m_1^*, m_2^*$ are taken always in the order $m_1 < m_2$ from the following
+    e $m_1^*, m_2^*$ sono sempre prese nell'ordine $m_1 < m_2$ dalla seguente
     \begin{equation}
         m_{1,2} = \frac{L}{2w} \frac{ \alpha + \sigma \pm \sqrt{ {(\alpha - \sigma)}^2 +\frac{4 \sigma L}{w}  } }
         {\alpha -\frac{L}{w}} \; .
         \label{eq:FstarPosM12}
     \end{equation}
 
-    \label{teo:esistenzPosF}
-\end{teorema}
+    \label{teo:esistenzPosF} % WARNING prima era teorema, ho cambiato idea dopo.
+\end{proposizione}
 
-\paragraph{Interpretation.}
+\paragraph{Interpretazione.}
 \label{par:interpretationCond6b}
-We note that all situations where $m$ is given a lower bound can be related to intrinsic simplifications in the model, and cannot describe accurately a hive in a real apiary on a real field; the non--existence of a positive equilibrium when $m< \hat{m}$ for some $\hat{m}$ is simply because the total population diverges to infinity in such cases.
+Notiamo che tutte le situazioni che forniscono un limite inferiore ad $m$ potrebbero essere attribuite alle
+semplificazioni intrinseche al modello, dal momento che potrebbero non descrivere accuratamente un alveare
+in apiario sul campo. La non esistenza di un equilibrio positivo nelle situazioni in cui
+$m< \hat{m}$ per qualche $\hat{m}$ potrebbe semplicemente essere dovuta alla divergenza verso l'infinito
+della popolazione in tali casi.
 
-Conversely, the condition
+Al contrario, la condizione
 \begin{equation}
 \alpha - \frac{L}{w} > 0
     \label{eq:cond6b}
 \end{equation}
-can be read easily as $w \alpha >L$, where both sides have unit of bees/day; note also that the right--hand one captures the ``efficiency'' of the social recruitment process in the hive, while the left--hand side is the ``egg--laying efficiency'' of the queen.
+si può leggere altrettanto semplicemente come $w \alpha >L$, dove entrambi i membri hanno unità di api al giorno.
+Si noti anche che il membro destro cattura l'``efficienza'' dei processi sociali di reclutamento e cura della
+covata, mentre il membro sinistro misura l'``efficienza'' della regina nel deporre uova fresche.
 
-That is to say, Equation~\eqref{eq:cond6b} means that the recruitment process $R= R(H, F)$ is capable of sustaining the level $L$ of egg--laying in the hive, by balancing the need for bees in the $H$ compartment (for brood care) and the need for bees in the $F$ compartment (for food intake).
+Vale a dire, l'equazione~\eqref{eq:cond6b} significa che il processo di reclutamento $R= R(H, F)$ è capace
+di sostenere un livello di deposizione $L$, bilanciando le necessità dell'alveare che richiedono api sia nel
+comparto $H$ (per la cura della covata), che nel comparto $F$ (per l'importazione di cibo).
 
 \paragraph{}
-Conditions in the form $m< \hat{m}$ typically ensure the survival of the colony;
-in such parameter regions, this model can also exhibit the non--existence of a
-positive equilibrium, simply because of the divergence of total population numbers.
+Condizioni della forma $m< \hat{m}$ tipicamente servono ad assicurare la sopravvivenza della colonia;
+in questa regione dei parametri, il modello può manifestare la non esistenza di un equilibrio positivo,
+per via della crescita incontrastata dei numeri nella popolazione totale.
 
-As noted before, this model doesn't have a mortality factor for the $H$ compartment: in light of this fact, we
-can explain condition~\eqref{eq:cond6b} as it as a lower bound for a steady transfer of hive bees to the
-forager compartment, in which they have a finite life expectancy.
+Come notato in precedenza, questo modello non ha un fattore di mortalità nel compartimento $H$: alla luce
+di questo fatto, possiamo spiegare la condizione~\eqref{eq:cond6b} come limite inferiore per il tasso
+di trasferimento dal comparto delle operaie di casa alle foraggiatrici, dove le api hanno una aspettativa
+di vita finita.
+Questa equazione esprime la reale necessità di coordinare efficientemente i passaggi tra le suddivisioni
+del lavoro per la buona riuscita della colonia; per contro, le limitazioni puramente matematiche che
+prevengono la divergenza della popolazione sono conseguenze puramente teoriche e non trovano applicazione
+reale sul campo.
 
-In the asymptotic limit, $\frac{L}{w} H$ bees enter the hive compartment through eclosion and $\alpha H$ bees
-are withdrawn to the $F$ compartment: condition~\eqref{eq:cond6b} then says that the maximal recruitment rate
-must be sufficiently large to unload the excess hive bees towards the foragers compartment.
+% Nel limite asintotico, $\frac{L}{w} H$ bees enter the hive compartment through eclosion and $\alpha H$ bees
+% are withdrawn to the $F$ compartment: condition~\eqref{eq:cond6b} then says that the maximal recruitment rate
+% must be sufficiently large to unload the excess hive bees towards the foragers compartment.
 %  moar interpr? TODO
 % cfr. condiz per 0
 
 \paragraph{}
-Branching of equilibria in this model is illustrated in \figurename~\ref{img:kh11phasePlane}.
+La ramificazione degli equilibri in questo modello è illustrata in figura~\ref{img:kh11phasePlane}.
 
 \begin{figure}[pbh]
     \centering
     \includegraphics[keepaspectratio,width=0.86\textwidth]{img/pone.0018491.g003}
 
-    \caption[\figurename~3 from \parencite{khoury2011}]{
-%         \figurename~3 from \parencite[3]{khoury2011}
-        \textquote[{\figurename~3 from \cite[3]{khoury2011}}]{
-            Phase plane diagrams of solutions to the model for different values of m.
-            Each line on the diagrams represents a solution trajectory, giving the number of foragers $F$ and the number of hive bees $H$.
-            As time $t$ increases the solutions change along the trajectory in the direction of the arrows.
-            In (a) $m = 0.24$ and the populations tend to a stable equilibrium population, marked by a dot.
-            In (b), $m = 0.40$ there is no nonzero equilibrium and the hive populations collapses to zero.
+    \caption[\figurename~3 da \parencite{khoury2011}]{Diagramma delle fasi per le
+        soluzioni del modello con differenti valori di mortalità $m$.
+        Ogni curva del diagramma rappresenta la traiettoria di una soluzione, fornendo il numero di
+        operaie di nido $H$ e di foraggiatrici $F$.
+        All'aumentare del tempo $t$ le soluzioni variano nel verso delle frecce.
 
-            Parameter values are $L = 2000$,  $\alpha= 0.25$,  $\sigma= 0.75$ and $w = 27 000$.}
-    }
+        In (a) abbiamo $m = 0.24$ e la popolazione tende ad un equilibrio positivo stabile,
+        segnalato da un punto.
+
+        Nella (b) abbiamo $m = 0.40$ e l'unico equilibrio del sistema è quello banale: la popolazione
+        collassa verso lo zero.
+
+        I valori degli altri parametri sono $L = 2000$,  $\alpha= 0.25$,  $\sigma= 0.75$ and $w = 27 000$.}
     \label{img:kh11phasePlane}
 \end{figure}
 

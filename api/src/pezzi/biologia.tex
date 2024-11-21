@@ -1,4 +1,5 @@
 \chapter{Biologia dell'ape europea}
+\label{chap:bio}
 Questo studio si concentra sulla specie \emph{Apis mellifera} (Linneo, 1758) del genere \emph{Apis},
 comunemente nota come ``ape europea'' o ``ape occidentale''.
 Questa specie ha avuto origine in Africa ed in Medio Oriente, diffondendosi poi su ogni continente (esclusa l'Antartide) durante gli scorsi 2 milioni di anni.
@@ -27,7 +28,7 @@ L'interazione simbiotica uomo--ape è oggi articolata in forme complesse, che co
     Il genoma di \emph{A. mellifera} è stato interamente sequenziato nel 2006. \footcite{genomeSeq}
     \item La dispersione antropocora: l'espansione di \emph{A. mellifera} nell'Eurasia continentale è avvenuta in almeno due momenti distinti, ed è molto probabile che gli eventi di diffusione più recenti siano stati catalizzati dall'uomo.
     \footcite{antropocora}
-    \footnote{Compare with Figure~\ref{img:europ}.}
+    \footnote{Vedasi la figura~\ref{img:europ}.}
 
         L'introduzione di svariate sottospecie di \emph{A. mellifera} in America Latina (XVI sec.), in America del Nord (XVII sec.) ed in Australia (XIX sec.) è interamente dovuta all'opera umana.
     \item La dimensione economica: il valore di mercato ``diretto'' dei prodotti dell'apicoltura è stimato intorno agli 8 miliardi di \$ annui. \footcite{honeymarket1}
@@ -169,7 +170,7 @@ Tali fattori includono l'uso di pesticidi ed erbicidi sulle colture, la perdita 
 Questa combinazione di concause produce effetti ramificati sul comportamento degli alveari, che a loro volta influenzano il processo di declino della popolazione di api.
 
 \paragraph{}
-Ad esempio, sia \emph{imidacloprid} che il parassitaggio da \emph{V.~destructor} inibiscono la memoria spaziale e le abilità di volo delle bottinatrici esperte, che ``si perdono'' più spesso e non riescono a tornare all'alveare (\emph{homing failure}), circostanza quasi sempre fatale. Ciò determina un deficit di operaie anziane rispetto all'equilibrio della popolazione, a cui la colonia reagisce innescando meccanismi sociali che accellerano il processo di reclutamento, per cui le operaie vengono ``promosse'' all'esterno del nido in età precoce.
+Ad esempio, sia \emph{imidacloprid} che il parassitaggio da \emph{V.~destructor} inibiscono la memoria spaziale e le abilità di volo delle bottinatrici esperte, che ``si perdono'' più spesso e non riescono a tornare all'alveare (\emph{homing failure}), circostanza quasi sempre fatale. Ciò determina un deficit di operaie anziane rispetto all'equilibrio della popolazione, a cui la colonia reagisce innescando meccanismi sociali che accelerano il processo di reclutamento, per cui le operaie vengono ``promosse'' all'esterno del nido in età precoce.
 
 Le bottinatrici più giovani sono quindi più inesperte e meno efficienti nel bottinare, l'importazione di cibo nella colonia diminuisce; inoltre si perdono più spesso, aumentando così il ``costo unitario'' che la colonia sostiene per una unità di miele importato.
 
@@ -203,8 +204,45 @@ Nello scenario d'esempio qui sopra, le attività dannose dell'uomo e di altre sp
 
 % SECTION
 \section{Ingredienti utili per lo studio dei modelli}
-I modelli matematici sono dati generalmente sotto forma di sistemi dinamici, \ie di sistemi di equazioni del tipo
+\label{sec:ingredientiBioMat}
+I modelli matematici sono dati generalmente sotto forma di sistemi dinamici, \ie di sistemi di equazioni
+differenziali del tipo
+$$\diff{}{t} \mathbf{x} = F( \mathbf{x} ) \; ,$$
+data $F: W \to \R^n$ con $W \subseteq \R^n$ aperto ed $F$ generalmente supposta abbastanza regolare.
+%\footnote{A seconda dei contesti, si può richiedere $F$ di classe $C^1$ o soltanto differenziabile.}
 
-BLABLA sui sdc e sdd.
+Le equazioni differenziali date sopra, unitamente con le condizioni iniziali $\mathbf{x} (t_0) = \mathbf{x}_0$,
+costituiscono un \emph{problema di Cauchy}, ed il Teorema di Esistenza e Unicità garantisce che le sue soluzioni
+esistano per ogni condizione iniziale $\mathbf{x}_0$, definite in almeno un intervallo.
+
+\paragraph{}
+Risultati generali sui sistemi dinamici sono ampiamente disponibili in letteratura e ne diamo un riassunto nella
+appendice~\ref{chap:teoria} a pagina~\pageref{chap:teoria}.
+
+In questa sezione ci soffermeremo piuttosto su alcuni strumenti matematici che trovano applicazione nel campo
+più specifico della biomatematica, ossia nella modellazione di popolazioni delle specie animali, vegetali
+o microbiche.
+
+\paragraph{}
+Intorno al XIX secolo le scienze matematiche iniziano a rivolgersi al campo biologico con rinnovato interesse:
+Pierre--François Verhulst propone di utilizzare la \emph{funzione logistica} nel 1838, dopo aver letto il famoso
+modello di Malthus.\footcite{malthus1986essay}
+La derivazione di Verhulst è correlata anche alle equazioni del sistema preda--predatore, pubblicato da Alfred
+Lotka nel 1920, che estende la sua applicazione precedente alle reazioni autocatalitiche.
+
+Lo stesso sistema di equazioni viene pubblicato da Vito Volterra nel 1926
+\footcite{vito},
+che si avvicina all'applicazione della matematica alle scienze biologiche grazie alle interazioni col
+biologo marino Umberto D'Ancona.
+
+Negli ultimi due secoli e mezzo sono stati fatti molti progressi in campo matematico e nelle scienze biologiche;
+tuttavia, gli studi più recenti lamentano ancora una compartimentazione troppo netta ed auspicano una maggiore
+collaborazione tra le scienze matematiche e la ricerca bio-etologica sul campo.
+
+\paragraph{}
+Presentiamo in questa sezione alcuni utili strumenti per i sistemi attinenti alla ricerca biomatematica.
+Vedremo alcuni oggetti definiti all'epoca di Verhulst, che continuano ad offrire intuizione ed ispirazione
+attraverso i secoli, ed argomentazioni più moderne che attorno al principio del terzo millennio hanno iniziato
+a combinare lo sguardo matematico con la simulazione numerica, sfruttando la forza delle macchine di calcolo.
 
 \input{pezzi/logistic.tex}
