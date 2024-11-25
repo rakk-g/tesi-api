@@ -1,129 +1,130 @@
-\chapter{Risultati}
-
-\section{A proposito di KH11}
-\subsection{ Lemma~\ref{lem:necessJ} }
-L'enunciato si trova a pagina~\pageref{lem:necessJ}.
-\begin{proof}
-    Annullando il membro destro dell'equazione~\eqref{eq:kh11f} otteniamo
-    $$F^2 - \left( \frac{\alpha}{m} - \frac{\sigma}{m} -1
-        \right) H F - \frac{\alpha}{m} H^2 = 0 \; ,$$
-    che ha determinante
-    $$\Delta = \left[ {\left( \frac{\alpha}{m} - \frac{\sigma}{m} -1
-        \right)}^2 + 4 \frac{\alpha}{m}
-        \right] H^2 \; ; $$
-    notiamo incidentalmente che il fattore parametrico è sempre strettamente positivo.
-
-    \paragraph{}
-    Adottando la definizione di $J$ dell'equazione~\eqref{eq:kh11posEqJ}, possiamo vedere
-    che ogni punto d'equilibrio $(H^*, F^*)$ deve necessariamente verificare $F^* = J H^*$.
-\end{proof}
-
-
-\subsection{ Proposizione~\ref{teo:exUniqFstarPos} }
-L'enunciato si trova a pagina~\pageref{teo:exUniqFstarPos}
-
-\begin{proof}
-    Otteniamo la dimostrazione con alcuni calcoli elementari.
-
-    Dal momento che stiamo cercando un equilibrio non banale $(H^*, F^*)$, per il
-    Lemma~\ref{lem:necessJ} possiamo supporre ambo le componenti strettamente positive nel seguito.
-
-    Ancora per il Lemma~\ref{lem:necessJ}, possiamo sostituire $H=\frac{1}{J} F$ nel membro destro della
-    prima equazione~\eqref{eq:kh11h} del modello, ed usare la condizione di equilibrio per uguagliare
-    a zero quanto ottenuto. Da
-    $$L \frac{ \left( \frac{1}{J} +1 \right) F }{ w +\left( \frac{1}{J} +1 \right) F }
-    - \frac{1}{J} F \left( \alpha - \sigma \frac{\cancel{F}}{ \left( \frac{1}{J} +1 \right) \cancel{F} } \right) = 0$$
-    possiamo semplificare $F$ perché non nulla, così da ottenere
-    $$L \left( \frac{1}{J} +1 \right) \cancel{F} - \frac{1}{J} \left( \alpha - \frac{\sigma}{ \frac{1}{J} +1 } \right)
-    \left[ w + \left( \frac{1}{J} +1 \right) F \right] \cancel{F} = 0 \; ,$$
-    dove la semplificazione di $F$ procede con lo stesso argomento di sopra; si noti che ciò ammonta a scartare la
-    soluzione nulla, che non ci interessa per ipotesi.
-
-    L'unicità dell'equilibrio positivo si ottiene manipolando ulteriormente l'equazione sopra, ottenendo infine
-    $$F^* = \frac{LJ}{ \alpha - \frac{\sigma}{ 1 + \frac{1}{J} } } - w \frac{J}{1+J} \; ,$$
-    in cui possiamo osservare che il membro destro dipende esclusivamente dai parametri.
-
-    \paragraph{}
-    Avendo a disposizione l'ultima equazione, per concludere la dimostrazione -- \ie stabilire
-    l'equazione~\eqref{eq:kh11posEqF} -- resta soltanto da provare che
-    $$J m = \alpha - \sigma \frac{J}{1+J} \; ,$$
-    dove abbiamo semplificato il fattore $L$ ad ambo i membri, essendo non nullo.
-
-    Per stabilire quest'ultima equazione può essere utile razionalizzare l'espressione $\frac{J}{1+J}$ come
-    $$\frac{J}{1+J} = \frac{ \alpha + \sigma + m - \sqrt{ {(\alpha - \sigma -m)}^2 - 4 \alpha m } }{2 \sigma}$$
-    e raggiungere l'obiettivo tramite manipolazioni algebriche.
-
-    \paragraph{}
-    Abbiamo stabilito l'equazione~\eqref{eq:kh11posEqF} e ciò conclude la prova.
-\end{proof}
+% WARNING questo capitolo l'ho scorporato mettendo le dimostrazioni dopo gli enunciati.
+% \chapter{Risultati}
+%
+% \section{A proposito di KH11}
+% \subsection{ Lemma~\ref{lem:necessJ} }
+% L'enunciato si trova a pagina~\pageref{lem:necessJ}.
+% \begin{proof}
+%     Annullando il membro destro dell'equazione~\eqref{eq:kh11f} otteniamo
+%     $$F^2 - \left( \frac{\alpha}{m} - \frac{\sigma}{m} -1
+%         \right) H F - \frac{\alpha}{m} H^2 = 0 \; ,$$
+%     che ha determinante
+%     $$\Delta = \left[ {\left( \frac{\alpha}{m} - \frac{\sigma}{m} -1
+%         \right)}^2 + 4 \frac{\alpha}{m}
+%         \right] H^2 \; ; $$
+%     notiamo incidentalmente che il fattore parametrico è sempre strettamente positivo.
+%
+%     \paragraph{}
+%     Adottando la definizione di $J$ dell'equazione~\eqref{eq:kh11posEqJ}, possiamo vedere
+%     che ogni punto d'equilibrio $(H^*, F^*)$ deve necessariamente verificare $F^* = J H^*$.
+% \end{proof}
 
 
-\subsection{ Proposizione~\ref{teo:esistenzPosF} }
-Dalla pagina~\pageref{teo:esistenzPosF}.
-
-\begin{proof}
-Possiamo usare la equazione~\eqref{eq:kh11posEqF} dalla Proposizione~\ref{teo:exUniqFstarPos} e studiare
-la disequazione $F^* >0$ per dimostrare il criterio di esistenza:
-$$F^* > 0 \; \iff \;
-\left( \frac{2 \alpha w}{L} -1 \right) m - \alpha - \sigma < \sqrt{ {(\alpha - \sigma -m)}^2 + 4 \alpha m }$$
-
-possiamo elevare al quadrato ambo i membri per ottenere la seguente disuguaglianza in $m$:
-\begin{equation}
-    \left( \frac{\alpha w}{L} -1 \right) m^2 -( \alpha + \sigma) m + \frac{\sigma L}{w} < 0
-    \label{eq:mDiseq}
-\end{equation}
-la quale ha determinante sempre positivo
-$$\Delta = {(\alpha -\sigma)}^2 +4 \frac{\sigma L}{w} \; .$$
-
-L'equazione~\eqref{eq:FstarPosM12} si ottiene applicando la formula delle radici quadratiche.
-Nel seguito selezioneremo la nomenclatura per avere sempre $m_1^* < m_2^*$ fino al termine della dimostrazione.
-
-\paragraph{Caso 1.}
-Se $\alpha - \frac{L}{w} >0$ allora $F^*>0$ esiste $m_1^* < m < m_2^*$, ed il limite inferiore ha senso,
-dal momento che
-$m_1^* > 0$ si riduce a $\alpha - \frac{L}{w}>0$, vera per ipotesi del caso.
-
-\paragraph{Caso 2.}
-Se $\alpha -\frac{L}{w} <0$ allora dobbiamo prendere $m < m_1^*$ oppure $m > m_2^*$ affinché $F^* >0$ esista.
-La prima disequazione si può scartare dal momento che $m_1^* <0$ per ipotesi del caso.
-
-La seconda va mantenuta dal momento che $m_2^* >0$ si riduce alla ipotesi del caso $\alpha - \frac{L}{w} < 0$.
-
-\paragraph{Caso 3.}
-Quando $\alpha - \frac{L}{w} =0$ la nostra disequazione~\eqref{eq:mDiseq} diviene lineare e la sua soluzione è
-$$m > \frac{\sigma L}{w (\alpha +\sigma)} \; ,$$
-ciò che conclude l'ultimo caso restante della dimostrazione.
-\end{proof}
-
-
-\section{A proposito di Ratti17}
-\subsection{ Proposizione~\ref{prop:rExist} }
-Da pagina~\pageref{prop:rExist}.
-
-\begin{proof}
-    Le equazioni del modello sono omogenee, dunque l'equilibrio banale $(0,0)$ esiste sempre.
-    Dalla \eqref{eq:rattiRidotto1seconda} segue che ogni punto di equilibrio strettamente positivo $(x_h^*, x_f^*)$ verifica
-    $$x_f^2 + \frac{\sigma_2 - \sigma_1 + p + d_2}{p +d_2} x_h x_f - \frac{\sigma_1}{p+d_2} x_h^2 = 0,$$
-    da cui ricaviamo la relazione tra le componenti $x_f^* = F x_h^*$.
-
-    [DA CONCLUDERE QUANDO SI SPIEGA L'ESPONENTE $i$] % TODO
-\end{proof}
+% \subsection{ Proposizione~\ref{teo:exUniqFstarPos} }
+% L'enunciato si trova a pagina~\pageref{teo:exUniqFstarPos}
+%
+% \begin{proof}
+%     Otteniamo la dimostrazione con alcuni calcoli elementari.
+%
+%     Dal momento che stiamo cercando un equilibrio non banale $(H^*, F^*)$, per il
+%     Lemma~\ref{lem:necessJ} possiamo supporre ambo le componenti strettamente positive nel seguito.
+%
+%     Ancora per il Lemma~\ref{lem:necessJ}, possiamo sostituire $H=\frac{1}{J} F$ nel membro destro della
+%     prima equazione~\eqref{eq:kh11h} del modello, ed usare la condizione di equilibrio per uguagliare
+%     a zero quanto ottenuto. Da
+%     $$L \frac{ \left( \frac{1}{J} +1 \right) F }{ w +\left( \frac{1}{J} +1 \right) F }
+%     - \frac{1}{J} F \left( \alpha - \sigma \frac{\cancel{F}}{ \left( \frac{1}{J} +1 \right) \cancel{F} } \right) = 0$$
+%     possiamo semplificare $F$ perché non nulla, così da ottenere
+%     $$L \left( \frac{1}{J} +1 \right) \cancel{F} - \frac{1}{J} \left( \alpha - \frac{\sigma}{ \frac{1}{J} +1 } \right)
+%     \left[ w + \left( \frac{1}{J} +1 \right) F \right] \cancel{F} = 0 \; ,$$
+%     dove la semplificazione di $F$ procede con lo stesso argomento di sopra; si noti che ciò ammonta a scartare la
+%     soluzione nulla, che non ci interessa per ipotesi.
+%
+%     L'unicità dell'equilibrio positivo si ottiene manipolando ulteriormente l'equazione sopra, ottenendo infine
+%     $$F^* = \frac{LJ}{ \alpha - \frac{\sigma}{ 1 + \frac{1}{J} } } - w \frac{J}{1+J} \; ,$$
+%     in cui possiamo osservare che il membro destro dipende esclusivamente dai parametri.
+%
+%     \paragraph{}
+%     Avendo a disposizione l'ultima equazione, per concludere la dimostrazione -- \ie stabilire
+%     l'equazione~\eqref{eq:kh11posEqF} -- resta soltanto da provare che
+%     $$J m = \alpha - \sigma \frac{J}{1+J} \; ,$$
+%     dove abbiamo semplificato il fattore $L$ ad ambo i membri, essendo non nullo.
+%
+%     Per stabilire quest'ultima equazione può essere utile razionalizzare l'espressione $\frac{J}{1+J}$ come
+%     $$\frac{J}{1+J} = \frac{ \alpha + \sigma + m - \sqrt{ {(\alpha - \sigma -m)}^2 - 4 \alpha m } }{2 \sigma}$$
+%     e raggiungere l'obiettivo tramite manipolazioni algebriche.
+%
+%     \paragraph{}
+%     Abbiamo stabilito l'equazione~\eqref{eq:kh11posEqF} e ciò conclude la prova.
+% \end{proof}
 
 
+% \subsection{ Proposizione~\ref{teo:esistenzPosF} }
+% Dalla pagina~\pageref{teo:esistenzPosF}.
+%
+% \begin{proof}
+% Possiamo usare la equazione~\eqref{eq:kh11posEqF} dalla Proposizione~\ref{teo:exUniqFstarPos} e studiare
+% la disequazione $F^* >0$ per dimostrare il criterio di esistenza:
+% $$F^* > 0 \; \iff \;
+% \left( \frac{2 \alpha w}{L} -1 \right) m - \alpha - \sigma < \sqrt{ {(\alpha - \sigma -m)}^2 + 4 \alpha m }$$
+%
+% possiamo elevare al quadrato ambo i membri per ottenere la seguente disuguaglianza in $m$:
+% \begin{equation}
+%     \left( \frac{\alpha w}{L} -1 \right) m^2 -( \alpha + \sigma) m + \frac{\sigma L}{w} < 0
+%     \label{eq:mDiseq}
+% \end{equation}
+% la quale ha determinante sempre positivo
+% $$\Delta = {(\alpha -\sigma)}^2 +4 \frac{\sigma L}{w} \; .$$
+%
+% L'equazione~\eqref{eq:FstarPosM12} si ottiene applicando la formula delle radici quadratiche.
+% Nel seguito selezioneremo la nomenclatura per avere sempre $m_1^* < m_2^*$ fino al termine della dimostrazione.
+%
+% \paragraph{Caso 1.}
+% Se $\alpha - \frac{L}{w} >0$ allora $F^*>0$ esiste $m_1^* < m < m_2^*$, ed il limite inferiore ha senso,
+% dal momento che
+% $m_1^* > 0$ si riduce a $\alpha - \frac{L}{w}>0$, vera per ipotesi del caso.
+%
+% \paragraph{Caso 2.}
+% Se $\alpha -\frac{L}{w} <0$ allora dobbiamo prendere $m < m_1^*$ oppure $m > m_2^*$ affinché $F^* >0$ esista.
+% La prima disequazione si può scartare dal momento che $m_1^* <0$ per ipotesi del caso.
+%
+% La seconda va mantenuta dal momento che $m_2^* >0$ si riduce alla ipotesi del caso $\alpha - \frac{L}{w} < 0$.
+%
+% \paragraph{Caso 3.}
+% Quando $\alpha - \frac{L}{w} =0$ la nostra disequazione~\eqref{eq:mDiseq} diviene lineare e la sua soluzione è
+% $$m > \frac{\sigma L}{w (\alpha +\sigma)} \; ,$$
+% ciò che conclude l'ultimo caso restante della dimostrazione.
+% \end{proof}
 
+
+% \section{A proposito di Ratti17}
+% \subsection{ Proposizione~\ref{prop:rExist} }
+% Da pagina~\pageref{prop:rExist}.
+%
+% \begin{proof}
+%     Le equazioni del modello sono omogenee, dunque l'equilibrio banale $(0,0)$ esiste sempre.
+%     Dalla \eqref{eq:rattiRidotto1seconda} segue che ogni punto di equilibrio strettamente positivo $(x_h^*, x_f^*)$ verifica
+%     $$x_f^2 + \frac{\sigma_2 - \sigma_1 + p + d_2}{p +d_2} x_h x_f - \frac{\sigma_1}{p+d_2} x_h^2 = 0,$$
+%     da cui ricaviamo la relazione tra le componenti $x_f^* = F x_h^*$.
+%
+%     [DA CONCLUDERE QUANDO SI SPIEGA L'ESPONENTE $i$] % TODO
+% \end{proof}
 
 
 
 
 
-\chapter{Teoria}
+
+
+
+\chapter{Cenni di teoria}
 \label{chap:teoria}
 In questo capitolo si richiamano alcuni risultati nell'ambito dei sistemi dinamici, utili strumenti ai fini
 di questa tesi.
 
 Presentiamo qui soltanto i teoremi e le definizioni che si applicano all'ambito generale; alcuni oggetti
 e risultati riguardanti più nello specifico i sistemi biomatematici, di modellazione ecologica delle popolazioni
-e delle patologie sono stati esaminati nella sezione~\ref{sec:ingredientiBioMat}.
+e delle patologie sono esaminati nel sezione~\ref{sec:ingredientiBioMat}.
 
 \paragraph{}
 È utile definire un po' di notazione preliminare, prima di procedere oltre.

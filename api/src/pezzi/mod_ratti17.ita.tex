@@ -1,12 +1,14 @@
 \section{Modello a cinque compartimenti con operaie, \emph{Varroa} e ABPV}
-Esaminiamo adesso il modello proposto da \citeauthor{ratti2017} nel \citeyear{ratti2017}, che estende alcune proposte precedenti con lo scopo di studiare gli effetti diretti e indiretti di \emph{Varroa destructor} sulla popolazione di un alveare.
+Esaminiamo adesso il modello proposto nel \citeyear{ratti2017}, che estende alcune proposte precedenti con lo scopo di studiare gli effetti diretti e indiretti di \emph{Varroa destructor} sulla popolazione
+di un alveare.\footcite{ratti2017}
 
 \subsection{Derivazione del modello}
-Per ottenere una formulazione del modello, gli autori di \cite{ratti2017} propongono le seguenti assunzioni preliminari:
+Per ottenere una formulazione del modello, gli autori propongono le seguenti assunzioni preliminari:
 \begin{enumerate}
     \item La popolazione delle operaie sane (non infette da ABPV) è suddivisa in due comparti: le operaie più giovani che svolgono mansioni all'interno dell'alveare ($x_h$) e le bottinatrici/esploratrici ($x_f$).
-
-    Questa impostazione ricalca lo studio \cite{khoury2011}, in cui si propone un modello a due compartimenti per esaminare gli effetti del tasso di schiusa delle pupe e del tasso di reclutamento da operaie d'alveare a bottinatrici sulla dinamica di una popolazione sana.
+    \footnote{Questa impostazione ricalca lo studio esaminato nella sezione
+    precedente~\parencite{khoury2011}.}
+%     in cui si propone un modello a due compartimenti per esaminare gli effetti del tasso di schiusa delle pupe e del tasso di reclutamento da operaie d'alveare a bottinatrici sulla dinamica di una popolazione sana.
     \item La popolazione degli acari è suddivisa in due comparti: le varroe portatrici di ABPV ($m$) e le varroe libere dal virus ($n$).
     \item Le operaie infette con ABPV ($y$) perdono rapidamente l'abilità al volo, le loro capacità di
     orientamento degradano e muoiono in breve tempo. Per questo motivo le api infette sono considerate
@@ -33,21 +35,28 @@ Proseguiamo con l'esame delle assunzioni del modello:
     \setcounter{enumi}{3}
     \item Il tasso massimale di riproduzione delle varroe è lo stesso, che siano portatrici di virus o meno.
     Ciò si riflette nelle equazioni \eqref{eq:r17m} e \eqref{eq:r17n}, in cui il primo termine descrive le nuove nascite: esso è proporzionale alla popolazione del compartimento ed il fattore di proporzionalità è lo stesso in entrambe le equazioni. In esso, $r$ è il tasso massimo di riproduzione del parassita \emph{Varroa}, mentre $\alpha$ è la capacità portante dell'ospite \emph{Apis}.
-    \item Sappiamo che la covata necessita di cure da parte delle operaie nutrici, quindi il tasso di schiusa è dipendente dal numero di operaie sane nella popolazione, che seguendo \cite{khoury2011} assumiamo pari alla somma $x_h + x_f$.
-    \item L'ape regina non subisce gli effetti avversi di ABPV e dell'infestazione da varroe; di conseguenza, il tasso di schiusa non dipende dalla preminenza nell'alveare di varroe o di virus.
-    \item La trasmissione di ABPV è esclusivamente orizzontale: ciò significa che l'infezione di una operaia avviene per trasmissione del virus da un'altra operaia infetta.\footnote{La trasmissione \emph{verticale} di un patogeno riguarda invece l'infezione della prole a causa dei genitori già infetti.}
+    \item Sappiamo che la covata necessita di cure da parte delle operaie nutrici, quindi il tasso di schiusa è dipendente dal numero di operaie sane nella popolazione, che assumiamo pari alla somma $x_h + x_f$.
+    \footnote{Cfr.~\cite{khoury2011}.}
+    \item L'ape regina non subisce gli effetti avversi di ABPV e dell'infestazione da varroe\footcite{privFDL}; di conseguenza, il tasso di schiusa non dipende dalla preminenza nell'alveare di varroe o di virus.
+    \item La trasmissione di ABPV è esclusivamente orizzontale:\footcite{privFDL}
+    ciò significa che l'infezione di una operaia avviene per trasmissione del virus da un'altra operaia infetta.\footnote{La trasmissione \emph{verticale} di un patogeno riguarda invece l'infezione della prole a causa dei genitori già infetti.}
 
-    Le varroe sono un vettore puramente meccanico per il virus: la carica virale non è incentivata né inibita dalle varroe, che per ABPV fungono meramente da ``mezzo di trasporto'' tra le api.
-    \item Poiché le pupe infette con ABPV muoiono rapidamente prima della schiusa, tutte le giovani operaie che giungono all'età adulta si assumono libere dal virus. L'effetto limitante sul tasso di schiusa dovuto alla presenza di varroe infette viene incorporato in un fattore di modulazione $h(m)$.
-    \item Per studiare l'effetto dei trattamenti acaricidi, introduciamo un ulteriore termine di pozzo $\delta_i$ in ogni equazione. Assumiamo che l'impatto dei trattamenti sia di gran lunga maggiore sulle varroe che sulle api: $\delta_4, \delta_5 > \delta_1, \delta_2, \delta_3$.
+    Le varroe sono un vettore puramente meccanico per il virus: la carica virale non è incentivata né
+    inibita dalle varroe, che per l'ABPV fungono meramente da ``mezzo di trasporto'' tra le api.
+    \item Poiché le pupe infette con ABPV muoiono rapidamente prima della schiusa, tutte le giovani operaie che
+    giungono all'età adulta si assumono libere dal virus. L'effetto limitante sul tasso di schiusa dovuto alla
+    presenza di varroe infette viene incorporato in un fattore di modulazione $h(m)$ nella~\eqref{eq:r17xh}.
+    \item Per studiare l'effetto dei trattamenti acaricidi, introduciamo un ulteriore termine di pozzo $\delta_i$ in ogni equazione. Assumiamo che l'impatto dei trattamenti sia di gran lunga maggiore sulle varroe che sulle api: $\delta_4, \delta_5 \gg \delta_1, \delta_2, \delta_3$.
     \item In tutti e tre i compartimenti delle api, si assume un tasso di mortalità naturale $d_i$ in aggiunta alla mortalità dovuta alle varroe $\gamma_i$ (a sua volta dipendente sia dal parassitismo che dalla trasmissione del virus). Nelle api indebolite dall'infezione da ABPV entrambi questi tassi sono maggiori rispetto alle operaie sane: $d_3 > d_1, d_2$ e $\gamma_3 > \gamma_1, \gamma_2$.
 
-    Inoltre per le bottinatrici si tiene conto anche della mortalità da disorientamento (fattore $p$), dovuto principalmente al degrado delle facoltà cognitive e di navigazione per effetto dei pesticidi sintetici sulle colture.
+    Inoltre per le bottinatrici si tiene conto anche della mortalità da disorientamento (fattore $p$), dovuto
+    principalmente al degrado delle facoltà cognitive e di navigazione per effetto dei pesticidi
+    sintetici sulle colture visitate.
 \end{enumerate}
 
 
 \subsubsection{Equazione del modello}
-Il modello a compartimenti proposto in \cite{ratti2017} è il seguente:
+Il modello a compartimenti proposto\footcite[8]{ratti2017} assume quindi la seguente formulazione:
 \begin{align}
     % hive sane
     \diff{x_h}{t} &= \mu g( x_h + x_f ) h(m) - \beta_1 m \frac{x_h}{x_h + x_f + y} - \left( d_1 + \delta_1 \right) x_h \notag \\ % barbatrucco
@@ -70,38 +79,36 @@ Il modello a compartimenti proposto in \cite{ratti2017} è il seguente:
     + \beta_3 m \frac{x_h + x_f}{x_h + x_f + y} - \delta_5 n
 \end{align}
 
-% ELIMINO RIPETIZIONE
-% dove
-% \begin{itemize}
-%     \item $x_h$ è il numero di operaie sane che vivono all'interno dell'alveare (\emph{hive})
-%     \item $x_f$ è il numero di operaie bottinatrici (\emph{foragers})
-%     \item $y$ è il numero di operaie infette da ABPV
-%     \item $m$ è il numero di varroe portatrici di ABPV
-%     \item $n$ è il numero di varroe non portatrici di virus.
-% \end{itemize}
-
-\paragraph{}
 Il termine ``di reclutamento'' $x_h \cdot R(x_h, x_f)$ nelle equazioni \eqref{eq:r17xh} e \eqref{eq:r17xf} rappresenta appunto il passaggio di ruolo delle operaie, da impiegate \emph{all'interno} dell'alveare a \emph{bottinatrici} che escono dall'arnia per esplorare e raccogliere il cibo.
 
-Come nello studio precedente \cite{khoury2011}, il fattore $R$ rappresenta gli effetti \emph{sociali}
+Come nello studio precedente,\footnote{\cite{khoury2011}, cfr.~p.~\pageref{eq:Recr} e segg.}
+il fattore $R$ rappresenta gli effetti \emph{sociali}
 della colonia sul tasso di reclutamento, con la seguente formulazione:
 \begin{equation}
-    \label{eq:reclutam}
     R(x_h, x_f) = \sigma_1 - \sigma_2 \frac{x_f}{x_h + x_f}
+    \label{eq:reclutam}
 \end{equation}
 in cui $\sigma_1$ è il tasso massimo di reclutamento delle operaie, quando non ci sono bottinatrici nella colonia.
 Il termine $\sigma_2 \frac{x_f}{x_h + x_f}$ descrive l'inibizione sociale del reclutamento, ossia il rallentamento del processo di ``promozione'' all'esterno del nido, proporzionale alla frazione di popolazione impiegata nella bottinatura; quando tale frazione è in surplus, le bottinatrici vengono ``riallocate'' in attività interne all'alveare.
 
 \paragraph{}
-Il tasso di nuove nascite è descritto dal primo termine nella equazione \eqref{eq:r17xh}, in cui troviamo il parametro $\mu$ che è determinato principalmente dalla regina e dalla stagione, e rappresenta il tasso massimo di schiusa (in unità di numero di uova deposte al giorno).
+Il tasso di nuove nascite è descritto dal primo termine nella equazione \eqref{eq:r17xh}, in cui troviamo il
+parametro $\mu$ che è determinato principalmente dalla regina e dalla stagione, e rappresenta il tasso massimo
+di schiusa.
 
 La funzione $g$ descrive il bisogno di un numero minimo di operaie sane nella colonia per allevare la covata; se questo numero scende sotto una certa soglia -- che può presentare variazioni stagionali -- la covata non produce più api adulte.
 La $g$ rappresenta la risposta funzionale dell'allevamento della covata; nelle parole degli autori:
-\begin{displayquote}[\cite{ratti2017}]
+\begin{displayquote}[{\footcite[9]{ratti2017}}]
 ``We think of $g(x_h + x_f)$ as a switch function.''
 \end{displayquote}
 
-Abbiamo dunque $g(0)=0$, $\diff{g}{x_h} \geq 0$ e $\diff{g}{x_f} \geq 0$. Inoltre $\lim_{x_h+x_f \to \infty} g(x_h+x_f)=1$, e dunque un'utile formulazione per $g$ è data dalla sigmoide di Hill (figura~\ref{img:hillSigmoid}):
+È necessario che $g$ verifichi le condizioni
+$$g(0)=0 \; , \quad %
+\diff{g}{x_h} \geq 0 \; , \quad %
+\diff{g}{x_f} \geq 0 \; ,$$
+ed anche $\lim_{x_h+x_f \to \infty} g(x_h+x_f)=1$.
+
+Un'utile formulazione per $g$ è data dalla sigmoide di Hill (figura~\ref{img:hillSigmoid}):
 \begin{equation}
     g(x_h + x_f) = \frac{ (x_h+x_f)^i }{ K^i + (x_h+x_f)^i }
     \label{eq:hillSigmoid}
@@ -124,6 +131,16 @@ Sempre nel termine delle nascite di api adulte, un altro fattore modulante tiene
 
 In \cite{sumMar04} si suggerisce $h(m) \approx e^{-km}$ con $k\geq0$, e questa è la forma utilizzata in \cite{ratti2017} per le simulazioni numeriche.
 
+Si noti che assumere $h=h(m)$ porta a una semplificazione del sistema, mentre in realtà anche la
+popolazione $n$ di varroe non infette preda abitualmente le pupe di ape.
+
+% MANCHEREBBE DI PARLARE ALMENO UNA VOLTA DEI \beta_i
+% The parameter β2 in (4) is the rate at which mites that do not carry the virus acquire
+% it. The rate at which infected mites lose their virus to an uninfected host is β3 . The
+% rate at which uninfected (hive and forager) bees become infected is β1 , in units of
+% bees per virus-carrying mite and time. We assumed that the rate at which hive bees get
+% infected (i.e. β1 ) is the same as the rate at which foragers get infected (i.e. β2 ). With
+% this assumption, the first term in (3) becomes the rate at which total bees get infected.
 
 \subsection{Analisi del modello con parametri costanti}
 Seguiamo l'impostazione dello studio \cite{ratti2017} per l'analisi degli equilibri, iniziando con l'esame di sotto-casi più semplici ed estendendo progressivamente i risultati fino al modello completo.
@@ -136,7 +153,7 @@ Dapprima assumiamo l'ipotesi di lavoro di coefficienti costanti; utilizzeremo in
 Una volta stabilite le condizioni per l'esistenza dei punti di equilibrio, la metodologia standard per analizzarne la stabilità consiste nel linearizzare il sistema in un intorno di un punto di equilibrio: il carattere attrattivo o repulsivo dell'equilibrio è determinato dagli \emph{esponenti di Lyapounov locali}, ossia dalle parti reali degli autovalori della matrice jacobiana.
 
 Questo approccio metodologico costituisce la base delle dimostrazioni in questa sottosezione e nella successiva.
-
+\footnote{Cfr. p.~\pageref{chap:teoria} e segg. per una sintesi dei risultati teorici qui sfruttati.}
 
 \subsubsection{Modello bidimensionale senza patogeni}
 In assenza di \emph{Varroa} e di virus, il modello \eqref{eq:r17xh}--\eqref{eq:r17n} si riduce alle due sole equazioni per le api sane:
@@ -153,12 +170,12 @@ dove $g(x_h + x_f) = \frac{ (x_h+x_f)^i }{ K^i + (x_h+x_f)^i }$ come nella \eqre
 L'equilibrio banale $(x_h^*, x_f^*) = (0,0)$ esiste sempre, ed è asintoticamente stabile; questo risultato è contenuto nelle due proposizioni che seguono.
 
 Nelle parole degli autori, la stabilità asintotica dell'equilibrio banale significa che
-\begin{displayquote}[\cite{ratti2017}]
+\begin{displayquote}[\footcite{ratti2017}]
 ``\omissis in order to establish itself as a properly working colony, a sufficiently large healthy adult bee population is required to take care of the brood.''
 \end{displayquote}
 
 E viceversa, se il numero di operaie sane scende sotto un valore critico, la colonia si avvia verso una morte inesorabile.
-Si noti che questo effetto di tipo Allee si osserva già nel modello senza patogeni; l'introduzione di \emph{Varroa} e virus non può che esacerbare tale fenomeno.
+Si noti che questo effetto di tipo Allee si osserva già nel modello senza patogeni; l'introduzione di \emph{Varroa} e virus non può che esacerbare fenomeni di questo tipo.
 
 \paragraph{}
 Proponiamo adesso una analisi dei punti di equilibrio del modello \eqref{eq:rattiRidotto1prima}--\eqref{eq:rattiRidotto1seconda}, introducendo per comodità di notazione le due costanti
@@ -169,13 +186,41 @@ $$
 ed
 $$ a \coloneq - \frac{ \mu }{ \frac{\sigma_2 F}{1+F} - d_1 - \sigma_1 }.$$
 
-\begin{proposizione}[3.1, Existence of equilibria {\cite[11]{ratti2017}}]
+\begin{proposizione}[3.1, Existence of equilibria {\footcite[11]{ratti2017}}]
     Il modello ridotto alle sole api \eqref{eq:rattiRidotto1prima}--\eqref{eq:rattiRidotto1seconda} ammette sempre l'equilibrio banale $(0,0)$, e se $\frac{\sigma_2 F}{1+F} - d_1 - \sigma_1 >0$ allora esso è unico.
 
     Viceversa, se $\frac{\sigma_2 F}{1+F} - d_1 - \sigma_1 <0$ allora il sistema ammette due ulteriori equilibri strettamente positivi, a patto che sia verificata l'ulteriore condizione
     $$a > \frac{Ki}{1+F} (i-1)^{\frac{1}{i} -1}.$$
     \label{prop:rExist}
 \end{proposizione}
+
+\begin{proof}
+    Le equazioni del modello sono omogenee, dunque l'equilibrio banale $(0,0)$ esiste sempre.
+    Dalla \eqref{eq:rattiRidotto1seconda} segue che ogni punto di equilibrio
+    $(x_h^*, x_f^*) > (0,0)$ verifica
+    $$x_f^2 + \frac{\sigma_2 - \sigma_1 + p + d_2}{p +d_2} x_h x_f - \frac{\sigma_1}{p+d_2} x_h^2 = 0,$$
+    da cui ricaviamo la relazione tra le componenti $x_f^* = F x_h^*$.
+
+    Inserendo quest'ultima nell'equazione \eqref{eq:rattiRidotto1prima} otteniamo
+    $$ \mu g \left( (1+F) x_h \right) -d_1 x_h -x_h \left( \sigma_1 - \sigma_2 \frac{F}{1+F} \right) = 0 \; ,$$
+    da cui
+    $$ \underbrace{ x_h^i -a x_h^{i-1} + \left( { \frac{K}{1+F} } \right)^i }_{ f(x_h) \coloneq } = 0 \; .$$
+
+    Per il criterio di Descartes, il polinomio $f(x_h)$ ha due radici positive\footnote{Contate con molteplicità.}
+    se $a>0$, e nessuna se $a<0$. Quindi vogliamo $a>0$ ossia $\frac{\sigma_2 F}{1+F} -d_1 - \sigma_1 < 0$, ciò che
+    stabilisce la prima parte della proposizione.
+
+    Assumendo $a>0$, abbiamo che $f'$ cambia segno in $\hat{ x_h } = a \frac{i-1}{i}$, da cui
+    possiamo imporre
+    $$\min f = f( \hat{ x_h } ) =
+    - \frac{1}{i} a^i { \left( \frac{i-1}{i} \right) }^{i-1} + {\left( \frac{K}{1+F} \right) }^i < 0
+    \; ,$$
+    per ricavare infine
+    $$a > \frac{Ki}{1+F} {(i-1)}^{ \frac{1}{i} - 1 }.$$
+\end{proof}
+
+
+
 
 \paragraph{}
 Se esistono, gli equilibri positivi sono stabili se

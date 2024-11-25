@@ -1,31 +1,32 @@
 \section[Modello a due compartimenti con reclutamento]{Modello a due compartimenti con reclutamento sociale}
 
-Nel \citeyear{khoury2011} è stato proposto\footcite{khoury2011} un modello per indagare le dinamiche sociali
+Nel \citeyear{khoury2011} è stato proposto un modello\footcite{khoury2011} per indagare le dinamiche sociali
 tra le caste della popolazione operaia in \emph{Apis~mellifera}.
 
 Nello studio si ottengono due equazioni, in cui le variabili reali e non negative $H$ ed $F$ rappresentano
 le operaie di nido e le foraggiatrici, rispettivamente:
 
 \begin{align}
-    \diff{H}{t} &= \overbrace{E(H,F)}^{\text{eclosion}}- H \cdot R(H,F) \label{eq:kh11h} \\
-    \diff{F}{t} &= H \cdot R(H,F)  - m \cdot F \label{eq:kh11f}
+    \diff{H}{t} &= \overbrace{E(H,F)}^{\text{eclosion}}- H \cdot R(H,F) \label{eq:kh11h} \; , \\
+    \diff{F}{t} &= H \cdot R(H,F)  - m \cdot F \label{eq:kh11f} \; ,
 \end{align}
-dove $m$ è il tasso di mortalità, mentre $R$ rappresenta il fattore di \emph{reclutamento} nel termine di
+dove $m$ è il tasso di mortalità, mentre $R$ rappresenta la funzione di \emph{reclutamento} nel termine di
 trasferimento $H \to F$.
 
 Alcuni oggetti proposti in questo modello si sono dimostrati molto interessanti e sono stati incorporati
 in diversi modelli successivi, con variazioni minime.\footcite{ratti2017}
 
 \subsection{Reclutamento con inibizione sociale.}
-Nella funzione di reclutamento
+Nello studio\footcite{khoury2011} la funzione di reclutamento è rappresentata dalla funzione
 \begin{equation}
     \label{eq:Recr}
     R(H,F) = \alpha - \sigma \frac{F}{H+F} \; ,
 \end{equation}
-il massimo tasso di reclutamento $\alpha$ si ha quando non c'è nessuna foraggiatrice nella colonia, che
-dunque risponde forzando il reclutamento precoce delle operaie di nido.
+in cui $\alpha$ rappresenta il tasso massimo di reclutamento.\footnote{Raggiunto quando nella colonia non è
+presente nessuna bottinatrice.}
 
-Il secondo termine rappresenta l'inibizione sociale del processo di reclutamento; gli autori assumono
+Il secondo termine rappresenta l'inibizione sociale del processo di reclutamento.
+Gli autori assumono
 \textquote[{\footcite[3]{khoury2011}}]{\omissis that social inhibition is directly proportional to the fraction of the total number of adult bees that are foragers, such that a high fraction of foragers in the hive results in low recruitment.}
 
 \paragraph{}
@@ -54,7 +55,7 @@ queste assunzioni motivano la presenza di tale fattore nell'equazione~\eqref{eq:
 
 
 \paragraph{Tassi di mortalità.}
-Come si è notato in precedenza,\footnote{}
+Come si è notato in precedenza,\footnote{Nel capitolo~\ref{chap:bio}.}
 le operaie adulte -- esploratrici e bottinatrici -- sono soggette ad una gamma più ampia di fattori di stress
 nell'ambiente esterno, rispetto alle operaie di nido. Di conseguenza l'aspettativa di vita per le operaie di
 nido è più lunga rispetto quella delle foraggiatrici:
@@ -94,7 +95,11 @@ ove $L$ rappresenta il tasso di deposizione della regina e $w$ è la rapidità c
 la popolazione totale $H+F$ aumenta.\footnote{In questa sezione useremo spesso l'abbreviazione
 $N=H+F$ per il numero totale di operaie, di nido e di campo, presenti nella colonia ad un dato istante $t$.}
 
-Questa è una funzione Holling di tipo II, in cui il tasso di attacco è $a=\frac{1}{w}$ e $w$
+Infatti, sommando le equazioni \eqref{eq:kh11h}--\eqref{eq:kh11f} e trascurando il termine di mortalità otteniamo
+il tasso di crescita asintotico della popolazione totale
+$$\diff{N}{t} \simeq \frac{L}{ \frac{w}{N} + 1} \approx L \; , \quad \text{quando } \frac{w}{N} \ll 1 \; .$$
+
+La $E$ è una funzione Holling di tipo II, in cui il tasso di attacco è $a=\frac{1}{w}$ e $w$
 è la retroimmagine del semimassimo nella risposta. In figura~\ref{img:eclos} possiamo vedere come valori
 crescenti di $w$ ``schiacciano'' la curva mentre la saturazione è raggiunta per valori sempre maggiori di $N$,
 e il grafico di $E(N)$ si ``inclina'' verso la destra.
@@ -112,7 +117,7 @@ e il grafico di $E(N)$ si ``inclina'' verso la destra.
 
 Modelli successivi\footcite{ratti2017} hanno incorporato questa proposta, modificandola in una funzione Holling
 di tipo III e aggiungendo certi fattori di modulazione ulteriori, ma tutto sommato hanno mantenuto il nucleo
-della formulazione molto simile a quanto~\citeauthor{khoury2011} propongono nell'equazione~\refeq{eq:eclos}.
+della formulazione molto simile a quanto~\citeauthor{khoury2011} propongono nell'equazione~\eqref{eq:eclos}.
 
 
 \subsection{Analisi della stabilità}
@@ -130,7 +135,7 @@ la valutiamo sull'equilibrio stesso; un semplice criterio sufficiente per la sta
 \footnote{Vedasi il Teorema~\ref{teo:pozzoNonLineare}.}
 è che $\Re (\lambda) < 0$ per ogni autovalore $\lambda$ della matrice.
 
-Un'altra semplice tecnica, dovuta a Lyapounov, consiste nell'esibire una funzione che abbia un minimo
+Un'altra tecnica, dovuta a Lyapounov, consiste nell'esibire una funzione che abbia un minimo
 locale forte sul punto di equilibrio e che sia localmente debolmente decrescente lungo le
 soluzioni.\footnote{Vedasi il Teorema~\ref{teo:lyapounovFunc}.}
 
@@ -142,7 +147,7 @@ Il prossimo risultato stabilisce una condizione necessaria per tutti i punti d'e
 
 \begin{lemma}
     \label{lem:necessJ}
-    Tutti i punti di equilibrio $(H^*, F^*)$
+    Tutti i punti di equilibrio $(H^*, F^*) \neq (0,0)$
     del modello~\eqref{eq:kh11h}--\eqref{eq:kh11f} verificano $F^* = J H^*$, dove
     \begin{equation}
         J \coloneq \frac{1}{2} \left[
@@ -157,48 +162,82 @@ Il prossimo risultato stabilisce una condizione necessaria per tutti i punti d'e
 
 Vale a dire, i punti di equilibrio giacciono sulla semiretta $F= JH$ nello spazio delle fasi, quando esistono.
 
-\paragraph{}
-Calcoliamo la matrice jacobiana del sistema:
+\begin{proof}
+    Annullando il membro destro dell'equazione~\eqref{eq:kh11f} otteniamo
+    $$F^2 - \left( \frac{\alpha}{m} - \frac{\sigma}{m} -1
+        \right) H F - \frac{\alpha}{m} H^2 = 0 \; ,$$
+    che ha determinante
+    $$\Delta = \left[ {\left( \frac{\alpha}{m} - \frac{\sigma}{m} -1
+        \right)}^2 + 4 \frac{\alpha}{m}
+        \right] H^2 \; ; $$
+    notiamo incidentalmente che il fattore parametrico è sempre strettamente positivo, quindi:
+    $H \gneq 0 \implies \Delta \gneq 0$.
+
+    \paragraph{}
+    Adottando la definizione di $J$ dell'equazione~\eqref{eq:kh11posEqJ}, possiamo vedere
+    che ogni punto d'equilibrio $(H^*, F^*)$ deve necessariamente verificare $F^* = J H^*$.
+\end{proof}
+
+
+Calcoliamo adesso la matrice jacobiana del sistema nella configurazione generale $(H, F)$:
 \begin{equation}
+    D(H, F) =
     \begin{pmatrix}
         L \frac{w}{{(w + H + F)}^2} - \alpha + \sigma \frac{F^2}{{(H+F)}^2} &
         L \frac{w}{{(w + H + F)}^2} + \sigma \frac{H^2}{{(H+F)}^2}
         \\
         \alpha - \sigma \frac{F^2}{{(H+F)}^2} &
         - \sigma \frac{H^2}{{(H+F)}^2} - m
-    \end{pmatrix}
+    \end{pmatrix} \; .
     \label{eq:jacoGeneral}
 \end{equation}
 
-È interessante notare che la seconda riga della jacobiana diventa costante sotto la
-condizione~\eqref{eq:kh11posEqJ}, infatti sostituendo $H$ con $\frac{1}{J} F$
-nell'equazione~\eqref{eq:jacoGeneral}, otteniamo
-\begin{gather}
-    \diffp*{ \dot{H} }{H}{H= \frac{1}{J} F} =
-    L \frac{w}{ {\left[ w + \left( \frac{1}{J} +1 \right) F \right]}^2 } - \alpha
-    + \frac{ \sigma }{ {\left( \frac{1}{J} + 1 \right)}^2 } \; ,
-    \\
-    \diffp*{ \dot{H} }{F}{H= \frac{1}{J} F} =
-    L \frac{w}{ {\left[ w + \left( \frac{1}{J} +1 \right) F \right]}^2 }
-    + \frac{ \sigma }{ {\left( J + 1 \right)}^2 } \; ,
-    \\
-    \diffp*{ \dot{F} }{H}{H= \frac{1}{J} F} =
-    \alpha - \frac{ \sigma }{ {\left( \frac{1}{J} + 1 \right)}^2 } \; ,
-    \\
-    \diffp*{ \dot{F} }{F}{H= \frac{1}{J} F} =
-    - \frac{ \sigma }{ {\left( J + 1 \right)}^2 } - m \; ,
+Se assumiamo che $(H, F) = (H^*, F^*)$ sia un punto d'equilibrio, sotto la condizione ~\eqref{eq:kh11posEqJ}
+la matrice jacobiana~\eqref{eq:jacoGeneral} si riduce all'espressione
+\begin{equation}
+    D \left( F/J, F \right) =
+    \begin{pmatrix}
+        L \frac{w}{ {\left[ w + \left( \frac{1}{J} +1 \right) F \right]}^2 } - \alpha
+        + \frac{ \sigma }{ {\left( \frac{1}{J} + 1 \right)}^2 } &
+        %
+        L \frac{w}{ {\left[ w + \left( \frac{1}{J} +1 \right) F \right]}^2 }
+        + \frac{ \sigma }{ {\left( J + 1 \right)}^2 } \\
+        %
+        \alpha - \frac{ \sigma }{ {\left( \frac{1}{J} + 1 \right)}^2 } &
+        %
+        - \frac{ \sigma }{ {\left( J + 1 \right)}^2 } - m
+    \end{pmatrix} \; ,
     \label{eq:jacoOnJFH}
-\end{gather}
-e le ultime due equazioni dipendono soltanto dai parametri, non dalle variabili $H$ ed $F$.
+\end{equation}
+in cui la seconda riga dipende soltanto dai parametri, e non dalle variabili $H$ ed $F$.
+
+% \begin{gather}
+%     \diffp*{ \dot{H} }{H}{H= \frac{1}{J} F} =
+%     L \frac{w}{ {\left[ w + \left( \frac{1}{J} +1 \right) F \right]}^2 } - \alpha
+%     + \frac{ \sigma }{ {\left( \frac{1}{J} + 1 \right)}^2 } \; ,
+%     \\
+%     \diffp*{ \dot{H} }{F}{H= \frac{1}{J} F} =
+%     L \frac{w}{ {\left[ w + \left( \frac{1}{J} +1 \right) F \right]}^2 }
+%     + \frac{ \sigma }{ {\left( J + 1 \right)}^2 } \; ,
+%     \\
+%     \diffp*{ \dot{F} }{H}{H= \frac{1}{J} F} =
+%     \alpha - \frac{ \sigma }{ {\left( \frac{1}{J} + 1 \right)}^2 } \; ,
+%     \\
+%     \diffp*{ \dot{F} }{F}{H= \frac{1}{J} F} =
+%     - \frac{ \sigma }{ {\left( J + 1 \right)}^2 } - m \; ,
+%     \label{eq:jacoOnJFH}
+% \end{gather}
+% e le ultime due equazioni dipendono soltanto dai parametri, non dalle variabili $H$ ed $F$.
 
 \subsubsection{Equilibrio banale}
 L'equilibrio banale $(0,0)$ è chiaramente sempre soluzione\footnote{Dunque il sistema ammette
 \emph{sempre} l'equilibrio banale.}
-di $\dot{H}=\dot{F}=0$, e lo studio della sua stabilità è cruciale.
-Nelle regioni di parametri per cui questo equilibrio è stabile e attrattivo generalmente si ha il declino
+di $$\dot{H}=\dot{F}=0 \; ,$$ e lo studio della sua stabilità è cruciale.
+Infatti, nelle regioni di parametri per cui questo equilibrio è stabile e attrattivo generalmente si ha il declino
 inevitabile dell'intera colonia.
 
-La matrice jacobiana del modello valutata nell'origine è:
+\paragraph{}
+La matrice jacobiana~\eqref{eq:jacoGeneral} del modello valutata nell'origine è:
 \begin{equation}
     D_{00} \coloneq
     \begin{pmatrix}
@@ -206,23 +245,28 @@ La matrice jacobiana del modello valutata nell'origine è:
         \frac{L}{w}
         \\
         \alpha & -m
-    \end{pmatrix}
+    \end{pmatrix} \; .
     \label{eq:jacoEquZero}
 \end{equation}
 
-Con il Teorema del pozzo non lineare\footnote{Cfr. p.~\pageref{teo:pozzoNonLineare}}
-possiamo vedere il motivo per cui la condizione~\ref{eq:cond6b}
-$\alpha -\frac{L}{w}>0$
-sia utile per caratterizzare la stabilità dell'origine.\footcite[3]{khoury2011}
+% Con il Teorema del pozzo non lineare\footnote{Cfr. p.~\pageref{teo:pozzoNonLineare}}
+% possiamo vedere il motivo per cui la condizione~\ref{eq:cond6b}
+% $\alpha -\frac{L}{w}>0$
+% sia utile per caratterizzare la stabilità dell'origine.\footcite[3]{khoury2011}
 
-Sotto tale ipotesi,
+Abbiamo
 $$\det  D_{00} > 0 \quad \iff \quad
-m > \frac{\alpha L}{w} {\left( \alpha - \frac{L}{w} \right)}^{-1}$$
-implica che
-$$\tr D_{00} = - \left( \alpha - \frac{L}{w} \right) - m < 0$$
-dunque abbiamo determinante positivo e traccia negativa, da cui segue che lo spettro di $D_{00}$ è
-strettamente negativo. Riassumiamo quanto appena trovato nel
+m > \frac{\alpha L}{w} {\left( \alpha - \frac{L}{w} \right)}^{-1} \; ,$$
+e
+$$ \alpha - \frac{L}{w} > 0  \quad \implies \quad
+\tr D_{00} = - \left( \alpha - \frac{L}{w} \right) - m < 0 \; ,$$
 
+da cui ricaviamo che se $\alpha -\frac{L}{w}>0$ (condizione~\eqref{eq:cond6b}), allora $D_{00}$ ha
+determinante positivo e traccia negativa, cioè gli autovalori sono concordi e negativi;
+dunque\footnote{Cfr. p.~\pageref{teo:pozzoNonLineare}} l'origine è stabile.
+
+\paragraph{}
+Riassumiamo quanto appena trovato nel
 \begin{lemma}[Condizione sufficiente per la stabilità dell'equilibrio banale]
     Se $\alpha - \frac{L}{w} > 0$ e
     $$m > \frac{\alpha L}{w \alpha -L} \; ,$$
@@ -240,10 +284,10 @@ Presentiamo una successione di risultati più semplici, al fine di costituire un
 un punto d'equilibrio positivo.
 
 \begin{proposizione}[Unicità dell'equilibrio positivo]
-    Se il modello~\refeq{eq:kh11h}--\refeq{eq:kh11f} ammette un equilibrio positivo $(H^*, F^*)$, allora
+    Se il modello~\eqref{eq:kh11h}--\eqref{eq:kh11f} ammette un equilibrio positivo $(H^*, F^*)$, allora
     questi è unico.
 
-    Esso è determinato dall'equazione~\refeq{eq:kh11posEqJ}, insieme con la seguente:
+    Esso è determinato dall'equazione~\eqref{eq:kh11posEqJ}, insieme con la seguente:
     \begin{equation}
         F^* = \frac{L}{m} - w \frac{J}{1+J} \; .
         \label{eq:kh11posEqF}
@@ -252,10 +296,48 @@ un punto d'equilibrio positivo.
     \label{teo:exUniqFstarPos} % WARNING prima era teorema, ho cambiato idea dopo.
 \end{proposizione}
 
-Questo modello dunque ammette sempre un solo equilibrio o due equilibri distinti, in base alla seguente
+La possibilità della non--esistenza dell'equilibrio positivo è implicitamente
+catturata nell'equazione~\eqref{eq:kh11posEqF}, laddove si abbia $F^* \leq 0$.
 
+\begin{proof}
+    Otteniamo la dimostrazione con alcuni calcoli elementari.
+
+    Dal momento che stiamo cercando un equilibrio non banale $(H^*, F^*)$, per il
+    Lemma~\ref{lem:necessJ} possiamo supporre ambo le componenti strettamente positive nel seguito.
+
+    Ancora per il Lemma~\ref{lem:necessJ}, possiamo sostituire $H=\frac{1}{J} F$ nel membro destro della
+    prima equazione~\eqref{eq:kh11h} del modello, ed usare la condizione di equilibrio per uguagliare
+    a zero quanto ottenuto. Da
+    $$L \frac{ \left( \frac{1}{J} +1 \right) F }{ w +\left( \frac{1}{J} +1 \right) F }
+    - \frac{1}{J} F \left( \alpha - \sigma \frac{\cancel{F}}{ \left( \frac{1}{J} +1 \right) \cancel{F} } \right) = 0$$
+    possiamo semplificare $F$ perché non nulla, così da ottenere
+    $$L \left( \frac{1}{J} +1 \right) \cancel{F} - \frac{1}{J} \left( \alpha - \frac{\sigma}{ \frac{1}{J} +1 } \right)
+    \left[ w + \left( \frac{1}{J} +1 \right) F \right] \cancel{F} = 0 \; ,$$
+    dove la semplificazione di $F$ procede con lo stesso argomento di sopra; si noti che ciò ammonta a scartare la
+    soluzione nulla, che non ci interessa per ipotesi.
+
+    L'unicità dell'equilibrio positivo si ottiene manipolando ulteriormente l'equazione sopra, ottenendo infine
+    $$F^* = \frac{LJ}{ \alpha - \frac{\sigma}{ 1 + \frac{1}{J} } } - w \frac{J}{1+J} \; ,$$
+    in cui possiamo osservare che il membro destro dipende esclusivamente dai parametri.
+
+    \paragraph{}
+    Avendo a disposizione l'ultima equazione, per concludere la dimostrazione -- \ie stabilire
+    l'equazione~\eqref{eq:kh11posEqF} -- resta soltanto da provare che
+    $$J m = \alpha - \sigma \frac{J}{1+J} \; ,$$
+    dove abbiamo semplificato il fattore $L$ ad ambo i membri, essendo non nullo.
+
+    Per stabilire quest'ultima equazione può essere utile razionalizzare l'espressione $\frac{J}{1+J}$ come
+    $$\frac{J}{1+J} = \frac{ \alpha + \sigma + m - \sqrt{ {(\alpha - \sigma -m)}^2 - 4 \alpha m } }{2 \sigma}$$
+    e raggiungere l'obiettivo tramite manipolazioni algebriche.
+
+    \paragraph{}
+    Abbiamo stabilito l'equazione~\eqref{eq:kh11posEqF} e ciò conclude la prova.
+\end{proof}
+
+Il modello~\eqref{eq:kh11h}--\eqref{eq:kh11f} quindi ammette sempre l'equilibrio banale, ed un ulteriore
+punto di equilibrio positivo in alcune circostanze, riassunte nella
 \begin{proposizione}[Criterio di esistenza]
-    Una condizione necessaria e sufficiente affinché il modello~\refeq{eq:kh11h}--\refeq{eq:kh11f} abbia
+    Una condizione necessaria e sufficiente affinché il modello~\eqref{eq:kh11h}--\eqref{eq:kh11f} abbia
     un equilibrio strettamente positivo $P^* \coloneq (H^*, F^*)$ è data per casi:
     \begin{itemize}
         \item[1.] se $\alpha - \frac{L}{w} >0$, allora $P^*$ esiste $\iff m_1^* < m < m_2^*$;
@@ -267,7 +349,7 @@ Questo modello dunque ammette sempre un solo equilibrio o due equilibri distinti
         m_3^* = \frac{ \sigma L}{ w (\alpha + \sigma) } \; ,
         \label{eq:FstarPosM3}
     \end{equation}
-    e $m_1^*, m_2^*$ sono sempre prese nell'ordine $m_1 < m_2$ dalla seguente
+    e $m_1^*, m_2^*$ sono sempre prese nell'ordine $m_1^* < m_2^*$ dalla seguente
     \begin{equation}
         m_{1,2} = \frac{L}{2w} \frac{ \alpha + \sigma \pm \sqrt{ {(\alpha - \sigma)}^2 +\frac{4 \sigma L}{w}  } }
         {\alpha -\frac{L}{w}} \; .
@@ -276,6 +358,43 @@ Questo modello dunque ammette sempre un solo equilibrio o due equilibri distinti
 
     \label{teo:esistenzPosF} % WARNING prima era teorema, ho cambiato idea dopo.
 \end{proposizione}
+
+% due righe di comm? Ocio che dopo abbiamo INTERPR.
+
+\begin{proof}
+Possiamo usare l'equazione~\eqref{eq:kh11posEqF} dalla Proposizione~\ref{teo:exUniqFstarPos} e studiare
+la disequazione $F^* >0$ per dimostrare il criterio di esistenza:
+$$F^* > 0 \; \iff \;
+\left( \frac{2 \alpha w}{L} -1 \right) m - \alpha - \sigma < \sqrt{ {(\alpha - \sigma -m)}^2 + 4 \alpha m }$$
+
+possiamo elevare al quadrato ambo i membri per ottenere la seguente disuguaglianza in $m$:
+\begin{equation}
+    \left( \frac{\alpha w}{L} -1 \right) m^2 -( \alpha + \sigma) m + \frac{\sigma L}{w} < 0
+    \label{eq:mDiseq}
+\end{equation}
+la quale ha determinante sempre positivo
+$$\Delta = {(\alpha -\sigma)}^2 +4 \frac{\sigma L}{w} \; .$$
+
+L'equazione~\eqref{eq:FstarPosM12} si ottiene applicando la formula delle radici quadratiche.
+Nel seguito sceglieremo la nomenclatura per avere sempre $m_1^* < m_2^*$ fino al termine della dimostrazione.
+
+\paragraph{Caso 1.}
+Se $\alpha - \frac{L}{w} >0$, allora $F^*>0$ esiste se e soltanto se
+$$m_1^* < m < m_2^* \; ,$$
+ed anche il limite inferiore ha senso, dal momento che
+$m_1^* > 0$ si riduce a $\alpha - \frac{L}{w}>0$, vera per ipotesi del caso.
+
+\paragraph{Caso 2.}
+Se $\alpha -\frac{L}{w} <0$, allora dobbiamo prendere $m < m_1^*$ oppure $m > m_2^*$ affinché $F^* >0$ esista.
+La prima disequazione si può scartare dal momento che $m_1^* <0$ per ipotesi del caso.
+
+La seconda va mantenuta dal momento che $m_2^* >0$ si riduce alla ipotesi del caso $\alpha - \frac{L}{w} < 0$.
+
+\paragraph{Caso 3.}
+Quando $\alpha - \frac{L}{w} =0$, la nostra disequazione~\eqref{eq:mDiseq} diviene lineare e la sua soluzione è
+$$m > \frac{\sigma L}{w (\alpha +\sigma)} \; ,$$
+ciò che conclude l'ultimo caso restante della dimostrazione.
+\end{proof}
 
 \paragraph{Interpretazione.}
 \label{par:interpretationCond6b}
@@ -341,3 +460,17 @@ La ramificazione degli equilibri in questo modello è illustrata in figura~\ref{
     \label{img:kh11phasePlane}
 \end{figure}
 
+\paragraph{}
+Tra i contributi più utili di questo semplice modello, oltre al ruolo sociale delle funzioni $E$ ed
+$R$, rileviamo una concentrazione particolare degli autori sul parametro $m$:
+ciò riflette in parte l'attenzione dedicata dalla ricerca alle varie sindromi da
+collasso di popolazione in \emph{Apis} rilevate in tutto il mondo.
+D'altro canto, è importante per la validazione di ogni modello matematico
+un confronto coi dati sperimentali rilevati sul campo:\footcite{rueppell2009honey}
+in questo senso $m$ è facilmente derivabile come l'inverso
+di una misura diretta, l'aspettativa di vita media per le bottinatrici (\emph{flightspan}).
+
+Se ogni bottinatrice ha mediamente probabilità $1-m$ di sopravvivere al primo giorno in tale ruolo, $(1-m)^2$
+probabilità di sopravvivere al secondo, e così di seguito, la sua aspettativa di vita media è
+$$ \sum_{k=1}^{\infty} k m {(1-m)}^k = m \underbrace{ \sum_{k=1}^{\infty} k {(1-m)}^k }_{m^{-2}}
+= \frac{1}{m} \; .$$
