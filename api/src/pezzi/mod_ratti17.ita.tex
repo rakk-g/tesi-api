@@ -219,6 +219,92 @@ $$ a \coloneq - \frac{ \mu }{ \frac{\sigma_2 F}{1+F} - d_1 - \sigma_1 }.$$
     $$a > \frac{Ki}{1+F} {(i-1)}^{ \frac{1}{i} - 1 }.$$
 \end{proof}
 
+L'equilibrio banale è incondizionatamente asintoticamente stabile.
+Il fatto matematico che $(0,0)$ appartenga alla \emph{parte interna} del suo bacino d'attrazione
+ha una applicazione sintetica sul campo: se per qualsiasi motivo una colonia si trova ``pericolosamente''
+vicina ad una soglia inferiore di popolazione, non riuscirà a mantenere in funzione gli apparati vitali
+dell'alveare, ed è fatalmente condannata.
+
+L'esperienza degli apicoltori professionisti\footcite{privFDL,privFPan} che hanno praticato il nomadismo in Italia
+fin dagli anni '80 conferma questo dato:
+\begin{displayquote}[{\footcite{privFDL}}]
+Per garantire il proprio sviluppo, una famiglia necessita di una popolazione di
+almeno 12000 operaie attive; circa due telai pienamente popolati.
+
+La stessa soglia è utilizzata per l'``equilibratura'': idealmente due famiglie nello stesso apiario,
+se hanno meno di 12000 api ciascuna, vengono unite.
+\end{displayquote}
+
+\begin{proposizione}[3.2, Stability of trivial equilibrium {\footcite[12]{ratti2017}}]
+    L'equilibrio banale del modello ridotto alle sole api
+    \eqref{eq:rattiRidotto1prima}--\eqref{eq:rattiRidotto1seconda}
+
+    è stabile.
+\end{proposizione}
+
+\begin{proof}
+Consideriamo $V(x_h, x_f) = x_h + x_f$ e dimostriamo che è di Lyapounov per l'origine.
+La $V$ ha un minimo locale forte in $(0,0)$; inoltre
+$$\dot{V} = \diff{x_h}{t} + \diff{x_f}{t} = \mu g(x_h + x_f) -d_1 x_h - (p+d_2) x_f
+\leq
+ \mu g(x_h + x_f) - \delta (x_h + x_f)
+\; ,$$
+prendendo $0 < \delta \leq \min (d_1, p + d_2)$.
+Si conclude osservando che $\mu g(x) - \delta x <0$ per $x>0$ sufficientemente piccolo.
+\end{proof}
+
+La matrice jacobiana del sistema in configurazione generica $(x_h, x_f)$ è
+\begin{equation}
+    D(x_h, x_f) =
+    \begin{pmatrix}
+        \mu g' -d_1 - \sigma_1 + \sigma_2 \frac{x_f^2}{{(x_h+x_f)}^2}
+        & \mu g' + \sigma_2 \frac{x_h^2}{{(x_h+x_f)}^2}
+        \\
+        \sigma_1 - \sigma_2 \frac{x_f^2}{{(x_h+x_f)}^2}
+        & - \sigma_2 \frac{x_h^2}{{(x_h+x_f)}^2} - (p+d_2)
+    \end{pmatrix} \; ,
+    \label{eq:r17jaco}
+\end{equation}
+dove è indicato per brevità di notazione
+$$
+    g' = g'(x_h+x_f) \coloneq \diffp{g}{{x_h}} (x_h + x_f) = \diffp{g}{{x_f}} (x_h + x_f) =
+    \frac{ iK^i {(x_h + x_f)}^{i-1} }{ { \left( K^i + {(x_h +x_f)}^i \right)  }^2 }
+    \; .
+$$
+
+\begin{proposizione}[3.3, Stability of non--trivial equilibria {\footcite[13]{ratti2017}}]
+    Sia $(x_h^*, x_f^*)$ un equilibrio non banale, come da proposizione~\ref{prop:rExist}.
+    Questo punto è stabile se
+    $$asDK \; .$$
+\end{proposizione}
+\begin{proof}
+    Sostituendo $x_f = F x_h$ nella jacobiana~\eqref{eq:r17jaco} otteniamo
+    \begin{equation}
+    D(x_h, F x_h) =
+    \begin{pmatrix}
+        \mu g_h' -d_1 - \sigma_1 + \sigma_2 \frac{F^2}{(1+F)^2}
+        & \mu g_h' + \frac{\sigma_2}{(1+F)^2}
+        \\
+        \sigma_1 - \sigma_2 \frac{F^2}{(1+F)^2}
+        & - \frac{\sigma_2}{(1+F)^2} - (p+d_2)
+    \end{pmatrix} \; ,
+    \label{eq:r17jacoFxh}
+\end{equation}
+dove analogamente a poco sopra
+$$g_h' \coloneq g'( x_h + F x_h ) = \frac{i K^i {(1+F)}^{i-1} x_h^{i-1} }{ { \left( K^i + {(1+F)}^i x_h^i
+        \right)  }^2 } \; .$$
+
+Ricaviamo adesso per il determinante l'espressione
+\begin{multline}
+    \det D(x_h, F x_h) = - \frac{\sigma_2}{ {(1+F)}^2 } \left( \mu g_h' -d_1 + (p+d_2) F^2 \right) - \\
+    - (p+d_2) (\mu g_h' -d_1) -\sigma_1 \left( \mu g_h' -(p+d_2) \right) + \\
+    + \sigma_2 \frac{F^2}{{(1+F)}^2} \mu g_h' % questo termine Ratti e amici non ce l'hanno
+    \; ,
+\end{multline}
+dove possiamo sostituire $\sigma_1 = (p+d_2)F + \sigma_2 \frac{F}{1+F}$
+
+
+\end{proof}
 
 
 
@@ -228,7 +314,7 @@ Se esistono, gli equilibri positivi sono stabili se
 \frac{i \mu K^i {(x_h^*)}^{i-1} {(1+F)}^{i-1}}{ {\left( K^i + {(x_h^*)}^i {(1+F)}^i \right)}^2 }
 <
 \frac{d_1 + (p+d_2) F}{{(1+F)}^2}.
-\label{eq:rattiRidotto1stability}
+\label{eq:rattiRidotto1stabilitySECONDOLORO}
 \end{equation}
 
 \subsubsection{Modello tridimensionale api--acaro}
