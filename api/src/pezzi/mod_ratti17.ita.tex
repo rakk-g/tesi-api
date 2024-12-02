@@ -179,10 +179,11 @@ Si noti che questo effetto di tipo Allee si osserva già nel modello senza patog
 
 \paragraph{}
 Proponiamo adesso una analisi dei punti di equilibrio del modello \eqref{eq:rattiRidotto1prima}--\eqref{eq:rattiRidotto1seconda}, introducendo per comodità di notazione le due costanti
-$$
+\begin{equation}
     F \coloneq \frac{1}{2} \left( \frac{ \sigma_1 - \sigma_2 - p - d_2 }{p+d_2} +
     \sqrt{ {\left( \frac{ \sigma_1 - \sigma_2 - p - d_2 }{p+d_2} \right)}^2 + \frac{4 \sigma_1}{p+d_2} } \, \right),
-$$
+    \label{eq:rattiFconst}
+\end{equation}
 ed
 $$ a \coloneq - \frac{ \mu }{ \frac{\sigma_2 F}{1+F} - d_1 - \sigma_1 }.$$
 
@@ -274,8 +275,9 @@ $$
 
 \begin{proposizione}[3.3, Stability of non--trivial equilibria {\footcite[13]{ratti2017}}]
     Sia $(x_h^*, x_f^*)$ un equilibrio non banale, come da proposizione~\ref{prop:rExist}.
-    Questo punto è stabile se
-    $$asDK \; .$$
+    Tale punto è stabile se
+    $$ \mu \frac{ i K^i (1+F)^{i-1}{x_h^*}^{i-1} }{ {\left[ K^i +(1+F)^i {x_h^*}^i \right]}^2 }
+    < \frac{d_1 + (p+d_2)F}{1+F} \; .$$
 \end{proposizione}
 \begin{proof}
     Sostituendo $x_f = F x_h$ nella jacobiana~\eqref{eq:r17jaco} otteniamo
@@ -290,32 +292,52 @@ $$
     \end{pmatrix} \; ,
     \label{eq:r17jacoFxh}
 \end{equation}
-dove analogamente a poco sopra
+dove analogamente a poco sopra usiamo per brevità
 $$g_h' \coloneq g'( x_h + F x_h ) = \frac{i K^i {(1+F)}^{i-1} x_h^{i-1} }{ { \left( K^i + {(1+F)}^i x_h^i
         \right)  }^2 } \; .$$
 
-Ricaviamo adesso per il determinante l'espressione
-\begin{multline}
-    \det D(x_h, F x_h) = - \frac{\sigma_2}{ {(1+F)}^2 } \left( \mu g_h' -d_1 + (p+d_2) F^2 \right) - \\
-    - (p+d_2) (\mu g_h' -d_1) -\sigma_1 \left( \mu g_h' -(p+d_2) \right) + \\
-    + \sigma_2 \frac{F^2}{{(1+F)}^2} \mu g_h' % questo termine Ratti e amici non ce l'hanno
-    \; ,
-\end{multline}
-dove possiamo sostituire $\sigma_1 = (p+d_2)F + \sigma_2 \frac{F}{1+F}$
-
-
-\end{proof}
-
-
+Dalla definizione di $F$~\eqref{eq:rattiFconst} possiamo ricavare
+$\sigma_1 = (p+d_2)F + \sigma_2 \frac{F}{1+F}$, che sostituita nella prima colonna della
+della jacobiana~\eqref{eq:r17jacoFxh} ci permette di trovare l'espressione per il determinante
+% Ricaviamo adesso per il determinante l'espressione
+% \begin{multline}
+%     \det D(x_h, F x_h) = - \frac{\sigma_2}{ {(1+F)}^2 } \left( \mu g_h' -d_1 + (p+d_2) F^2 \right) - \\
+%     - (p+d_2) (\mu g_h' -d_1) -\sigma_1 \left( \mu g_h' -(p+d_2) \right) + \\
+%     + \sigma_2 \frac{F^2}{{(1+F)}^2} \mu g_h' % questo termine Ratti e amici non ce l'hanno
+%     \; ,
+% \end{multline}
+$$
+\det D(x_h, F x_h) =
+\left[ \frac{\sigma_2}{(1+F)^2} +(p+d_2) \right] \cdot
+\left[ { - \mu g_h' (1+F) + \left( d_1 +(p+d_2)F \right) } \right]
+\; ,
+$$
+da cui
+$$
+\det D(x_h, F x_h) > 0 \quad \iff \quad
+\mu g_h' < \frac{d_1 + (p+d_2)F}{1+F} \; ,$$
+che è la disequazione nella tesi.
 
 \paragraph{}
-Se esistono, gli equilibri positivi sono stabili se
-\begin{equation}
-\frac{i \mu K^i {(x_h^*)}^{i-1} {(1+F)}^{i-1}}{ {\left( K^i + {(x_h^*)}^i {(1+F)}^i \right)}^2 }
-<
-\frac{d_1 + (p+d_2) F}{{(1+F)}^2}.
-\label{eq:rattiRidotto1stabilitySECONDOLORO}
-\end{equation}
+Si noti che la $\det D(x_h, F x_h) > 0$ implica $\tr D(x_h, F x_h) <0$: infatti se la disequazione
+precedente è valida, allora abbiamo
+\begin{multline*}
+\tr D(x_h, F x_h) = \mu g_h' -d_1 -(p+d_2)F - \frac{\sigma_2 F}{(1+F)^2} - \frac{\sigma_2}{(1+F)^2} - (p + d_2) \overbrace{<}^{\det >0} \\
+< - \frac{d_1 F}{1+F} - \frac{p +d_2}{1+F} - \frac{\sigma_2}{1+F} < 0 \; ,
+\end{multline*}
+dunque la somma degli autovalori è negativa, e la loro parte reale è negativa.
+
+Ciò implica che il punto d'equilibrio sia stabile.
+\end{proof}
+
+% \paragraph{LORO DICONO: }
+% Se esistono, gli equilibri positivi sono stabili se
+% \begin{equation}
+% \frac{i \mu K^i {(x_h^*)}^{i-1} {(1+F)}^{i-1}}{ {\left( K^i + {(x_h^*)}^i {(1+F)}^i \right)}^2 }
+% <
+% \frac{d_1 + (p+d_2) F}{{(1+F)}^2}.
+% \label{eq:rattiRidotto1stabilitySECONDOLORO}
+% \end{equation}
 
 \subsubsection{Modello tridimensionale api--acaro}
 Introduciamo adesso nella colonia le varroe senza virus, ed indaghiamo la conseguente alterazione della stabilità degli equilibri individuati nel caso precedente.
