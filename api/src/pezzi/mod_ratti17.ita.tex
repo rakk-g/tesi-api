@@ -241,6 +241,7 @@ se hanno meno di 12000 api ciascuna, vengono unite.
     \eqref{eq:rattiRidotto1prima}--\eqref{eq:rattiRidotto1seconda}
 
     è stabile.
+    \label{prop:r0Stab2d}
 \end{proposizione}
 
 \begin{proof}
@@ -267,18 +268,21 @@ La matrice jacobiana del sistema in configurazione generica $(x_h, x_f)$ è
     \label{eq:r17jaco}
 \end{equation}
 dove è indicato per brevità di notazione
-$$
+\begin{equation}
     g' = g'(x_h+x_f) \coloneq \diffp{g}{{x_h}} (x_h + x_f) = \diffp{g}{{x_f}} (x_h + x_f) =
     \frac{ iK^i {(x_h + x_f)}^{i-1} }{ { \left( K^i + {(x_h +x_f)}^i \right)  }^2 }
     \; .
-$$
+    \label{eq:gPrimo}
+\end{equation}
 
 \begin{proposizione}[3.3, Stability of non--trivial equilibria {\footcite[13]{ratti2017}}]
     Sia $(x_h^*, x_f^*)$ un equilibrio non banale, come da proposizione~\ref{prop:rExist}.
     Tale punto è stabile se
     $$ \mu \frac{ i K^i (1+F)^{i-1}{x_h^*}^{i-1} }{ {\left[ K^i +(1+F)^i {x_h^*}^i \right]}^2 }
     < \frac{d_1 + (p+d_2)F}{1+F} \; .$$
+    \label{prop:ratti2Dstab}
 \end{proposizione}
+
 \begin{proof}
     Sostituendo $x_f = F x_h$ nella jacobiana~\eqref{eq:r17jaco} otteniamo
     \begin{equation}
@@ -293,8 +297,11 @@ $$
     \label{eq:r17jacoFxh}
 \end{equation}
 dove analogamente a poco sopra usiamo per brevità
-$$g_h' \coloneq g'( x_h + F x_h ) = \frac{i K^i {(1+F)}^{i-1} x_h^{i-1} }{ { \left( K^i + {(1+F)}^i x_h^i
-        \right)  }^2 } \; .$$
+\begin{equation}
+g_h' \coloneq g'( x_h + F x_h ) = \frac{i K^i {(1+F)}^{i-1} x_h^{i-1} }{ { \left( K^i + {(1+F)}^i x_h^i
+        \right)  }^2 } \; .
+    \label{eq:gPrimoF}
+\end{equation}
 
 Dalla definizione di $F$~\eqref{eq:rattiFconst} possiamo ricavare
 $\sigma_1 = (p+d_2)F + \sigma_2 \frac{F}{1+F}$, che sostituita nella prima colonna della
@@ -344,6 +351,9 @@ Introduciamo adesso nella colonia le varroe senza virus, ed indaghiamo la conseg
 
 Si eliminano quindi dal modello \eqref{eq:r17xh}--\eqref{eq:r17n} le equazioni per le api infette da ABPV e per le varroe che trasportano il virus; notiamo che da $m \equiv 0$ segue che $h(m) \equiv 1$.
 
+Possiamo inoltre assumere $\beta_2 = \beta_3 = 0$, rispettivamente tassi di acquisizione e di perdita
+del virus per gli acari, dato che in questo sottosistema non teniamo conto della carica di ABPV.
+
 \paragraph{}
 Il modello ridotto che si ottiene è il seguente:
 
@@ -362,17 +372,112 @@ Il modello ridotto che si ottiene è il seguente:
 
 Anche in questo caso, l'equilibrio banale $(x_h, x_f, n)=(0,0,0)$ esiste ed è sempre asintoticamente stabile, con la medesima interpretazione pratica del caso precedente (effetto Allee forte).
 
+\begin{proposizione}[3.4, Stability of the trivial equilibrium {\footcite[14]{ratti2017}}]
+L'equilibrio banale $(0,0,0)$ del modello ridotto
+api--acaro \eqref{eq:rattiRidotto2prima}--\eqref{eq:rattiRidotto2terza}
+è asintoticamente stabile.
+\end{proposizione}
+
+\begin{proof}
+Seguiamo la stessa impostazione della Proposizione~\ref{prop:r0Stab2d} per la dimostrazione:
+\begin{multline*}
+\diff{x_h}{t} + \diff{x_f}{t} = \mu g (x_h + x_f) - (d_1 +\delta_1) x_h
+- n( \gamma_1 x_h + \gamma_2 x_f ) - (p + d_2 + \delta_2) x_f < \\
+< \mu g(x_h +x_f) - \delta (x_h + x_f) \; ,
+\end{multline*}
+ove si è preso $0< \delta < d_1 + \delta_1 , p_1 + d_2 + \delta_2$.
+Ciò dimostra che $x_h(t), x_f(t) \to 0$ purché si prendano condizioni iniziali abbastanza vicine all'origine.
+
+\paragraph{}
+Osserviamo che $n > \alpha (x_h + x_f)$ implica $\dot{n} <0$ (segue dalla~\ref{eq:rattiRidotto2terza}),
+riflettendo il fatto che la popolazione di acari decresce quando la popolazione portante di api
+raggiunge livelli pericolosamente bassi. Consideriamo l'insieme
+$$Z_{\tilde{x}, \tilde{n}} \coloneq \left\{ x_h, x_f, n > 0 \; | \; x_h + x_f < \tilde{x}, n < \tilde{n} \right\} \; .$$
+Questi è un insieme positivamente invariante prendendo $\tilde{x}, \tilde{n}$ sufficientemente piccoli,
+ed il flusso integrale punta verso l'interno.
+
+Per costruzione, $Z_{\tilde{x}, \tilde{n}}$ è contenuto nel bacino di attrazione dell'origine.
+\end{proof}
+
+Prima di proseguire, può essere utile calcolare la matrice jacobiana nella configurazione
+generica
+\begin{equation}
+    \begin{pmatrix}
+    \mu g' - (d_1 +\delta_1 +\sigma_1) -\gamma_1 n + \sigma_2 \frac{x_f^2}{(x_h+x_f)^2} &
+    \mu g' + \sigma_2 \frac{x_h^2}{(x_h+x_f)^2} &
+    -\gamma_1 x_h
+    \\
+    \sigma_1 - \sigma_2 \frac{x_f^2}{(x_h+x_f)^2} &
+    - \sigma_2 \frac{x_h^2}{(x_h+x_f)^2} - ( p +d_2 +\delta_2) - \gamma_2 n &
+    \gamma_2 x_f
+    \\
+    \frac{ r n^2 }{ \alpha (x_h + x_f)^2 } &
+    \frac{ r n^2 }{ \alpha (x_h + x_f)^2 } &
+    r \left(1-\frac{2n}{\alpha (x_h+x_f)} \right) -\delta_5
+    \end{pmatrix}
+    \; ,
+\end{equation}
+dove $g' = g'(x_h +x_f)$ come dalla~\eqref{eq:gPrimo}.
+
+
 \paragraph{Equilibrio senza varroe. } Consideriamo adesso un equilibrio non banale $(x_h^*, x_f^*)$ per il modello \eqref{eq:rattiRidotto1prima}--\eqref{eq:rattiRidotto1seconda}, secondo le condizioni di esistenza date sopra.
 Il punto $(x_h^*, x_f^*, 0)$ è un equilibrio per il modello \eqref{eq:rattiRidotto2prima}--\eqref{eq:rattiRidotto2terza}.
 
-Se $r > \delta_5$ allora è instabile; se viceversa $r< \delta_5$ allora il punto $(x_h^*, x_f^*, 0)$ eredita la stabilità di $(x_h^*, x_f^*)$ sotto le \eqref{eq:rattiRidotto1prima}--\eqref{eq:rattiRidotto1seconda}.
+Se $r > \delta_5$ allora esso è instabile; se viceversa $r< \delta_5$ allora
+il punto $(x_h^*, x_f^*, 0)$ eredita la stabilità di $(x_h^*, x_f^*)$ sotto le
+\eqref{eq:rattiRidotto1prima}--\eqref{eq:rattiRidotto1seconda}, nel senso della seguente
 
-\paragraph{}
-Ciò significa che l'equilibrio senza varroe è stabile se la \eqref{eq:rattiRidotto1stability} è soddisfatta
+\begin{proposizione}[3.5, Stability of mite--free equilibria {\footcite[14]{ratti2017}}]
+    Sia $(x_h^*, x_f^*)$ un equilibrio positivo per
+    il modello~\eqref{eq:rattiRidotto1prima}--\eqref{eq:rattiRidotto2prima}, e sia
+    $P \simeq (x_h^*, x_f^*, 0)$.
+    \begin{itemize}
+        \item Se $r > \delta_5 $ allora $P$ è instabile.
+        \item Se $r < \delta_5 $ allora $P$ è stabile se
+        \begin{equation}
+            \mu \frac{ i K^i (1+F)^{i-1}{x_h^*}^{i-1} }{ {\left[ K^i +(1+F)^i {x_h^*}^i \right]}^2 }
+            < \frac{d_1 + \delta_1 + (p+d_2+\delta_2)F}{1+F} \; .
+            \label{eq:rattiRidotto2stability}
+        \end{equation}
+    \end{itemize}
+\end{proposizione}
+
+Ciò significa che l'equilibrio senza varroe è stabile se la \eqref{eq:rattiRidotto2stability} è soddisfatta
 ed il tasso massimo di natalità delle varroe è inferiore alla loro mortalità dovuta ai trattamenti.
+
 Si osservi inoltre che in assenza di trattamenti varroacidi l'alveare non riesce a debellare l'infestazione dell'acaro.
 
-Nel caso instabile, non è chiaro se il sistema converge all'equilibrio banale oppure ad un equilibrio endemico. \cite[15]{ratti2017}
+\begin{proof}
+Calcolando la matrice jacobiana sul punto di equilibrio si ottiene
+$$ D (x_h^* , F x_h^* , 0) =
+\begin{pmatrix}
+    \mu g_h' - (d_1 +\delta_1 +\sigma_1) + \sigma_2 \frac{F^2}{(1+F)^2} &
+    \mu g_h' + \frac{\sigma_2}{(1+F)^2} &
+    -\gamma_1 x_h^*
+    \\
+    \sigma_1 - \sigma_2 \frac{F^2}{(1+F)^2} &
+    - \frac{\sigma_2}{(1+F)^2} - ( p +d_2 +\delta_2) &
+    - \gamma_2 F x_h^*
+    \\
+    0 &
+    0 &
+    r -\delta_5
+    \end{pmatrix}
+    \; ,
+$$
+dove $g_h'$ è abbreviata come nella~\eqref{eq:gPrimoF}.
+
+Se $r -\delta_5 > 0$ allora l'equilibrio è instabile, poiché questi è un autovalore.
+
+\paragraph{}
+Se invece $r - \delta_5 <0$ allora gli altri due autovalori si ottengono dal minore $2 \times 2$
+di nord--ovest, in modo analogo a quanto fatto
+per la dimostrazione della Proposizione~\ref{prop:ratti2Dstab}.
+\end{proof}
+
+\paragraph{}
+Nel caso instabile, non è facile determinare le condizioni che portano la colonia al collasso oppure
+verso un equilibrio endemico.\footcite[15]{ratti2017}
 
 
 \subsubsection{Modello completo api--\emph{Varroa}--ABPV}
