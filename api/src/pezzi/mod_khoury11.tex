@@ -1,16 +1,18 @@
 \section[Modello a due compartimenti con reclutamento]{Modello a due compartimenti con reclutamento sociale}
+\label{sec:kh11}
 
 Nel \citeyear{khoury2011} è stato proposto un modello\footcite{khoury2011} per indagare le dinamiche sociali
 tra le caste della popolazione operaia in \emph{Apis~mellifera}.
 
 Nello studio si ottengono due equazioni, in cui le variabili reali e non negative $H$ ed $F$ rappresentano
-le operaie di nido e le foraggiatrici, rispettivamente:
+il numero delle operaie di nido e delle foraggiatrici, rispettivamente:
 
 \begin{align}
     \diff{H}{t} &= \overbrace{E(H,F)}^{\text{eclosion}}- H \cdot R(H,F) \label{eq:kh11h} \; , \\
     \diff{F}{t} &= H \cdot R(H,F)  - m \cdot F \label{eq:kh11f} \; ,
 \end{align}
-dove $m$ è il tasso di mortalità, mentre $R$ rappresenta la funzione di \emph{reclutamento} nel termine di
+dove $m$ è il tasso di mortalità, ed $E$ il tasso di schiusa.
+$R$ rappresenta la funzione di \emph{reclutamento} nel termine di
 trasferimento $H \to F$.
 
 Alcuni oggetti proposti in questo modello si sono dimostrati molto interessanti e sono stati incorporati
@@ -100,10 +102,12 @@ $N=H+F$ per il numero totale di operaie, di nido e di campo, presenti nella colo
 
 Infatti, sommando le equazioni \eqref{eq:kh11h}--\eqref{eq:kh11f} e trascurando il termine di mortalità otteniamo
 il tasso di crescita asintotico della popolazione totale
-$$\diff{N}{t} \simeq \frac{L}{ \frac{w}{N} + 1} \approx L \; , \quad \text{quando } \frac{w}{N} \ll 1 \; .$$
+$$\diff{N}{t} \simeq \frac{L}{ \frac{w}{N} + 1} \approx L \; , \quad \text{quando } \frac{w}{N} \ll 1 \; ,$$
+ovvero per popolazioni $N$ molto grandi.
 
 La $E$ è una funzione Holling di tipo II, in cui il tasso di attacco è $a=\frac{1}{w}$ e $w$
-è la retroimmagine del semimassimo nella risposta. In figura~\ref{img:eclos} possiamo vedere come valori
+è la retroimmagine del semimassimo nella risposta. In figura~\ref{img:eclos} è riportata $E(N)$ in funzione di $N$.
+Possiamo vedere come valori
 crescenti di $w$ ``schiacciano'' la curva mentre la saturazione è raggiunta per valori sempre maggiori di $N$,
 e il grafico di $E(N)$ si ``inclina'' verso la destra.
 
@@ -124,7 +128,7 @@ della formulazione molto simile a quanto~\citeauthor{khoury2011} propongono nell
 
 
 \subsection{Analisi della stabilità}
-Rivediamo adesso con cautela i risultati forniti nell'articolo, a proposito dell'esistenza e della stabilità
+Rivediamo adesso i risultati forniti nell'articolo, a proposito dell'esistenza e della stabilità
 dei punti di equilibrio nel modello~\eqref{eq:kh11h}--\eqref{eq:kh11f}.
 
 Gli autori hanno utilizzato \textquote[{\footcite[3]{khoury2011}}]{standard linear stability analysis and phase
@@ -139,7 +143,7 @@ la valutiamo sull'equilibrio stesso; un semplice criterio sufficiente per la sta
 è che $\Re (\lambda) < 0$ per ogni autovalore $\lambda$ della matrice.
 
 Un'altra tecnica, dovuta a Lyapounov, consiste nell'esibire una funzione che abbia un minimo
-locale forte sul punto di equilibrio e che sia localmente debolmente decrescente lungo le
+locale forte sul punto di equilibrio e che sia localmente decrescente lungo le
 soluzioni.\footnote{Vedasi il Teorema~\ref{teo:lyapounovFunc}.}
 
 \paragraph{}
@@ -151,7 +155,12 @@ Il prossimo risultato stabilisce una condizione necessaria per tutti i punti d'e
 \begin{lemma}
     \label{lem:necessJ}
     Tutti i punti di equilibrio $(H^*, F^*) \neq (0,0)$
-    del modello~\eqref{eq:kh11h}--\eqref{eq:kh11f} verificano $F^* = J H^*$, dove
+    del modello~\eqref{eq:kh11h}--\eqref{eq:kh11f} verificano
+    \begin{equation}
+    F^* = J H^* \; ,
+    \label{eq:FeqJH}
+    \end{equation}
+    dove la costante adimensionale $J$ vale
     \begin{equation}
         J \coloneq \frac{1}{2} \left[
             \frac{\alpha}{m} - \frac{\sigma}{m} - 1 +
@@ -168,17 +177,16 @@ Vale a dire, i punti di equilibrio giacciono sulla semiretta $F= JH$ nello spazi
 \begin{proof}
     Annullando il membro destro dell'equazione~\eqref{eq:kh11f} otteniamo
     $$F^2 - \left( \frac{\alpha}{m} - \frac{\sigma}{m} -1
-        \right) H F - \frac{\alpha}{m} H^2 = 0 \; ,$$
-    che ha determinante
+        \right) H F - \frac{\alpha}{m} H^2 = 0 \; .$$
+    Risolvendo rispetto ad $F$ otteniamo il discriminante
     $$\Delta = \left[ {\left( \frac{\alpha}{m} - \frac{\sigma}{m} -1
         \right)}^2 + 4 \frac{\alpha}{m}
-        \right] H^2 \; ; $$
-    notiamo incidentalmente che il fattore parametrico è sempre strettamente positivo, quindi:
-    $H \gneq 0 \implies \Delta \gneq 0$.
+        \right] H^2 \; , $$
+    che è sempre non negativo.
 
     \paragraph{}
     Adottando la definizione di $J$ dell'equazione~\eqref{eq:kh11posEqJ}, possiamo vedere
-    che ogni punto d'equilibrio $(H^*, F^*)$ deve necessariamente verificare $F^* = J H^*$.
+    che ogni punto d'equilibrio $(H^*, F^*)$ deve necessariamente verificare la~\eqref{eq:FeqJH}.
 \end{proof}
 
 
@@ -268,8 +276,8 @@ da cui ricaviamo che se $\alpha -\frac{L}{w}>0$ (condizione~\eqref{eq:cond6b}), 
 determinante positivo e traccia negativa, cioè gli autovalori sono concordi e negativi;
 dunque\footnote{Cfr. p.~\pageref{teo:pozzoNonLineare}} l'origine è stabile.
 
-\paragraph{}
-Riassumiamo quanto appena trovato nel
+% \paragraph{}
+% Riassumiamo quanto appena trovato nel
 \begin{lemma}[Condizione sufficiente per la stabilità dell'equilibrio banale]
     Se $\alpha - \frac{L}{w} > 0$ e
     $$m > \frac{\alpha L}{w \alpha -L} \; ,$$
@@ -306,7 +314,7 @@ catturata nell'equazione~\eqref{eq:kh11posEqF}, laddove si abbia $F^* \leq 0$.
     Otteniamo la dimostrazione con alcuni calcoli elementari.
 
     Dal momento che stiamo cercando un equilibrio non banale $(H^*, F^*)$, per il
-    Lemma~\ref{lem:necessJ} possiamo supporre ambo le componenti strettamente positive nel seguito.
+    Lemma~\ref{lem:necessJ} possiamo supporre ambo le componenti strettamente positive.
 
     Ancora per il Lemma~\ref{lem:necessJ}, possiamo sostituire $H=\frac{1}{J} F$ nel membro destro della
     prima equazione~\eqref{eq:kh11h} del modello, ed usare la condizione di equilibrio per uguagliare
@@ -324,21 +332,18 @@ catturata nell'equazione~\eqref{eq:kh11posEqF}, laddove si abbia $F^* \leq 0$.
     in cui possiamo osservare che il membro destro dipende esclusivamente dai parametri.
 
     \paragraph{}
-    Avendo a disposizione l'ultima equazione, per concludere la dimostrazione -- \ie stabilire
-    l'equazione~\eqref{eq:kh11posEqF} -- resta soltanto da provare che
+    Avendo a disposizione l'ultima equazione, per concludere la dimostrazione -- \ie provare la~\eqref{eq:kh11posEqF}
+    -- resta soltanto da dimostrare che
     $$J m = \alpha - \sigma \frac{J}{1+J} \; ,$$
     dove abbiamo semplificato il fattore $L$ ad ambo i membri, essendo non nullo.
 
     Per stabilire quest'ultima equazione può essere utile razionalizzare l'espressione $\frac{J}{1+J}$ come
     $$\frac{J}{1+J} = \frac{ \alpha + \sigma + m - \sqrt{ {(\alpha - \sigma -m)}^2 - 4 \alpha m } }{2 \sigma}$$
-    e raggiungere l'obiettivo tramite manipolazioni algebriche.
-
-    \paragraph{}
-    Abbiamo stabilito l'equazione~\eqref{eq:kh11posEqF} e ciò conclude la prova.
+    e raggiungere l'obiettivo tramite semplici manipolazioni algebriche.
 \end{proof}
 
-Il modello~\eqref{eq:kh11h}--\eqref{eq:kh11f} quindi ammette sempre l'equilibrio banale, ed un ulteriore
-punto di equilibrio positivo in alcune circostanze, riassunte nella
+Il modello~\eqref{eq:kh11h}--\eqref{eq:kh11f} ammette quindi sempre l'equilibrio banale, ed un ulteriore
+configurazione di equilibrio positivo in alcune circostanze, riassunte nella seguente
 \begin{proposizione}[Criterio di esistenza]
     Una condizione necessaria e sufficiente affinché il modello~\eqref{eq:kh11h}--\eqref{eq:kh11f} abbia
     un equilibrio strettamente positivo $P^* \coloneq (H^*, F^*)$ è data per casi:
@@ -368,18 +373,18 @@ punto di equilibrio positivo in alcune circostanze, riassunte nella
 Possiamo usare l'equazione~\eqref{eq:kh11posEqF} dalla Proposizione~\ref{teo:exUniqFstarPos} e studiare
 la disequazione $F^* >0$ per dimostrare il criterio di esistenza:
 $$F^* > 0 \; \iff \;
-\left( \frac{2 \alpha w}{L} -1 \right) m - \alpha - \sigma < \sqrt{ {(\alpha - \sigma -m)}^2 + 4 \alpha m }$$
+\left( \frac{2 \alpha w}{L} -1 \right) m - \alpha - \sigma < \sqrt{ {(\alpha - \sigma -m)}^2 + 4 \alpha m } \; .$$
 
-possiamo elevare al quadrato ambo i membri per ottenere la seguente disuguaglianza in $m$:
+Elevando al quadrato ambo i membri otteniamo la seguente disuguaglianza in $m$:
 \begin{equation}
     \left( \frac{\alpha w}{L} -1 \right) m^2 -( \alpha + \sigma) m + \frac{\sigma L}{w} < 0
     \label{eq:mDiseq}
 \end{equation}
-la quale ha determinante sempre positivo
+la quale ha discriminante sempre positivo
 $$\Delta = {(\alpha -\sigma)}^2 +4 \frac{\sigma L}{w} \; .$$
 
 L'equazione~\eqref{eq:FstarPosM12} si ottiene applicando la formula delle radici quadratiche.
-Nel seguito sceglieremo la nomenclatura per avere sempre $m_1^* < m_2^*$ fino al termine della dimostrazione.
+Nel seguito sceglieremo la notazione per avere sempre $m_1^* < m_2^*$ fino al termine della dimostrazione.
 
 \paragraph{Caso 1.}
 Se $\alpha - \frac{L}{w} >0$, allora $F^*>0$ esiste se e soltanto se
@@ -416,7 +421,7 @@ si può leggere altrettanto semplicemente come $w \alpha >L$, dove entrambi i me
 Si noti anche che il membro destro cattura l'``efficienza'' dei processi sociali di reclutamento e cura della
 covata, mentre il membro sinistro misura l'``efficienza'' della regina nel deporre uova fresche.
 
-Vale a dire, l'equazione~\eqref{eq:cond6b} significa che il processo di reclutamento $R= R(H, F)$ è capace
+Vale a dire, la~\eqref{eq:cond6b} significa che il processo di reclutamento $R$ è capace
 di sostenere un livello di deposizione $L$, bilanciando le necessità dell'alveare che richiedono api sia nel
 comparto $H$ (per la cura della covata), che nel comparto $F$ (per l'importazione di cibo).
 

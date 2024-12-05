@@ -1,4 +1,5 @@
 \section{Modello a cinque compartimenti con operaie, \emph{Varroa} e ABPV}
+\label{sec:ratti17}
 Esaminiamo adesso il modello proposto nel \citeyear{ratti2017}, che estende alcune proposte precedenti con lo scopo di studiare gli effetti diretti e indiretti di \emph{Varroa destructor} sulla popolazione
 di un alveare.\footcite{ratti2017}
 
@@ -35,7 +36,9 @@ Proseguiamo con l'esame delle assunzioni del modello:
     \setcounter{enumi}{3}
     \item Il tasso massimale di riproduzione delle varroe è lo stesso, che siano portatrici di virus o meno.
     Ciò si riflette nelle equazioni \eqref{eq:r17m} e \eqref{eq:r17n}, in cui il primo termine descrive le nuove nascite: esso è proporzionale alla popolazione del compartimento ed il fattore di proporzionalità è lo stesso in entrambe le equazioni. In esso, $r$ è il tasso massimo di riproduzione del parassita \emph{Varroa}, mentre $\alpha$ è la capacità portante dell'ospite \emph{Apis}.
-    \item Sappiamo che la covata necessita di cure da parte delle operaie nutrici, quindi il tasso di schiusa è dipendente dal numero di operaie sane nella popolazione, che assumiamo pari alla somma $x_h + x_f$.
+    \item Il tasso di schiusa è dipendente dal numero di operaie sane nella popolazione, che assumiamo pari alla somma
+    $x_h + x_f$, siccome la covata necessita di cure da parte delle operaie nutrici, e di introito energetico fornito
+    dalle bottinatrici.
     \footnote{Cfr.~\cite{khoury2011}.}
     \item L'ape regina non subisce gli effetti avversi di ABPV e dell'infestazione da varroe\footcite{privFDL}; di conseguenza, il tasso di schiusa non dipende dalla preminenza nell'alveare di varroe o di virus.
     \item La trasmissione di ABPV è esclusivamente orizzontale:\footcite{privFDL}
@@ -46,7 +49,7 @@ Proseguiamo con l'esame delle assunzioni del modello:
     \item Poiché le pupe infette con ABPV muoiono rapidamente prima della schiusa, tutte le giovani operaie che
     giungono all'età adulta si assumono libere dal virus. L'effetto limitante sul tasso di schiusa dovuto alla
     presenza di varroe infette viene incorporato in un fattore di modulazione $h(m)$ nella~\eqref{eq:r17xh}.
-    \item Per studiare l'effetto dei trattamenti acaricidi, introduciamo un ulteriore termine di pozzo $\delta_i$ in ogni equazione. Assumiamo che l'impatto dei trattamenti sia di gran lunga maggiore sulle varroe che sulle api: $\delta_4, \delta_5 \gg \delta_1, \delta_2, \delta_3$.
+    \item Per studiare l'effetto dei trattamenti acaricidi, si introduce un ulteriore termine di pozzo $\delta_i$ in ogni equazione. Assumiamo che l'impatto dei trattamenti sia di gran lunga maggiore sulle varroe che sulle api: $\delta_4, \delta_5 \gg \delta_1, \delta_2, \delta_3$.
     \item In tutti e tre i compartimenti delle api, si assume un tasso di mortalità naturale $d_i$ in aggiunta alla mortalità dovuta alle varroe $\gamma_i$ (a sua volta dipendente sia dal parassitismo che dalla trasmissione del virus). Nelle api indebolite dall'infezione da ABPV entrambi questi tassi sono maggiori rispetto alle operaie sane: $d_3 > d_1, d_2$ e $\gamma_3 > \gamma_1, \gamma_2$.
 
     Inoltre per le bottinatrici si tiene conto anche della mortalità da disorientamento (fattore $p$), dovuto
@@ -97,12 +100,12 @@ parametro $\mu$ che è determinato principalmente dalla regina e dalla stagione,
 di schiusa.
 
 La funzione $g$ descrive il bisogno di un numero minimo di operaie sane nella colonia per allevare la covata; se questo numero scende sotto una certa soglia -- che può presentare variazioni stagionali -- la covata non produce più api adulte.
-La $g$ rappresenta la risposta funzionale dell'allevamento della covata; nelle parole degli autori:
+La $g$ rappresenta la risposta funzionale dell'allevamento della covata.
 \begin{displayquote}[{\footcite[9]{ratti2017}}]
 ``We think of $g(x_h + x_f)$ as a switch function.''
 \end{displayquote}
 
-È necessario che $g$ verifichi le condizioni
+Di seguito è necessario che $g$ verifichi le condizioni
 $$g(0)=0 \; , \quad %
 \diff{g}{x_h} \geq 0 \; , \quad %
 \diff{g}{x_f} \geq 0 \; ,$$
@@ -174,7 +177,7 @@ Nelle parole degli autori, la stabilità asintotica dell'equilibrio banale signi
 ``\omissis in order to establish itself as a properly working colony, a sufficiently large healthy adult bee population is required to take care of the brood.''
 \end{displayquote}
 
-E viceversa, se il numero di operaie sane scende sotto un valore critico, la colonia si avvia verso una morte inesorabile.
+Viceversa, se il numero di operaie sane scende sotto un valore critico, la colonia si avvia verso una morte inesorabile.
 Si noti che questo effetto di tipo Allee si osserva già nel modello senza patogeni; l'introduzione di \emph{Varroa} e virus non può che esacerbare fenomeni di questo tipo.
 
 \paragraph{}
@@ -197,10 +200,10 @@ $$ a \coloneq - \frac{ \mu }{ \frac{\sigma_2 F}{1+F} - d_1 - \sigma_1 }.$$
 
 \begin{proof}
     Le equazioni del modello sono omogenee, dunque l'equilibrio banale $(0,0)$ esiste sempre.
-    Dalla \eqref{eq:rattiRidotto1seconda} segue che ogni punto di equilibrio
-    $(x_h^*, x_f^*) > (0,0)$ verifica
+    Dalla \eqref{eq:rattiRidotto1seconda} segue che ogni punto di equilibrio positivo
+    $(x_h^*, x_f^*) \neq (0,0)$ verifica
     $$x_f^2 + \frac{\sigma_2 - \sigma_1 + p + d_2}{p +d_2} x_h x_f - \frac{\sigma_1}{p+d_2} x_h^2 = 0,$$
-    da cui ricaviamo la relazione tra le componenti $x_f^* = F x_h^*$.
+    da cui ricaviamo la relazione tra le componenti $x_f^* = F x_h^*$ (analoga alla~\eqref{eq:FeqJH}).
 
     Inserendo quest'ultima nell'equazione \eqref{eq:rattiRidotto1prima} otteniamo
     $$ \mu g \left( (1+F) x_h \right) -d_1 x_h -x_h \left( \sigma_1 - \sigma_2 \frac{F}{1+F} \right) = 0 \; ,$$
@@ -370,7 +373,7 @@ Il modello ridotto che si ottiene è il seguente:
         \label{eq:rattiRidotto2terza}
 \end{align}
 
-Anche in questo caso, l'equilibrio banale $(x_h, x_f, n)=(0,0,0)$ esiste ed è sempre asintoticamente stabile, con la medesima interpretazione pratica del caso precedente (effetto Allee forte).
+Anche in questo caso, l'equilibrio banale $(x_h, x_f, n)=(0,0,0)$ esiste ed è sempre asintoticamente stabile, con la medesima interpretazione del caso precedente (effetto Allee forte).
 
 \begin{proposizione}[3.4, Stability of the trivial equilibrium {\footcite[14]{ratti2017}}]
 L'equilibrio banale $(0,0,0)$ del modello ridotto
@@ -507,7 +510,7 @@ L'esperienza sul campo dell'apicoltura, sia sperimentale che in produzione, indi
 Piuttosto, è più ragionevole che \textquote[\cite{privFDL}]{a livello di alveare o di apiario, si riesca a mantenere per un certo periodo (almeno 3 o 4 stagioni) un equilibrio in cui api e varroe coesistono senza causare il collasso delle colonie.}
 
 Ciò corrisponderebbe alla presenza di un equilibrio endemico nel modello, la cui esistenza tuttavia non è ancora dimostrata.
-Notiamo inoltre che abbiamo condizioni sufficienti per la stabilità degli equilibri positivi, ma non per la stabilità asintotica: un punto di equilibrio stabile ma non attrattivo potrebbe presentare dei cicli-limite.
+Notiamo inoltre che abbiamo condizioni sufficienti per la stabilità degli equilibri positivi, ma non per la stabilità asintotica: un punto di equilibrio stabile ma non attrattivo potrebbe presentare dei cicli--limite.
 
 
 \paragraph{}

@@ -24,7 +24,9 @@ Vedasi la figura~\ref{img:logisticF}.
     \label{img:logisticF}
 \end{figure}
 
-La funzione logistica è dispari rispetto a  $y=\frac{1}{2}$ e $0 = f^{-1} \left( \frac{1}{2} \right)$. Queste osservazioni si applicano anche alla logistica generalizzata, con parametri $L$, $k$ ed $x_0$:
+La funzione logistica è dispari rispetto a %$y=\frac{1}{2}$ e $0 = f^{-1} \left( \frac{1}{2} \right)$.
+$(0, \frac{1}{2})$, ed $f(0) = \frac{1}{2}$.
+Queste osservazioni si applicano anche alla logistica generalizzata, con parametri $L$, $k$ ed $x_0$:
 \begin{equation}
     \hat{f}(x) \coloneq \frac{L}{1+e^{-k(x -x_0)}} \; ,
     \label{eq:logisticFgen}
@@ -32,11 +34,11 @@ La funzione logistica è dispari rispetto a  $y=\frac{1}{2}$ e $0 = f^{-1} \left
 che è una versione traslata lungo $x$ e riscalata su entrambi gli assi:
 \begin{itemize}
     \item $x_0$ adesso è la retroimmagine del semimassimo $\frac{L}{2}$;
-    \item è applicata un'omotetia di fattore $\frac{1}{k}$ lungo $x$ ed $L$ lungo $x$.
+    \item è applicata un'omotetia di fattore $\frac{1}{k}$ lungo $x$ ed $L$ lungo $y$.
 \end{itemize}
 
 \paragraph{}
-Nelle applicazioni, può essere utile conoscere le derivate della $f$ logistica:
+Nelle applicazioni è utile conoscere le derivate della $f$ logistica:
 nelle figg.~\ref{img:logisticV}, \ref{img:logisticA}, \ref{img:logisticJ} si osservi che
 la $f'$ è sempre positiva, e le derivate sono alternativamente pari e dispari, secondo la
 facile generalizzazione di un noto risultato.\footnote{Ossia che $f \text{ pari} \implies
