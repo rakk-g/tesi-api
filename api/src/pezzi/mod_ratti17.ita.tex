@@ -146,13 +146,13 @@ popolazione $n$ di varroe non infette preda abitualmente le pupe di ape.
 % this assumption, the first term in (3) becomes the rate at which total bees get infected.
 
 \subsection{Analisi del modello con parametri costanti}
-Seguiamo l'impostazione dello studio \cite{ratti2017} per l'analisi degli equilibri, iniziando con l'esame di sotto-casi più semplici ed estendendo progressivamente i risultati fino al modello completo.
+Seguiamo l'impostazione dello studio\footcite{ratti2017} per l'analisi degli equilibri, iniziando con l'esame
+di sotto--casi più semplici ed estendendo progressivamente i risultati fino al modello completo.
 
 \paragraph{}
 Dapprima assumiamo l'ipotesi di lavoro di coefficienti costanti; utilizzeremo in seguito la teoria di Floquet per analizzare il caso di coefficienti periodici (sottosezione~\ref{sez:paramPeriodici}).
 
-% \paragraph{}
-% Per le dimostrazioni dei risultati esposti in questa sottosezione, si rimanda all'articolo originale \cite[11--15]{ratti2017}.
+\paragraph{}
 Una volta stabilite le condizioni per l'esistenza dei punti di equilibrio, la metodologia standard per analizzarne la stabilità consiste nel linearizzare il sistema in un intorno di un punto di equilibrio: il carattere attrattivo o repulsivo dell'equilibrio è determinato dagli \emph{esponenti di Lyapounov locali}, ossia dalle parti reali degli autovalori della matrice jacobiana.
 
 Questo approccio metodologico costituisce la base delle dimostrazioni in questa sottosezione e nella successiva.
@@ -184,7 +184,8 @@ Si noti che questo effetto di tipo Allee si osserva già nel modello senza patog
 Proponiamo adesso una analisi dei punti di equilibrio del modello \eqref{eq:rattiRidotto1prima}--\eqref{eq:rattiRidotto1seconda}, introducendo per comodità di notazione le due costanti
 \begin{equation}
     F \coloneq \frac{1}{2} \left( \frac{ \sigma_1 - \sigma_2 - p - d_2 }{p+d_2} +
-    \sqrt{ {\left( \frac{ \sigma_1 - \sigma_2 - p - d_2 }{p+d_2} \right)}^2 + \frac{4 \sigma_1}{p+d_2} } \, \right),
+    \sqrt{ {\left( \frac{ \sigma_1 - \sigma_2 - p - d_2 }{p+d_2} \right)}^2 + \frac{4 \sigma_1}{p+d_2} } \, \right)
+    \; ,
     \label{eq:rattiFconst}
 \end{equation}
 ed
@@ -195,6 +196,8 @@ $$ a \coloneq - \frac{ \mu }{ \frac{\sigma_2 F}{1+F} - d_1 - \sigma_1 }.$$
 
     Viceversa, se $\frac{\sigma_2 F}{1+F} - d_1 - \sigma_1 <0$ allora il sistema ammette due ulteriori equilibri strettamente positivi, a patto che sia verificata l'ulteriore condizione
     $$a > \frac{Ki}{1+F} (i-1)^{\frac{1}{i} -1}.$$
+
+    In tal caso, le componenti dei punti di equilibrio verificano $x_f^* = F x_h^*$.
     \label{prop:rExist}
 \end{proposizione}
 
@@ -214,7 +217,8 @@ $$ a \coloneq - \frac{ \mu }{ \frac{\sigma_2 F}{1+F} - d_1 - \sigma_1 }.$$
     se $a>0$, e nessuna se $a<0$. Quindi vogliamo $a>0$ ossia $\frac{\sigma_2 F}{1+F} -d_1 - \sigma_1 < 0$, ciò che
     stabilisce la prima parte della proposizione.
 
-    Assumendo $a>0$, abbiamo che $f'$ cambia segno in $\hat{ x_h } = a \frac{i-1}{i}$, da cui
+    \paragraph{}
+    Assumendo ora $a>0$, abbiamo che $f'$ cambia segno in $\hat{ x_h } = a \frac{i-1}{i}$, da cui
     possiamo imporre
     $$\min f = f( \hat{ x_h } ) =
     - \frac{1}{i} a^i { \left( \frac{i-1}{i} \right) }^{i-1} + {\left( \frac{K}{1+F} \right) }^i < 0
@@ -242,7 +246,6 @@ se hanno meno di 12000 api ciascuna, vengono unite.
 \begin{proposizione}[3.2, Stability of trivial equilibrium {\footcite[12]{ratti2017}}]
     L'equilibrio banale del modello ridotto alle sole api
     \eqref{eq:rattiRidotto1prima}--\eqref{eq:rattiRidotto1seconda}
-
     è stabile.
     \label{prop:r0Stab2d}
 \end{proposizione}
@@ -340,22 +343,16 @@ dunque la somma degli autovalori è negativa, e la loro parte reale è negativa.
 Ciò implica che il punto d'equilibrio sia stabile.
 \end{proof}
 
-% \paragraph{LORO DICONO: }
-% Se esistono, gli equilibri positivi sono stabili se
-% \begin{equation}
-% \frac{i \mu K^i {(x_h^*)}^{i-1} {(1+F)}^{i-1}}{ {\left( K^i + {(x_h^*)}^i {(1+F)}^i \right)}^2 }
-% <
-% \frac{d_1 + (p+d_2) F}{{(1+F)}^2}.
-% \label{eq:rattiRidotto1stabilitySECONDOLORO}
-% \end{equation}
 
 \subsubsection{Modello tridimensionale api--acaro}
 Introduciamo adesso nella colonia le varroe senza virus, ed indaghiamo la conseguente alterazione della stabilità degli equilibri individuati nel caso precedente.
 
-Si eliminano quindi dal modello \eqref{eq:r17xh}--\eqref{eq:r17n} le equazioni per le api infette da ABPV e per le varroe che trasportano il virus; notiamo che da $m \equiv 0$ segue che $h(m) \equiv 1$.
+Si eliminano quindi dal modello \eqref{eq:r17xh}--\eqref{eq:r17n} le equazioni per le api infette
+da ABPV~\eqref{eq:r17y} e per le varroe che trasportano il virus~\eqref{eq:r17m};
+notiamo che da $m \equiv 0$ segue che $h(m) \equiv 1$.
 
 Possiamo inoltre assumere $\beta_2 = \beta_3 = 0$, rispettivamente tassi di acquisizione e di perdita
-del virus per gli acari, dato che in questo sottosistema non teniamo conto della carica di ABPV.
+del virus per gli acari, dato che in questo sottosistema non si tiene conto della carica di ABPV.
 
 \paragraph{}
 Il modello ridotto che si ottiene è il seguente:
@@ -406,12 +403,12 @@ Prima di proseguire, può essere utile calcolare la matrice jacobiana nella conf
 generica
 \begin{equation}
     \begin{pmatrix}
-    \mu g' - (d_1 +\delta_1 +\sigma_1) -\gamma_1 n + \sigma_2 \frac{x_f^2}{(x_h+x_f)^2} &
-    \mu g' + \sigma_2 \frac{x_h^2}{(x_h+x_f)^2} &
+    \mu g' - D_1 -\gamma_1 n + \sigma_2 q_f &
+    \mu g' + \sigma_2 q_h &
     -\gamma_1 x_h
     \\
-    \sigma_1 - \sigma_2 \frac{x_f^2}{(x_h+x_f)^2} &
-    - \sigma_2 \frac{x_h^2}{(x_h+x_f)^2} - ( p +d_2 +\delta_2) - \gamma_2 n &
+    \sigma_1 - \sigma_2 q_f &
+    - \sigma_2 q_h - D_2 - \gamma_2 n &
     \gamma_2 x_f
     \\
     \frac{ r n^2 }{ \alpha (x_h + x_f)^2 } &
@@ -420,11 +417,28 @@ generica
     \end{pmatrix}
     \; ,
 \end{equation}
-dove $g' = g'(x_h +x_f)$ come dalla~\eqref{eq:gPrimo}.
+dove $g' = g'(x_h +x_f)$ come dalla~\eqref{eq:gPrimo}, ed è indicato per brevità
+$$q_h \coloneq \frac{x_h^2}{(x_h+x_f)^2} \quad , \quad q_f \coloneq \frac{x_f^2}{(x_h+x_f)^2}
+\quad , \quad D_1 \coloneq d_1 +\delta_1 +\sigma_1 \quad , \quad D_2 =  p +d_2 +\delta_2
+\; .$$
 
 
 \paragraph{Equilibrio senza varroe. } Consideriamo adesso un equilibrio non banale $(x_h^*, x_f^*)$ per il modello \eqref{eq:rattiRidotto1prima}--\eqref{eq:rattiRidotto1seconda}, secondo le condizioni di esistenza date sopra.
-Il punto $(x_h^*, x_f^*, 0)$ è un equilibrio per il modello \eqref{eq:rattiRidotto2prima}--\eqref{eq:rattiRidotto2terza}.
+
+\paragraph{}
+Dobbiamo modificare la costante di proporzionalità tra le componenti di $x_h^*$ ed $x_f^*$ di un equilibrio
+strettamente positivo per via delle mortalità dovute ai trattamenti, introdotti assieme alla varroa.
+
+Le procedure algebriche restano essenzialmente le stesse, utilizzando
+\begin{equation}
+F \coloneq \frac{1}{2} \left( \frac{ \sigma_1 - \sigma_2 - p - d_2 -\delta_2}{p+d_2+\delta_2} +
+    \sqrt{ {\left( \frac{ \sigma_1 - \sigma_2 - p - d_2 -\delta_2 }{p+d_2+\delta_2} \right)}^2 + \frac{4 \sigma_1}{p+d_2+\delta_2} } \, \right) \; ,
+    \label{eq:nuovaFconst}
+\end{equation}
+al posto della~\eqref{eq:rattiFconst} nel resto di questa sezione.
+
+\paragraph{}
+Il punto $(x_h^*, x_f^*, 0)$ è un equilibrio per il modello \eqref{eq:rattiRidotto2prima}--\eqref{eq:rattiRidotto2terza}, dove $x_f^* = F x_h^*$ secondo la~\eqref{eq:nuovaFconst}.
 
 Se $r > \delta_5$ allora esso è instabile; se viceversa $r< \delta_5$ allora
 il punto $(x_h^*, x_f^*, 0)$ eredita la stabilità di $(x_h^*, x_f^*)$ sotto le
@@ -433,10 +447,10 @@ il punto $(x_h^*, x_f^*, 0)$ eredita la stabilità di $(x_h^*, x_f^*)$ sotto le
 \begin{proposizione}[3.5, Stability of mite--free equilibria {\footcite[14]{ratti2017}}]
     Sia $(x_h^*, x_f^*)$ un equilibrio positivo per
     il modello~\eqref{eq:rattiRidotto1prima}--\eqref{eq:rattiRidotto2prima}, e sia
-    $P \simeq (x_h^*, x_f^*, 0)$.
+    $P^* \coloneq (x_h^*, x_f^*, 0)$.
     \begin{itemize}
-        \item Se $r > \delta_5 $ allora $P$ è instabile.
-        \item Se $r < \delta_5 $ allora $P$ è stabile se
+        \item Se $r > \delta_5 $ allora $P^*$ è instabile.
+        \item Se $r < \delta_5 $ allora $P^*$ è stabile se
         \begin{equation}
             \mu \frac{ i K^i (1+F)^{i-1}{x_h^*}^{i-1} }{ {\left[ K^i +(1+F)^i {x_h^*}^i \right]}^2 }
             < \frac{d_1 + \delta_1 + (p+d_2+\delta_2)F}{1+F} \; .
@@ -484,21 +498,164 @@ verso un equilibrio endemico.\footcite[15]{ratti2017}
 
 
 \subsubsection{Modello completo api--\emph{Varroa}--ABPV}
-Consideriamo infine il modello completo \eqref{eq:r17xh}--\eqref{eq:r17n} e studiamo la stabilità dell'equilibrio senza patogeni.
-
-Sia $(x_h^*, x_f^*)$ un equilibrio positivo per il modello ridotto \eqref{eq:rattiRidotto1prima}--\eqref{eq:rattiRidotto1seconda}, sempre secondo le condizioni di esistenza di cui sopra; che $(x_h^*, x_f^*, 0,0,0)$ sia un equilibrio per \eqref{eq:r17xh}--\eqref{eq:r17n} è ovvio.
-
-Se valgono entrambe le disuguaglianze
-$$
-\begin{sistema}
-    r - \beta_3 - \delta_4 < 0 \\
-    r - \delta_5 < 0,
-\end{sistema}
-$$
-allora $(x_h^*, x_f^*, 0,0,0)$ eredita la stabilità di $(x_h^*, x_f^*)$ sotto le \eqref{eq:rattiRidotto1prima}--\eqref{eq:rattiRidotto1seconda}.
-Se invece (almeno) una delle disuguaglianze è invertita, l'equilibrio è instabile.
+Consideriamo infine il modello completo \eqref{eq:r17xh}--\eqref{eq:r17n} e studiamo la stabilità dell'equilibrio senza patogeni. Come sopra, gli equilibri non banali della forma $(x_h^*, x_f^*, 0,0,0)$ verificano $x_f^* = F x_h^*$, con
+la costante $F$ data dalla~\eqref{eq:nuovaFconst}.
 
 \paragraph{}
+Calcoliamo la matrice jacobiana nella configurazione generale $(x_h, x_f, y, m, n)$,
+% $$\begin{pmatrix}
+%     D_{11} & D_{12} & D_{13} & D_{14} & D_{15} \\
+%     D_{21} & D_{22} & D_{23} & D_{24} & D_{25} \\
+%     D_{31} & D_{32} & D_{33} & D_{34} & D_{35} \\
+%     D_{41} & D_{42} & D_{43} & D_{44} & D_{45} \\
+%     D_{51} & D_{52} & D_{53} & D_{54} & D_{55}
+% \end{pmatrix} \; ,$$
+le cui entrate sono elencate di seguito per esigenze tipografiche:
+\begin{equation}
+\begin{split} % prima riga
+D_{11} = \diffp{}{{x_h}} \dot{x_h} &=
+    \mu g' h(m) - \beta_1 m \frac{x_f + y}{(x_h+x_f+y)^2} - (d_1 +\delta_1) - \\
+    &~ - \gamma_1 (m+n) - \sigma_1 + \sigma_2 \frac{x_f^2}{(x_h+x_f)^2} \; , \\
+D_{12} = \diffp{}{{x_f}} \dot{x_h} &= \mu g' h(m) + \beta_1 m \frac{x_h}{(x_h+x_f+y)^2} +
+    \frac{\sigma_2 x_h^2}{(x_h+x_f)^2} \; , \\
+D_{13} = \diffp{}{{y}} \dot{x_h} &= \beta_1 m \frac{x_h}{(x_h+x_f+y)^2} \; , \\
+D_{14} = \diffp{}{m} \dot{x_h} &= \mu g h'(m) - \beta_1 \frac{x_h}{x_h+x_f+y} - \gamma_1 x_h \; , \\
+D_{15} = \diffp{}{n} \dot{x_h} &= -\gamma_1 x_h \; ;
+\end{split}
+\end{equation}
+
+\begin{equation} % seconda riga
+\begin{split}
+D_{21} = \diffp{}{{x_h}} \dot{x_f} &= \sigma_1 - \sigma_2 \frac{x_f^2}{(x_h+x_f)^2} +
+    \beta_1 m \frac{x_f}{(x_h+x_f+y)^2} \; , \\
+D_{22} = \diffp{}{{x_f}} \dot{x_f} &= -\sigma_2 \frac{x_h^2}{(x_h+x_f)^2} - \beta_1 m \frac{x_h+y}{(x_h+x_f+y)^2}
+    - (p + d_2 + \delta_2) - \gamma_2 (m+n) \; , \\
+D_{23} = \diffp{}{y} \dot{x_f} &= \beta_1 m \frac{x_f}{(x_h+x_f+y)^2} \; , \\
+D_{24} = \diffp{}{m} \dot{x_f} &= -\beta_1 \frac{x_f}{x_h+x_f+y} - \gamma_2 x_f \; , \\
+D_{25} = \diffp{}{n} \dot{x_f} &= -\gamma_2 x_f \; .
+\end{split}
+\end{equation}
+
+Vediamo adesso la riga delle operaie infette dal virus:
+
+\begin{equation} % terza riga
+\begin{split}
+D_{31} = \diffp{}{{x_h}} \dot{y} &= \beta_1 m \frac{y}{(x_h+x_f+y)^2} \; , \\
+D_{32} = \diffp{}{{x_f}} \dot{y} &= D_{31} \; , \\
+D_{33} = \diffp{}{y} \dot{y} &= - \beta_1 m \frac{x_h+x_f}{(x_h+x_f+y)^2} - (d_3 + \delta_3) - \gamma_3(m+n) \; , \\
+D_{34} = \diffp{}{m} \dot{y} &= \beta_1 \frac{x_h+x_f}{x_h+x_f+y} - \gamma_3 y \; , \\
+D_{35} = \diffp{}{n} \dot{y} &= -\gamma_3 y \; ;
+\end{split}
+\end{equation}
+
+ed infine le ultime due righe delle varroe, rispettivamente portatrici di virus ($m$) e non portatrici ($n$):
+\begin{equation}
+\begin{split}
+D_{41} = \diffp{}{{x_h}} \dot{m} &= \frac{1}{(x_h+x_f+y)^2} \left( r m \frac{m+n}{\alpha}
+    - y ( \beta_2 n + \beta_3 m ) \right) \; , \\
+D_{42} = \diffp{}{{x_f}} \dot{m} &= D_{41} \; , \\
+D_{43} = \diffp{}{y} \dot{m} &= \frac{1}{(x_h+x_f+y)^2} \left( r m \frac{m+n}{\alpha}
+    +(x_h+x_f) ( \beta_2 n + \beta_3 m ) \right) \; , \\
+D_{44} = \diffp{}{m} \dot{m} &= r \left( 1 - \frac{m+n}{\alpha (x_h+x_f+y)} \right)
+    - r \frac{m^2}{\alpha (x_h+x_f+y)} - \beta_3 \frac{x_h+x_f}{x_h+x_f+y} - \delta_4 \; , \\
+D_{45} = \diffp{}{n} \dot{m} &= - r \frac{m n}{\alpha (x_h +x_f+y)} + \beta_2 \frac{y}{x_h+x_f+y} \; ;
+\end{split}
+\end{equation}
+
+\begin{equation}
+\begin{split}
+D_{51} = \diffp{}{{x_h}} \dot{n} &= \frac{1}{(x_h+x_f+y)^2} \left( r m \frac{m+n}{\alpha}
+    - y ( \beta_2 n + \beta_3 m ) \right) \; , \\
+D_{52} = \diffp{}{{x_f}} \dot{n} &= D_{51} \; , \\
+D_{53} = \diffp{}{y} \dot{n} &= r n \frac{m+n}{\alpha (x_h+x_f+y)^2}
+    -(\beta_2 n + \beta_3 m) \frac{x_h+x_f}{(x_h+x_f+y)^2} \; , \\
+D_{54} = \diffp{}{m} \dot{n} &= - r \frac{n m}{\alpha (x_h+x_f+y)} + \beta_3 \frac{x_h+x_f}{x_h+x_f+y} \;  , \\
+D_{55} = \diffp{}{n} \dot{n} &= r \left( 1 - \frac{m+n}{\alpha (x_h+x_f+y)} \right)
+    - r \frac{n^2}{\alpha (x_h+x_f+y)} - \beta_2 \frac{y}{x_h+x_f+y} - \delta_5 \; .
+\end{split}
+\end{equation}
+
+% Sia $(x_h^*, x_f^*, 0)$ un equilibrio positivo per il modello ridotto
+% \eqref{eq:rattiRidotto2prima}--\eqref{eq:rattiRidotto2terza}, sempre secondo la $F$ data nella~\eqref{eq:nuovaFconst}.
+% Allora $(x_h^*, x_f^*, 0,0,0)$ è un punto di equilibrio per \eqref{eq:r17xh}--\eqref{eq:r17n}.
+% Un criterio sufficiente per la stabilità di questa configurazione è contenuto nella seguente
+
+\begin{proposizione}[3.6, Stability of the disease--free equilibrium {\footcite[15]{ratti2017}}]
+L'equilibrio non banale senza patogeni $P^* \coloneq (x_h^*, x_f^*, 0,0,0)$ è instabile se almeno
+una delle disuguaglianze seguenti è invertita:
+\begin{equation}
+    r - \beta_3 - \delta_4 < 0 , \quad
+    r - \delta_5 < 0 \; .
+\label{eq:condSuffRattiStab}
+\end{equation}
+
+Se invece le \eqref{eq:condSuffRattiStab} sono entrambe valide, allora l'equilibrio $P^*$
+del modello completo eredita la stabilità di $(x_h^*, x_f^*, 0)$
+nel sotto--modello~\eqref{eq:rattiRidotto2prima}--\eqref{eq:rattiRidotto2terza}, ovvero $P^*$ è stabile se vale la~\eqref{eq:rattiRidotto2stability}.
+\end{proposizione}
+
+\begin{proof}
+Sia $P^* \coloneq (x_h^*, F x_h^*, 0, 0,0)$ uno dei due equilibri non banali e senza patogeni come da ipotesi.
+Valutando la matrice jacobiana del modello in questa configurazione si ottiene
+$$D(P^*) =
+\begin{pmatrix}
+A + q(F) F^2 & \mu g_h' + q(F) & 0 & C & - \gamma_1 x_h^* \\
+\sigma_1 -q(F) F^2 & -q(F) -D & 0 & E & - \gamma_2 F x_h^* \\
+0 & 0 & -d_3 -\delta_3 & \beta_1 & 0 \\
+0 & 0 & 0 & r - \beta_3 -\delta_4 & 0 \\
+0 & 0 & 0 & \beta_3 & r -\delta_5
+\end{pmatrix} \; ,
+$$
+dove
+\begin{equation}
+\begin{split}
+A &= \mu g_h' - d_1 -\delta_1 -\sigma_1 \; , \\
+q(F) &= \frac{\sigma_2}{(1+F)^2} \: , \\
+C &= \mu g(x_h^* + x_f^*) h'(0) - \frac{\beta_1}{1+F} - \gamma_1 x_h^* \; , \\
+D &= p + d_2 + \delta_2 \; , \\
+E &= -\beta_1 \frac{F}{1+F} -\gamma_2 F x_h^* \; ,
+\end{split}
+\end{equation}
+e si è usata ancora la~\eqref{eq:gPrimoF} per l'espressione $g_h'$.
+
+% controllare che gli autovalori del minore disotto siano giusti: OK
+La jacobiana ottenuta è triangolare a blocchi
+$$ D(P^*) =
+\begin{pmatrix}
+D_U & \\
+\underline{\underline{0}} & D_L
+\end{pmatrix} \; ,
+$$
+dove il minore di sud--est $D_L$ fornisce i tre autovalori
+\begin{equation}
+\lambda_3 = -d_3 -\delta_3 , \quad
+\lambda_4 = r -\beta_3 -\delta_4 , \quad
+\lambda_5 = r -\delta_5 \; ,
+\label{eq:ultimi3}
+\end{equation}
+da cui vediamo che se almeno una delle~\eqref{eq:condSuffRattiStab} è invertita, allora c'è un autovalore
+strettamente positivo e dunque $P^*$ è instabile.
+
+% rifare i conti per il minore disopra, adattando il criterio di stabilità: OK è come nel 3D
+\paragraph{}
+Per concludere la dimostrazione, supponiamo adesso che le~\eqref{eq:condSuffRattiStab} siano entrmbe valide:
+allora $\lambda_3, \lambda_4, \lambda_5 <0$. Osserviamo quindi il minore di nord--ovest della jacobiana
+$$D_U =
+\begin{pmatrix}
+A + q(F) \cdot F^2 & \mu g_h' + q(F) \\
+\sigma_1 - q(F) \cdot F^2 & -q(F) -D
+\end{pmatrix} \; ,
+$$
+che ha determinante
+\begin{multline*}
+\det D_U = - \mu g_h' \left[ \frac{\sigma_2}{(1+F)^2} + p + d_2 +\delta_2 \right] (1+F) + \\
++ \left[ \frac{\sigma_2}{(1+F)^2} + p + d_2 +\delta_2 \right] \cdot \left( d_1 +\delta_1 + F(p+d_2+\delta_2) \right)
+\; .
+\end{multline*}
+Si conclude osservando che $\det D_U > 0$ equivale alla~\eqref{eq:rattiRidotto2stability}
+e che $\det D_U > 0$ implica $\tr D_U <0$.
+\end{proof}
+
 Quest'ultimo risultato si può interpetare con la seguente condizione: affinché l'alveare sconfigga completamente la \emph{Varroa} ed il virus, è necessario e sufficiente che
 \begin{itemize}
     \item i trattamenti varroacidi siano abbastanza potenti da eradicare gli acari che non portano ABPV;
@@ -510,11 +667,14 @@ L'esperienza sul campo dell'apicoltura, sia sperimentale che in produzione, indi
 Piuttosto, è più ragionevole che \textquote[\cite{privFDL}]{a livello di alveare o di apiario, si riesca a mantenere per un certo periodo (almeno 3 o 4 stagioni) un equilibrio in cui api e varroe coesistono senza causare il collasso delle colonie.}
 
 Ciò corrisponderebbe alla presenza di un equilibrio endemico nel modello, la cui esistenza tuttavia non è ancora dimostrata.
+
 Notiamo inoltre che abbiamo condizioni sufficienti per la stabilità degli equilibri positivi, ma non per la stabilità asintotica: un punto di equilibrio stabile ma non attrattivo potrebbe presentare dei cicli--limite.
 
+Questo ultimo scenario si tradurrebbe sul campo in oscillazioni periodiche (anche intra--stagionali) nelle popolazioni
+di api e di varroe, quando l'alveare riesce a contenere la carica virale e di acari entro livelli ``tollerabili''.
 
 \paragraph{}
-Le attività in apiario che promuovono la sopravvivenza dell'alveare richiedono un monitoraggio costante e diversi tipi di interventi, che includono i trattamenti acaricidi, ma che non possono limitarsi al contrasto della \emph{Varroa}: è infatti necessario il mantenimento di \textquote[\cite{privFDL}]{\omissis uno stato di salute complessivamente buono nella colonia, che riguarda anche l'efficienza del sistema immunitario, la ``forza'' della famiglia in termini di operaie sane, le scorte di cibo, la salute della regina, e molti altri fattori.}
+Le attività in apiario che promuovono la sopravvivenza dell'alveare richiedono un monitoraggio costante e diversi tipi di interventi, che includono i trattamenti acaricidi, ma che non possono limitarsi al contrasto della \emph{Varroa}: è infatti necessario il mantenimento di \textquote[\cite{privFDL}]{\omissis uno stato di salute complessivamente buono nella colonia, che riguarda anche l'efficienza del suo sistema immunitario, la ``forza'' della famiglia in termini di operaie sane, le scorte di cibo, la salute della regina, e molti altri fattori.}
 
 Questo elemento di complessità è catturato anche nel modello relativamente semplice di \cite{ratti2017}, in quanto le condizioni di esistenza e stabilità dei punti di equilibrio includono una molteplicità di parametri, che nel modello rappresentano non solo gli effetti ``diretti'' dovuti all'acaro e al virus, ma anche lo stato di salute dell'alveare, compresa la sua capacità di allevare covata e di approvvigionarsi di cibo.
 
@@ -523,7 +683,7 @@ Questo elemento di complessità è catturato anche nel modello relativamente sem
 \label{sez:paramPeriodici}
 Questo ultimo passaggio è fondamentale per incorporare nel modello le variazioni stagionali nel tasso di deposizione da parte della regina, l'arresto della raccolta di cibo nel periodo invernale e di molte altre attività dell'alveare.
 
-Il periodo dei coefficienti è dunque $T= 1 \text{ anno}$.
+Il periodo dei coefficienti è dunque considerato pari a $T= 1 \text{ anno}$.
 
 suloz non banali, Floquet
 
