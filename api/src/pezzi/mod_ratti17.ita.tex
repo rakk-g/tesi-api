@@ -338,8 +338,10 @@ che è la disequazione nella tesi.
 Si noti che la $\det D(x_h, F x_h) > 0$ implica $\tr D(x_h, F x_h) <0$: infatti se la disequazione
 precedente è valida, allora abbiamo
 \begin{multline*}
-\tr D(x_h, F x_h) = \mu g_h' -d_1 -(p+d_2)F - \frac{\sigma_2 F}{(1+F)^2} - \frac{\sigma_2}{(1+F)^2} - (p + d_2) \overbrace{<}^{\det >0} \\
-< - \frac{d_1 F}{1+F} - \frac{p +d_2}{1+F} - \frac{\sigma_2}{1+F} < 0 \; ,
+\tr D(x_h, F x_h) = \mu g_h' -d_1 -(p+d_2)(1+F) - \frac{\sigma_2 F}{(1+F)^2} (1+F)
+\quad < \\
+ _{(\det >0) \rightarrow} \quad
+< - \frac{d_1 F}{1+F} - \frac{(p +d_2) (F^2 +F+1)}{1+F} - \frac{\sigma_2}{1+F} < 0 \; ,
 \end{multline*}
 dunque la somma degli autovalori è negativa, e la loro parte reale è negativa.
 
@@ -527,6 +529,16 @@ Se $r -\delta_5 > 0$ allora l'equilibrio è instabile, poiché questi è un auto
 Se invece $r - \delta_5 <0$ allora gli altri due autovalori si ottengono dal minore $2 \times 2$
 di nord--ovest, in modo analogo a quanto fatto
 per la dimostrazione della Proposizione~\ref{prop:ratti2Dstab}.
+
+Si osservi anche in questo caso che la condizione~\eqref{eq:rattiRidotto2stability} implica che la traccia
+jacobiana sia negativa:
+\begin{multline*}
+\tr D (x_h^* , F x_h^* , 0) = \mu g_h' - d_1 -\delta_1 - (1+F) \left( p + d_2 + \delta_2 + \frac{\sigma_2}{1+F} \right)
++ r - \delta_5 < \\
+ _{(\det >0) \rightarrow} \quad
+< - \frac{(d_1+\delta_1) F}{1+F} - \frac{(p +d_2+\delta_2) (F^2 +F+1)}{1+F} - \frac{\sigma_2}{1+F}  + (r -\delta_5) < 0 \; .
+\end{multline*}
+
 \end{proof}
 
 \paragraph{}
@@ -678,7 +690,7 @@ D_U & \\
 $$
 dove il minore di sud--est $D_L$ fornisce i tre autovalori
 \begin{equation}
-\lambda_3 = -d_3 -\delta_3 , \quad
+\lambda_3 = -d_3 -\delta_3 , \quad % questo è sempre negativo
 \lambda_4 = r -\beta_3 -\delta_4 , \quad
 \lambda_5 = r -\delta_5 \; ,
 \label{eq:ultimi3}
