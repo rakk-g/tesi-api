@@ -189,7 +189,10 @@ Proponiamo adesso una analisi dei punti di equilibrio del modello \eqref{eq:ratt
     \label{eq:rattiFconst}
 \end{equation}
 ed
-$$ a \coloneq - \frac{ \mu }{ \frac{\sigma_2 F}{1+F} - d_1 - \sigma_1 }.$$
+\begin{equation}
+ a \coloneq - \frac{ \mu }{ \frac{\sigma_2 F}{1+F} - d_1 - \sigma_1 } \; .
+ \label{eq:rattiaconst}
+\end{equation}
 
 \begin{proposizione}[3.1, Existence of equilibria {\footcite[11]{ratti2017}}]
     Il modello ridotto alle sole api \eqref{eq:rattiRidotto1prima}--\eqref{eq:rattiRidotto1seconda} ammette sempre l'equilibrio banale $(0,0)$, e se $\frac{\sigma_2 F}{1+F} - d_1 - \sigma_1 >0$ allora esso è unico.
@@ -435,19 +438,53 @@ F \coloneq \frac{1}{2} \left( \frac{ \sigma_1 - \sigma_2 - p - d_2 -\delta_2}{p+
     \sqrt{ {\left( \frac{ \sigma_1 - \sigma_2 - p - d_2 -\delta_2 }{p+d_2+\delta_2} \right)}^2 + \frac{4 \sigma_1}{p+d_2+\delta_2} } \, \right) \; ,
     \label{eq:nuovaFconst}
 \end{equation}
-al posto della~\eqref{eq:rattiFconst} nel resto di questa sezione.
+al posto della~\eqref{eq:rattiFconst} nel resto di questa sottosezione.
 
 \paragraph{}
 Il punto $(x_h^*, x_f^*, 0)$ è un equilibrio per il modello \eqref{eq:rattiRidotto2prima}--\eqref{eq:rattiRidotto2terza}, dove $x_f^* = F x_h^*$ secondo la~\eqref{eq:nuovaFconst}.
 
-Se $r > \delta_5$ allora esso è instabile; se viceversa $r< \delta_5$ allora
-il punto $(x_h^*, x_f^*, 0)$ eredita la stabilità di $(x_h^*, x_f^*)$ sotto le
-\eqref{eq:rattiRidotto1prima}--\eqref{eq:rattiRidotto1seconda}, nel senso della seguente
+Per dare un criterio di esistenza per gli equilibri senza patogeni dobbiamo ridefinire anche la costante $a$,
+che invece della formulazione data nella~\eqref{eq:rattiaconst}, va definita nel modo seguente:
+\begin{equation}
+    a \coloneq - \frac{\mu}{ \frac{\sigma_2 F}{1+F} - d_1 -\delta_1 - \sigma_1}
+    \; .
+\label{eq:nuovaaconst}
+\end{equation}
+
+Utilizzeremo queste nuove definizioni per le costanti adimensionali $F$ ed $a$ fino alla fine della sottosezione.
+
+Siamo ora in grado di fornire il seguente criterio:
+
+\begin{proposizione}[Esistenza degli equilibri senza varroe nel modello senza virus]
+Se
+$$\frac{\sigma_2 F}{1+F} - d_1 -\delta_1 -\sigma_1 > 0 \; ,$$
+allora il modello ridotto~\eqref{eq:rattiRidotto2prima}--\eqref{eq:rattiRidotto2terza} ammette
+soltanto l'equilibrio banale $(0,0,0)$.
+
+Se invece
+$$\frac{\sigma_2 F}{1+F} - d_1 -\delta_1 -\sigma_1 < 0 \; ,$$
+allora esistono due equilibri della forma $(x_h^*, F x_h^*, 0)$,
+a patto che sia verificata l'ulteriore condizione
+$$a > \frac{Ki}{1+F} {(i-1)}^{\frac{1}{i} -1} \; .$$
+\label{prop:exist3D}
+\end{proposizione}
+
+\begin{proof}
+La dimostrazione procede essenzialmente come nella Proposizione~\ref{prop:rExist} per il modello ridotto alle sole api,
+con l'accortezza di utilizzare le nuove definizioni per $F$~\eqref{eq:nuovaFconst} e per $a$~\eqref{eq:nuovaaconst}.
+\end{proof}
+
+Una volta stabilita l'esistenza di equilibri non banali senza varroe, ne indaghiamo la stabilità:
+consideriamo uno degli equilibri $P^* =(x_h^*, F x_h^*, 0)$ sotto le ipotesi della
+Proposizione~\ref{prop:exist3D} precedente.
+
+Se $r > \delta_5$ allora $P^*$ è instabile; se viceversa $r< \delta_5$ allora
+il punto $(x_h^*, x_f^*, 0)$ eredita la stabilità dell'equilibrio non banale nel modello
+ridotto alle sole api, nel senso della seguente
 
 \begin{proposizione}[3.5, Stability of mite--free equilibria {\footcite[14]{ratti2017}}]
-    Sia $(x_h^*, x_f^*)$ un equilibrio positivo per
-    il modello~\eqref{eq:rattiRidotto1prima}--\eqref{eq:rattiRidotto2prima}, e sia
-    $P^* \coloneq (x_h^*, x_f^*, 0)$.
+    Sia
+    $P^* \coloneq (x_h^*, F x_h^*, 0)$ un punto di equilibrio secondo la Proposizione~\ref{prop:exist3D}.
     \begin{itemize}
         \item Se $r > \delta_5 $ allora $P^*$ è instabile.
         \item Se $r < \delta_5 $ allora $P^*$ è stabile se
@@ -460,7 +497,7 @@ il punto $(x_h^*, x_f^*, 0)$ eredita la stabilità di $(x_h^*, x_f^*)$ sotto le
 \end{proposizione}
 
 Ciò significa che l'equilibrio senza varroe è stabile se la \eqref{eq:rattiRidotto2stability} è soddisfatta
-ed il tasso massimo di natalità delle varroe è inferiore alla loro mortalità dovuta ai trattamenti.
+\emph{ed} il tasso massimo di natalità delle varroe è inferiore alla loro mortalità dovuta ai trattamenti.
 
 Si osservi inoltre che in assenza di trattamenti varroacidi l'alveare non riesce a debellare l'infestazione dell'acaro.
 
@@ -498,18 +535,31 @@ verso un equilibrio endemico.\footcite[15]{ratti2017}
 
 
 \subsubsection{Modello completo api--\emph{Varroa}--ABPV}
-Consideriamo infine il modello completo \eqref{eq:r17xh}--\eqref{eq:r17n} e studiamo la stabilità dell'equilibrio senza patogeni. Come sopra, gli equilibri non banali della forma $(x_h^*, x_f^*, 0,0,0)$ verificano $x_f^* = F x_h^*$, con
+Consideriamo infine il modello completo \eqref{eq:r17xh}--\eqref{eq:r17n} e studiamo la stabilità
+dell'equilibrio senza patogeni.
+Come nel modello tridimensionale senza virus, gli equilibri non banali della
+forma $(x_h^*, x_f^*, 0,0,0)$ verificano $x_f^* = F x_h^*$, con
 la costante $F$ data dalla~\eqref{eq:nuovaFconst}.
+
+% esistenza
+\begin{proposizione}[Esistenza degli equilibri senza patogeni nel modello completo]
+Se
+$$\frac{\sigma_2 F}{1+F} - d_1 -\delta_1 -\sigma_1 > 0 \; ,$$
+allora il modello ridotto~\eqref{eq:r17xh}--\eqref{eq:r17n} ammette
+soltanto l'equilibrio banale $(0,0,0,0,0)$.
+
+Se invece
+$$\frac{\sigma_2 F}{1+F} - d_1 -\delta_1 -\sigma_1 < 0 \; ,$$
+allora esistono due equilibri della forma $(x_h^*, F x_h^*, 0, 0, 0)$,
+a patto che sia verificata l'ulteriore condizione
+$$a > \frac{Ki}{1+F} {(i-1)}^{\frac{1}{i} -1} \; .$$
+\label{prop:exist5D}
+\end{proposizione}
+
+La dimostrazione è del tutto identica alla precedente nel caso senza virus, e dunque è omessa.
 
 \paragraph{}
 Calcoliamo la matrice jacobiana nella configurazione generale $(x_h, x_f, y, m, n)$,
-% $$\begin{pmatrix}
-%     D_{11} & D_{12} & D_{13} & D_{14} & D_{15} \\
-%     D_{21} & D_{22} & D_{23} & D_{24} & D_{25} \\
-%     D_{31} & D_{32} & D_{33} & D_{34} & D_{35} \\
-%     D_{41} & D_{42} & D_{43} & D_{44} & D_{45} \\
-%     D_{51} & D_{52} & D_{53} & D_{54} & D_{55}
-% \end{pmatrix} \; ,$$
 le cui entrate sono elencate di seguito per esigenze tipografiche:
 \begin{equation}
 \begin{split} % prima riga
