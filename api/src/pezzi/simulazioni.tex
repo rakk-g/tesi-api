@@ -1,0 +1,25 @@
+\chapter{Metodi di propagazione delle soluzioni}
+Il supporto del calcolatore elettronico ha un valore inestimabile nella ricerca Matematica.
+
+Nella applicazione d'interesse -- i modelli matematici per le api -- viene utilizzato
+per manipolare le equazioni dei modelli, sia tramite il calcolo simbolico che svolgendo simulazioni numeriche.
+
+\paragraph{}
+L'Analisi Numerica offre una vasta classe di metodi per l'approssimazione di soluzioni di un sistema di equazioni
+non lineari, tra cui i metodi Runge--Kutta che includono il metodo di Eulero.
+
+Alcuni sistemi presentano equazioni cosiddette \emph{rigide} poiché alcuni metodi numerici si rivelano
+molto instabili numericamente a meno di prende un passo d'approssimazione esageratamente breve.
+
+Per i due modelli esaminati in questa tesi, una analisi dettagliata delle simulazioni numeriche
+si trova nei rispettivi articoli.\footcite{khoury2011,ratti2017}
+
+Presentiamo adesso le simulazioni svolte per il modello a due compartimenti della Sezione~\ref{sec:kh11},
+che confermano ed estendono alcuni risultati degli autori.
+
+\paragraph{}
+È stato usato il software libero \texttt{GNU Octave}, versione \texttt{9.2.0} e nello specifico
+la routine \texttt{ode45} che implementa il metodo di Dormand--Prince al quarto ordine, un solutore
+di equazioni differenziali ordinarie della famiglia Runge--Kutta.
+
+% Link al codice? Licens? % TODO

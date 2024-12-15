@@ -677,6 +677,7 @@ C &= \mu g(x_h^* + x_f^*) h'(0) - \frac{\beta_1}{1+F} - \gamma_1 x_h^* \; , \\
 D &= p + d_2 + \delta_2 \; , \\
 E &= -\beta_1 \frac{F}{1+F} -\gamma_2 F x_h^* \; ,
 \end{split}
+\label{eq:jacoCmpts}
 \end{equation}
 e si è usata ancora la~\eqref{eq:gPrimoF} per l'espressione $g_h'$.
 
@@ -724,46 +725,164 @@ Quest'ultimo risultato si può interpetare con la seguente condizione: affinché
     \item le varroe portatrici perdano la loro carica virale ad un tasso più rapido della loro natalità.
 \end{itemize}
 
-L'esperienza sul campo dell'apicoltura, sia sperimentale che in produzione, indica come estremamente improbabile l'eradicazione completa della \emph{Varroa}.~\cite{privFPan}
+L'esperienza sul campo dell'apicoltura, sia sperimentale che in produzione, indica come estremamente improbabile l'eradicazione completa della \emph{Varroa}.~\footcite{privFPan}
 
-Piuttosto, è più ragionevole che \textquote[\cite{privFDL}]{a livello di alveare o di apiario, si riesca a mantenere per un certo periodo (almeno 3 o 4 stagioni) un equilibrio in cui api e varroe coesistono senza causare il collasso delle colonie.}
+Piuttosto, è più ragionevole che
+\blockquote[{\footcite{privFDL}}]{
+a livello di alveare o di apiario, si riesca a mantenere per un certo periodo (almeno 3 o 4 stagioni) un equilibrio in cui api e varroe coesistono senza causare il collasso delle colonie.}
 
 Ciò corrisponderebbe alla presenza di un equilibrio endemico nel modello, la cui esistenza tuttavia non è ancora dimostrata.
 
+\paragraph{}
 Notiamo inoltre che abbiamo condizioni sufficienti per la stabilità degli equilibri positivi, ma non per la stabilità asintotica: un punto di equilibrio stabile ma non attrattivo potrebbe presentare dei cicli--limite.
 
 Questo ultimo scenario si tradurrebbe sul campo in oscillazioni periodiche (anche intra--stagionali) nelle popolazioni
 di api e di varroe, quando l'alveare riesce a contenere la carica virale e di acari entro livelli ``tollerabili''.
 
 \paragraph{}
-Le attività in apiario che promuovono la sopravvivenza dell'alveare richiedono un monitoraggio costante e diversi tipi di interventi, che includono i trattamenti acaricidi, ma che non possono limitarsi al contrasto della \emph{Varroa}: è infatti necessario il mantenimento di \textquote[\cite{privFDL}]{\omissis uno stato di salute complessivamente buono nella colonia, che riguarda anche l'efficienza del suo sistema immunitario, la ``forza'' della famiglia in termini di operaie sane, le scorte di cibo, la salute della regina, e molti altri fattori.}
+Le attività in apiario che promuovono la sopravvivenza dell'alveare richiedono un monitoraggio costante e diversi tipi di interventi, che includono i trattamenti acaricidi, ma che non possono limitarsi al contrasto della \emph{Varroa}: è infatti necessario il mantenimento di
+\blockquote[{\footcite{privFDL}}]{\omissis uno stato di salute complessivamente buono nella colonia, che riguarda anche l'efficienza del suo sistema immunitario, la ``forza'' della famiglia in termini di operaie sane, le scorte di cibo, la salute della regina, e molti altri fattori.}
 
-Questo elemento di complessità è catturato anche nel modello relativamente semplice di \cite{ratti2017}, in quanto le condizioni di esistenza e stabilità dei punti di equilibrio includono una molteplicità di parametri, che nel modello rappresentano non solo gli effetti ``diretti'' dovuti all'acaro e al virus, ma anche lo stato di salute dell'alveare, compresa la sua capacità di allevare covata e di approvvigionarsi di cibo.
+Questo elemento di complessità è catturato anche nel modello relativamente semplice qui in esame\footcite{ratti2017},
+in quanto le condizioni di esistenza e stabilità dei punti di equilibrio includono una molteplicità di parametri,
+che nel modello rappresentano non solo gli effetti ``diretti'' dovuti all'acaro e al virus, ma anche
+lo stato di salute dell'alveare, compresa la sua capacità di allevare covata e di approvvigionarsi di cibo.
 
 
 \subsection{Analisi del modello con parametri periodici}
 \label{sez:paramPeriodici}
 Questo ultimo passaggio è fondamentale per incorporare nel modello le variazioni stagionali nel tasso di deposizione da parte della regina, l'arresto della raccolta di cibo nel periodo invernale e di molte altre attività dell'alveare.
 
-Il periodo dei coefficienti è dunque considerato pari a $T= 1 \text{ anno}$.
+Nel seguito il sistema di equazioni~\eqref{eq:r17xh}--\eqref{eq:r17n} si considera a coefficienti periodici,
+di periodo uguale a $T= 1 \text{ anno}$.
 
-suloz non banali, Floquet
+I risultati teorici qui utilizzati, tra cui la Forma Normale di Floquet, sono richiamati nell'Appendice
 
-\begin{proposizione}[4.1, Stability of mite--free periodic solution {\cite[19]{ratti2017}} ]
+\paragraph{}
+Presentiamo i risultati circa la stabilità degli equilibri non banali e senza patogeni, prima per il modello
+tridimensionale api--acaro ed infine per il modello completo a cinque compartimenti, con api, varroa e virus ABPV.
+
+Entrambe le proposizioni stabiliscono condizioni sotto le quali si eredita la stabilità nel caso del modello
+a due compartimenti ridotto alle sole api. Purtroppo non è semplice ricavare un criterio di stabilità per le
+soluzioni periodiche in questo caso:
+\blockquote[{\footcite[18]{ratti2017}}]
+{
+\omissis [T]he stability of the non--trivial periodic solutions of the bee--only model which, however,
+cannot be easily carried out due to the algebraic complexity of the model equations.
+}
+
+Come esempio della complessità algebrica riferita dagli autori, nel seguito saranno sottintese le
+ridefinizioni delle costanti e sarà ``trasferita'' una soluzione non banale $\left({ x_h^* (t), x_f^*(t) }\right)$
+dal modello a due compartimenti ai sovramodelli senza ripetere le manipolazioni sottostanti, per non appesantire la
+notazione.
+
+\begin{proposizione}[4.1, Stability of mite--free periodic solution {\footcite[19]{ratti2017}} ]
     Sia $\left( x_h^*(t), x_f^*(t) \right)$ sia una soluzione periodica per il modello ridotto alle sole api \eqref{eq:rattiRidotto1prima}--\eqref{eq:rattiRidotto1seconda}.
 
-    Allora $\left( x_h^*(t), x_f^*(t), 0 \right)$ è una soluzione periodica per il modello ridotto api--acaro \eqref{eq:rattiRidotto2prima}--\eqref{eq:rattiRidotto2terza}; è stabile se
+    La soluzione $\left( x_h^*(t), x_f^*(t), 0 \right)$ per il modello ridotto api--acaro
+    \eqref{eq:rattiRidotto2prima}--\eqref{eq:rattiRidotto2terza} è stabile se
     \begin{enumerate}
         \item $\left( x_h^*(t), x_f^*(t) \right)$ è stabile per il modello ridotto alle sole api;
         \item $\int_0^T (r - \delta_5) dt \leq 0$.
     \end{enumerate}
 \end{proposizione}
 
+\begin{proof}
+Linearizziamo il sistema~\eqref{eq:rattiRidotto2prima}--\eqref{eq:rattiRidotto2terza}
+nell'intorno della soluzione periodica $\left( x_h^*(t), x_f^*(t), 0 \right)$ e studiamo
+il comportamento a lungo termine della perturbazione
+$$u \coloneq x_h - x_h^* , \; v \coloneq x_f -xf^* , \; w \coloneq n -0 \; .$$
 
-\begin{proposizione}[4.2, Stability of the disease--free periodic solution {\cite[21]{ratti2017}} ]
-    Sia $\left( x_h^*(t), x_f^*(t) \right)$ sia una soluzione periodica per il modello ridotto alle sole api \eqref{eq:rattiRidotto1prima}--\eqref{eq:rattiRidotto1seconda}.
+La matrice jacobiana è
+$$D \left( x_h^*(t), x_f^*(t) \right) =
+\begin{pmatrix}
+A + q(F) F^2 & \mu g_h' + q(F) & - \gamma_1 x_h^* \\
+\sigma_1 -q(F) F^2 & -q(F) -D & - \gamma_2 F x_h^* \\
+0 & 0 & r -\delta_5
+\end{pmatrix}
+\; ,
+$$
+con le stesse definizioni date nella~\eqref{eq:jacoCmpts}, reinterpretata per rispecchiare i coefficienti
+periodici del sistema: $d_i = d_i(t), g=g \left( x_h(t) + x_f(t) \right)$, etc.
 
-    Allora $\left( x_h^*(t), x_f^*(t), 0, 0, 0 \right)$ è una soluzione periodica per il modello completo \eqref{eq:r17xh}--\eqref{eq:r17n}; è stabile se
+\paragraph{}
+Quindi, il sistema linearizzato intorno a $\left( x_h^*(t), x_f^*(t), 0 \right)$ è
+$$
+\begin{pmatrix}
+\dot{u} \\
+\dot{v} \\
+\dot{w}
+\end{pmatrix}
+=
+D \left( x_h^*(t), x_f^*(t) \right)
+\;
+\begin{pmatrix}
+u \\
+v \\
+w
+\end{pmatrix}
+\; .
+$$
+
+Siano adesso
+$\left( u_i(t), v_i(t), w_i(t) \right)$ soluzioni linearmente indipendenti per il sistema linearizzato
+con le corrispondenti condizioni iniziali:
+\begin{equation*}
+    \begin{split}
+        u_1(0)&=1 , \; u_2(0)=0 , \; u_3(0)=0 \\
+        v_1(0)&=0 , \; v_2(0)=1 , \; v_3(0)=0 \\
+        w_1(0)&=0 , \; w_2(0)=0 , \; w_3(0)=1 \; ,
+    \end{split}
+\end{equation*}
+
+da cui otteniamo la matrice fondamentale $\Psi (t)$ del sistema linearizzato sull'intervallo $t \in [0, T]$:
+$$ \Psi (t) =
+\begin{pmatrix}
+u_1(t) & u_2(t) & u_3(t) \\
+v_1(t) & v_2(t) & v_3(t) \\
+w_1(t) & w_2(t) & w_3(t)
+\end{pmatrix}
+\; ,
+$$
+in cui $w_1(t) = w_2(t) = 0$ e
+$$w_3= e^{ \int_0^t r - \delta_5 \de \rho} \; .$$
+
+Le altre componenti di $\Psi (t)$ ammettono un'espressione analitica ma questa è piuttosto complicata,
+\footnote{La si può trovare in \cite[20]{ratti2017}.}
+e la omettiamo per esigenze tipografiche.
+
+La matrice di transizione per $t=T$ diventa la matrice di monodromia
+$$C = \Psi (T) =
+\begin{pmatrix}
+    u_1 (T) & u_2 (T) & u_3 (T) \\
+    v_1 (T) & v_2 (T) & v_3 (T) \\
+    0 & 0 & e^{ \int_0^T r - \delta_5 \de \rho}
+\end{pmatrix} \; ,
+$$
+in cui il minore $2 \times 2$ di nord--ovest corrisponde al modello ridotto alle sole api.
+
+\paragraph{}
+L'altro autovalore di $C$ è
+$$ \mu_3 = e^{ \int_0^T r - \delta_5 \de \rho} \; ,$$
+che è un moltiplicatore di Floquet del sistema ed è semplice, a maggior ragione dunque semisemplice.
+
+Poiché $\int_0^T r - \delta_5 \de \rho \leq 0 \; \iff \; \abs{\mu_3} \leq 1$, otteniamo la tesi
+osservando che l'origine del sistema perturbato corrisponde all'equilibrio
+$\left( x_h^*(t), x_f^*(t), 0 \right)$ del modello ridotto api--\emph{Varroa}.
+\end{proof}
+
+Concludiamo la sezione sull'analisi della stabilità degli equilibri con
+l'ultima estensione al modello completo di un criterio per l'equilibrio senza patogeni.
+Così come il precedente, questo risultato ricalca quelli ottenuti nel caso dei coefficienti costanti per
+quanto riguarda l'\emph{``ereditare''} la stabilità dall'equilibrio non banale del modello di sole api.
+
+\begin{proposizione}[4.2, Stability of the disease--free periodic solution {\footcite[21]{ratti2017}} ]
+    Sia
+    $$\left( x_h^*(t), x_f^*(t) \right)$$
+    una soluzione periodica per il modello ridotto alle sole api \eqref{eq:rattiRidotto1prima}--\eqref{eq:rattiRidotto1seconda}.
+
+    La soluzione $\left( x_h^*(t), x_f^*(t), 0, 0, 0 \right)$ per il modello
+    completo \eqref{eq:r17xh}--\eqref{eq:r17n} è stabile se
     \begin{enumerate}
         \item $\left( x_h^*(t), x_f^*(t) \right)$ è stabile per il modello ridotto alle sole api;
         \item $\int_0^T (r - \delta_5) dt \leq 0$;
@@ -771,15 +890,25 @@ suloz non banali, Floquet
     \end{enumerate}
 \end{proposizione}
 
+La dimostrazione procede come nel caso precedente ed è quindi omessa.
+Si veda l'Appendice~\ref{chap:floquetTheory}
+per un riassunto della tecnica utilizzata (Teoria di Floquet).
 
 
 \subsection{Riduzioni ai modelli precedenti}
+Il modello a cinque compartimenti qui esaminato promana da studi precedenti con obiettivi simili:
+modellizzare la popolazione di \emph{A.~mellifera} in presenza di patogeni ed altri fattori di stress, come
+l'inquinamento ambientale o la scarsità stagionale di approvvigionamenti di cibo.
+\footcite{ratti2012,ratti2015,sumMar04,khoury2011,betti2016,betti2014}
 
-Se nell'espressione di $g$ (equazione~\eqref{eq:hillSigmoid}) prendiamo $K=0$ ci riduciamo al modello di \cite{sumMar04}.
+Se nell'espressione di $g$ (equazione~\eqref{eq:hillSigmoid}) si prende $K=0$ il modello si riduce a
+quello di~\cite{sumMar04}.
 
-Con $i=1$ e togliendo i compartimenti di virus e varroe, e riducendo a zero la mortalità nel
-comparto $x_h$, ci si riduce a \cite{khoury2011}. Si veda in proposito la tabella~\ref{tab:kh11VSratti17} per
-un confronto tra le notazioni.
+\paragraph{}
+Prendendo $i=1$, togliendo i compartimenti di virus e varroe, e riducendo a zero la mortalità nel
+compartimento $x_h$, il modello si riduce a~\cite{khoury2011}.
+
+Si veda in proposito la tabella~\ref{tab:kh11VSratti17} per un confronto tra le notazioni.
 
 \begin{table}[pbh]
     $$\begin{array}{ccc}
@@ -790,18 +919,18 @@ un confronto tra le notazioni.
         \midrule
         H & x_h & \text{api} \\
         F & x_f & \text{api} \\
-        m & d_2 & \\ % TODO
-        L & \mu & \\
-        \alpha & \sigma_1 & \\
-        \sigma & \sigma_2 & \\
-        E & g & \\
+        m & d_2 & \text{api}/\text{die} \\
+        L & \mu & \text{api}/\text{die} \\
+        \alpha & \sigma_1 & \text{die}^{-1} \\
+        \sigma & \sigma_2 & \text{die}^{-1} \\
+        E & g & \text{api}/\text{die} \\
         \midrule
-        \multicolumn{2}{c}{R} & \\
+        \multicolumn{2}{c}{R} & \text{die}^{-1} \\
         \midrule
-        J & F & \\
+        J & F & 1 \\
         \bottomrule
     \end{array}$$
-    \caption{Notazione in Khoury~2011 vs. Ratti~2017.}
+    \caption{Notazione in \cite{khoury2011} vs. \cite{ratti2017}.}
     \label{tab:kh11VSratti17}
 \end{table}
 

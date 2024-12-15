@@ -1,0 +1,103 @@
+\chapter{Teoria di Floquet}
+\label{chap:floquetTheory}
+Gaston Floquet (1847, Épinal -- 1920, Nancy)
+appartiene al novero glorioso dei matematici francesi che a cavallo del XIX~secolo rinnovano
+le fondamenta e le prospettive dell'Analisi e di altri campi scientifici.
+\footnote{Senza pretesa di esausutività citiamo tra i connazionali coevi di Floquet: Sophie Germain,
+Jacques Charles François Sturm, Henri Poincaré, Henri Padé, Gaspard Monge, Joseph Liouville,
+Jules Antoine Lissajous, Adrien-Marie Legendre, Joseph-Louis Lagrange (n.~Giuseppe Luigi Lagrangia),
+Camille Jordan, Charles Hermite, Henri Lebesgue, Pierre-Simon Laplace,
+Évariste Galois, Jean Frédéric Frenet, Joseph Fourier, Jean Gaston Darboux, Gaspard-Gustave de Coriolis,
+Auguste Comte, André-Louis Cholesky, Augustin-Louis Cauchy, Lazare Carnot, Émile Borel.}
+
+La Teoria di Floquet è la branca dello studio delle equazioni differenziali a coefficienti periodici,
+fondata all'epoca dello studio seminale\footcite{gFloquet} di Floquet: questo articolo raccoglie il
+risultato fondamentale che ci permette di scrivere la matrice fondamentale di sistemi del tipo~\eqref{eq:sdcGenerale}
+in cui la $F$ è periodica in $t$.
+
+\paragraph{}
+Consideriamo un sistema omogeneo, lineare e periodico della forma
+\begin{equation}
+    \diff{}{t} \mathbf{x} = A(t) \cdot \mathbf{x} \; ,
+    \label{eq:sdcPeriodico}
+\end{equation}
+in cui la mappa $t \mapsto A(t) \in \R^{n \times n}$ è periodica: esiste ben definito $T >0$ tale che
+$$A(t+T) =A(t) \quad \forall t \in \R \; .$$
+
+\begin{definizione}[Matrice fondamentale]
+    Una mappa
+    $$\Psi (t) : \; \R \rightarrow \C^{n \times n}$$
+    è una \emph{matrice fondamentale} per il sistema~\eqref{eq:sdcPeriodico} se le sue colonne sono soluzioni
+    linearmente indipendenti per ogni $t \in \R$.
+\end{definizione}
+Equivalentemente, $\Psi$ è una matrice fondamentale se $\Imm \Psi \subseteq GL(n)$ e
+$$ \dot{\Psi} (t) = A(t) \Psi (t) \quad (\forall t \in \R) \; .$$
+
+Osserviamo che la matrice fondamentale non è unica, ma lo diventa se imponiamo $\Psi(0)=I_n$, ciò
+che è sempre possibile.
+\footnote{A meno di premoltiplicare per $\Psi^{-1} (0)$.}
+
+\begin{definizione}[Moltiplicatori di Floquet]
+    Una matrice
+    $$C= \Psi^{-1} (0) \Psi (T) $$
+    si chiama \emph{matrice di monodromia} del sistema.
+
+    Gli autovalori $\mu_j$ di $C$ si chiamano \emph{moltiplicatori di Floquet}.
+\end{definizione}
+
+Se assumiamo senza perdita di generalità che $\Psi (0) = I_n$, la matrice di monodromia si riduce a
+$$C= \Psi (T) \; .$$
+
+La non unicità della matrice di monodromia è conseguenza delle ramificazioni del logaritmo complesso
+di matrici, la cui esistenza è necessaria per la dimostrazione del Teorema di Floquet, assieme ai
+seguenti Lemmi:
+\begin{itemize}
+    \item Se $\det A \neq 0$ allora $A \Psi (t)$ è fondamentale $(\forall t)$.
+    \item $\Psi (t)$ fondamentale $\implies \Psi (t+T)$ fondamentale $(\forall t)$.
+    \item $\exists C$ tale che $\Psi (t+T) = C \Psi (t) \; (\forall t)$,
+\end{itemize}
+una $C$ siffatta è la matrice di monodromia.
+
+Il seguente risultato è noto come Teorema di Bloch nelle applicazioni di Fisica della materia condensata.
+
+\begin{teorema}[Di Floquet]
+    Consideriamo un sistema omogeneo a coefficienti periodici della forma~\eqref{eq:sdcPeriodico}, e
+    sia $\Psi (t)$ la sua matrice fondamentale con $\Psi (0) = I_n$.
+
+    Esiste una decomposizione in \emph{Forma normale di Floquet} della matrice fondamentale data da
+    $$\Psi (t) = Q(t) e^{tB} \; ,$$
+    dove la mappa $Q : \R \rightarrow GL(n)$ è $T$--periodica, di classe $C^1$ e verifica $Q(0) = I_n$.
+    \label{teo:floquet}
+\end{teorema}
+Si osservi che la matrice di monodromia si ottiene quindi dalla seguente:
+$$C= \Psi (T) = e^{TB} \; .$$
+
+\begin{definizione}[Esponenti di Floquet]
+    Gli autovalori $\phi_j$ di $B$ si chiamano \emph{esponenti di Floquet} del sistema.
+\end{definizione}
+
+Anche la $B$ non è univocamente determinata,
+\footnote{Per lo stesso motivo per cui non lo è la matrice di monodromia.}
+dunque non lo sono neanche gli esponenti di Floquet.
+
+Si osservi però che per via della periodicità vale la seguente relazione tra gli
+esponenti ed i moltiplicatori di Floquet:
+$$\mu_j = e^{\phi_j T} \; .$$
+
+\paragraph{}
+Grazie alla forma normale di Floquet siamo in grado di formulare il seguente risultato,
+analogo al Teorema del Pozzo~\ref{teo:pozzoNonLineare} visto nel caso dei sistemi autonomi.
+
+\begin{teorema}
+    Siano $\mu_j$ i moltiplicatori di Floquet di un sistema omogeneo a coefficienti periodici.
+    Sia $D \subset \C$ il disco unitario $D= { \abs{z} \leq 1 }$.
+
+    L'equilibrio $\mathbf{0}$ del sistema è
+    \begin{itemize}
+        \item asintoticamente stabile se e soltanto se tutti i moltiplicatori di Floquet stanno nella
+        parte interna di $D$;
+        \item stabile se tutti i $\mu_j \in D$, e quelli sul bordo sono semisemplici;
+        \item instabile altrimenti.
+    \end{itemize}
+    \label{teo:stabPeriod}
+\end{teorema}
