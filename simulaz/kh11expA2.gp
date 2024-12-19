@@ -40,9 +40,9 @@ parab(x) w l ls 3 title 'quadratic fit'
 fit [0.35:1] [0:800] line(x) aggrFname using 5:12 via m, q
 set xlabel "m"
 set title "First Day Of (colony) Death against mortality."
-set ylabel "FDOO"
+set ylabel "FDOD"
 set xrange [0.324:*]
-set output "k11EA2-fdooVSm.png"
+set output "k11EA2-fdodVSm.png"
 plot aggrFname using 5:12 w points ls 1 title "data", line(x) w l ls 3 title "linear fit"
 
 

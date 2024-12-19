@@ -1,17 +1,50 @@
-\section{Experiment A, iteration 2}
+\section{Esperimento A, iterazione 2}
+Il modello di riferimento è~\cite{khoury2011}.
+
+Sono state svolte $6 \cdot 12^{3}$ simulazioni del modello con parametri
+$$L = 2000, \quad \alpha = \frac{1}{4}, \quad \sigma = \frac{3}{4} \; ,$$
+ed
+$$m \in \left[ m_-, m_+ \right], \quad w \in \left[ w_-, w_+ \right] \; ,$$
+
+e le condizioni iniziali scelte in modo da aversi $H_0+F_0 \in \left[ b_-, b_+ \right]$.
+
+\paragraph{}
+Gli iperparametri sono:
+\begin{equation*}
+\begin{split}
+m_- &= 0.016, \quad m_+ = 0.7 \\
+w_- &= 3000, \quad w_+ = 30000 \\
+b_- &= 15, \quad b_+ = 9000 \\
+b_{thres} &= 20 \; .
+\end{split}
+\end{equation*}
+
+Il tempo di simulazione è $T=2 \text{ anni}$ con un passo d'integrazione $\Delta t = 1 \text{ giorno}$.
 
 \subsection{Rapidità di estinzione e mortalità}
+Per valutare la rapidità e la gravità con cui una colonia si estingue in presenza di un alto tasso di
+mortalità nel comparto bottinatrici, definiamo il \emph{FDOD (First Day Of (colony) Death)} come
+$$\min \left\{ t \geq 0 \st H(t) + F(t) < b_{thres} \right\} \; ,$$
+ove $b_{thres}$ è una soglia di popolazione sotto la quale l'alveare si considera
+irreversibilmente condannato.
+
+Il risultato di questa analisi è illustrato in Figura~\ref{img:kh11expA21}.
+
 \begin{figure}[pbh]
     \centering
     \includegraphics[keepaspectratio,width=0.98\textwidth]{img/k11EA2-fdooVSm}
+    % WARNING check fdoo vs fdod?
 
-    \caption[Experiment A2:1]{}
+    \caption[Esperimento A2, \emph{FDOD} vs. mortalità.]{\emph{FDOD} degli alveari che muoiono entro i due anni,
+        contro il tasso di mortalità.}
 
     \label{img:kh11expA21}
 \end{figure}
 
 \subsection{Popolazione finale e iniziale}
-TODO: colora in base a $m$. % TODO
+
+
+% TODO: colora in base a $m$. % TODO
 \begin{figure}[pbh]
     \centering
     \includegraphics[keepaspectratio,width=0.98\textwidth]{img/k11EA2-fpopVSipop}
