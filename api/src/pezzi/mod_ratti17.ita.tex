@@ -9,7 +9,6 @@ Per ottenere una formulazione del modello, gli autori propongono le seguenti ass
     \item La popolazione delle operaie sane (non infette da ABPV) è suddivisa in due comparti: le operaie più giovani che svolgono mansioni all'interno dell'alveare ($x_h$) e le bottinatrici/esploratrici ($x_f$).
     \footnote{Questa impostazione ricalca lo studio esaminato nella sezione
     precedente~\parencite{khoury2011}.}
-%     in cui si propone un modello a due compartimenti per esaminare gli effetti del tasso di schiusa delle pupe e del tasso di reclutamento da operaie d'alveare a bottinatrici sulla dinamica di una popolazione sana.
     \item La popolazione degli acari è suddivisa in due comparti: le varroe portatrici di ABPV ($m$) e le varroe libere dal virus ($n$).
     \item Le operaie infette con ABPV ($y$) perdono rapidamente l'abilità al volo, le loro capacità di
     orientamento degradano e muoiono in breve tempo. Per questo motivo le api infette sono considerate
@@ -38,11 +37,14 @@ Proseguiamo con l'esame delle assunzioni del modello:
     Ciò si riflette nelle equazioni \eqref{eq:r17m} e \eqref{eq:r17n}, in cui il primo termine descrive le nuove nascite: esso è proporzionale alla popolazione del compartimento ed il fattore di proporzionalità è lo stesso in entrambe le equazioni. In esso, $r$ è il tasso massimo di riproduzione del parassita \emph{Varroa}, mentre $\alpha$ è la capacità portante dell'ospite \emph{Apis}.
     \item Il tasso di schiusa è dipendente dal numero di operaie sane nella popolazione, che assumiamo pari alla somma
     $x_h + x_f$, siccome la covata necessita di cure da parte delle operaie nutrici, e di introito energetico fornito
-    dalle bottinatrici.
+    dalle bottinatrici
     \footnote{Cfr.~\cite{khoury2011}.}
+    .
     \item L'ape regina non subisce gli effetti avversi di ABPV e dell'infestazione da varroe\footcite{privFDL}; di conseguenza, il tasso di schiusa non dipende dalla preminenza nell'alveare di varroe o di virus.
     \item La trasmissione di ABPV è esclusivamente orizzontale:\footcite{privFDL}
-    ciò significa che l'infezione di una operaia avviene per trasmissione del virus da un'altra operaia infetta.\footnote{La trasmissione \emph{verticale} di un patogeno riguarda invece l'infezione della prole a causa dei genitori già infetti.}
+    ciò significa che l'infezione di una operaia avviene per trasmissione del virus da un'altra operaia infetta
+    \footnote{La trasmissione \emph{verticale} di un patogeno riguarda invece l'infezione della prole a causa dei genitori già infetti.}
+    .
 
     Le varroe sono un vettore puramente meccanico per il virus: la carica virale non è incentivata né
     inibita dalle varroe, che per l'ABPV fungono meramente da ``mezzo di trasporto'' tra le api.
@@ -132,7 +134,8 @@ dove $K$ è la dimensione della popolazione di operaie nell'alveare corrisponden
 \paragraph{}
 Sempre nel termine delle nascite di api adulte, un altro fattore modulante tiene conto degli effetti deleteri per la covata dovuti alla presenza degli acari portanti ABPV nell'alveare: le larve e le pupe infette dal virus muoiono rapidamente prima di raggiungere lo stadio di adulte, quindi la funzione $h(m)$ nell'equazione~\ref{eq:r17xh} verifica le condizioni $h(0)=1$, $\diff{h}{m} <0$ e $\lim_{m \to \infty} h(m) = 0$.
 
-In \cite{sumMar04} si suggerisce $h(m) \approx e^{-km}$ con $k\geq0$, e questa è la forma utilizzata in \cite{ratti2017} per le simulazioni numeriche.
+In uno studio precedente\footcite{sumMar04} si suggerisce $h(m) \approx e^{-km}$ con $k\geq0$, e questa è la
+forma utilizzata nel modello in esame\footcite{ratti2017} per le simulazioni numeriche.
 
 Si noti che assumere $h=h(m)$ porta a una semplificazione del sistema, mentre in realtà anche la
 popolazione $n$ di varroe non infette preda abitualmente le pupe di ape.
@@ -155,8 +158,9 @@ Dapprima assumiamo l'ipotesi di lavoro di coefficienti costanti; utilizzeremo in
 \paragraph{}
 Una volta stabilite le condizioni per l'esistenza dei punti di equilibrio, la metodologia standard per analizzarne la stabilità consiste nel linearizzare il sistema in un intorno di un punto di equilibrio: il carattere attrattivo o repulsivo dell'equilibrio è determinato dagli \emph{esponenti di Lyapounov locali}, ossia dalle parti reali degli autovalori della matrice jacobiana.
 
-Questo approccio metodologico costituisce la base delle dimostrazioni in questa sottosezione e nella successiva.
+Questo approccio metodologico costituisce la base delle dimostrazioni in questa sottosezione e nella successiva
 \footnote{Cfr. p.~\pageref{chap:teoria} e segg. per una sintesi dei risultati teorici qui sfruttati.}
+.
 
 \subsubsection{Modello bidimensionale senza patogeni}
 In assenza di \emph{Varroa} e di virus, il modello \eqref{eq:r17xh}--\eqref{eq:r17n} si riduce alle due sole equazioni per le api sane:
@@ -242,8 +246,8 @@ fin dagli anni '80 conferma questo dato:
 Per garantire il proprio sviluppo, una famiglia necessita di una popolazione di
 almeno 12000 operaie attive; circa due telai pienamente popolati.
 
-La stessa soglia è utilizzata per l'``equilibratura'': idealmente due famiglie nello stesso apiario,
-se hanno meno di 12000 api ciascuna, vengono unite.
+La stessa soglia è utilizzata per l'``equilibratura''; genericamente parlando, due famiglie nello stesso apiario
+vengono unite se hanno meno di 12000 api ciascuna.
 \end{displayquote}
 
 \begin{proposizione}[3.2, Stability of trivial equilibrium {\footcite[12]{ratti2017}}]
@@ -305,7 +309,7 @@ dove è indicato per brevità di notazione
     \end{pmatrix} \; ,
     \label{eq:r17jacoFxh}
 \end{equation}
-dove analogamente a poco sopra usiamo per brevità
+dove analogamente a quanto detto poco sopra usiamo per brevità
 \begin{equation}
 g_h' \coloneq g'( x_h + F x_h ) = \frac{i K^i {(1+F)}^{i-1} x_h^{i-1} }{ { \left( K^i + {(1+F)}^i x_h^i
         \right)  }^2 } \; .
@@ -335,7 +339,7 @@ $$
 che è la disequazione nella tesi.
 
 \paragraph{}
-Si noti che la $\det D(x_h, F x_h) > 0$ implica $\tr D(x_h, F x_h) <0$: infatti se la disequazione
+Si noti che se $\det D(x_h, F x_h) > 0$ allora $\tr D(x_h, F x_h) <0$: infatti se la disequazione
 precedente è valida, allora abbiamo
 \begin{multline*}
 \tr D(x_h, F x_h) = \mu g_h' -d_1 -(p+d_2)(1+F) - \frac{\sigma_2 F}{(1+F)^2} (1+F)
@@ -404,6 +408,27 @@ ed il flusso integrale punta verso l'interno.
 Per costruzione, $Z_{\tilde{x}, \tilde{n}}$ è contenuto nel bacino di attrazione dell'origine.
 \end{proof}
 
+L'insieme $Z_{\tilde{x}, \tilde{n}}$ della dimostrazione precedente consiste di condizioni iniziali
+che portano inesorabilmente all'estinzione della colonia
+(per valori di $\tilde{x}, \tilde{n}$ sufficientemente piccoli),
+ed è un aperto nello spazio delle fasi $\left( \R_{>0} \right)^2$, contenuto nel bacino
+d'attrazione dell'origine.
+
+Si noti che la forma delle disequazioni differenziali ottenute nel corso della dimostrazione
+rappresenta il fatto che l'avvio del corso fatale della famiglia avviene per via del mancato
+supporto ai processi di \emph{foraging} e di cura della covata; questa osservazione si è già
+ottenuta nel modello a due compartimenti, ridotto alle sole api.
+
+L'introduzione della \emph{Varroa} innesca una simile dinamica di collasso modo precoce,
+\ie l'acaro rende più vulnerabili gli alveari agli altri fattori di stress.
+Si noti che nelle fasi finali della crisi demografica, la popolazione di api portante
+a disposizione dell'acaro è talmente ridotta che anche il numero di varroe
+decresce verso lo zero in maniera monotona
+\footnote{Ciò che in ultima analisi consente la costruzione di
+    $Z_{\tilde{x}, \tilde{n}}$ nella dimostrazione.}
+.
+
+\paragraph{}
 Prima di proseguire, può essere utile calcolare la matrice jacobiana nella configurazione
 generica
 \begin{equation}
@@ -527,7 +552,18 @@ Se $r -\delta_5 > 0$ allora l'equilibrio è instabile, poiché questi è un auto
 
 \paragraph{}
 Se invece $r - \delta_5 <0$ allora gli altri due autovalori si ottengono dal minore $2 \times 2$
-di nord--ovest, in modo analogo a quanto fatto
+$$ %
+\begin{pmatrix}
+    \mu g_h' - (d_1 +\delta_1 +\sigma_1) + \sigma_2 \frac{F^2}{(1+F)^2} &
+    \mu g_h' + \frac{\sigma_2}{(1+F)^2}
+    \\
+    \sigma_1 - \sigma_2 \frac{F^2}{(1+F)^2} &
+    - \frac{\sigma_2}{(1+F)^2} - ( p +d_2 +\delta_2)
+    \end{pmatrix}
+    \; ,
+$$
+
+in modo analogo a quanto fatto
 per la dimostrazione della Proposizione~\ref{prop:ratti2Dstab}.
 
 Si osservi anche in questo caso che la condizione~\eqref{eq:rattiRidotto2stability} implica che la traccia
@@ -685,11 +721,11 @@ e si è usata ancora la~\eqref{eq:gPrimoF} per l'espressione $g_h'$.
 La jacobiana ottenuta è triangolare a blocchi
 $$ D(P^*) =
 \begin{pmatrix}
-D_U & \\
+D_U & D_S \\
 \underline{\underline{0}} & D_L
 \end{pmatrix} \; ,
 $$
-dove il minore di sud--est $D_L$ fornisce i tre autovalori
+dove il minore di $D_L$ fornisce i tre autovalori
 \begin{equation}
 \lambda_3 = -d_3 -\delta_3 , \quad % questo è sempre negativo
 \lambda_4 = r -\beta_3 -\delta_4 , \quad
@@ -702,14 +738,14 @@ strettamente positivo e dunque $P^*$ è instabile.
 % rifare i conti per il minore disopra, adattando il criterio di stabilità: OK è come nel 3D
 \paragraph{}
 Per concludere la dimostrazione, supponiamo adesso che le~\eqref{eq:condSuffRattiStab} siano entrmbe valide:
-allora $\lambda_3, \lambda_4, \lambda_5 <0$. Osserviamo quindi il minore di nord--ovest della jacobiana
+allora $\lambda_3, \lambda_4, \lambda_5 <0$. Osserviamo quindi il minore $D_U$ della jacobiana
 $$D_U =
 \begin{pmatrix}
 A + q(F) \cdot F^2 & \mu g_h' + q(F) \\
 \sigma_1 - q(F) \cdot F^2 & -q(F) -D
 \end{pmatrix} \; ,
 $$
-che ha determinante
+ha determinante
 \begin{multline*}
 \det D_U = - \mu g_h' \left[ \frac{\sigma_2}{(1+F)^2} + p + d_2 +\delta_2 \right] (1+F) + \\
 + \left[ \frac{\sigma_2}{(1+F)^2} + p + d_2 +\delta_2 \right] \cdot \left( d_1 +\delta_1 + F(p+d_2+\delta_2) \right)
@@ -725,11 +761,11 @@ Quest'ultimo risultato si può interpetare con la seguente condizione: affinché
     \item le varroe portatrici perdano la loro carica virale ad un tasso più rapido della loro natalità.
 \end{itemize}
 
-L'esperienza sul campo dell'apicoltura, sia sperimentale che in produzione, indica come estremamente improbabile l'eradicazione completa della \emph{Varroa}.~\footcite{privFPan}
+L'esperienza sul campo dell'apicoltura, sia sperimentale che in produzione, indica come estremamente improbabile l'eradicazione completa della \emph{Varroa}.~\footcite{privFPan,meccanica}
 
 Piuttosto, è più ragionevole che
-\blockquote[{\footcite{privFDL}}]{
-a livello di alveare o di apiario, si riesca a mantenere per un certo periodo (almeno 3 o 4 stagioni) un equilibrio in cui api e varroe coesistono senza causare il collasso delle colonie.}
+\blockquote[{\footcite{privFDL}}]{a livello di alveare o di apiario, si riesca
+    a mantenere per un certo periodo (almeno 3 o 4 stagioni) un equilibrio in cui api e varroe coesistono senza causare il collasso delle colonie.}
 
 Ciò corrisponderebbe alla presenza di un equilibrio endemico nel modello, la cui esistenza tuttavia non è ancora dimostrata.
 
@@ -859,7 +895,14 @@ $$C = \Psi (T) =
     0 & 0 & e^{ \int_0^T r - \delta_5 \de \rho}
 \end{pmatrix} \; ,
 $$
-in cui il minore $2 \times 2$ di nord--ovest corrisponde al modello ridotto alle sole api.
+in cui il minore $2 \times 2$ di $C$
+$$
+\begin{pmatrix}
+    u_1 (T) & u_2 (T) \\
+    v_1 (T) & v_2 (T)
+\end{pmatrix}
+$$
+corrisponde al modello ridotto alle sole api.
 
 \paragraph{}
 L'altro autovalore di $C$ è
