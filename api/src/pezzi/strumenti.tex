@@ -1,0 +1,60 @@
+\chapter[Strumenti per i modelli biologici]{Strumenti per lo studio dei modelli di tipo biologico}
+\label{sec:ingredientiBioMat}
+
+Esiste una vasta gamma di fenomeni biologici analizzabili matematicamente, come la dinamica delle popolazioni
+o l'epidemiologia, e all'aumentare del numero di processi interconnessi presi in considerazione cresce
+invariabilmente la complessità matematica dei modelli da analizzare.
+
+In questo capitolo sono riassunti gli strumenti matematici che si incontrano più spesso nella letteratura
+specifica per quanto riguarda la dinamica di popolazioni di \emph{Apis}, ed in particolare le sue interazioni
+con i patogeni ed altri fattori di stress a cui possono essere esposte le colonie, quali i pesticidi di
+origine antropica o la scarsa disponibilità di cibo.
+
+\paragraph{}
+I modelli matematici sono dati generalmente sotto forma di sistemi dinamici, \ie di sistemi di equazioni
+differenziali del tipo
+$$\diff{}{t} \mathbf{x} = F( \mathbf{x}, t ) \; ,$$
+data $F: W \to \R^n$ con $W \subseteq \R^{n+1}$ aperto ed $F$ generalmente supposta abbastanza regolare.
+
+Le equazioni differenziali date sopra, unitamente con le condizioni iniziali $\mathbf{x} (t_0) = \mathbf{x}_0$,
+costituiscono un \emph{problema di Cauchy}, ed il Teorema di Esistenza e Unicità garantisce che le sue soluzioni
+esistano per ogni condizione iniziale $\mathbf{x}_0$, definite in almeno un intervallo.
+\footnote{Cfr.~p.~\pageref{eq:sdcGenerale} in Appendice.}
+
+\paragraph{}
+Risultati generali sui sistemi dinamici sono ampiamente disponibili in letteratura e ne diamo un riassunto
+nelle appendici~\ref{chap:teoria} e~\ref{chap:floquetTheory}.
+
+In questa sezione ci soffermeremo piuttosto su alcuni strumenti matematici che trovano applicazione nel campo
+più specifico della biomatematica, ossia nella modellazione di popolazioni delle specie animali, vegetali
+o microbiche.
+
+\paragraph{}
+Intorno al XIX secolo le scienze matematiche iniziano a rivolgersi al campo biologico con rinnovato interesse:
+Pierre--François Verhulst propone di utilizzare la \emph{funzione logistica} nel 1838, dopo aver letto il famoso
+modello di Malthus.\footcite{malthus1986essay}
+La derivazione di Verhulst è correlata anche al modello preda--predatore, pubblicato da Alfred
+Lotka nel 1920, che estende la sua applicazione precedente alle reazioni autocatalitiche.
+
+Lo stesso sistema di equazioni viene pubblicato da Vito Volterra nel 1926
+\footcite{vito},
+che si avvicina all'applicazione della matematica alle scienze biologiche grazie alle interazioni col
+biologo marino Umberto D'Ancona.
+
+Negli ultimi due secoli e mezzo sono stati fatti molti progressi in campo matematico e nelle scienze biologiche;
+tuttavia, gli studi più recenti lamentano ancora una compartimentazione troppo netta ed auspicano una maggiore
+collaborazione tra le scienze matematiche e la ricerca bio-etologica sul campo.
+
+\paragraph{}
+Presentiamo in questa sezione alcuni utili strumenti per i sistemi attinenti alla ricerca biomatematica.
+Vedremo alcuni oggetti definiti all'epoca di Verhulst, ed argomentazioni più moderne che attorno al principio
+del terzo millennio hanno iniziato a combinare lo sguardo matematico con la simulazione numerica,
+sfruttando la forza delle macchine di calcolo.
+
+% subsection
+\input{pezzi/logistic.tex}
+
+
+
+% spostata su prezioso input del prof.
+\input{pezzi/tab_ruoli_eta} % TODO referenziare!

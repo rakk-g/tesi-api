@@ -15,8 +15,26 @@ dove $m$ è il tasso di mortalità, ed $E$ il tasso di schiusa.
 $R$ rappresenta la funzione di \emph{reclutamento} nel termine di
 trasferimento $H \to F$.
 
+Un diagramma sintetico di questo modello è illustrato in figura~\ref{img:kh11diagram}.
+
+\begin{figure}[hbp]
+    \centering
+    \includegraphics[keepaspectratio,width=0.76\textwidth]{img/pone.0018491.g001}
+
+    \caption[\figurename~1 da \parencite{khoury2011}]{Diagramma del modello che illustra le mutue interazioni
+        tra i compartimenti. Si noti che la mortalità delle api di nido è trascurabile.
+        \\
+        { \footnotesize \ttfamily doi: 10.1371/journal.pone.0018491.g001 }
+        }
+    \label{img:kh11diagram}
+\end{figure}
+
+
+\paragraph{}
 Alcuni oggetti proposti in questo modello si sono dimostrati molto interessanti e sono stati incorporati
-in diversi modelli successivi, con variazioni minime.\footcite{ratti2017}
+in seguito da altri modelli, con variazioni minime;
+uno di questi modelli\footcite{ratti2017} sarà esaminato nella prossima sezione a p.~\pageref{sec:ratti17}.
+
 
 \subsection{Reclutamento con inibizione sociale.}
 Nello studio\footcite{khoury2011} la funzione di reclutamento è rappresentata dalla funzione
@@ -32,9 +50,9 @@ Gli autori assumono
 \textquote[{\footcite[3]{khoury2011}}]{\omissis that social inhibition is directly proportional to the fraction of the total number of adult bees that are foragers, such that a high fraction of foragers in the hive results in low recruitment.}
 
 \paragraph{}
-La ricerca -- che interseca matematica, biologia e molte altre discipline -- suggerisce che
-l'ethyl~oleate\footnote{CAS 111-62-6.} % SURE? TODO
-scambiato tra le api operaie sia il principale modulatore nel processo di reclutamento sociale.
+La ricerca biologica suggerisce che l'ethyl~oleate scambiato tra le api operaie sia
+il principale modulatore nel processo di reclutamento sociale.
+\footcite{ethyloleate,ethyloleate2,meccanica}
 
 Ad esempio una colonia risponderà ad una elevata mortalità di bottinatrici (più anziane) attraverso
 la riduzione dell'inibizione del reclutamento (dati i livelli più bassi di feromone) che dunque risulta
@@ -110,7 +128,7 @@ Possiamo vedere come valori
 crescenti di $w$ ``schiacciano'' la curva mentre la saturazione è raggiunta per valori sempre maggiori di $N$,
 e il grafico di $E(N)$ si ``inclina'' verso la destra.
 
-\begin{figure}[pbh]
+\begin{figure}[hbp]
     \centering
     \includegraphics[keepaspectratio,width=0.86\textwidth]{img/hollingTypeII-eclosion}
 
@@ -121,6 +139,7 @@ e il grafico di $E(N)$ si ``inclina'' verso la destra.
     \label{img:eclos}
 \end{figure}
 
+\paragraph{}
 Modelli successivi\footcite{ratti2017} hanno incorporato questa proposta, modificandola in una funzione Holling
 di tipo III e aggiungendo certi fattori di modulazione ulteriori, ma tutto sommato hanno mantenuto il nucleo
 della formulazione molto simile a quanto~\citeauthor{khoury2011} propongono nell'equazione~\eqref{eq:eclos}.
@@ -130,23 +149,22 @@ della formulazione molto simile a quanto~\citeauthor{khoury2011} propongono nell
 Rivediamo adesso i risultati forniti nell'articolo, a proposito dell'esistenza e della stabilità
 dei punti di equilibrio nel modello~\eqref{eq:kh11h}--\eqref{eq:kh11f}.
 
-Gli autori hanno utilizzato \textquote[{\footcite[3]{khoury2011}}]{standard linear stability analysis and phase
-plane analysis} per esaminare le equazioni del modello.
+Gli autori hanno usato \textquote[{\footcite[3]{khoury2011}}]{standard linear stability analysis and phase
+plane analysis} e ripercorrendo i loro passi forniremo criteri per l'esistenza
+di equilibri banali e non, \ie zeri del membro destro delle equazioni del modello.
 
-Ripercorrendo i loro passi, forniremo criteri per l'esistenza di equilibri banali e non, \ie zeri del membro
-destro delle equazioni del modello.
-
+\paragraph{}
 Una volta stabilita l'esistenza di un punto di equilibrio, calcoliamo la matrice jacobiana del sistema e
 la valutiamo sull'equilibrio stesso; un semplice criterio sufficiente per la stabilità asintotica
-\footnote{Vedasi il Teorema~\ref{teo:pozzoNonLineare}.}
+\footnote{Vedasi il Teorema~\ref{teo:pozzoNonLineare} a p.~\pageref{teo:pozzoNonLineare}.}
 è che $\Re (\lambda) < 0$ per ogni autovalore $\lambda$ della matrice.
 
 Un'altra tecnica, dovuta a Lyapounov, consiste nell'esibire una funzione che abbia un minimo
 locale forte sul punto di equilibrio e che sia localmente decrescente lungo le
-soluzioni.\footnote{Vedasi il Teorema~\ref{teo:lyapounovFunc}.}
+soluzioni.\footnote{Vedasi il Teorema~\ref{teo:lyapounovFunc} a p.~\pageref{teo:lyapounovFunc}.}
 
 \paragraph{}
-Si noti che $H, F$ sono non--negative, \ie $H(t), E(t) \geq 0$ per ogni $t$.
+Si noti da subito che $H, F$ sono non--negative, \ie $H(t), F(t) \geq 0$ per ogni $t$.
 Inoltre, tutti i parametri del modello debbono essere strettamente positivi.
 
 Il prossimo risultato stabilisce una condizione necessaria per tutti i punti d'equilibrio non banali.
@@ -275,12 +293,13 @@ da cui ricaviamo che se $\alpha -\frac{L}{w}>0$ (condizione~\eqref{eq:cond6b}), 
 determinante positivo e traccia negativa, cioè gli autovalori sono concordi e negativi;
 dunque\footnote{Cfr. p.~\pageref{teo:pozzoNonLineare}} l'origine è stabile.
 
-% \paragraph{}
-% Riassumiamo quanto appena trovato nel
+\paragraph{}
+Riassumiamo quanto appena discusso nel seguente
 \begin{lemma}[Condizione sufficiente per la stabilità dell'equilibrio banale]
     Se $\alpha - \frac{L}{w} > 0$ e
     $$m > \frac{\alpha L}{w \alpha -L} \; ,$$
     allora l'equilibrio banale del modello \eqref{eq:kh11h}--\eqref{eq:kh11f} è asintoticamente stabile.
+    \label{lem:eqBanKh}
 \end{lemma}
 
 
@@ -358,15 +377,13 @@ configurazione di equilibrio positivo in alcune circostanze, riassunte nella seg
     \end{equation}
     e $m_1^*, m_2^*$ sono sempre prese nell'ordine $m_1^* < m_2^*$ dalla seguente
     \begin{equation}
-        m_{1,2}^* = \frac{L}{2w} \frac{ \alpha + \sigma \pm \sqrt{ {(\alpha - \sigma)}^2 +\frac{4 \sigma L}{w}  } }
+        m_{1,2}^* = \frac{L}{2w} \cdot \frac{ \alpha + \sigma \pm \sqrt{ {(\alpha - \sigma)}^2 +\frac{4 \sigma L}{w}  } }
         {\alpha -\frac{L}{w}} \; .
         \label{eq:FstarPosM12}
     \end{equation}
 
     \label{teo:esistenzPosF} % WARNING prima era teorema, ho cambiato idea dopo.
 \end{proposizione}
-
-% due righe di comm? Ocio che dopo abbiamo INTERPR.
 
 \begin{proof}
 Possiamo usare l'equazione~\eqref{eq:kh11posEqF} dalla Proposizione~\ref{teo:exUniqFstarPos} e studiare
@@ -403,6 +420,20 @@ $$m > \frac{\sigma L}{w (\alpha +\sigma)} \; ,$$
 ciò che conclude l'ultimo caso restante della dimostrazione.
 \end{proof}
 
+\paragraph{}
+Un criterio sufficiente per la stabilità dell'equilibrio positivo è dato nella seguente Proposizione
+\footcite[3]{khoury2011}; la enunciamo qui senza dimostrazione poiché essa richiede calcoli lunghi e tediosi,
+seppure non sia particolarmente complicata sotto il profilo teorico.
+
+\begin{proposizione}[Criterio di stabilità dell'equilibrio positivo]
+L'equilibrio positivo $(H^*, F^*)$ del modello \eqref{eq:kh11h}--\eqref{eq:kh11f}, determinato
+dalla Proposizione~\ref{teo:exUniqFstarPos},
+è asintoticamente stabile se $\alpha -\frac{L}{w} >0$ e
+$$m < \frac{L}{2w} \cdot \frac{ \alpha + \sigma + \sqrt{ {(\alpha - \sigma)}^2 +\frac{4 \sigma L}{w}  } }
+    {\alpha -\frac{L}{w}} \; .$$
+    \label{prop:stabPosKh}
+\end{proposizione}
+
 \paragraph{Interpretazione.}
 \label{par:interpretationCond6b}
 Notiamo che tutte le situazioni che forniscono un limite inferiore ad $m$ potrebbero essere attribuite alle
@@ -411,7 +442,8 @@ in apiario sul campo. La non esistenza di un equilibrio positivo nelle situazion
 $m< \hat{m}$ per qualche $\hat{m}$ potrebbe semplicemente essere dovuta alla divergenza verso l'infinito
 della popolazione in tali casi.
 
-Al contrario, la condizione
+Al contrario, la condizione che ritroviamo nel Lemma~\ref{lem:eqBanKh} e nelle Proposizioni~\ref{teo:esistenzPosF}
+e \ref{prop:stabPosKh} data dalla disuguaglianza
 \begin{equation}
 \alpha - \frac{L}{w} > 0
     \label{eq:cond6b}
@@ -431,8 +463,8 @@ per via della crescita incontrastata dei numeri nella popolazione totale.
 
 Come notato in precedenza, questo modello non ha un fattore di mortalità nel compartimento $H$: alla luce
 di questo fatto, possiamo spiegare la condizione~\eqref{eq:cond6b} come limite inferiore per il tasso
-di trasferimento dal comparto delle operaie di casa alle foraggiatrici, dove le api hanno una aspettativa
-di vita finita.
+di trasferimento dal comparto delle operaie di casa al comparto delle operaie di campo, dove
+le api hanno una aspettativa di vita finita.
 Questa equazione esprime la reale necessità di coordinare efficientemente i passaggi tra le suddivisioni
 del lavoro per la buona riuscita della colonia; per contro, le limitazioni puramente matematiche che
 prevengono la divergenza della popolazione sono conseguenze puramente teoriche e non trovano applicazione
@@ -447,9 +479,9 @@ reale sul campo.
 \paragraph{}
 La ramificazione degli equilibri in questo modello è illustrata in figura~\ref{img:kh11phasePlane}.
 
-\begin{figure}[pbh]
+\begin{figure}[hpb]
     \centering
-    \includegraphics[keepaspectratio,width=0.86\textwidth]{img/pone.0018491.g003}
+    \includegraphics[keepaspectratio,width=0.76\textwidth]{img/pone.0018491.g003}
 
     \caption[\figurename~3 da \parencite{khoury2011}]{Diagramma delle fasi per le
         soluzioni del modello con differenti valori di mortalità $m$.
@@ -463,7 +495,11 @@ La ramificazione degli equilibri in questo modello è illustrata in figura~\ref{
         Nella (b) abbiamo $m = 0.40$ e l'unico equilibrio del sistema è quello banale: la popolazione
         collassa verso lo zero.
 
-        I valori degli altri parametri sono $L = 2000$,  $\alpha= 0.25$,  $\sigma= 0.75$ e $w = 27 000$.}
+        I valori degli altri parametri sono $L = 2000$,  $\alpha= 0.25$,  $\sigma= 0.75$ e $w = 27 000$.
+        \\
+        { \footnotesize \ttfamily doi: 10.1371/journal.pone.0018491.g003 }
+        }
+
     \label{img:kh11phasePlane}
 \end{figure}
 

@@ -3,6 +3,10 @@
 Esaminiamo adesso il modello proposto nel \citeyear{ratti2017}, che estende alcune proposte precedenti con lo scopo di studiare gli effetti diretti e indiretti di \emph{Varroa destructor} sulla popolazione
 di un alveare.\footcite{ratti2017}
 
+In particolare si considera l'impatto negativo sulla salute delle operaie di \emph{A.~mellifera} dovuto
+al virus della paralisi\footnote{Acute Bee Paralysis Virus, cfr. \cite{abpvAndMore}.}, trasmesso
+alle api dalle varroe.
+
 \subsection{Derivazione del modello}
 Per ottenere una formulazione del modello, gli autori propongono le seguenti assunzioni preliminari:
 \begin{enumerate}
@@ -91,7 +95,7 @@ il fattore $R$ rappresenta gli effetti \emph{sociali}
 della colonia sul tasso di reclutamento, con la seguente formulazione:
 \begin{equation}
     R(x_h, x_f) = \sigma_1 - \sigma_2 \frac{x_f}{x_h + x_f}
-    \label{eq:reclutam}
+    %\label{eq:reclutam}
 \end{equation}
 in cui $\sigma_1$ è il tasso massimo di reclutamento delle operaie, quando non ci sono bottinatrici nella colonia.
 Il termine $\sigma_2 \frac{x_f}{x_h + x_f}$ descrive l'inibizione sociale del reclutamento, ossia il rallentamento del processo di ``promozione'' all'esterno del nido, proporzionale alla frazione di popolazione impiegata nella bottinatura; quando tale frazione è in surplus, le bottinatrici vengono ``riallocate'' in attività interne all'alveare.
@@ -162,7 +166,7 @@ Questo approccio metodologico costituisce la base delle dimostrazioni in questa 
 \footnote{Cfr. p.~\pageref{chap:teoria} e segg. per una sintesi dei risultati teorici qui sfruttati.}
 .
 
-\subsubsection{Modello bidimensionale senza patogeni}
+\subsection{Modello bidimensionale senza patogeni}
 In assenza di \emph{Varroa} e di virus, il modello \eqref{eq:r17xh}--\eqref{eq:r17n} si riduce alle due sole equazioni per le api sane:
 \begin{align}
     \diff{x_h}{t} &= \mu g( x_h + x_f ) - d_1 x_h - x_h \left( \sigma_1 - \sigma_2 \frac{x_f}{x_h + x_f} \right)
@@ -353,7 +357,7 @@ Ciò implica che il punto d'equilibrio sia stabile.
 \end{proof}
 
 
-\subsubsection{Modello tridimensionale api--acaro}
+\subsection{Modello tridimensionale api--acaro}
 Introduciamo adesso nella colonia le varroe senza virus, ed indaghiamo la conseguente alterazione della stabilità degli equilibri individuati nel caso precedente.
 
 Si eliminano quindi dal modello \eqref{eq:r17xh}--\eqref{eq:r17n} le equazioni per le api infette
@@ -373,7 +377,7 @@ Il modello ridotto che si ottiene è il seguente:
     \\
     \diff{x_f}{t} &= x_h \left( \sigma_1 - \sigma_2 \frac{x_f}{x_h + x_f} \right) - (p + d_2 + \delta_2) x_f
         - \gamma_2 n x_f
-        \label{eq:rattiRidotto2seconda}
+%         \label{eq:rattiRidotto2seconda}
     \\
     \diff{n}{t} &= rn \left( 1 - \frac{n}{ \alpha (x_h + x_f) } \right) - \delta_5 n
         \label{eq:rattiRidotto2terza}
@@ -530,7 +534,10 @@ Si osservi inoltre che in assenza di trattamenti varroacidi l'alveare non riesce
 
 \begin{proof}
 Calcolando la matrice jacobiana sul punto di equilibrio si ottiene
-$$ D (x_h^* , F x_h^* , 0) =
+
+\begin{multline*}
+D (x_h^* , F x_h^* , 0) = \\
+=
 \begin{pmatrix}
     \mu g_h' - (d_1 +\delta_1 +\sigma_1) + \sigma_2 \frac{F^2}{(1+F)^2} &
     \mu g_h' + \frac{\sigma_2}{(1+F)^2} &
@@ -545,7 +552,7 @@ $$ D (x_h^* , F x_h^* , 0) =
     r -\delta_5
     \end{pmatrix}
     \; ,
-$$
+\end{multline*}
 dove $g_h'$ è abbreviata come nella~\eqref{eq:gPrimoF}.
 
 Se $r -\delta_5 > 0$ allora l'equilibrio è instabile, poiché questi è un autovalore.
@@ -601,7 +608,7 @@ $$\frac{\sigma_2 F}{1+F} - d_1 -\delta_1 -\sigma_1 < 0 \; ,$$
 allora esistono due equilibri della forma $(x_h^*, F x_h^*, 0, 0, 0)$,
 a patto che sia verificata l'ulteriore condizione
 $$a > \frac{Ki}{1+F} {(i-1)}^{\frac{1}{i} -1} \; .$$
-\label{prop:exist5D}
+% \label{prop:exist5D}
 \end{proposizione}
 
 La dimostrazione è del tutto identica alla precedente nel caso senza virus, e dunque è omessa.
@@ -730,12 +737,11 @@ dove il minore di $D_L$ fornisce i tre autovalori
 \lambda_3 = -d_3 -\delta_3 , \quad % questo è sempre negativo
 \lambda_4 = r -\beta_3 -\delta_4 , \quad
 \lambda_5 = r -\delta_5 \; ,
-\label{eq:ultimi3}
+% \label{eq:ultimi3}
 \end{equation}
 da cui vediamo che se almeno una delle~\eqref{eq:condSuffRattiStab} è invertita, allora c'è un autovalore
 strettamente positivo e dunque $P^*$ è instabile.
 
-% rifare i conti per il minore disopra, adattando il criterio di stabilità: OK è come nel 3D
 \paragraph{}
 Per concludere la dimostrazione, supponiamo adesso che le~\eqref{eq:condSuffRattiStab} siano entrmbe valide:
 allora $\lambda_3, \lambda_4, \lambda_5 <0$. Osserviamo quindi il minore $D_U$ della jacobiana
@@ -792,7 +798,7 @@ Questo ultimo passaggio è fondamentale per incorporare nel modello le variazion
 Nel seguito il sistema di equazioni~\eqref{eq:r17xh}--\eqref{eq:r17n} si considera a coefficienti periodici,
 di periodo uguale a $T= 1 \text{ anno}$.
 
-I risultati teorici qui utilizzati, tra cui la Forma Normale di Floquet, sono richiamati nell'Appendice
+I risultati teorici qui utilizzati, tra cui la Forma Normale di Floquet, sono richiamati nell'Appendice~\ref{chap:floquetTheory}.
 
 \paragraph{}
 Presentiamo i risultati circa la stabilità degli equilibri non banali e senza patogeni, prima per il modello
@@ -945,11 +951,11 @@ l'inquinamento ambientale o la scarsità stagionale di approvvigionamenti di cib
 \footcite{ratti2012,ratti2015,sumMar04,khoury2011,betti2016,betti2014}
 
 Se nell'espressione di $g$ (equazione~\eqref{eq:hillSigmoid}) si prende $K=0$ il modello si riduce a
-quello di~\cite{sumMar04}.
+quello di~\citeauthor{sumMar04}\footcite{sumMar04}.
 
 \paragraph{}
 Prendendo $i=1$, togliendo i compartimenti di virus e varroe, e riducendo a zero la mortalità nel
-compartimento $x_h$, il modello si riduce a~\cite{khoury2011}.
+compartimento $x_h$, il modello si riduce ad una proposta precedente degli stessi autori~\footcite{khoury2011}.
 
 Si veda in proposito la tabella~\ref{tab:kh11VSratti17} per un confronto tra le notazioni.
 
@@ -964,11 +970,11 @@ Si veda in proposito la tabella~\ref{tab:kh11VSratti17} per un confronto tra le 
         F & x_f & \text{api} \\
         m & d_2 & \text{api}/\text{die} \\
         L & \mu & \text{api}/\text{die} \\
-        \alpha & \sigma_1 & \text{die}^{-1} \\
-        \sigma & \sigma_2 & \text{die}^{-1} \\
+        \alpha & \sigma_1 & 1/\text{die} \\
+        \sigma & \sigma_2 & 1/\text{die} \\
         E & g & \text{api}/\text{die} \\
         \midrule
-        \multicolumn{2}{c}{R} & \text{die}^{-1} \\
+        \multicolumn{2}{c}{R} & 1/\text{die} \\
         \midrule
         J & F & 1 \\
         \bottomrule
