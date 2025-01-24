@@ -5,7 +5,6 @@
 \newmdtheoremenv{lemma}{Lemma}
 \newmdtheoremenv{corollario}{Corollario}
 \newmdtheoremenv{proposizione}{Proposizione}
-% \newmdtheoremenv{postulato}{Postulato}
 
 \theoremstyle{definition}
 \newmdtheoremenv{definizione}{Definizione}
@@ -20,7 +19,7 @@
 
 % COMANDI e RINNOVI per la tesis.
 
-\newcommand{\pcite}[1]{(\cite{#1})} % UNNECESSARY: \parencite
+% \newcommand{\pcite}[1]{(\cite{#1})} % UNNECESSARY: \parencite
 
 \newcommand{\omissis}{[\textellipsis\unkern] }                          % produce "[...] "
 
@@ -44,27 +43,21 @@
 \newcommand{\Rplus}{\R_{\geq 0}}                                        % reali non negativi
 
 \newcommand{\C}{\mathbb{C}}                                             % campo complessi
-\renewcommand{\Re}{\mathfrak{Re}}                                        % parte reale
+\renewcommand{\Re}{\mathfrak{Re}}                                       % parte reale
 
-\newcommand{\K}{\mathbb{K}}                                             % campo generico
-\newcommand{\F}{\mathbb{F}}                                             % campo finito; metti a pedice p^q
-\renewcommand{\P}[1]{\mathbb{P} \left( #1 \right) }                     % spazio proiettivo (su qualcosa!)
 
-\newcommand{\prob}{\mathds{P}}                                          % probabilità
-\newcommand{\E}{\mathds{E}}                                             % valore atteso
 
 \DeclareMathOperator{\tr}{tr}                                       % traccia
 \DeclareMathOperator{\Sp}{Sp}                                       % spettro
 \DeclareMathOperator{\Imm}{Imm}                                     % immagine di una applicazione
 \DeclareMathOperator{\Span}{Span}                                   % chiusura lineare
+\DeclareMathOperator{\erf}{erf}                                     % funzione degli errori
 
-\newcommand{\de}{\mathop{}\!\mathrm{d}}            % differenziale
+\newcommand{\de}{\mathop{}\!\mathrm{d}}                             % differenziale (per gli integrali)
 
 %-----------------------------------------------------------%
 
-\newcommand{\conj}[1]{\overline{#1}}
 
-\newcommand{\eg}{\emph{e.g.~}}                                      % per esempio
 \newcommand{\ie}{\emph{i.e.~}}                                      % id est
 \newcommand{\st}{\,\mid\;}                                          % tali che, da usare in mathmode all'interno di \Set
 

@@ -1,6 +1,6 @@
 \section{Funzione Logistica}
 La \emph{funzione logistica} è una famiglia di sigmoidi che
-\textquote[\footcite{WENlogistic}]{\omissis trova applicazione in molti campi,
+\blockquote[\footcite{WENlogistic}]{\omissis trova applicazione in molti campi,
 compresi: biologia (specialmente ecologia), biomatematica, chimica, demografia, economia,
 geoscienze, psicomatematica, probabilità, sociologia, scienze politiche, linguistica,
 statistica e reti neurali.
@@ -8,24 +8,88 @@ statistica e reti neurali.
 Ne esistono varie generalizzazioni, a seconda del campo di applicazione.}
 
 \paragraph{}
-L'equazione della funzione logistica standard è
+Consideriamo dapprima il modello malthusiano\footcite{malthus1986essay} in cui il tasso di crescita di una popolazione $P$
+è proporzionale alla popolazione medesima:
+$$\diff{P}{t} = rP \; , $$
+ove il tasso di riproduzione $r$ è costante. L'equazione differenziale è facilmente integrabile e fornisce la soluzione
+$P(t) = P_0 e^{rt}$, in cui $P_0$ rappresenta la popolazione iniziale all'istante $t=0$.
+
+L'assunzione di Malthus è verosimile soltanto nelle fasi iniziali dello sviluppo, ossia
+per popolazioni ``relativamente basse'': ad esempio un embrione umano cresce secondo la sequenza
+2, 4, 8, 16 cellule etc. subito dopo la fecondazione, ed anche lo sviluppo delle colture batteriche appena inoculate
+segue un'andamento esponenziale.
+
+Il feto umano però rallenta il suo sviluppo quando raggiunge dimensioni comparabili con l'utero che lo contiene, così
+come la crescita delle popolazioni batteriche satura in vicinanza dei limiti fisici imposti dalla piastra o dall'esaurimento
+delle sostanze nutrienti.
+
+La soluzione esponenziale non cattura questi fenomeni reali, e quindi descrive propriamente l'evoluzione di una popolazione soltanto nelle fasi iniziali.
+
+Infatti, in una crescita di tipo esponenziale il tasso di crescita \emph{pro~capite} è costante, quindi la popolazione
+aumenta tanto più velocemente quanto è grande il numero di individui.
+
+\paragraph{}
+Per risolvere questo problema, Verhulst\footcite{verhulst} introduce l'equazione logistica,
+ottenuta supponendo che il tasso di crescita sia proporzionale alla popolazione\footnote{Come già nel modello malthusiano.}
+\emph{ma anche} alle risorse disponibili:
+
+\begin{equation}
+    \diff{P}{t} = r P \left( 1 - \frac{P}{K} \right) \; ,
+    \label{eq:verhulstLogistic}
+\end{equation}
+dove $K$ rappresenta la \emph{capacità portante} dell'ambiente, ossia il massimo teorico della popolazione
+che è possibile sostenere in base alle risorse disponibili.
+Il fattore $\frac{K-P}{K}$ nella crescita logistica rappresenta il fatto che il tasso di crescita \emph{pro~capite}
+diminuisce quando numero di individui si avvicina al limite ambientale imposto dalla disponibilità di risorse.
+
+Il parametro adimensionale $\frac{P}{K}$ si chiama \emph{competizione intraspecifica} e costituisce la modifica
+cruciale di Verhulst al modello malthusiano: rappresenta infatti la diminuzione del tasso di crescita per popolazioni
+vicine alla capacità portante, rispetto a popolazioni ``piccole'' (a parità di tasso di riproduzione).
+
+Tramite semplici manipolazioni algebriche possiamo risolvere l'equazione~\eqref{eq:verhulstLogistic} ed ottenere
+l'espressione $P=P(t)$ che descrive l'evoluzione temporale della popolazione:
+\begin{multline*}
+\int_{P_0}^{P(t)} \frac{1}{\pi} + \frac{1}{K-\pi} \de \pi = \int_0^t r \de \tau
+\quad \implies \quad
+\log \left( \frac{K-P_0}{P_0} \cdot \frac{P}{K-P} \right) = rt
+\quad \implies \\
+\implies \quad
+\frac{K}{P} - 1 = \frac{K-P_0}{P_0} e^{-rt}
+\quad \implies \quad
+P = \frac{K P_0 e^{rt}}{K + P_0 (e^{rt} -1)} \; ,
+\end{multline*}
+
+la quale può essere riscritta come
+\begin{equation}
+    P(t) = \frac{K}{1 + q e^{-rt}} \; ,
+    \label{eq:verhulstLogistic2}
+\end{equation}
+avendo posto
+$$ q \coloneq \frac{K- P_0}{P_0} \; .$$
+
+Si osservi che dalla~\eqref{eq:verhulstLogistic2} segue
+$$\lim_{t \to \infty} P(t) = K \; ,$$
+ovvero che la popolazione tende alla capacità portante, anziché divergere all'infinito come nel modello esponenziale.
+
+\paragraph{}
+Per uno studio analitico più approfondito della funzione logistica conviene adimensionalizzare
+la~\eqref{eq:verhulstLogistic2} in modo da ottenere l'equazione della funzione logistica standard:
 \begin{equation}
     f(x) \coloneq \frac{1}{1 + e^{-x}} = \frac{e^x}{1+e^x} \; ,
     \label{eq:logisticF}
 \end{equation}
-ed è definita per ogni $x \in \R$, anche se in pratica $f(x)$ satura intorno a $\abs{x} > 6$.
-Vedasi la figura~\ref{img:logisticF}.
+la quale è definita per ogni $x \in \R$, anche se nella pratica $f(x)$ si può considerare satura intorno a $\abs{x} > 6$,
+come si può vedere in figura~\ref{img:logisticF}.
 
 \begin{figure}[pbh]
     \centering
     \includegraphics[keepaspectratio,width=0.86\textwidth]{img/logisticF}
 
-    \caption[Funzione logistica]{Funzione logistica.}
+    \caption[Funzione logistica]{Funzione logistica standard.}
     \label{img:logisticF}
 \end{figure}
 
-La funzione logistica è dispari rispetto a %$y=\frac{1}{2}$ e $0 = f^{-1} \left( \frac{1}{2} \right)$.
-$(0, \frac{1}{2})$, ed $f(0) = \frac{1}{2}$.
+La funzione logistica è dispari rispetto a $(0, \frac{1}{2})$, e vale $f(0) = \frac{1}{2}$.
 Queste osservazioni si applicano anche alla logistica generalizzata, con parametri $L$, $k$ ed $x_0$:
 \begin{equation}
     \hat{f}(x) \coloneq \frac{L}{1+e^{-k(x -x_0)}} \; ,
@@ -72,11 +136,18 @@ $$\diff{}{x} f(x) = f(x) \left( {1-f(x)} \right) \; ,$$
 da cui tutte le derivate successive possono ricavarsi algebricamente.
 
 \paragraph{}
-La proprietà di simmetria della logistica
+La proprietà di simmetria della funzione logistica
 $$1 -f(x) = f(-x)$$
 riflette il fatto che la crescita sopra $0$ intorno a valori piccoli di $x$ è
 simmetrica rispetto al decadimento al raggiungere il valore--limite di saturazione,
 per grandi valori di $x$.
 
+\paragraph{}
+Un esempio di applicazione nella dinamica delle popolazioni sarà esaminato nel modello della sezione~\ref{sec:ratti17}:
+nelle equazioni \eqref{eq:r17m} e \eqref{eq:r17n} la crescita della popolazione di varroe è di tipo logistico,
+e la capacità portante dell'ambiente è proporzionale alla popolazione di api adulte.
 
-% e l'integrale?
+\paragraph{}
+Concludiamo questa sezione osservando che altre formulazioni sono state proposte ed utilizzate per ottenere
+delle sigmoidi nei modelli, ad esempio $\tanh (x)$, $\arctan (x)$, $\erf (x)$ e la funzione di Hill.\footcite{hill}
+

@@ -18,6 +18,10 @@ api/src/prof
 api/src/francescoDeLeo.md
 api/src/lorem.tex
 api/contatti
+micheleValleri
+
+# da escludere, chiunque li abbia generati (for safety and cleanliness)
+**/*.log
 
 ## wxMaxima
 *.wxmx
@@ -32,6 +36,7 @@ api/contatti
 simulaz/result.txt
 simulaz/untitled.ofig
 simulaz/output
+simulaz/__pycache__
 simulaz/handSelectedOutput
 
 
