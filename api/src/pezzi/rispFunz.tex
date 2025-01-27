@@ -1,1 +1,84 @@
 \section{Risposta funzionale}
+\label{sec:rispFunz}
+Nello studio della dinamica delle popolazioni l'interesse è spesso concentrato sulla \emph{risposta numerica}, ossia
+sul tasso riproduttivo dei vari compartimenti in funzione delle risorse disponibili nell'ambiente.
+
+Nella modellazione di relazioni strutturate tra i compartimenti (infra-- ed inter-- specie) è spesso necessario
+considerare anche le \emph{risposte funzionali} per descrivere i termini di trasferimento nelle equazioni~\eqref{eq:sistDin}.
+
+\paragraph{}
+La risposta funzionale modella il tasso di consumo di un singolo individuo, in funzione della densità di risorse.
+
+Si noti che adottare la densità di risorse piuttosto che la quantità effettiva di risorse permette --
+nei modelli più avanzati -- di modellare la \emph{spazialità} nelle azioni dei viventi, che operano, si muovono
+ed interagiscono con l'ambiente cercando il cibo e di evitare minacce, in un certo raggio di prossimità.
+
+\paragraph{}
+Tra i primi tentativi di modellazione matematica della risposta funzionale troviamo quella definita da
+\citeauthor{holling59}\footcite{holling59}:
+\begin{equation}
+    f(x) = \frac{a x^k}{1+ a h x^k} \; ,
+    \label{eq:holling}
+\end{equation}
+dove $f$ è il tasso di consumo individuale, $x$ è la densità di risorse, ed i parametri $a$ ed $h$ sono rispettivamente
+il tasso di attacco ed il tempo medio di manipolazione.
+
+\paragraph{}
+Il tasso di attacco $a$ rappresenta la frequenza con cui il consumatore incontra il cibo (in unità di densità).
+Il tempo di manipolazione $h$ è il tempo medio che il consumatore impiega per processare una unità di cibo/risorsa.
+
+Il parametro $k$ distingue tre classi di funzioni di Holling:
+\begin{enumerate}
+    \item f. di Holling di \textbf{tipo I}: risposta lineare. Si ottiene con $k=1$ e $h=0$, assumendo cioè che il tempo
+        necessario alla manipolazione/assunzione di cibo sia trascurabile rispetto al tempo trascorso nel cercare cibo.
+        Una ulteriore semplificazione qui implicata, seppur meno evidente, è che l'atto di procacciarsi il cibo non sia
+        in competizione con il suo consumo, ciò che in generale è falso nelle specie animali.
+
+        Questa risposta funzionale lineare è quella adottata nel modello di Lotka--Volterra.\footcite{vito}
+    \item f. di Holling di \textbf{tipo II}: si ha per $k=1$ e $a,h \neq 0$. Assume che il tasso di consumo sia limitato
+        dalla capacità di ogni consumatore di processare la risorsa.
+
+        Le funzioni di tipo II e III hanno un plateau a quota $f=\frac{1}{h}$, cfr.~fig.~\ref{img:hollo}.
+
+    \item f. di Holling di \textbf{tipo III}: con $k>1$ si modella l'apprendimento del consumatore nell'approccio alla
+        risorsa~cibo. Un elemento viene accettato e processato al $k$-esimo incontro e rifiutato/ignorato nei
+        primi $k-1$ incontri.
+\end{enumerate}
+
+\begin{figure}[hbt]
+    \centering
+    \includegraphics[keepaspectratio,width=0.68\textwidth]{img/hollo}
+
+    \caption{Risposta funzionale di Holling, tipi I--III.}
+    \label{img:hollo}
+\end{figure}
+
+\paragraph{}
+Nei modelli a proposito di \emph{Apis~mellifera} esaminati nel capitolo~\ref{chap:modelz} vedremo un esempio di
+funzione di Holling (tipo II) per descrivere la schiusa delle api dopo la metamorfosi delle larve, ciò che corrisponde alla
+introduzione di nuovi individui giovani nel compartimento delle operaie di nido.
+Si veda in proposito l'equazione~\eqref{eq:eclos} a p.~\pageref{eq:eclos} e la sua illustrazione in figura~\ref{img:eclos}.
+
+Nel modello di~\citeauthor{ratti2017} (Sezione~\ref{sec:ratti17}) si impiega una sigmoide di Hill\footnote{Matematicamente, le sigmoidi di Hill fanno parte della famiglia delle funzioni di Holling II e III.}
+con lo stesso scopo del precedente: modulare ``nuove nascite'' con la risposta funzionale alla ``risorsa'' api operaie,
+``consumata'' dalle larve in termini di tempo dedicato alla cura della covata.
+
+\paragraph{}
+Pensando alle popolazioni di mammiferi è generalmente vera una serie di assunzioni che ci permettono di modellare la
+risposta numerica in termini di relazioni con l'ambiente (densità di cibo, minacce da predatori o patogeni, \dots) e di
+relazioni infra--specifiche. Ad esempio l'\emph{omogeneità} delle popolazioni considerate (su scala geografica
+sufficientemente ristretta) è un'assunzione utilizzata dapprima nella epidemiologia, e successivamente è stata
+adattata con profitto alla modellazione matematica delle popolazioni viventi in prospettive più ampie.
+% omog: la uso per esempio per dire che le gravidanze sono proporzionali agli incontri
+
+\paragraph{}
+Nelle specie animali altamente socializzate l'esistenza di relazioni strutturate comporta che molte delle assunzioni
+di cui sopra divengano false: la popolazione è disomogenea anche su scala di branco o famiglia, e le relazioni
+complesse tra i compartimenti generano nuovi termini nelle equazioni del modello.
+Tali relazioni complesse si esprimono efficacemente con lo strumento della risposta funzionale; le misure sul campo
+relative alle interazioni sociali\footnote{Ad esempio il tempo medio di ``manipolazione'' che una ape nutrice impiega per
+ogni larva visitata, il numero medio di larve visitate al giorno, etc.}
+permettono talvolta di stimare i parametri delle funzioni espresse nel modello.
+
+
+

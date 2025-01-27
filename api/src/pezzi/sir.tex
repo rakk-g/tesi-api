@@ -18,10 +18,149 @@ Per specificare completamente il modello a compartimenti occorre anche fornire i
 compartimento, i quali dipendono dalle variabili e dai parametri del sistema.
 
 \subsection{Modello SIR e sue varianti}
+\begin{figure}[hbt]
+    \centering
+    \includegraphics[keepaspectratio,width=0.58\textwidth]{img/SIRschema}
+
+    \caption{Schema del modello a compartimenti SIR.}
+    \label{img:SIRscheme}
+\end{figure}
+
 Nonostante la relativa semplicità di questo modello che adotta soltanto tre compartimenti, esso ha un potere predittivo
 piuttosto ragionevole\footcite{chinaVirus} nel contesto delle infezioni trasmesse infra--specie in \emph{H.~sapiens}
 per le quali la guarigione comporta una resistenza di lungo periodo.\footnote{Ad esempio il morbillo, la parotite,
 la rosolia e -- con le dovute cautele -- anche la sindrome respiratoria COVID-19 data dal virus SARS-CoV-2.}
+
+\paragraph{}
+Illustrare la derivazione del modello SIR, esaminandone le ipotesi di lavoro, è utile sia per la formalizzazione
+di importanti concetti,
+\footnote{Quali ad esempio il tasso base di riproduzione $R_0$, l'immunità di gregge, gli
+equilibri endemici ed epidemici, \dots}
+sia per le modifiche necessarie per la costruzione di modelli più complessi.
+
+Consideriamo dunque una qualche popolazione (animale, vegetale o batterica) soggetta ad una patologia trasmissibile
+infra--specie. Sia $N =N(t)$ il numero totale di individui nella popolazione considerata, all'istante $t$.
+
+Suddividiamo la popolazione in tre compartimenti:
+\begin{itemize}
+    \item il compartimento $S$ rappresenta gli individui \emph{suscettibili}, ossia che possono contrarre
+        l'infezione entrando a contatto con un individuo infetto.
+    \item Il compartimento $I$ consta degli individui \emph{infetti} della popolazione, e più propriamente
+        ``infettivi'' giacché capaci trasmettere l'infezione ad individui sani nel comparto $S$.
+    \item Il compartimento $R$ è il gruppo degli individui \emph{rimossi} dalla popolazione infett(iv)a.
+        Gli elementi in $R$ non trasmettono e non ricevono l'infezione. Troviamo dunque in $R$ sia gli individui
+        infetti che sono guariti (e che dunque hanno sviluppato una immunità di lungo periodo), sia i decessi (che
+        in ogni caso non trasmettono né ricevono l'infezione).
+\end{itemize}
+
+Si assume inoltre che:
+\begin{enumerate}
+    \item il tasso di nuove infezioni è proporzionale sia alla popolazione suscettibile che a quella infetta.
+        Questa assunzione è giustificata empiricamente dal fatto che la trasmissione del patogeno richiede il
+        \emph{contatto} tra un individuo infetto ed uno suscettibile; senza informazioni specifiche ulteriori,
+        è ragionevole assumere che il numero di contatti sia proporzionale al prodotto $SI$.
+        \footnote{Infatti la semplicità del modello SIR risiede soprattutto nella \emph{assenza di relazioni
+            strutturate} entro la popolazione considerata. Modelli sufficientemente informativi sulla dinamica
+            di animali che esibiscono comportamenti sociali (quali \emph{H.~sapiens} e \emph{A.~mellifera})
+            introducono ulteriori compartimenti e termini di trasferimento proprio per catturare il carattere
+            strutturato delle interazioni.}
+    \item il tasso delle guarigioni (e dei decessi) è proporzionale al numero $I$ di individui infetti.
+\end{enumerate}
+
+Il risultato di queste assunzioni è il modello illustrato in figura~\ref{img:SIRscheme}, con le equazioni seguenti:
+\begin{align}
+    \diff{S}{t} &= - \beta I S \label{eq:sirS} \\
+    \diff{I}{t} &= \beta I S - \gamma I \\
+    \diff{R}{t} &= \gamma I \label{eq:sirR} \; ,
+\end{align}
+
+in cui il parametro $\beta$ rappresenta il numero medio di contatti tra $S$ ed $I$ (nell'unità di tempo),
+moltiplicato per la probabilità di infezione durante un singolo contatto.
+
+Il parametro $\gamma$ è l'inverso del tempo medio di permanenza nello stato infettivo; ovvero è la frequenza
+media delle rimozioni dal comparto $I$.
+
+\paragraph{}
+Si osservi che questo semplice modello non prevede ingressi nel comparto $S$, ciò che tipicamente rappresenterebbe
+le nuove nascite.
+Inoltre, poiché i morti sono conteggiati in $R$ assieme alle guarigioni, abbiamo che $\diff{N}{t} = 0$,
+da cui si ricava il tasso \emph{pro~capite} di infezioni
+$$\diff{(S/N)}{t} = - \frac{\beta I S}{N} \; .$$
+
+Considerando il rapporto
+$$\frac{ \diff{S}{t} }{ \diff{R}{t} } = - \frac{\beta}{\gamma} S$$
+possiamo ottenere informazioni sull'andamento asintotico dell'infezione: integrando l'equazione precedente otteniamo
+$$R(t) = R(0) + \frac{\gamma}{\beta} \log \frac{S(0)}{S(t)} \; .$$
+
+Un esempio di questo andamento è mostrato in figura~\ref{img:sirmodell}: si osservi che l'asse dei tempi è
+adimensionalizzato con $d=\gamma^{-1}$ che rappresenta la durata media di una infezione.
+Coi valori dei parametri illustrati in didascalia, non vi sono praticamente più individui suscettibili dopo
+40 periodi dall'inizio dell'epidemia, e dopo 100 periodi quasi l'intera popolazione è immune.
+
+\begin{figure}[hb]
+    \centering
+    \includegraphics[keepaspectratio,width=0.78\textwidth]{img/SIR-Modell}
+
+    \caption[Modello SIR]{Andamento di un modello SIR su una popolazione $N=1000$ con $I(0)=3$ e $R(0)=0$.
+        I valori dei parametri sono $\beta=0,0004$ e $\gamma=0,04$.}
+    \label{img:sirmodell}
+\end{figure}
+
+\subsection{Numero di riproduzione di base ed equilibrio endemico}
+Negli studi epidemiologici assume un'importanza particolare il \emph{numero di riproduzione di base}, denominato $R_0$.
+
+Questi è il valore atteso del numero di nuovi contagi generati direttamente da un solo individuo infetto, nel contesto
+di una malattia infettiva contro la quale non si adottino misure di contrasto.
+
+\paragraph{}
+Nei modelli SIR e derivati il numero $R_0$ è correlato al concetto di ``paziente zero'', definito dalle condizioni
+iniziali in cui una popolazione è interamente suscettibile: a parte il caso zero, nessun individuo è infetto né immune,
+ciò che si traduce in
+$$I(0) = 1 \;, \quad S(0) = N(0) - 1 \; .$$
+
+L'argomentazione seguente, che conclude la presente sezione, è esposta considerando il modello SIR a tre compartimenti
+per brevità e semplicità, ma può essere estesa ai modelli più complessi\footnote{link SIRVD}
+adottati con successo nella modellazione di epidemie reali in \emph{H.~sapiens} ed in altri animali.
+
+Si consideri il modello \eqref{eq:sirS}--\eqref{eq:sirR} e si ponga
+\begin{equation}
+    R_0 \coloneq \frac{\beta}{\gamma} \; .
+    \label{eq:rzero}
+\end{equation}
+
+La proporzione di popolazione che rimane suscettibile all'\emph{equilibrio endemico}, cioè nel contesto della presenza
+costante dell'infezione nella popolazione $N$, è $\frac{1}{R_0}$ e ci permette di calcolare la
+\emph{soglia minima per l'immunità di gregge}\footnote{HIT - Herd Immunity Threshold.}
+$$1 - \frac{1}{R_0} \; .$$
+
+Si osservi che in generale $R_0 \neq R_t$, dove $R_t$ rappresenta il valore atteso delle nuove infezioni generate da
+un individuo nel comparto $I(t)$ al tempo \emph{attuale}. $R_t$ è denominato \emph{numero effettivo di riproduzione}
+
+\paragraph{}
+All'atto pratico, le politiche sanitarie quali ad esempio le vaccinazioni, rimuovono individui dal comparto $S(t)$
+trasportandoli al comparto $R(t)$, rendendole immuni ed abbassando la velocità del contagio.
+
+Se la percentuale di popolazione immune è superiore all'immunità di gregge
+$$R(t) \geq 1 - \frac{1}{R_0} \; ,$$
+allora l'infezione può essere contenuta (equilibrio \emph{endemico}) o addirittura eliminata.
+
+Si distingue quindi la nozione di \emph{endemia} (presenza costante ma contenuta del patogeno nella popolazione)
+da quella di \emph{epidemia} o \emph{pandemia}, che invece è il contagio \emph{rapido} di un grande numero di individui
+nella popolazione.
+
+\paragraph{}
+Concludiamo osservando che l'immunità di gregge non è un concetto statico, ma varia nel tempo.
+Così come alcune malattie infettive per gli umani richiedono la ripetizione periodica delle vaccinazioni,
+anche alcuni patogeni di \emph{Apis} si riescono a contenere soltanto tramite misure \emph{ripetute} di
+immunizzazione. Nell'esempio della \emph{Varroa}, i vari trattamenti\footnote{Ad es. acido ossalico, trattamenti varroacidi
+    con o senza ``blocco della regina'' (\ie dell'ovideposizione).}
+vengono ripetuti ogni anno e/o durante la stagione.
+
+
+
+
+
+
 
 
 

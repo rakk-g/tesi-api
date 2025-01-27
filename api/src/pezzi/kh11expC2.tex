@@ -1,15 +1,18 @@
 \section{Esperimento C, iterazione 2}
-Il modello di riferimento è~\cite{khoury2011}.
-
-Due iterazioni di simulazione sono state svolte mantenendo costanti i parametri $\alpha = 0.25$, $\sigma=0.75$,
-$L=2500$: impostando infine $w=27000$ si è ottenuto il dataset \texttt{A}, mentre col valore
+Il modello di riferimento è~\cite{khoury2011}, di cui sono state eseguite
+due iterazioni di simulazione, svolte mantenendo costanti i parametri $\alpha = 0.25$, $\sigma=0.75$,
+$L=2500$.
+Impostando $w=27000$ si è ottenuto il dataset \texttt{A}, mentre col valore
 $w=9800$ il risultato delle simulazioni è denominato \texttt{B}.
 
+\paragraph{}
 In entrambi gli esperimenti il valore della mortalità $m$ è estratto in maniera pseudocasuale dalla distribuzione
 uniforme su $[0.006, \, 0.6]$
 con una risoluzione di 30 passi.
-Per ogni $m$ abbiamo selezionato condizioni iniziali pseudocasuali $1 \leq H_0 \leq 15000$ e
-$1 \leq F_0 \leq 6000$, quindi eseguito la simulazione corrispondente per 900 giorni.
+
+Per ogni $m$ sono state selezionate condizioni iniziali pseudocasuali $1 \leq H_0 \leq 15000$ e
+$1 \leq F_0 \leq 6000$ con distribuzione uniforme, quindi eseguito la simulazione corrispondente per $T=900$ giorni.
+
 Per ogni tupla di parametri sono state selezionate 30 condizioni iniziali.
 
 \subsection{Dataset A}
@@ -25,29 +28,7 @@ Diremo che una colonia simulata è ``forte'' se la sua popolazione finale $N(900
 è maggiore di $N_+ = 40000$ operaie.
 
 I risultati della simulazione sono illustrati in figura~\ref{img:kh11expC2A}.
-
-Tutte le colonie che prima o poi collassano presentano alti tassi di mortalità tra le bottinatrici: $m > m_2^*$.
-Alcune di quelle che non muoiono nell'arco di 2 anni e mezzo, e che non chiamiamo ``deboli'' nel senso sopra,
-potrebbero comunque finire per diventarlo avanzando la simulazione per altri mesi.
-
-\paragraph{}
-Per valori di mortalità\footnote{Cfr.~Interpretazione a p.~\pageref{par:interpretationCond6b}.}
-entro una soglia fatale, cioè per $m_1^* < m < m_2^*$,
-la popolazione delle colonie si avvicina rapidamente all'equilibrio positivo $P^*$.
-
-Si può osservare che il numero finale di operaie rientra nella classificazione di ``forti'' per valori
-bassi nello spettro delle mortalità, e che si abbassa (fino all'ordine delle centinaia) per $m$ vicino a
-$m_2^*$.
-
-\paragraph{}
-Al di fuori della regione inserita nel grafico sono presenti popolazioni finali di irragionevoli
-magnitudini intorno a $10^7$ ed oltre, chiaramente indicanti un comportamento divergente, perfino
-con valori molto bassi di $N(0)$.
-
-Tutti questi punti giacciono nel semipiano alla sinistra di
-$m_1^* \simeq 0.0804$.\footnote{Cfr.~Interpretazione a p.~\pageref{par:interpretationCond6b}.}
-
-\begin{figure}[pbh]
+\begin{figure}[hbt]
     \centering
     \includegraphics[keepaspectratio,width=0.98\textwidth]{img/kh11expC2A}
 
@@ -74,6 +55,28 @@ $m_1^* \simeq 0.0804$.\footnote{Cfr.~Interpretazione a p.~\pageref{par:interpret
     \label{img:kh11expC2A}
 \end{figure}
 
+Tutte le colonie che prima o poi collassano presentano alti tassi di mortalità tra le bottinatrici: $m > m_2^*$.
+Alcune di quelle che non muoiono nell'arco di 2 anni e mezzo, e che non chiamiamo ``deboli'' nel senso sopra,
+potrebbero comunque finire per diventarlo avanzando la simulazione per altri mesi.
+
+\paragraph{}
+Per valori di mortalità\footnote{Cfr.~Interpretazione a p.~\pageref{par:interpretationCond6b}.}
+entro una soglia fatale, cioè per $m_1^* < m < m_2^*$,
+la popolazione delle colonie si avvicina rapidamente all'equilibrio positivo $P^*$.
+
+Si può osservare che il numero finale di operaie rientra nella classificazione di ``forti'' per valori
+bassi nello spettro delle mortalità, e che si abbassa (fino all'ordine delle centinaia) per $m$ vicino a
+$m_2^*$.
+
+\paragraph{}
+Al di fuori della regione inserita nel grafico sono presenti popolazioni finali di irragionevoli
+magnitudini intorno a $10^7$ ed oltre, chiaramente indicanti un comportamento divergente, perfino
+con valori molto bassi di $N(0)$.
+
+Tutti questi punti giacciono nel semipiano alla sinistra di
+$m_1^* \simeq 0.0804$.
+
+
 \subsection{Dataset B}
 In questo esperimento sono state eseguite 900 simulazioni di 900 giorni ognuna, entro la configurazione di
 cui sopra, in cui cambiamo esclusivamente il valore di $w$.
@@ -81,21 +84,8 @@ cui sopra, in cui cambiamo esclusivamente il valore di $w$.
 Si noti che in questo caso $w=9800$ la disequazione~\eqref{eq:cond6b} si inverte, dal momento che
 $$ \alpha - \frac{L}{w} = \frac{1}{4} - \frac{2500}{9800} < 0 \; .$$
 
-I risultati sono mostrati nel grafico in figura~\ref{img:kh11expC2B}:
-per ogni simulazione la frazione $\frac{N(900)}{N(0)}$ viene plottata contro il livello $m$ di mortalità
-tra le foraggiatrici.
-Ciò corrisponde a una misura molto grezza e rudimentale delle prestazioni della colonia, perché dipende
-dalla abilità dell'alveare di ``conquistare'' livelli trofici e di capacità riproduttiva che ne garantiscano
-la sopravvivenza; entro i limiti dei parametri impostati e delle condizioni iniziali estratte.
-
-\paragraph{}
-Possiamo vedere che i livelli di popolazione aumentano decisamente nell'arco di 2 anni e mezzo, per
-quasi ogni condizione iniziale. Una leggera tendenza alla decrescita nei livelli finali di popolazione
-si può notare per tassi più elevati di mortalità. Ad ogni modo, anche i valori alti di $m$ non contengono
-la popolazione della colonia entro livelli ragionevolmente stabili, e rallentano soltanto la rapidità
-con cui la popolazione diverge.
-
-\begin{figure}[pbh]
+I risultati sono mostrati nel grafico in figura~\ref{img:kh11expC2B}.
+\begin{figure}[hbt]
     \centering
     \includegraphics[keepaspectratio,width=0.98\textwidth]{img/kh11expC2B}
 
@@ -104,4 +94,23 @@ con cui la popolazione diverge.
 
     \label{img:kh11expC2B}
 \end{figure}
+
+\paragraph{}
+Per ogni simulazione la frazione $\frac{N(900)}{N(0)}$ viene graficata contro il livello $m$ di mortalità
+nel comparto foraggiatrici.
+
+Ciò corrisponde a una misura piuttosto rudimentale delle prestazioni della colonia, perché dipende
+dalla abilità dell'alveare di ``conquistare'' livelli trofici e di capacità riproduttiva che ne garantiscano
+la sopravvivenza; entro i limiti dei parametri impostati e delle condizioni iniziali estratte.
+
+\paragraph{}
+Possiamo vedere che i livelli di popolazione aumentano decisamente nell'arco di 2 anni e mezzo, per
+quasi ogni condizione iniziale. Una leggera tendenza alla decrescita nei livelli finali di popolazione
+si può notare per tassi più elevati di mortalità.
+
+Ad ogni modo, anche i valori alti di $m$ non contengono
+la popolazione della colonia entro livelli ragionevolmente stabili, e rallentano soltanto la rapidità
+con cui la popolazione diverge.
+
+
 

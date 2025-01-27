@@ -1,4 +1,4 @@
-\chapter{Metodi di propagazione delle soluzioni}
+\chapter{Simulazione per propagazione delle soluzioni}
 Il supporto del calcolatore elettronico ha un valore inestimabile nella ricerca Matematica.
 
 Nella applicazione d'interesse -- i modelli matematici per le api -- viene utilizzato
@@ -11,6 +11,7 @@ non lineari, tra cui i metodi Runge--Kutta che includono il metodo di Eulero.
 Alcuni sistemi presentano equazioni cosiddette \emph{rigide} poiché alcuni metodi numerici si rivelano
 molto instabili numericamente a meno di prendere un passo d'approssimazione esageratamente breve.
 
+\paragraph{}
 Per i due modelli esaminati in questa tesi, una analisi dettagliata delle simulazioni numeriche
 si trova nei rispettivi articoli.\footcite{khoury2011,ratti2017}
 
@@ -22,4 +23,13 @@ che confermano ed estendono alcuni risultati degli autori.
 la routine \texttt{ode45} che implementa il metodo di Dormand--Prince al quarto ordine, un solutore
 di equazioni differenziali ordinarie della famiglia Runge--Kutta.
 
+\paragraph{}
+Per la dimostrazione dei risultati qui esposti circa le affermazioni che accompagnano i modelli
+esaminati\footcite{khoury2011,ratti2017} ci si è avvalsi del software libero \texttt{Maxima},
+versione \texttt{5.47.0} per assistere nel calcolo simbolico,
+impiegando la GUI \texttt{wxMaxima}, versione \texttt{22.09.0}.
+
 % Link al codice? Licens? % TODO
+\input{pezzi/kh11expA2}
+
+\input{pezzi/kh11expC2}

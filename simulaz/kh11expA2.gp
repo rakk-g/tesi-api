@@ -32,7 +32,7 @@ set ylabel 'Final Pop.'
 fit parab(x) aggrFname using 1:11 via a, b, c
 set output "k11EA2-finpopVSw.png"
 plot aggrFname using 1:($6>0?$11:1/0) with points ls 1 lc rgb 'blue' title "data cond6b.", \
-aggrFname using 1:($6<0?$11:1/0) with points ls 1 lc rgb '0x2AFA3C' title "data NO cond6b.", \
+aggrFname using 1:($6<0?$11:1/0) with points ls 1 lc rgb 'red' title "data NO cond6b.", \
 parab(x) w l ls 3 title 'quadratic fit'
 
 
@@ -46,7 +46,7 @@ set output "k11EA2-fdodVSm.png"
 plot aggrFname using 5:12 w points ls 1 title "data", line(x) w l ls 3 title "linear fit"
 
 
-# m_i^* contro w
+# m_i^* contro w TODO correggere! p. colori vedi il tex
 set title "m_1^*, m_2^*, m_3^* against w"
 set xlabel 'w'
 set ylabel "m_1^*, m_2^*, m_3^*"
@@ -62,6 +62,7 @@ aggrFname using 1:($6<0?$8:1/0) with points ls 1 lc rgb 'red' pt 1 title 'm_2 NO
 aggrFname using 1:($6>0?$9:1/0) with points ls 1 lc rgb 'green' title 'm_3 6b', \
 aggrFname using 1:($6<0?$9:1/0) with points ls 1 lc rgb 'green' pt 1 title 'm_3 NO 6b'
 # aggrFname using 1:($6<0?$7:1/0) with points ls 1 , \ # questi sono negativi
+#  [ w, L, alpha, sigma, m, cond6bVal, m1Star, m2Star, m3Star, initialPop, finalPop, fdod, fdoo ] );
 
 
 
