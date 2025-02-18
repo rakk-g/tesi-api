@@ -119,10 +119,24 @@ ciò che si traduce in
 $$I(0) = 1 \;, \quad S(0) = N(0) - 1 \; .$$
 
 L'argomentazione seguente, che conclude la presente sezione, è esposta considerando il modello SIR a tre compartimenti
-per brevità e semplicità, ma può essere estesa ai modelli più complessi\footnote{link SIRVD}
+per brevità e semplicità, ma può essere estesa ai modelli più complessi
 adottati con successo nella modellazione di epidemie reali in \emph{H.~sapiens} ed in altri animali.
 
-Si consideri il modello \eqref{eq:sirS}--\eqref{eq:sirR} e si ponga
+Ad esempio, aggiungendo al SIR un compartimento per gli individui vaccinati ($V$) ed uno per i deceduti ($D$)
+si ottiene il modello SIRVD standard:
+$$\begin{sistema}
+    \dot{S} = -a(t) \, SI - v(t) \, S \\
+    \dot{I} = a(t) \, SI - \mu (t) \, I - \psi (t) \, I \\
+    \dot{R} = \mu (t) \, I \\
+    \dot{V} = v(t) \, S \\
+    \dot{D} = \psi (t) \, I
+\end{sistema} \; ,$$
+dove $a, v, \mu, \psi$ sono i tassi di infezione, vaccinazione, guarigione e mortalità, rispettivamente.
+Si veda la figura~\ref{img:sirvd} per il diagramma dei flussi tra i compartimenti SIRVD.
+
+
+\paragraph{}
+Si consideri il modello SIR \eqref{eq:sirS}--\eqref{eq:sirR} e si ponga
 \begin{equation}
     R_0 \coloneq \frac{\beta}{\gamma} \; .
     \label{eq:rzero}
@@ -134,7 +148,7 @@ costante dell'infezione nella popolazione $N$, è $\frac{1}{R_0}$ e ci permette 
 $$1 - \frac{1}{R_0} \; .$$
 
 Si osservi che in generale $R_0 \neq R_t$, dove $R_t$ rappresenta il valore atteso delle nuove infezioni generate da
-un individuo nel comparto $I(t)$ al tempo \emph{attuale}. $R_t$ è denominato \emph{numero effettivo di riproduzione}
+un individuo nel comparto $I(t)$ al tempo \emph{attuale}. $R_t$ è denominato \emph{numero effettivo di riproduzione}.
 
 \paragraph{}
 All'atto pratico, le politiche sanitarie quali ad esempio le vaccinazioni, rimuovono individui dal comparto $S(t)$
@@ -156,6 +170,13 @@ immunizzazione. Nell'esempio della \emph{Varroa}, i vari trattamenti\footnote{Ad
     con o senza ``blocco della regina'' (\ie dell'ovideposizione).}
 vengono ripetuti ogni anno e/o durante la stagione.
 
+\begin{figure}[hbt]
+    \centering
+    \includegraphics[keepaspectratio,width=0.58\textwidth]{img/sirvd}
+
+    \caption[Flusso tra i compartimenti di un modello SIRVD]{Flusso tra i compartimenti di un modello SIRVD. \\ (Mkroeger -- 21 Marzo 2024 -- CC BY 4.0)}
+    \label{img:sirvd}
+\end{figure}
 
 
 
