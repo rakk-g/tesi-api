@@ -1,7 +1,7 @@
 \section{Modelli a compartimenti}
-I modelli a compartimenti costituiscono una tecnica generale e molto potente per la modellazione, soprattutto nelle
-applicazioni di modellazione matematica delle malattie infettive, ambito in cui furono sviluppati nella prima metà
-del '900.\footcite{kmk,kdg}
+I modelli a compartimenti costituiscono una tecnica generale ed efficace per
+la modellazione matematica, soprattutto nelle applicazioni riguardanti le malattie infettive,
+ambito in cui furono sviluppati nella prima metà del '900.\footcite{kmk,kdg}
 
 Sono molto utilizzati anche nella modellazione di più popolazioni diverse: l'interazione biologica tra le diverse specie
 prese in considerazione può avere carattere predatorio, parassitario, simbiotico, etc.
@@ -26,16 +26,16 @@ compartimento, i quali dipendono dalle variabili e dai parametri del sistema.
     \label{img:SIRscheme}
 \end{figure}
 
-Nonostante la relativa semplicità di questo modello che adotta soltanto tre compartimenti, esso ha un potere predittivo
-piuttosto ragionevole\footcite{chinaVirus} nel contesto delle infezioni trasmesse infra--specie in \emph{H.~sapiens}
+Nonostante la relativa semplicità, questo modello che adotta soltanto tre compartimenti ha una capacità predittiva
+piuttosto ragionevole,\footcite{chinaVirus} nel contesto delle infezioni trasmesse infra--specie in \emph{H.~sapiens}
 per le quali la guarigione comporta una resistenza di lungo periodo.\footnote{Ad esempio il morbillo, la parotite,
 la rosolia e -- con le dovute cautele -- anche la sindrome respiratoria COVID-19 data dal virus SARS-CoV-2.}
 
 \paragraph{}
 Illustrare la derivazione del modello SIR, esaminandone le ipotesi di lavoro, è utile sia per la formalizzazione
-di importanti concetti,
+di importanti concetti,%
 \footnote{Quali ad esempio il tasso base di riproduzione $R_0$, l'immunità di gregge, gli
-equilibri endemici ed epidemici, \dots}
+equilibri endemici ed epidemici, etc.}
 sia per le modifiche necessarie per la costruzione di modelli più complessi.
 
 Consideriamo dunque una qualche popolazione (animale, vegetale o batterica) soggetta ad una patologia trasmissibile
@@ -47,7 +47,7 @@ Suddividiamo la popolazione in tre compartimenti:
         l'infezione entrando a contatto con un individuo infetto.
     \item Il compartimento $I$ consta degli individui \emph{infetti} della popolazione, e più propriamente
         ``infettivi'' giacché capaci trasmettere l'infezione ad individui sani nel comparto $S$.
-    \item Il compartimento $R$ è il gruppo degli individui \emph{rimossi} dalla popolazione infett(iv)a.
+    \item Il compartimento $R$ è il gruppo degli individui \emph{rimossi} dalla popolazione infettiva.
         Gli elementi in $R$ non trasmettono e non ricevono l'infezione. Troviamo dunque in $R$ sia gli individui
         infetti che sono guariti (e che dunque hanno sviluppato una immunità di lungo periodo), sia i decessi (che
         in ogni caso non trasmettono né ricevono l'infezione).

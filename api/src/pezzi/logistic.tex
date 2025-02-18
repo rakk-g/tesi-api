@@ -1,4 +1,5 @@
 \section{Funzione Logistica}
+\label{sec:logistic}
 La \emph{funzione logistica} è una famiglia di sigmoidi che
 \blockquote[\cite{WENlogistic}]{``\omissis trova applicazione in molti campi,
 compresi: biologia (specialmente ecologia), biomatematica, chimica, demografia, economia,
@@ -72,13 +73,12 @@ $$\lim_{t \to \infty} P(t) = K \; ,$$
 ovvero che la popolazione tende alla capacità portante, anziché divergere all'infinito come nel modello esponenziale.
 
 \paragraph{}
-Per uno studio analitico più approfondito della funzione logistica conviene adimensionalizzare
-la~\eqref{eq:verhulstLogistic2} in modo da ottenere l'equazione della funzione logistica standard:
+Conviene adimensionalizzare la~\eqref{eq:verhulstLogistic2} in modo da ottenere la cosiddetta funzione logistica standard:
 \begin{equation}
     f(x) \coloneq \frac{1}{1 + e^{-x}} = \frac{e^x}{1+e^x} \; ,
     \label{eq:logisticF}
 \end{equation}
-la quale è definita per ogni $x \in \R$, anche se nella pratica $f(x)$ si può considerare satura intorno a $\abs{x} > 6$,
+la quale è definita per ogni $x \in \R$. Nella pratica $f(x)$ si può considerare satura intorno a $\abs{x} > 6$,
 come si può vedere in figura~\ref{img:logisticF}.
 
 \begin{figure}[pbh]
@@ -102,7 +102,7 @@ che è una versione traslata lungo $x$ e riscalata su entrambi gli assi:
 \end{itemize}
 
 \paragraph{}
-Nelle applicazioni è utile conoscere le derivate della $f$ logistica:
+Nelle applicazioni è utile conoscere le derivate della $f$ logistica, che è di classe $C^{\infty}$:
 nelle figg.~\ref{img:logisticV}, \ref{img:logisticA}, \ref{img:logisticJ} si osservi che
 la $f'$ è sempre positiva, e le derivate sono alternativamente pari e dispari, secondo la
 facile generalizzazione di un noto risultato.\footnote{Ossia che $f \text{ pari} \implies

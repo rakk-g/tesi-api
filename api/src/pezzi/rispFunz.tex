@@ -4,17 +4,16 @@ Nello studio della dinamica delle popolazioni l'interesse è spesso concentrato 
 sul tasso riproduttivo dei vari compartimenti in funzione delle risorse disponibili nell'ambiente.
 
 Nella modellazione di relazioni strutturate tra i compartimenti (infra-- ed inter-- specie) è spesso necessario
-considerare anche le \emph{risposte funzionali} per descrivere i termini di trasferimento nelle equazioni~\eqref{eq:sistDin}.
+considerare anche le \emph{risposte funzionali} per descrivere i termini di trasferimento
+nelle equazioni di tipo~\eqref{eq:sistDin}.
 
 \paragraph{}
-La risposta funzionale modella il tasso di consumo di un singolo individuo, in funzione della densità di risorse.
-
-Si noti che adottare la densità di risorse piuttosto che la quantità effettiva di risorse permette --
+La \emph{risposta funzionale} modella il tasso di consumo di un singolo individuo, in funzione della densità di risorse.
+\footnote{Si noti che adottare la densità di risorse piuttosto che la quantità effettiva di risorse permette --
 nei modelli più avanzati -- di modellare la \emph{spazialità} nelle azioni dei viventi, che operano, si muovono
-ed interagiscono con l'ambiente cercando il cibo e di evitare minacce, in un certo raggio di prossimità.
+ed interagiscono con l'ambiente cercando il cibo e di evitare minacce, in un certo raggio di prossimità.}
 
-\paragraph{}
-Tra i primi tentativi di modellazione matematica della risposta funzionale troviamo quella definita da
+Tra i primi tentativi di modellazione matematica della \emph{risposta funzionale} troviamo quella definita da
 \citeauthor{holling59}\footcite{holling59}:
 \begin{equation}
     f(x) = \frac{a x^k}{1+ a h x^k} \; ,
@@ -24,8 +23,8 @@ dove $f$ è il tasso di consumo individuale, $x$ è la densità di risorse, ed i
 il tasso di attacco ed il tempo medio di manipolazione.
 
 \paragraph{}
-Il tasso di attacco $a$ rappresenta la frequenza con cui il consumatore incontra il cibo (in unità di densità).
-Il tempo di manipolazione $h$ è il tempo medio che il consumatore impiega per processare una unità di cibo/risorsa.
+Il tasso di attacco $a$ rappresenta la frequenza con cui l'individuo incontra il cibo (in unità di densità).
+Il tempo di manipolazione $h$ è il tempo medio che l'individuo impiega per processare una unità di cibo/risorsa.
 
 Il parametro $k$ distingue tre classi di funzioni di Holling:
 \begin{enumerate}
@@ -36,11 +35,11 @@ Il parametro $k$ distingue tre classi di funzioni di Holling:
 
         Questa risposta funzionale lineare è quella adottata nel modello di Lotka--Volterra.\footcite{vito}
     \item f. di Holling di \textbf{tipo II}: si ha per $k=1$ e $a,h \neq 0$. Assume che il tasso di consumo sia limitato
-        dalla capacità di ogni consumatore di processare la risorsa.
+        dalla capacità di ogni individuo di processare la risorsa.
 
         Le funzioni di tipo II e III hanno un plateau a quota $f=\frac{1}{h}$, cfr.~fig.~\ref{img:hollo}.
 
-    \item f. di Holling di \textbf{tipo III}: con $k>1$ si modella l'apprendimento del consumatore nell'approccio alla
+    \item f. di Holling di \textbf{tipo III}: con $k>1$ si modella l'apprendimento dell'individuo nell'approccio alla
         risorsa~cibo. Un elemento viene accettato e processato al $k$-esimo incontro e rifiutato/ignorato nei
         primi $k-1$ incontri.
 \end{enumerate}
@@ -54,12 +53,13 @@ Il parametro $k$ distingue tre classi di funzioni di Holling:
 \end{figure}
 
 \paragraph{}
-Nei modelli a proposito di \emph{Apis~mellifera} esaminati nel capitolo~\ref{chap:modelz} vedremo un esempio di
+Nei modelli riguardanti le popolazioni di \emph{Apis~mellifera} esaminati nel capitolo~\ref{chap:modelz} vedremo
+un esempio di
 funzione di Holling (tipo II) per descrivere la schiusa delle api dopo la metamorfosi delle larve, ciò che corrisponde alla
 introduzione di nuovi individui giovani nel compartimento delle operaie di nido.
 Si veda in proposito l'equazione~\eqref{eq:eclos} a p.~\pageref{eq:eclos} e la sua illustrazione in figura~\ref{img:eclos}.
 
-Nel modello di~\citeauthor{ratti2017} (Sezione~\ref{sec:ratti17}) si impiega una sigmoide di Hill\footnote{Matematicamente, le sigmoidi di Hill fanno parte della famiglia delle funzioni di Holling II e III.}
+Nel modello di~\citeauthor{ratti2017}\footcite{ratti2017} (Sezione~\ref{sec:ratti17}) si impiega una sigmoide di Hill\footnote{Matematicamente, le sigmoidi di Hill fanno parte della famiglia delle funzioni di Holling II e III.}
 con lo stesso scopo del precedente: modulare ``nuove nascite'' con la risposta funzionale alla ``risorsa'' api operaie,
 ``consumata'' dalle larve in termini di tempo dedicato alla cura della covata.
 
