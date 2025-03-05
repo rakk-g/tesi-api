@@ -1,26 +1,29 @@
 \section{Esperimento A, iterazione 2}
 Il modello di riferimento è~\cite{khoury2011}, di cui sono state svolte $6 \cdot 12^{3}$ simulazioni del
-modello con parametri
+modello con alcuni parametri fissati
 $$L = 2000, \quad \alpha = \frac{1}{4}, \quad \sigma = \frac{3}{4} \; ,$$
-ed
+e gli altri parametri scelti in modo pseudocasuale uniforme in un intervallo
 $$m \in \left[ m_-, m_+ \right], \quad w \in \left[ w_-, w_+ \right] \; ,$$
 
 e le condizioni iniziali scelte in modo da aversi $H_0+F_0 \in \left[ b_-, b_+ \right]$.
 
 \paragraph{}
-Gli iperparametri sono:
+Gli iperparametri stabiliscono i limiti entro cui vengono scelti i parametri $m, w$ e le condizioni iniziali $H_0, F_0$
+in modo pseudocasuale uniforme:
 \begin{equation*}
 \begin{split}
 m_- &= 0.016, \quad m_+ = 0.7 \\
 w_- &= 3000, \quad w_+ = 30000 \\
-b_- &= 15, \quad b_+ = 9000 \\
-b_{thres} &= 20 \; .
+b_- &= 15, \quad b_+ = 9000 \; ,
 \end{split}
 \end{equation*}
+e $b_{thres} = 20$ è la soglia di popolazione sotto la quale una colonia si considera ``irreversibilmente perduta''
+nell'esperimento della sottosezione~\ref{sec:fdod}.
 
-Il tempo di simulazione è $T=2 \text{ anni}$ con un passo d'integrazione $\Delta t = 1 \text{ giorno}$.
+Il tempo di simulazione è $T=2~\text{anni}$ ed il passo d'integrazione $\Delta t = 1~\text{giorno}$.
 
 \subsection{Rapidità di estinzione e mortalità}
+\label{sec:fdod}
 Per valutare la rapidità e la gravità con cui una colonia si estingue in presenza di un alto tasso di
 mortalità nel comparto bottinatrici, definiamo il \emph{FDOD (First Day Of (colony) Death)} come
 $$\text{FDOD} \coloneq \min \left\{ t \geq 0 \st H(t) + F(t) < b_{thres} \right\} \; ,$$
@@ -39,7 +42,7 @@ irreversibilmente condannato.
 \end{figure}
 
 Il risultato di questa analisi è illustrato in Figura~\ref{img:kh11expA21}: si può osservare che se il tasso di mortalità
-è contenuto ($m< \hat{m}$ con $m \approx 0.4$) la colonia sopravvive con successo.
+è contenuto ($m< \hat{m}$ con $\hat{m} \approx 0.4$) la colonia sopravvive con successo.
 
 Quando il tasso di mortalità è eccessivo, le famiglie di \emph{Apis} muoiono ad un ritmo proporzionalmente accelerato, ed
 il tempo di sopravvivenza dell'alveare si riduce in funzione della mortalità (che nel modello innesca un reclutamento
@@ -75,8 +78,8 @@ a p.~\pageref{par:interpretationCond6b}.}
 Come confermano le apicoltrici e gli apicoltori\footcite{privFDL,privFPan,meccanica},
 la ``forza'' di un alveare (genericamente intesa come la numerosità della popolazione)
 sostiene meglio e più a lungo la famiglia attraverso gli stress ambientali;
-ma un alveare che incontri continuativamente avversità troppo intense (ad es. attacchi da molteplici
-patogeni) necessita di un intervento umano per non soccombere.
+ma alveare -- seppur molto popoloso -- che incontri continuativamente avversità troppo intense (ad es. attacchi da
+molteplici patogeni) necessita di un intervento umano per non soccombere.
 
 \subsection{Popolazione finale e w}
 Per studiare la relazione tra la ``efficienza'' di una colonia nella combinazione delle attività foretiche e di
