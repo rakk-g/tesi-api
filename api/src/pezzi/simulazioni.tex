@@ -1,78 +1,69 @@
 \chapter{Propagazione delle soluzioni}
-Il supporto del calcolatore elettronico ha un valore inestimabile nella ricerca Matematica.
-
-Nella applicazione d'interesse -- i modelli matematici per le api -- viene utilizzato
-per manipolare le equazioni dei modelli, sia tramite il calcolo simbolico che svolgendo simulazioni numeriche.
-
-\paragraph{}
-Il calcolo simbolico è stato usato come supporto per le dimostrazioni.
+Il supporto del calcolatore è stato utilizzato nella presente tesi per assistere nelle simulazioni (calcolo simbolico)
+e per le simulazioni dei modelli (calcolo numerico).
 
 Nello specifico, per la dimostrazione delle affermazioni che accompagnano i modelli\footcite{khoury2011,ratti2017}
 esaminati nel capitolo~\ref{chap:modelz}, ci si è avvalsi del software libero \texttt{Maxima},
 versione \texttt{5.47.0} impiegando la GUI \texttt{wxMaxima}, versione \texttt{22.09.0}.
 
 \paragraph{}
-L'Analisi Numerica viene invece impiegata per approssimare le soluzioni di una vasta classe di sistemi di equazioni,
-che spesso non ammettono una risoluzione analitica.
+Le simulazioni numeriche dei modelli impiegano invece alcune tecniche standard dell'Analisi Numerica,
+che risolvendo le equazioni di un modello forniscono l'andamento temporale dei compartimenti $x_i (t)$.
 
-È possibile inoltre ripetere l'approssimazione di una soluzione di un problema di Cauchy del tipo~\eqref{eq:sistDin}
-variandone i parametri e le condizioni iniziali: in questo modo è possibile indagare le relazioni tra i parametri e
-la dinamica del sistema, ad esempio le regioni di parametri in cui il sistema è stabile.
+Per una introduzione all'Analisi Numerica si rimanda ad alcuni testi classici\footcite{ananum,ananumlin,demmel}.
+
+Un esempio di simulazione del modello a 5 compartimenti esaminato nella sezione~\ref{sec:ratti17} è illustrato
+in figura~\ref{img:r17sim}: fornendo al calcolatore le equazioni del modello~\eqref{eq:r17xh}--\eqref{eq:r17n},
+i parametri e le condizioni iniziali,
+si ottiene in output una rappresentazione discreta delle soluzioni corrispondenti.
+Nel caso in esame il grafico illustra l'andamento delle soluzioni, ossia dei compartimenti di api operaie e del
+compartimento della \emph{Varroa}.
 
 \paragraph{}
-L'approssimazione numerica di una soluzione problema di Cauchy della forma~\eqref{eq:sistDin}
+I modelli sono generalmente forniti sotto forma di problema di Cauchy\footnote{Cfr. sez.~\ref{sec:ingredientiBioMat}.}
 \begin{equation}
 \begin{sistema}
 \diff{}{t} \mathbf{x} = F( \mathbf{x}, t )  \\
 \mathbf{x}(t_0) = \mathbf{x}_0
 \end{sistema}
 \; ,
-\label{eq:probCauchy} % unused TODO
+\label{eq:probCauchy}
 \end{equation}
-generalmente si ottiene con i software dedicati al calcolo numerico\footnote{Ad esempio \texttt{Octave} o
-\texttt{Mathematica}.} chiamando una routine--solutore
+dove $\mathbf{x}(t)$ è un array di $n$ funzioni incognite.
+
+La soluzione si ottiene con i software dedicati al calcolo numerico\footnote{Ad esempio \texttt{Octave} o
+\texttt{Mathematica}.} chiamando una routine--solutore del tipo
 \begin{equation}
 \mathbf{y} = \mathtt{sol} ( F, \mathbf{x}_0, t_0, \Delta t, p) \; .
 \label{eq:numSolutor}
 \end{equation}
 Nella pseudo--sintassi di $\mathtt{sol}$ nella~\eqref{eq:numSolutor} si vuole indicare che la routine prende in ingresso
 \begin{itemize}
-    \item una specifica della $F$, la rappresentazione del membro destro dell'equazione~\eqref{eq:sistDin}.
+    \item la funzione vettoriale $F$, ovvero il membro destro dell'equazione~\eqref{eq:probCauchy}.
         Qui si possono anche variare i parametri del sistema;
     \item le condizioni iniziali $\mathbf{x} (t_0) = \mathbf{x}_0$;
     \item il passo di integrazione $\Delta t$ ;
-    \item ulteriori parametri $p$: scelta del metodo di approssimazione numerica, di adattamento dinamico del passo
+    \item ulteriori parametri $p$ quali: scelta del metodo di approssimazione numerica, di adattamento dinamico del passo
         $\Delta t$, dei criteri d'arresto, etc.
 \end{itemize}
 Generalmente una siffatta routine $\mathtt{sol}$ ritorna un array di valori in virgola mobile\footnote{Più
 precisamente \emph{una matrice}, in cui ogni colonna rappresenta il vettore--soluzione $\mathbf{x}(t)$ approssimato
 ad un certo tempo $t$.}
 \begin{equation}
-\mathbf{y} = \left( y_0, y_0, \dots y_N \right) \; ,
+\mathbf{y} = \left( y_0, y_1, \dots y_N \right) \; ,
 \label{eq:approxSol}
 \end{equation}
 i quali verificano $y_0 \approx \mathbf{x}_0$ e
 $$\frac{y_i - y_{i-1}}{\Delta t} \approx F \left( y_i, i \cdot \Delta t \right) \, , \quad 0 < i \leq N.$$
 
-Ciò rappresenta l'approssimazione \emph{finita} della soluzione di un sistema dinamico, la cui natura intrinsecamente
-infinitesimale non è rappresentabile in un calcolatore con risorse limitate.
-
-\paragraph{}
-L'intera branca matematica dell'Analisi Numerica è dedicata allo studio di metodi di approssimazione numerica come quello
-appena descritto, progettando nuovi algoritmi più precisi ed efficienti, stabilendo limiti teorici a ciò che è possibile
-calcolare efficientemente, fornendo limitazioni superiori per l'errore (la differenza tra la soluzione calcolata e la soluzione esatta), costituendo un vastissimo corpus di risultati, che esula dagli scopi di quanto qui esposto.
-
-Per una introduzione all'Analisi Numerica si rimanda ad alcuni testi classici\footcite{ananum,ananumlin,demmel}.
-
 \paragraph{}
 Ai fini della presente, si osservi che una soluzione del tipo~\eqref{eq:approxSol}, ottenuta applicando il solutore
 numerico~\eqref{eq:numSolutor} ai modelli di \emph{Apis} esposti nel capitolo~\ref{chap:modelz} fornisce l'andamento
-di una soluzione approssimata $\mathbf{y}$ sotto forma di matrice: il vettore--colonna $y_i$ contiene il valore di
+di una soluzione approssimata $\mathbf{y}$ sotto forma di matrice in cui l'$i$-esimo
+vettore--colonna $y_i$ contiene il valore di
 tutti i compartimenti al tempo $t = i \Delta t$.
 
-% TODO figura con l'andamento di *una* soluzione.
-
-Questo tipo di simulazione numerica è stato utilizzato dagli autori dei modelli\footcite{khoury2011,ratti2017}
+Questo tipo di simulazione numerica è stato utilizzato anche dagli autori dei modelli\footcite{khoury2011,ratti2017},
 sia per validare empiricamente i risultati teorici dimostrati nei rispettivi articoli, sia per estendere
 quanto già stabilito che per indirizzare la ricerca futura. Vedasi in proposito le figure~\ref{img:kh11phasePlane} e
 \ref{img:r17sim}.
@@ -95,31 +86,23 @@ quanto già stabilito che per indirizzare la ricerca futura. Vedasi in proposito
 Presentiamo adesso alcune nuove simulazioni svolte per il modello a due compartimenti\footcite{khoury2011}
 della Sezione~\ref{sec:kh11}, che confermano ed estendono alcuni risultati degli autori.
 
-Nella vasta classe di metodi per l'approssimazione di soluzioni di un sistema di equazioni
-non lineari troviamo i metodi Runge--Kutta, che includono il metodo di Eulero:
-nel caso presente è stato usato il software libero \texttt{GNU Octave}, versione \texttt{9.2.0} e nello specifico
+È stato usato il software libero \texttt{GNU Octave}, versione \texttt{9.2.0} e nello specifico
 la routine \texttt{ode45} che implementa il metodo di Dormand--Prince al quarto ordine, un solutore
 di equazioni differenziali ordinarie della famiglia Runge--Kutta.
-
-\paragraph{}
-Alcuni sistemi presentano equazioni cosiddette \emph{rigide} poiché alcuni metodi numerici si rivelano
-molto instabili numericamente a meno di prendere un passo d'approssimazione esageratamente breve.
-Questo fenomeno si è verificato nella nostra sperimentazione in alcune regioni di parametri ragionevolmente piccole.
 
 Si noti inoltre che nella chiamata al solutore~\eqref{eq:numSolutor} si è generalmente utilizzato $\Delta t=1~\text{giorno}$
 ed un criterio d'arresto $T=k \cdot 365,25$ per terminare la simulazione dopo $k$ anni.
 
+\paragraph{}
 In alcune chiamate al solutore, l'iterazione si è arrestata per $t < T$, ossia prima della soglia richiesta, per
-l'occorrenza del fenomeno di instabilità numerica esposto sopra, oppure per la divergenza della popolazione in almeno
+l'occorrenza di fenomeni di instabilità numerica, oppure per la divergenza della popolazione in almeno
 uno dei compartimenti in esame.
 
 In ogni caso, un filtraggio in fase di \emph{post--processing} dei dati ottenuti permette di scartare le iterazioni
-invalide, e di calcolare numeri di condizionamento\footnote{Il \emph{numero di condizionamento} $\rho$ di un sistema
-descrive l'instabilità numerica di una sua soluzione approssimata: per $\rho \gg 1$ la precisione richiesta può essere
-fuori dalla portata delle risorse computazionali a disposizione.}
-irragionevolmente alti per le istanze corrispondenti, in linea con i risultati teorici.\footcite{demmel}
+invalide, e di calcolare numeri di condizionamento in linea con i risultati teorici.\footnote{Cfr.~\cite{demmel}.}
 
 
+% TODO figura con l'andamento di *una* soluzione.
 
 % Link al codice? Licens? % TODO
 \input{pezzi/kh11expA2}
