@@ -25,7 +25,6 @@
 #   true: skip vanilla and execute alternative version
 vmTrigger = false
 # number of iterations on m (resolution on m)
-# m is no more random, it is equispaced
 N = 16 ;
 # number of c.i. for each simulation
 Nci = 16 ;
@@ -68,11 +67,10 @@ for in = 0:N
     break
   endif
   printf("Vanilla version.\n")
-  # set m evenly spaced
-  m= mMin + (in/N)*(mMax -mMin) ;
-
     for iw=0:Nwc
       for p=0:Nci
+      # set m u.r.c.
+        m= mMin + rand()*(mMax -mMin) ;
         # set w u.r.c.
         w = wMin + rand()*(wMax-wMin) ;
         # set initial population u.r.c.
