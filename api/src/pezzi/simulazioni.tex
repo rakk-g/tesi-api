@@ -67,10 +67,9 @@ Questo tipo di simulazione numerica è stato utilizzato anche dagli autori dei m
 sia per validare empiricamente i risultati teorici dimostrati nei rispettivi articoli, sia per estendere
 quanto già stabilito che per indirizzare la ricerca futura. Vedasi in proposito le figure~\ref{img:kh11phasePlane} e
 \ref{img:r17sim}.
-
-\begin{figure}[hpb]
+\begin{figure}[hb]
     \centering
-    \includegraphics[keepaspectratio,width=0.76\textwidth]{img/r17fig5b}
+    \includegraphics[keepaspectratio,width=0.5\textwidth]{img/r17fig5b}
 
     \caption[\figurename~5(b) da \cite{ratti2017}]{Un esempio di illustrazione (fig.~5(b))
         degli autori~\parencite[28]{ratti2017}
@@ -78,7 +77,6 @@ quanto già stabilito che per indirizzare la ricerca futura. Vedasi in proposito
 
         In blu il numero $x_h$ di operaie di nido, in nero tratteggiato il numero $x_f$ delle bottinatrici,
         in rosso tratteggiato il numero $n$ di varroe (non portatrici di ABPV).}
-
     \label{img:r17sim}
 \end{figure}
 
@@ -90,7 +88,7 @@ della Sezione~\ref{sec:kh11}, che confermano ed estendono alcuni risultati degli
 la routine \texttt{ode45} che implementa il metodo di Dormand--Prince al quarto ordine, un solutore
 di equazioni differenziali ordinarie della famiglia Runge--Kutta.
 
-Si noti inoltre che nella chiamata al solutore~\eqref{eq:numSolutor} si è generalmente utilizzato $\Delta t=1~\text{giorno}$
+Nella chiamata al solutore~\eqref{eq:numSolutor} si è generalmente utilizzato $\Delta t=1~\text{giorno}$
 ed un criterio d'arresto $T=k \cdot 365,25$ per terminare la simulazione dopo $k$ anni.
 
 \paragraph{}
@@ -102,7 +100,7 @@ In ogni caso, un filtraggio in fase di \emph{post--processing} dei dati ottenuti
 invalide, e di calcolare numeri di condizionamento in linea con i risultati teorici.\footnote{Cfr.~\cite{demmel}.}
 
 
-% TODO figura con l'andamento di *una* soluzione.
+% TODO figura con l'andamento di *una* soluzione. -> ma non qui?
 
 % Link al codice? Licens? % TODO
 \input{pezzi/kh11expA2}

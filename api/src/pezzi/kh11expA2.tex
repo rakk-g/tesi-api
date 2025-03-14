@@ -1,38 +1,85 @@
 \section{Esperimento A, iterazione 2}
-Il modello di riferimento è~\cite{khoury2011}, di cui sono state svolte $6 \cdot 12^{3}$ simulazioni del
-modello con alcuni parametri fissati
-$$L = 2000, \quad \alpha = \frac{1}{4}, \quad \sigma = \frac{3}{4} \; ,$$
-e gli altri parametri scelti in modo pseudocasuale uniforme in un intervallo
-$$m \in \left[ m_-, m_+ \right], \quad w \in \left[ w_-, w_+ \right] \; ,$$
-
-e le condizioni iniziali scelte in modo da aversi $H_0+F_0 \in \left[ b_-, b_+ \right]$.
+Il modello di riferimento a due compartimenti\footcite{khoury2011} esaminato nella sezione~\ref{sec:kh11} è
+definito dalle equazioni~\eqref{eq:kh11h}--\eqref{eq:kh11f} a p.~\pageref{eq:kh11h}, che per comodità
+di lettura riportiamo qui sotto:
+\begin{align*}
+    \dot{H} &= E(H,F)- H \cdot R(H,F)\; , \\
+    \dot{F} &= H \cdot R(H,F)  - m \cdot F\; ,
+\end{align*}
+ove $E(H,F) = L \frac{H+F}{w + H + F}$ rappresenta la schiusa di nuove operaie di nido,
+mentre il reclutamento sociale è dato dalla $R(H,F) = \alpha - \sigma \frac{F}{H+F}$.
 
 \paragraph{}
-Gli iperparametri stabiliscono i limiti entro cui vengono scelti i parametri $m, w$ e le condizioni iniziali $H_0, F_0$
-in modo pseudocasuale uniforme:
-\begin{equation*}
-\begin{split}
-m_- &= 0.016, \quad m_+ = 0.7 \\
-w_- &= 3000, \quad w_+ = 30000 \\
-b_- &= 15, \quad b_+ = 9000 \; ,
-\end{split}
-\end{equation*}
-e $b_{thres} = 20$ è la soglia di popolazione sotto la quale una colonia si considera ``irreversibilmente perduta''
-nell'esperimento della sottosezione~\ref{sec:fdod}.
+Tutte le simulazioni sono state svolte mantenendo costanti i seguenti parametri:
+\begin{itemize}
+    \item il tasso di deposizione della regina $L=2000$;
+    \item il tasso massimo di reclutamento $\alpha = \frac{1}{4}$;
+    \item il tasso di inibizione sociale $\sigma = \frac{3}{4}$;
+\end{itemize}
 
-Il tempo di simulazione è $T=2~\text{anni}$ ed il passo d'integrazione $\Delta t = 1~\text{giorno}$.
+Per esplorare lo spazio dei restanti parametri, sono state svolte 27648 simulazioni, risolvendo istanze del problema
+con parametri e condizioni iniziali scelti come descritto di seguito.
+\begin{figure}[hb]
+    \centering
+    \includegraphics[keepaspectratio,width=\textwidth]{img/k11EA2-parameterSpace3D}
+
+    \caption[Esperimento A2, spazio dei parametri.]{Ogni punto $(m,w,b)$ corrisponde ad una simulazione effettuata
+        coi parametri $m,w$ e popolazione iniziale $b$. La dimensione del punto rappresenta la popolazione finale
+        $H(T)+F(T)$ raggiunta al termine della simulazione, compresa tra 100 e $10^5$ operaie.
+
+        Il colore rappresenta la quantità $\alpha w - L$, che è una misura di quanto la condizione~\eqref{eq:cond6b}
+        sia soddisfatta o meno nella simulazione corrente. (Cfr.~p.~\pageref{par:interpretationCond6b} per una interpretazione quantitativa.)
+    }
+    \label{img:param3D}
+\end{figure}
+
+\paragraph{}
+Il parametro di mortalità $m \in \left[ m_-, m_+ \right]$ è stato esplorato nell'intervallo tra $m_- = 0,016$ ed
+$m_+ = 0,7$, scegliendo 16 punti equispaziati. Tale scelta produce i piani verticali nella figura~\ref{img:param3D}.
+
+Il parametro $w \in \left[ w_-, w_+ \right]$ regola la risposta funzionale nella schiusa $E$, ed è
+stato scelto in modo pseudorandom uniforme nell'intervallo tra $w_- = 3000$ e $w_+ = 30000$.
+
+\paragraph{}
+Le condizioni iniziali sono state riassunte in un solo parametro $b = H_0 +F_0$, anch'esso scelto
+in modo pseudorandom uniforme nell'intervallo $\left[ b_-, b_+ \right] = \left[50, 9000\right]$.
+Si noti che tale raggruppamento è possibile solo per i compartimenti ``analoghi''.
+
+La soglia di popolazione $b_{thres} = 20$ sotto la quale una colonia si considera ``irreversibilmente perduta''
+è utilizzata nell'esperimento della sottosezione~\ref{sec:fdod}.
+
+\paragraph{}
+Il tempo di simulazione è $T=4~\text{anni}$ ed il passo d'integrazione $\Delta t = 1~\text{giorno}$.
+
+Nello spazio dei parametri rappresentato in figura~\ref{img:param3D}, ogni punto di coordinate $(m,w,b)$
+è la simulazione di una colonia con parametri $m,w$ e condizioni iniziali $b=H_0+F_0$.
+
+Nella proiezione sul piano $mb$ (figura~\ref{img:param2D}) è evidente la scelta equispaziata del parametro $m$ per
+le diverse simulazioni.
+\begin{figure}[hb]
+    \centering
+    \includegraphics[keepaspectratio,width=\textwidth]{img/k11EA2-parameterSpace2D}
+
+    \caption[Esperimento A2, proiezione dello spazio dei parametri.]{Il diagramma a dispersione della
+        figura~\ref{img:param3D} proiettato sul piano $mb$.}
+    \label{img:param2D}
+\end{figure}
+
+\paragraph{}
+Nelle sottosezioni che seguono sono esaminati i dati risultanti dalle simulazioni appena descritte.
 
 \subsection{Rapidità di estinzione e mortalità}
 \label{sec:fdod}
 Per valutare la rapidità e la gravità con cui una colonia si estingue in presenza di un alto tasso di
 mortalità nel comparto bottinatrici, definiamo il \emph{FDOD (First Day Of (colony) Death)} come
-$$\text{FDOD} \coloneq \min \left\{ t \geq 0 \st H(t) + F(t) < b_{thres} \right\} \; ,$$
-ove $b_{thres}$ è una soglia di popolazione sotto la quale l'alveare si considera
-irreversibilmente condannato.
-\begin{figure}[hbt]
+$$\text{FDOD} \coloneq \min \left\{ t \geq 0 \st H(t) + F(t) < b_{thres} \right\} \; .$$
+
+Il risultato di questa analisi è illustrato in Figura~\ref{img:kh11expA21}: ogni punto blu di coordinate $(x,y)$
+rappresenta una simulazione del modello con mortalità $m=x$: la corrispondente popolazione
+della colonia è scesa sotto la soglia $b_{thres}$ al giorno $y$ per la prima volta.
+\begin{figure}[hb]
     \centering
-    \includegraphics[keepaspectratio,width=0.98\textwidth]{img/k11EA2-fdooVSm}
-    % WARNING check fdoo vs fdod?
+    \includegraphics[keepaspectratio,width=0.98\textwidth]{img/k11EA2-fdodVSm}
 
     \caption[Esperimento A2, \emph{FDOD} vs. mortalità.]{\emph{FDOD} degli alveari che muoiono entro i due anni,
         contro il tasso di mortalità. Il fit lineare (in rosso) riguarda soltanto i \emph{datapoint}
@@ -40,10 +87,6 @@ irreversibilmente condannato.
 
     \label{img:kh11expA21}
 \end{figure}
-
-Il risultato di questa analisi è illustrato in Figura~\ref{img:kh11expA21}: ogni punto blu di coordinate $(x,y)$
-rappresenta una soluzione del modello\footcite{khoury2011} con mortalità $m=x$: la corrispondente popolazione
-della colonia è scesa sotto la soglia $b_{thres}$ al giorno $y$ per la prima volta.
 
 \paragraph{}
 Si può osservare che se il tasso di mortalità è contenuto ($m< \hat{m}$ con $\hat{m} \approx 0.4$),
