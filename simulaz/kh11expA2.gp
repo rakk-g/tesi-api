@@ -10,8 +10,8 @@
 # use a good driver and medium widescreen resolution
 set terminal pngcairo size 1366,768
 # where aggregate data is located
-# aggrFname="handSelectedOutput/kh11ExpA2-AGGR.dat" # for testing purposes
-aggrFname="output/kh11ExpA2-AGGR.dat"
+aggrFname="handSelectedOutput/kh11ExpA2-AGGR.dat" # for testing purposes
+# aggrFname="output/kh11ExpA2-AGGR.dat"
 
 # can use these for fitting data
 line(x) = m*x +q
@@ -92,7 +92,7 @@ line(x) with lines linestyle 3 title "linear fit"
 
 
 # 3. - Final pop. vs Initial pop.
-#      Point type () is set by cond6b, while color is same as above
+#      Point type () is set by cond6b, while color is same as above; these are similar characteristics
 #      Pointsize is set by mortality
 reset
 unset key
@@ -132,11 +132,6 @@ aggrFname using 1:($6<0?$11:1/0):(psf($5)):(($3)*($1)-($2)) with points pointtyp
 linecolor palette title 'data NO cond6b'
 
 
-
-
-
-
-
 # 5. - m_i^* contro w (confronto tra valori calcolati e simulazioni del modello)
 #      La soglia della condizione (6b) si scarica su w considerando che a-L/w>0 iff w>L/a,
 #      che viene L/a = 2000/0.25 = 8000 coi nostri valori.
@@ -152,9 +147,10 @@ set yrange[0.01:2]
 set logscale y
 # redefine this to be linear between our endpoints
 psf(x) = 0.2 + 2*(x-100)/99900
+set cbrange [0:*]
 set palette defined (0 "black", 0.5 "yellow", 1 "red")
 set output "k11EA2-mistarVSw.png"
-set arrow from 8000,0.05 to 8000,100 nohead dashtype 2 # evidenzia la soglia di 6b!
+set arrow from 8000,0.01 to 8000,2 nohead dashtype 2 # evidenzia la soglia di 6b!
 plot aggrFname using 1:7 with points pointtype 7 pointsize 0.6 \
 linecolor "blue" title 'm_1', \
 aggrFname using 1:5:11 with points pointtype 7 pointsize 1 \

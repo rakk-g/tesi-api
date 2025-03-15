@@ -23,13 +23,13 @@
 # WARNING trigger for alternative simulation (with variable mortality)
 #   false: vanilla version
 #   true: skip vanilla and execute alternative version
-vmTrigger = true
+vmTrigger = false
 # number of iterations on m (resolution on m)
 N = 16 ;
 # number of c.i. for each simulation
-Nci = 8 ;
+Nci = 12 ;
 # number of cycles on w (resolution on w)
-Nwc = 8 ;
+Nwc = 12 ;
 # number of days to run per each simulations
 nDays= 2* 365.25; # be careful as this heavily impacts computation time
 # threshold for First Day of Death (of the colony)

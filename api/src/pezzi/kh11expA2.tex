@@ -1,5 +1,6 @@
 \section{Esperimento A, iterazione 2}
-Il modello di riferimento a due compartimenti\footcite{khoury2011} esaminato nella sezione~\ref{sec:kh11} è
+La simulazione per gli esperimenti descritti in questa sezione utilizza il modello a due compartimenti\footcite{khoury2011}
+esaminato nella sezione~\ref{sec:kh11},
 definito dalle equazioni~\eqref{eq:kh11h}--\eqref{eq:kh11f} a p.~\pageref{eq:kh11h}, che per comodità
 di lettura riportiamo qui sotto:
 \begin{align*}
@@ -8,6 +9,7 @@ di lettura riportiamo qui sotto:
 \end{align*}
 ove $E(H,F) = L \frac{H+F}{w + H + F}$ rappresenta la schiusa di nuove operaie di nido,
 mentre il reclutamento sociale è dato dalla $R(H,F) = \alpha - \sigma \frac{F}{H+F}$.
+La dinamica dei compartimenti è illustrata nella figura~\ref{img:kh11diagram} a p.~\pageref{img:kh11diagram}.
 
 \paragraph{}
 Tutte le simulazioni sono state svolte mantenendo costanti i seguenti parametri:
@@ -17,9 +19,36 @@ Tutte le simulazioni sono state svolte mantenendo costanti i seguenti parametri:
     \item il tasso di inibizione sociale $\sigma = \frac{3}{4}$;
 \end{itemize}
 
-Per esplorare lo spazio dei restanti parametri, sono state svolte 27648 simulazioni, risolvendo istanze del problema
+Per esplorare lo spazio dei restanti parametri, sono state svolte 2304 simulazioni, risolvendo istanze del problema
 con parametri e condizioni iniziali scelti come descritto di seguito.
-\begin{figure}[hb]
+
+I parametri $m,w$ e la popolazione iniziale $b=H_0 + F_0$ (condizioni iniziali) vengono scelti prima di ogni simulazione,
+in modo pseudorandom uniforme in un intervallo specificato dall'utente. La distribuzione uniforme è stata scelta per esplorare estensivamente
+lo spazio dei parametri: si noti che invece i dati sperimentali si distribuiscono secondo una normale gaussiana.
+
+La mortalità $m \in \left[ m_-, m_+ \right]$ è stata scelta tra $m_-=0,016$ ed $m_+ =0,7$.
+
+Il parametro $w \in \left[ w_-, w_+ \right]$ regola la risposta funzionale nella schiusa $E$, è
+compreso nell'intervallo tra $w_- = 3000$ e $w_+ = 30000$.
+
+\paragraph{}
+Le condizioni iniziali sono state riassunte in un solo parametro $b = H_0 +F_0$, anch'esso scelto
+in modo pseudorandom uniforme nell'intervallo $\left[ b_-, b_+ \right] = \left[50, 9000\right]$.
+Si noti che tale raggruppamento è concettualmente sensato solo per i compartimenti omologhi di un modello.
+
+La soglia di popolazione $b_{thres} = 20$ sotto la quale una colonia si considera ``irreversibilmente perduta''
+è utilizzata nell'esperimento descritto nella sottosezione~\ref{sec:fdod}.
+
+\paragraph{}
+Il tempo di simulazione è $T=2~\text{anni}$ ed il passo d'integrazione $\Delta t = 1~\text{giorno}$.
+
+Nello spazio dei parametri in figura~\ref{img:param3D}, ogni punto di coordinate $(m,w,b)$
+rappresenta la simulazione di una colonia con parametri $m,w$ e condizioni iniziali $b=H_0+F_0$; la dimensione di ogni
+punto è proporzionale alla popolazione finale per esprimere visivamente l'esito della simulazione.
+
+Per tutti i grafici in questa sezione (esclusa la figura~\ref{img:kh11expA24}), l'interpretazione del colore dei
+\emph{datapoint} è la stessa della figura~\ref{img:param3D}.
+\begin{figure}[!h]
     \centering
     \includegraphics[keepaspectratio,width=\textwidth]{img/k11EA2-parameterSpace3D}
 
@@ -33,30 +62,10 @@ con parametri e condizioni iniziali scelti come descritto di seguito.
     \label{img:param3D}
 \end{figure}
 
-\paragraph{}
-Il parametro di mortalità $m \in \left[ m_-, m_+ \right]$ è stato esplorato nell'intervallo tra $m_- = 0,016$ ed
-$m_+ = 0,7$, scegliendo 16 punti equispaziati. Tale scelta produce i piani verticali nella figura~\ref{img:param3D}.
-
-Il parametro $w \in \left[ w_-, w_+ \right]$ regola la risposta funzionale nella schiusa $E$, ed è
-stato scelto in modo pseudorandom uniforme nell'intervallo tra $w_- = 3000$ e $w_+ = 30000$.
-
-\paragraph{}
-Le condizioni iniziali sono state riassunte in un solo parametro $b = H_0 +F_0$, anch'esso scelto
-in modo pseudorandom uniforme nell'intervallo $\left[ b_-, b_+ \right] = \left[50, 9000\right]$.
-Si noti che tale raggruppamento è possibile solo per i compartimenti ``analoghi''.
-
-La soglia di popolazione $b_{thres} = 20$ sotto la quale una colonia si considera ``irreversibilmente perduta''
-è utilizzata nell'esperimento della sottosezione~\ref{sec:fdod}.
-
-\paragraph{}
-Il tempo di simulazione è $T=4~\text{anni}$ ed il passo d'integrazione $\Delta t = 1~\text{giorno}$.
-
-Nello spazio dei parametri rappresentato in figura~\ref{img:param3D}, ogni punto di coordinate $(m,w,b)$
-è la simulazione di una colonia con parametri $m,w$ e condizioni iniziali $b=H_0+F_0$.
-
-Nella proiezione sul piano $mb$ (figura~\ref{img:param2D}) è evidente la scelta equispaziata del parametro $m$ per
-le diverse simulazioni.
-\begin{figure}[hb]
+Nella proiezione dello spazio dei parametri sul piano $mb$ (figura~\ref{img:param2D}) possiamo confermare empiricamente
+che in questo semplice modello il parametro $m$ influenza definitivamente le capacità di sopravvivenza della colonia;
+gli altri parametri determinano il valore del punto di equilibrio nella popolazione.
+\begin{figure}[!h]
     \centering
     \includegraphics[keepaspectratio,width=\textwidth]{img/k11EA2-parameterSpace2D}
 
@@ -64,6 +73,10 @@ le diverse simulazioni.
         figura~\ref{img:param3D} proiettato sul piano $mb$.}
     \label{img:param2D}
 \end{figure}
+
+In questo modello particolarmente semplice, la popolazione iniziale \emph{non influenza} l'esito finale della colonia;
+in effetti il punto di equilibrio (cfr. sezione~\ref{sec:kh11}, Proposizione~\ref{teo:exUniqFstarPos}) è determinato
+soltanto dai parametri.
 
 \paragraph{}
 Nelle sottosezioni che seguono sono esaminati i dati risultanti dalle simulazioni appena descritte.
@@ -77,57 +90,64 @@ $$\text{FDOD} \coloneq \min \left\{ t \geq 0 \st H(t) + F(t) < b_{thres} \right\
 Il risultato di questa analisi è illustrato in Figura~\ref{img:kh11expA21}: ogni punto blu di coordinate $(x,y)$
 rappresenta una simulazione del modello con mortalità $m=x$: la corrispondente popolazione
 della colonia è scesa sotto la soglia $b_{thres}$ al giorno $y$ per la prima volta.
-\begin{figure}[hb]
+\begin{figure}[!h]
     \centering
     \includegraphics[keepaspectratio,width=0.98\textwidth]{img/k11EA2-fdodVSm}
 
-    \caption[Esperimento A2, \emph{FDOD} vs. mortalità.]{\emph{FDOD} degli alveari che muoiono entro i due anni,
-        contro il tasso di mortalità. Il fit lineare (in rosso) riguarda soltanto i \emph{datapoint}
-        delle colonie che \emph{effettivamente muoiono} entro i due anni (punti blu).}
+    \caption[Esperimento A2, \emph{FDOD} vs. mortalità.]{Il \emph{FDOD} degli alveari che muoiono entro i due anni,
+        contro il tasso di mortalità. Con fit lineare.
+
+        La dimensione del punto rappresenta qui la popolazione iniziale $b$.
+    }
+    % OSS: non ci sono i punti (colore) per cui cond6b è falsa, pché divergono
 
     \label{img:kh11expA21}
 \end{figure}
 
 \paragraph{}
 Si può osservare che se il tasso di mortalità è contenuto ($m< \hat{m}$ con $\hat{m} \approx 0.4$),
-la colonia sopravvive con successo.
+la colonia sopravvive con successo. % pché mancano i datapoint a sinistra
 
-Quando il tasso di mortalità è eccessivo, le famiglie di \emph{Apis} muoiono ad un ritmo proporzionalmente accelerato, ed
+Quando invece il tasso di mortalità è eccessivo, le famiglie di \emph{Apis} muoiono
+ad un ritmo proporzionalmente accelerato, ed
 il tempo di sopravvivenza dell'alveare si riduce in funzione della mortalità (che nel modello innesca un reclutamento
 precoce delle operaie di nido verso il compartimento delle bottinatrici), e neanche le famiglie (inizialmente) più numerose
 riescono a superare una o due stagioni di raccolta.
 
+\paragraph{}
+Se da un lato la popolazione iniziale non determina affatto il destino della colonia, dall'altro un effetto
+catturato con successo da questo semplice modello è che la numerosità iniziale delle api permette alle colonie
+di resistere più a lungo, anche negli scenari in cui la morte è inevitabile.
 
 \subsection{Popolazione iniziale e finale}
 In figura~\ref{img:kh11expA22} è mostrato su scala logaritmica il risultato delle simulazioni, con la popolazione
-iniziale in ascissa le la popolazione a $t=T$ in ordinata.
-
-Ogni punto di coordinate $(x,y)$ rappresenta una soluzione del modello\footcite{khoury2011} con popolazione iniziale
-$N(0) = x$ che all'istante finale $T=2~\text{anni}$ presenta una popolazione totale $N(T) = y$.
-
-\begin{figure}[hbt]
-% TODO: colora in base a $m$. % TODO
+iniziale $b=H(0)+F(0)$ in ascissa e la popolazione finale $H(T)+F(T)$ in ordinata.
+\begin{figure}[!h]
     \centering
     \includegraphics[keepaspectratio,width=0.98\textwidth]{img/k11EA2-fpopVSipop}
-    % TODO aggiustare! togliere quelle morte diocan ci sono le frazioni di miliardesimi.
 
     \caption[Esperimento A2, popolazione finale vs. Popolazione iniziale.]{Esperimento A2, popolazione finale vs.
-    Popolazione iniziale. In blu le simulazioni per cui la condizione~\eqref{eq:cond6b} (p.~\pageref{eq:cond6b}) è vera,
-    rosso le simulazioni per cui è falsa.}
+        Popolazione iniziale. I triangoli rappresentano le simulazioni per cui la condizione~\eqref{eq:cond6b} è falsa,
+        mentre per i cerchi è vera.
+
+        La dimensione di ogni punto è proporzionale alla mortalità $m$.
+    }
 
     \label{img:kh11expA22}
 \end{figure}
 
 Il modello considerato è abbastanza predittivo ed in linea con le osservazioni sugli apiari in campo, purché si
-utilizzino misure accurate o quantomeno stime ragionevoli dei parametri da impiegare.
-I \emph{datapoint} in rosso indicano le simulazioni per cui la condizione~\eqref{eq:cond6b} è falsa: si
+utilizzino misure accurate o quantomeno stime ragionevoli dei parametri da impiegare. %
+\footnote{Cfr. p.~\pageref{par:interpretationCond6b} e segg. a chiusura della sezione~\ref{sec:kh11}.}
+
+I \emph{datapoint} col triangolo indicano le simulazioni per cui la condizione~\eqref{eq:cond6b} è falsa: si
 osservi che la popolazione corrispondentemente diverge irragionevolmente, anche per condizioni iniziali
-relativamente sfavorevoli (\ie basse numerosità iniziali).
+relativamente sfavorevoli (\ie basse numerosità iniziali). %
 \footnote{Si veda il paragrafo dedicato all'interpretazione della condizione~\eqref{eq:cond6b}
 a p.~\pageref{par:interpretationCond6b}.}
 
 \paragraph{}
-Come confermano le apicoltrici e gli apicoltori\footcite{privFDL,privFPan,meccanica},
+Come confermano gli apicoltori\footcite{privFDL,privFPan,meccanica},
 la ``forza'' di un alveare (genericamente intesa come la numerosità della popolazione)
 sostiene meglio e più a lungo la famiglia attraverso gli stress ambientali;
 ma alveare -- seppur molto popoloso -- che incontri continuativamente avversità troppo intense (ad es. attacchi da
@@ -135,60 +155,79 @@ molteplici patogeni) necessita di un intervento umano per non soccombere.
 
 \subsection{Popolazione finale e w}
 Per studiare la relazione tra la ``efficienza'' di una colonia nella combinazione delle attività foretiche e di
-cura della covata (ingresso di nuovi individui nel comparto delle ``nascite'') si illustra il risultato delle
-simulazioni nel grafico in figura~\ref{img:kh11expA23}, che riporta ascissa il parametro $w$ ed in ordinata
-la popolazione totale $N(t)$ al termine della simulazione ($t=T$).
-\begin{figure}[hbt]
+cura della covata (ingresso di nuovi individui nel comparto $H$ delle operaie di nido),
+si consideri il grafico in figura~\ref{img:kh11expA23}: ogni \emph{datapoint} alle coordinate $(x,y)$ rappresenta
+una simulazione con parametro $w=x$ e popolazione finale $N(T)=y$; ricordiamo che in questo esperimento il
+tempo di ogni simulazione è $T=2~\text{anni}$.
+\begin{figure}[!h]
     \centering
     \includegraphics[keepaspectratio,width=0.98\textwidth]{img/k11EA2-finpopVSw}
-    % TODO filtrare anche qui la roba sottozero diocan
 
     \caption[Esperimento A2, popolazione finale contro w.]{Esperimento A2, popolazione finale contro $w$.
-    In rosso il fit quadratico, ed in verde i \emph{datapoint} per cui la condizione~\eqref{eq:cond6b} non
-    è verificata.}
+        I triangoli rappresentano le simulazioni per cui la condizione~\eqref{eq:cond6b} è falsa,
+        mentre per i cerchi è vera.
+
+        La dimensione di ogni punto è proporzionale alla mortalità $m$.
+    }
     \label{img:kh11expA23}
 \end{figure}
 
-Il parametro $w$ compare nell'equazione~\eqref{eq:eclos} e nella risposta funzionale di Holling tipo II
-\footnote{Cfr. sezioni~\ref{sec:rispFunz} e~\ref{sec:eclos}}
-modula la schiusa delle api adulte con il tasso di ovideposizione $L$ della regina; come
-affermato dagli stessi autori del modello\footcite[2]{khoury2011}, senza informazioni aggiuntive è ragionevole
-proporre che il tasso di schiusa delle uova deposte 21 giorni prima approcci $L$ dal basso per $N(t) \to \infty$,
-in modo liscio.
+Il gradiente di colore orizzontale nella figura~\ref{img:kh11expA23} è dovuto al fatto che in $\alpha w - L$ i
+parametri $\alpha, L$ vengono mantenuti costanti attraverso le simulazioni.
 
 \paragraph{}
+Il parametro $w$ compare nell'equazione~\eqref{eq:eclos} e nella risposta funzionale
+(Holling di tipo~II\footnote{Cfr. sezioni~\ref{sec:rispFunz} e~\ref{sec:eclos}.})
+modula la schiusa delle api adulte con il tasso di ovideposizione $L$ della regina; come
+affermato dagli stessi autori del modello\footcite[2]{khoury2011}, senza informazioni aggiuntive è ragionevole
+proporre che il tasso di schiusa delle uova (deposte 21 giorni prima) approcci $L$ dal basso per $N(t) \to \infty$,
+in modo liscio.
+
 Come già discusso nelle sezioni~\ref{sec:rispFunz} e~\ref{sec:eclos}, il parametro $w$ è l'inverso del tasso di
 attacco nella risposta funzionale della schiusa al numero di operaie (di casa e di campo) disponibili nell'alveare.
+
 Nella figura~\ref{img:kh11expA23} si può osservare che il parametro $w$ impatta in ogni caso il destino di un
 alveare simulato, e che per alti valori di $w$ (\ie famiglie ``inefficienti'' nella cura della prole) gli altri
-fattori ambientali (qui incorporati nelle condizioni iniziali) influiscono progressivamente di più sulla
+fattori ambientali (\ie la mortalità $m$) influiscono progressivamente sempre di più sulla
 numerosità della popolazione finale.
 
+
 \subsection{Soglie di mortalità}
-Il risultato fondamentale che accompagna il modello di~\citeauthor{khoury2011}, precisato e dimostrato nella
+\label{ssec:simSoglie}
+Il risultato fondamentale che accompagna il modello di~\citeauthor{khoury2011}\footcite{khoury2011},
+precisato e dimostrato nella
 Proposizione~\ref{teo:esistenzPosF} (p.~\pageref{teo:esistenzPosF}), fornisce le condizioni affinché esista un
-equilibrio positivo. Nella pratica, mantenere i parametri calcolati a partire dalle misure dirette sul campo
+equilibrio positivo.
+
+In teoria, mantenere i parametri calcolati a partire dalle misure dirette sul campo
 entro i limiti ivi stabiliti, dovrebbe consentire di garantire la sopravvivenza di una colonia in apiario.
 
-Nella figura~\ref{img:kh11expA24} è mostrato il grafico delle soglie di mortalità $m_i^*$ stabilite nella Proposizione.
-\begin{figure}[hbt]
+\paragraph{}
+Nella figura~\ref{img:kh11expA24} è mostrato il grafico delle soglie di mortalità $m_1^*$ (in blu) ed
+$m_2^*$ (in verde) stabilite nella proposizione~\ref{teo:esistenzPosF}.
+Gli altri punti alle coordinate $(x,y)$ sono simulazioni con parametri $w=x$ ed $m=y$, in cui il gradiente
+di colore rappresenta la popolazione finale $N(T)$ raggiunta dalla colonia.
+
+\begin{figure}[!h]
     \centering
     \includegraphics[keepaspectratio,width=0.98\textwidth]{img/k11EA2-mistarVSw}
 
-    \caption[Esperimento A2, soglie di mortalità]{Previsione del modello per le soglie di mortalità $m_i^*$, $i=1,2,3$.}
+    \caption[Esperimento A2, soglie di mortalità]{Previsioni del modello per $m_1^*$ (in blu) ed $m_2^*$ (in verde).
+        Gli altri punti sono le simulazioni con parametri $(w,m)$ ed il gradiente di colore rappresenta la popolazione
+        finale raggiunta dalla colonia.
+    }
 
     \label{img:kh11expA24}
 \end{figure}
 
 La linea tratteggiata delimita la regione del parametro $w$ per cui la condizione~\eqref{eq:cond6b} è vera (a destra),
-in cui la popolazione di api si stabilizza ad un equilibrio positivo per mortalità $m$ superiori ad $m_1^*$ (in blu)
-ed inferiori ad $m_2^*$ (in rosso). Si noti che quando la~\eqref{eq:cond6b} diventa falsa, la soglia $m_2^*$ funge
-da limite \emph{inferiore} alla mortalità, prevenendo la divergenza della popolazione complessiva.
+in cui la popolazione di api si stabilizza ad un equilibrio positivo per mortalità $m$ superiori ad $m_1^*$
+(altrimenti la popolazione diverge) ed inferiori ad $m_2^*$ (altrimenti la colonia si estingue).
+Si noti che quando la~\eqref{eq:cond6b} diventa falsa, la soglia $m_2^*$ funge
+da limite \emph{inferiore} alla mortalità, come affermato nella proposizione~\ref{teo:esistenzPosF}.
 
 \paragraph{}
-In verde è mostrata nel grafico la soglia $m_3^*$, che di nuovo funge da limite inferiore alla mortalità.
-
 Questa conferma sperimentale ci consente di assimilare definitivamente i casi 2 e 3 della
-Proposizione~\ref{teo:esistenzPosF}, e di considerare solamente il caso 1 come regione di parametri ammissibile
+proposizione~\ref{teo:esistenzPosF}, e di considerare solamente il caso 1 come regione di parametri ammissibile
 per questo modello -- e successivi, più raffinati -- per descrivere efficacemente le reali colonie di \emph{A.~mellifera},
 sia allo stato selvatico che in allevamento.

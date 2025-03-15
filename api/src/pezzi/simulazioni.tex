@@ -1,5 +1,5 @@
 \chapter{Propagazione delle soluzioni}
-Il supporto del calcolatore è stato utilizzato nella presente tesi per assistere nelle simulazioni (calcolo simbolico)
+Il calcolatore elettronico è stato utilizzato nella presente tesi per assistere nelle dimostrazioni (calcolo simbolico)
 e per le simulazioni dei modelli (calcolo numerico).
 
 Nello specifico, per la dimostrazione delle affermazioni che accompagnano i modelli\footcite{khoury2011,ratti2017}
@@ -7,20 +7,35 @@ esaminati nel capitolo~\ref{chap:modelz}, ci si è avvalsi del software libero \
 versione \texttt{5.47.0} impiegando la GUI \texttt{wxMaxima}, versione \texttt{22.09.0}.
 
 \paragraph{}
-Le simulazioni numeriche dei modelli impiegano invece alcune tecniche standard dell'Analisi Numerica,
+Le simulazioni impiegano invece alcune tecniche standard dell'Analisi Numerica,
 che risolvendo le equazioni di un modello forniscono l'andamento temporale dei compartimenti $x_i (t)$.
 
 Per una introduzione all'Analisi Numerica si rimanda ad alcuni testi classici\footcite{ananum,ananumlin,demmel}.
 
+\paragraph{}
 Un esempio di simulazione del modello a 5 compartimenti esaminato nella sezione~\ref{sec:ratti17} è illustrato
 in figura~\ref{img:r17sim}: fornendo al calcolatore le equazioni del modello~\eqref{eq:r17xh}--\eqref{eq:r17n},
 i parametri e le condizioni iniziali,
 si ottiene in output una rappresentazione discreta delle soluzioni corrispondenti.
+\begin{figure}[!h]
+    \centering
+    \includegraphics[keepaspectratio,width=0.5\textwidth]{img/r17fig5b}
+
+    \caption[\figurename~5(b) da \cite{ratti2017}]{Un esempio di illustrazione (fig.~5(b))
+        degli autori~\parencite[28]{ratti2017}
+        per una soluzione del modello ridotto api--\emph{Varroa} (cfr.~sez.~\ref{sec:r17rid3D}), cioè senza virus.
+
+        In blu il numero $x_h$ di operaie di nido, in nero tratteggiato il numero $x_f$ delle bottinatrici,
+        in rosso tratteggiato il numero $n$ di varroe (non portatrici di ABPV).}
+    \label{img:r17sim}
+\end{figure}
+
 Nel caso in esame il grafico illustra l'andamento delle soluzioni, ossia dei compartimenti di api operaie e del
 compartimento della \emph{Varroa}.
 
 \paragraph{}
-I modelli sono generalmente forniti sotto forma di problema di Cauchy\footnote{Cfr. sez.~\ref{sec:ingredientiBioMat}.}
+I modelli sono generalmente forniti sotto forma di problema di Cauchy\footnote{Cfr. sez.~\ref{sec:ingredientiBioMat} e
+l'appendice~\ref{chap:teoria}.}
 \begin{equation}
 \begin{sistema}
 \diff{}{t} \mathbf{x} = F( \mathbf{x}, t )  \\
@@ -31,8 +46,8 @@ I modelli sono generalmente forniti sotto forma di problema di Cauchy\footnote{C
 \end{equation}
 dove $\mathbf{x}(t)$ è un array di $n$ funzioni incognite.
 
-La soluzione si ottiene con i software dedicati al calcolo numerico\footnote{Ad esempio \texttt{Octave} o
-\texttt{Mathematica}.} chiamando una routine--solutore del tipo
+La soluzione si ottiene con i software dedicati al calcolo numerico\footnote{Ad esempio \texttt{Octave},
+\texttt{Mathematica}, \texttt{MATLAB}, \texttt{NumPy/SciPy}, etc.} chiamando una routine--solutore del tipo
 \begin{equation}
 \mathbf{y} = \mathtt{sol} ( F, \mathbf{x}_0, t_0, \Delta t, p) \; .
 \label{eq:numSolutor}
@@ -59,37 +74,25 @@ $$\frac{y_i - y_{i-1}}{\Delta t} \approx F \left( y_i, i \cdot \Delta t \right) 
 \paragraph{}
 Ai fini della presente, si osservi che una soluzione del tipo~\eqref{eq:approxSol}, ottenuta applicando il solutore
 numerico~\eqref{eq:numSolutor} ai modelli di \emph{Apis} esposti nel capitolo~\ref{chap:modelz} fornisce l'andamento
-di una soluzione approssimata $\mathbf{y}$ sotto forma di matrice in cui l'$i$-esimo
+di una soluzione approssimata $\mathbf{y}$ sotto forma di matrice, in cui l'$i$-esimo
 vettore--colonna $y_i$ contiene il valore di
-tutti i compartimenti al tempo $t = i \Delta t$.
+tutti i compartimenti (api ed eventuali patogeni) al tempo $t = i \cdot \Delta t$.
 
 Questo tipo di simulazione numerica è stato utilizzato anche dagli autori dei modelli\footcite{khoury2011,ratti2017},
 sia per validare empiricamente i risultati teorici dimostrati nei rispettivi articoli, sia per estendere
-quanto già stabilito che per indirizzare la ricerca futura. Vedasi in proposito le figure~\ref{img:kh11phasePlane} e
+quanto già stabilito ed indirizzare la ricerca futura. Vedasi in proposito le figure~\ref{img:kh11phasePlane} e
 \ref{img:r17sim}.
-\begin{figure}[hb]
-    \centering
-    \includegraphics[keepaspectratio,width=0.5\textwidth]{img/r17fig5b}
-
-    \caption[\figurename~5(b) da \cite{ratti2017}]{Un esempio di illustrazione (fig.~5(b))
-        degli autori~\parencite[28]{ratti2017}
-        per una soluzione del modello ridotto api--\emph{Varroa} (cfr.~sez.~\ref{sec:r17rid3D}), cioè senza virus.
-
-        In blu il numero $x_h$ di operaie di nido, in nero tratteggiato il numero $x_f$ delle bottinatrici,
-        in rosso tratteggiato il numero $n$ di varroe (non portatrici di ABPV).}
-    \label{img:r17sim}
-\end{figure}
 
 \paragraph{}
 Presentiamo adesso alcune nuove simulazioni svolte per il modello a due compartimenti\footcite{khoury2011}
-della Sezione~\ref{sec:kh11}, che confermano ed estendono alcuni risultati degli autori.
+studiato nella sezione~\ref{sec:kh11}, che confermano ed estendono alcuni risultati degli autori.
 
 È stato usato il software libero \texttt{GNU Octave}, versione \texttt{9.2.0} e nello specifico
 la routine \texttt{ode45} che implementa il metodo di Dormand--Prince al quarto ordine, un solutore
 di equazioni differenziali ordinarie della famiglia Runge--Kutta.
 
 Nella chiamata al solutore~\eqref{eq:numSolutor} si è generalmente utilizzato $\Delta t=1~\text{giorno}$
-ed un criterio d'arresto $T=k \cdot 365,25$ per terminare la simulazione dopo $k$ anni.
+ed un criterio d'arresto $t \geq T=k \cdot 365,25$ per terminare la simulazione dopo $k$ anni.
 
 \paragraph{}
 In alcune chiamate al solutore, l'iterazione si è arrestata per $t < T$, ossia prima della soglia richiesta, per
@@ -105,4 +108,6 @@ invalide, e di calcolare numeri di condizionamento in linea con i risultati teor
 % Link al codice? Licens? % TODO
 \input{pezzi/kh11expA2}
 
-\input{pezzi/kh11expC2}
+\input{pezzi/kh11expB}
+
+% \input{pezzi/kh11expC2}

@@ -1,0 +1,194 @@
+\section{Esperimento B}
+L'esperimento descritto in questa sezione utilizza ancora il modello a due compartimenti\footcite{khoury2011}
+esaminato nella sezione~\ref{sec:kh11}.
+
+Nelle equazioni del modello si introduce il termine di reclutamento $R$ per il passaggio tra il compartimento $H$ delle
+operaie di nido (che curano la covata) ed $F$, il compartimento delle operaie di campo (che raccolgono il cibo).
+
+\paragraph{}
+Gli autori affermano\footcite[2,3]{khoury2011} che la formulazione~\eqref{eq:Recr}
+$$R = \alpha - \sigma \frac{F}{H+F}$$
+rappresenta la risposta funzionale della colonia all'equilibrio/disequilibrio tra il numero di operaie in $H$ ed $F$,
+ad esempio accelerando il reclutamento precoce in caso di deficit di api bottinatrici.
+
+In tal proposito, si vedano la sottosezione~\ref{ssec:recr} (p.~\pageref{ssec:recr}) per un esame di questa formulazione
+di $R$ nel modello di~\citeauthor{khoury2011} ivi esaminato, e la sottosezione~\ref{ssec:r17eqns}
+(p.~\pageref{ssec:r17eqns})
+per un impiego di una espressione molto simile in un modello più raffinato\footcite{ratti2017} che analizza
+la risposta del sistema a stimoli non costanti, bensì periodici.
+
+\paragraph{}
+Sono state svolte diverse simulazioni di una singola colonia con parametri costanti
+$$w= 25000, \quad L=2000 \; , \quad \alpha=\frac{1}{4}, \quad \sigma= \frac{3}{4} \; ,$$
+fino a $T=750~\text{giorni}$ con passo $\Delta t = 1~\text{giorno}$.
+
+Si noti che per questa scelta dei parametri la condizione~\eqref{eq:cond6b} è vera.
+
+Le condizioni iniziali della colonia sono sempre $(H_0, F_0) = (10000, 4000)$ in tutte le simulazioni;
+ogni simulazione ha una durata di $T=750~\text{giorni}$.
+
+\paragraph{}
+Tra le differenti simulazioni è stata variata la mortalità $m$, sostituendo il parametro costante
+con una funzione variabile $m(t)$ di diverse forme, scelte come descritto nel seguito.
+Si osservi che l'articolo originale del modello\footcite{khoury2011} esamina soltanto il caso con parametri costanti,
+mentre il modello successivo\footcite{ratti2017} -- esposto nella sezione~\ref{sec:ratti17} -- considera il caso
+di variazioni \emph{periodiche} nei parametri.
+
+\paragraph{}
+Le figure~\ref{img:expB1}--\ref{img:expB5} illustrano il risultato delle simulazioni della colonia, variando
+la forma dell'impulso nel parametro della mortalità $m(t)$.
+
+Tali figure in questa sezione riportano nei grafici superiori sia le numerosità nei comparti $H, F$
+(in unità di api) che il tasso di schiusa $E$ (in unità di api/die).
+I grafici inferiori riportano invece grandezze consistenti, giacché la mortalità $m$ ed il tasso di
+reclutamento $R$ sono entrambi in unità di 1/die.
+
+
+\subsection{Stimolo a scalino}
+Una famiglia sottoposta a mortalità $m= m_- =0,15$ è improvvisamente sottoposta a mortalità $m= m_+ =0,55$
+a partire dal trecentesimo giorno.
+
+Il risultato della simulazione (illustrato in figura~\ref{img:expB1}) conferma quanto affermato
+nella proposizione~\ref{teo:esistenzPosF} (sez.~\ref{sec:kh11}) e quanto visto nell'esperimento numerico
+della sezione~\ref{ssec:simSoglie}:
+per $m<m_2^*$ la colonia affronta con successo le avversità e la popolazione tende ad un equilibrio positivo.
+\begin{figure}[!h]
+    \centering
+    \includegraphics[keepaspectratio,width=\textwidth]{img/alternativeA}
+
+    \caption[Esperimento B, stimolo a scalino.]{Sopra: in blu le numerosità nei comparti $H$ (linea continua)
+        ed $F$ (linea tratteggiata). In verde il tasso di schiusa $E=E(H,F)$.
+
+        Sotto: in rosso la mortalità $m=m(t)$ ed in blu il tasso di reclutamento $R=R(H,F)$.
+    }
+    \label{img:expB1}
+\end{figure}
+
+\paragraph{}
+Quando invece la mortalità è eccessiva ($m>m_2^*$) la colonia soccombe, anche per via del repentino aumento
+di reclutamento precoce delle api giovani ($R$ in blu nel grafico inferiore, figura~\ref{img:expB1}),
+che inibisce per troppo tempo la schiusa di un numero sufficiente di nuove operaie
+($E$ in verde nel grafico superiore), portando l'alveare verso l'inevitabile collasso.
+
+
+\subsection{Stimolo limitato}
+Nelle figure~\ref{img:expB2} e \ref{img:expB3} è illustrata la simulazione dello stesso modello
+(equazioni~\eqref{eq:kh11h}--\eqref{eq:kh11f} nella sez.~\ref{sec:kh11})
+in risposta ad uno stimolo triangolare e gaussiano nella mortalità.
+
+Stimoli di mortalità di questo tipo (un aumento \emph{limitato nel tempo}) possono essere usati per simulare
+l'insorgenza \emph{episodica} di un fattore di stress, incrementando temporaneamente la mortalità in uno
+o più compartimenti. Quando l'episodio stressante termina\footnote{Ad es. un patogeno viene sconfitto,
+cessazione di una carestia di polline/nettare o una siccità, etc.}, la mortalità ritorna ai livelli fisiologici.
+
+\paragraph{}
+Per lo stimolo triangolare (figura~\ref{img:expB2}) si è usata una funzione costante $m(t) \equiv m_- = 0,15$
+fino a $t=250~\text{giorni}$, dopodiché $m(t)$ aumenta linearmente fino al picco $m_+ =0,55$ al
+tempo $t=300~\text{giorni}$.
+In maniera simmetrica, dopo $t=300~\text{giorni}$ il tasso di mortalità $m$ ritorna verso $m_-$ linearmente,
+nello spazio di $50~\text{giorni}$.
+\begin{figure}[!h]
+    \centering
+    \includegraphics[keepaspectratio,width=\textwidth]{img/alternativeB}
+
+    \caption[Esperimento B, stimolo triangolare.]{Sopra: in blu le numerosità nei comparti $H$ (linea continua)
+        ed $F$ (linea tratteggiata). In verde il tasso di schiusa $E=E(H,F)$.
+
+        Sotto: in rosso la mortalità $m=m(t)$ ed in blu il tasso di reclutamento $R=R(H,F)$.
+    }
+    \label{img:expB2}
+\end{figure}
+
+\paragraph{}
+In figura~\ref{img:expB3} è riportata la simulazione per uno stimolo analogo a quello triangolare
+per durata ed ampiezza, ma per confrontare la $m(t)$ triangolare con una funzione liscia, è stata utilizzata
+una normale gaussiana.
+\begin{figure}[!h]
+    \centering
+    \includegraphics[keepaspectratio,width=\textwidth]{img/alternativeC}
+
+    \caption[Esperimento B, stimolo gaussiano.]{Sopra: in blu le numerosità nei comparti $H$ (linea continua)
+        ed $F$ (linea tratteggiata). In verde il tasso di schiusa $E=E(H,F)$.
+
+        Sotto: in rosso la mortalità $m=m(t)$ ed in blu il tasso di reclutamento $R=R(H,F)$.
+    }
+    \label{img:expB3}
+\end{figure}
+
+In entrambe le figure (\ref{img:expB2}, \ref{img:expB3}) possiamo verificare che la colonia risponde all'innalzamento
+di mortalità $m$ nel comparto bottinatrici $F$ aumentando il reclutamento precoce ($R$ in blu, grafici in basso).
+
+Questa risposta fisiologica\footnote{Cfr. discussione a p.~\pageref{par:socialRecr} nel capitolo~\ref{chap:bio}.}
+della colonia
+all'aumento di mortalità tra le bottinatrici comporta un deficit di operaie di nido $H$, a cui segue in
+breve un declino di nuove api sfarfallate, dal momento che molte larve nella covata non giungono a maturazione
+($E$ in verde, grafici in alto).
+
+\paragraph{}
+Quando la mortalità si riporta ai livelli precedenti ($m \simeq m_-$ per $t>350~\text{giorni}$), la colonia
+ripristina gradualmente la popolazione in $H,F$ verso l'equilibrio, ed anche $E,R$ ritornano ai ritmi
+antecedenti il fattore di stress.
+
+Questo meccanismo è noto in apicoltura~\footcite{privFDL,privFPan,meccanica} ed è uno dei motivi per cui
+l'impatto dei molteplici fattori di stress (sia naturali che dovuti all'intervento umano) è dettato principalmente
+dalla \emph{durata di esposizione} delle colonie.
+
+Infatti i meccanismi fisiologici e sociali delle api permettono agli alveari di rispondere dinamicamente alle criticità
+-- anche piuttosto profonde -- e di ritornare al funzionamento ``normale'', a patto però che i fattori principali
+della crisi si risolvano entro tempi ragionevoli.
+
+\paragraph{}
+Altrimenti, ossia laddove la colonia è esposta a stress eccessivi per un periodo \emph{troppo prolungato},
+anche i meccanismi di difesa naturali falliscono e l'intera famiglia collassa, sotto il peso di
+deficit nutrizionali o di patologie particolarmente invalidanti.
+
+Questa considerazione è corroborata anche dall'esperimento descritto nella prossima sottosezione
+(figg.~\ref{img:expB4} e \ref{img:expB5}).
+
+
+\subsection{Stimolo periodico}
+Nelle figure~\ref{img:expB4} e~\ref{img:expB5} vediamo il risultato di due simulazioni in cui la
+mortalità $m(t)$ è costante al valore $m_-=0,15$ fino a $t=150~\text{giorni}$: come nei casi precedenti,
+in questo periodo iniziale le due colonie si portano verso lo stesso equilibrio di una colonia
+sottoposta a mortalità costante $m(t) \equiv m_-$ (grafici sopra, in grigio).
+
+A partire da $t=150~\text{giorni}$ le colonie sono sottoposte ad una mortalità periodica, oscillante tra $m_-$ ed
+una soglia superiore $m_+ \simeq 0,186$ (figura~\ref{img:expB4}) oppure $m_+ \simeq 0,674$ per la figura~\ref{img:expB5}.
+In entrambi i casi la lunghezza d'onda è $\lambda=50~\text{giorni}$.
+\begin{figure}[!h]
+    \centering
+    \includegraphics[keepaspectratio,width=\textwidth]{img/alternativeD}
+
+    \caption[Esperimento B, stimolo sinusoidale debole.]{Sopra: in blu le numerosità nei comparti $H$ (linea continua)
+        ed $F$ (linea tratteggiata). In verde il tasso di schiusa $E=E(H,F)$.
+        In grigio una colonia di controllo, sottoposta a mortalità costante $m_-=0,15$.
+
+        Sotto: in rosso la mortalità $m=m(t)$ ed in blu il tasso di reclutamento $R=R(H,F)$.
+    }
+    \label{img:expB4}
+\end{figure}
+
+\paragraph{}
+Si può osservare che se l'incremento medio sul periodo porta la mortalità ad un livello inferiore ad $m_2^*$
+(cfr. proposizione~\ref{teo:esistenzPosF}), la colonia risponde con successo ai fattori di stress, anche
+se la popolazione in entrambi i compartimenti ovviamente diminuisce quando incontra le avversità.
+Nel grafico in alto della figura~\ref{img:expB4}, entrambi i comparti simulati (linee blu) scendono sotto
+i livelli di una corrispondente colonia con mortalità costante $m_-$ (linee grigie) a partire dall'inizio
+dello stimolo ($t=150~\text{giorni}$).
+
+\paragraph{}
+Per contro, si osservi uno stimolo di ampiezza maggiore come quello in figura~\ref{img:expB5}, in cui la mortalità media
+sul periodo supera $m_2^*$: la risposta dinamica della colonia non è sufficiente a fronteggiare lo stress
+prolungato, e la popolazione declina inesorabilmente.
+\begin{figure}[!h]
+    \centering
+    \includegraphics[keepaspectratio,width=\textwidth]{img/alternativeE}
+
+    \caption[Esperimento B, stimolo sinusoidale forte.]{Sopra: in blu le numerosità nei comparti $H$ (linea continua)
+        ed $F$ (linea tratteggiata). In verde il tasso di schiusa $E=E(H,F)$.
+        In grigio una colonia di controllo, sottoposta a mortalità costante $m_-=0,15$.
+
+        Sotto: in rosso la mortalità $m=m(t)$ ed in blu il tasso di reclutamento $R=R(H,F)$.
+    }
+    \label{img:expB5}
+\end{figure}
