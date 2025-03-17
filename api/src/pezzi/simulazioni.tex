@@ -1,4 +1,4 @@
-\chapter{Propagazione delle soluzioni}
+\chapter{Simulazioni numeriche}
 Il calcolatore elettronico è stato utilizzato nella presente tesi per assistere nelle dimostrazioni (calcolo simbolico)
 e per le simulazioni dei modelli (calcolo numerico).
 
@@ -49,10 +49,10 @@ dove $\mathbf{x}(t)$ è un array di $n$ funzioni incognite.
 La soluzione si ottiene con i software dedicati al calcolo numerico\footnote{Ad esempio \texttt{Octave},
 \texttt{Mathematica}, \texttt{MATLAB}, \texttt{NumPy/SciPy}, etc.} chiamando una routine--solutore del tipo
 \begin{equation}
-\mathbf{y} = \mathtt{sol} ( F, \mathbf{x}_0, t_0, \Delta t, p) \; .
+\mathbf{y} = \mathtt{ode45} ( F, \mathbf{x}_0, t_0, \Delta t, p) \; .
 \label{eq:numSolutor}
 \end{equation}
-Nella pseudo--sintassi di $\mathtt{sol}$ nella~\eqref{eq:numSolutor} si vuole indicare che la routine prende in ingresso
+Nella pseudo--sintassi di $\mathtt{ode45}$ nella~\eqref{eq:numSolutor} si vuole indicare che la routine prende in ingresso
 \begin{itemize}
     \item la funzione vettoriale $F$, ovvero il membro destro dell'equazione~\eqref{eq:probCauchy}.
         Qui si possono anche variare i parametri del sistema;
@@ -61,9 +61,9 @@ Nella pseudo--sintassi di $\mathtt{sol}$ nella~\eqref{eq:numSolutor} si vuole in
     \item ulteriori parametri $p$ quali: scelta del metodo di approssimazione numerica, di adattamento dinamico del passo
         $\Delta t$, dei criteri d'arresto, etc.
 \end{itemize}
-Generalmente una siffatta routine $\mathtt{sol}$ ritorna un array di valori in virgola mobile\footnote{Più
-precisamente \emph{una matrice}, in cui ogni colonna rappresenta il vettore--soluzione $\mathbf{x}(t)$ approssimato
-ad un certo tempo $t$.}
+Generalmente una siffatta routine $\mathtt{ode45}$ ritorna un array di valori in virgola mobile\footnote{Più
+precisamente: un array \emph{bidimensionale} (una matrice), in cui ogni colonna rappresenta
+il vettore--soluzione $\mathbf{x}(t)$ approssimato ad un certo tempo $t$.}
 \begin{equation}
 \mathbf{y} = \left( y_0, y_1, \dots y_N \right) \; ,
 \label{eq:approxSol}
@@ -102,12 +102,10 @@ uno dei compartimenti in esame.
 In ogni caso, un filtraggio in fase di \emph{post--processing} dei dati ottenuti permette di scartare le iterazioni
 invalide, e di calcolare numeri di condizionamento in linea con i risultati teorici.\footnote{Cfr.~\cite{demmel}.}
 
-
-% TODO figura con l'andamento di *una* soluzione. -> ma non qui?
-
-% Link al codice? Licens? % TODO
+% Link al codice? Licens? % TODO c'è un github privato
+% rinominati A, B, C per semplicità di lettura, diocan.
 \input{pezzi/kh11expA2}
 
 \input{pezzi/kh11expB}
 
-% \input{pezzi/kh11expC2}
+\input{pezzi/kh11expC} % WARNING cambiato, seguendo la simulazione in .m

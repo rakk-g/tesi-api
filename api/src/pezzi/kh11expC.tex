@@ -1,0 +1,185 @@
+\section{Esperimento C}
+L'esperimento descritto in questa sezione utilizza ancora il modello a due compartimenti\footcite{khoury2011}
+esaminato nella sezione~\ref{sec:kh11}.
+
+Sono state svolte 1024 simulazioni del modello variando il parametro $m$ e le condizioni iniziali;
+gli altri parametri sono mantenuti costanti in tutte le simulazioni:
+\begin{itemize}
+    \item il tasso di deposizione della regina $L=2500$;
+    \item il tasso massimo di reclutamento $\alpha = \frac{1}{4}$;
+    \item il tasso di inibizione sociale $\sigma = \frac{3}{4}$;
+    \item il parametro $w=27000$.
+\end{itemize}
+
+In ogni simulazione il parametro $m$ e le condizioni iniziali $b = H_0 + F_0$ sono state scelte
+in modo pseudocasuale uniforme, come già descritto nell'esperimento A (v.~p.~\pageref{sec:esperimentoA}),
+entro gli intervalli $m \in \left[ m_-, m+ \right]$ e $b \in \left[b_-, b_+ \right]$, ove
+$$m_- =0,006 \; , \quad m_+ = 0,7 \; ,$$
+e la popolazione iniziale è compresa tra $b_- =0$ e $b_+=41000$.
+
+La durata di ogni simulazione è $T=2 \cdot 365,25~\text{giorni}$ con passo $\Delta t = 1~\text{giorno}$.
+
+\paragraph{}
+Per studiare la risposta numerica degli alveari ai fattori di stress su una scala di tempi più lunga,
+definiamo due soglie di popolazione $\beta_-$ e $\beta_+$.
+
+Scegliamo nel presente esperimento $\beta_- = 1000~\text{api}$, e diremo che è una colonia è \emph{debole}
+all'istante $t$ se $H(t)+F(t)< \beta_-$.
+
+Analogamente, scegliamo $\beta_+ = 40000~\text{api}$, e definiamo \emph{forte} al tempo $t$ una colonia in cui
+si verifichi $H(t)+F(t)> \beta_+$.
+
+\paragraph{}
+Ciò corrisponde alla grossolana classificazione degli alveari in ``deboli'' e ``forti'' in base alla popolazione,
+utilizzata anche sul campo.\footcite{privFDL,tesiFDL,meccanica}
+
+In figura~\ref{img:expC-popp} vediamo l'esito di tutte le simulazioni, con le corrispondenti popolazioni iniziali in
+ascissa e le popolazioni finali in ordinata. Le linee tratteggiate delimitano le soglie $\beta_-$ e $\beta_+$
+sia in ascissa che in ordinata: ne conseguono nove regioni rettangolari, che rappresentano sinteticamente
+l'intera ``storia'' di ogni alveare simulato.
+\begin{figure}[!h]
+    \centering
+    \includegraphics[keepaspectratio,width=\textwidth]{img/k11EC-finalPop-initPop}
+
+    \caption[Esperimento C, popolazione finale vs. iniziale.]{Esperimento C. Ogni punto alle coordinate $(x,y)$ è
+        una simulazione con popolazione iniziale $N(0)=x$ e popolazione finale $N(T)=y$.
+        Le linee tratteggiate delimitano le soglie $\beta_-$ (deboli) e $\beta_+$ (forti).
+
+        Il gradiente di colore corrisponde alla mortalità $m$ di ogni simulazione.
+    }
+    \label{img:expC-popp}
+\end{figure}
+
+Ad esempio, il riquadro in basso a destra contiene le colonie simulate che ``iniziano forti'' (a $t=0$)
+e ``finiscono deboli'' (a $T= 2~\text{anni}$), e così via.
+
+\paragraph{}
+Possiamo osservare il gradiente \emph{verticale} di colore (che indica la mortalità $m$).
+Ciò conferma i risultati dell'esperimento A e quanto affermato nella proposizione~\ref{teo:esistenzPosF}:
+in questo semplice modello la colonia tende \emph{sempre} ad un equilibrio, che è positivo o banale a seconda
+dei parametri. In particolare, a parità di altre condizioni, è il parametro $m$ a determinare l'esito della colonia.
+
+\paragraph{}
+Nelle prossime sottosezioni sono illustrate ulteriori applicazioni delle soglie $\beta_-$ e $\beta_+$
+(famiglie deboli e forti) nell'esperimento corrente.
+
+
+\subsection{Primo giorno ``debole''}
+Per ognuna delle popolazioni considerate nella simulazione, si consideri il \emph{FDW (First Day (colony is) Weak)}
+come il primo giorno in cui una colonia diventa ``debole'', ossia
+$$\text{FDW} \coloneq \min \left\{ t \geq 0 \st H(t) + F(t) < \beta_- \right\} \; .$$
+
+Il grafico in figura~\ref{img:expC-fdw} mostra in ordinata il FDW delle diverse simulazioni; si osservi che una colonia
+che \emph{non diventa mai} debole ha $\text{FDW}=+\infty$ ed il corrispondente \emph{datapoint} non compare nel grafico.
+\begin{figure}[!h]
+    \centering
+    \includegraphics[keepaspectratio,width=\textwidth]{img/k11EC-fdw-initPop}
+
+    \caption[Esperimento C, FDW vs.popolazione iniziale.]{Esperimento C.
+        Ogni punto alle coordinate $(x,y)$ è una simulazione con popolazione iniziale $N(0)=x$
+        che diventa ``debole'' ($N(t)<\beta_-$) al giorno $t=y$ per la prima volta.
+
+        Le linee tratteggiate delimitano le soglie $\beta_-$ (deboli) e $\beta_+$ (forti) in ascissa.
+
+        Il gradiente di colore corrisponde alla mortalità $m$ di ogni simulazione.
+    }
+    \label{img:expC-fdw}
+\end{figure}
+
+La regione a sinistra di $x=\beta_-$ contiene ovviamente le colonie che \emph{sono già} deboli all'inizio della simulazione;
+si osservi che questa è l'unica regione in cui compaiono mortalità basse (colore verde).
+
+\paragraph{}
+Le colonie che non ``partono'' deboli (\ie nella regione $x>\beta_-$) presentano una tendenza a diventarlo progressivamente
+più tardi (distribuzione tendenzialmente crescente dei \emph{datapoint}): il FDW è positivamente correlato alla
+popolazione iniziale e negativamente correlato alla mortalità $m$. Questa ultima influisce decisamente di più
+rispetto alla popolazione iniziale.
+
+Questo comportamento prosegue anche nella regione $x>\beta_+$, ossia anche le famiglie che ``partono forti'' possono
+diventare deboli, e l'eventuale ``giorno fatale'' è più vicino quanto è più alta la mortalità $m$.
+
+\paragraph{}
+Se l'evidente disposizione \emph{verticale} del gradiente di colore rispecchia i limiti
+del modello\footcite{khoury2011} già osservati
+in precedenza (il sistema ha un unico equilibrio, sempre stabile, determinato dai soli parametri)%
+\footnote{Cfr.~sez.~\ref{sec:kh11} e l'esperimento A a p.~\pageref{sec:esperimentoA} e segg..},
+d'altra parte la tendenza \emph{crescente} dei \emph{datapoint} a destra di $x=\beta_-$ conferma l'esistenza
+di un effetto Allee nel modello.\footnote{Cfr. p.~\pageref{par:alleeEffect}.}
+
+
+\subsection{Primo giorno ``forte''}
+Analogamente a quanto fatto nella sottosezione precedente, per ognuna delle popolazioni
+nella simulazione, si definisca il \emph{FDS (First Day (colony is) Strong)}
+come il primo giorno in cui una colonia diventa ``forte'', ossia
+$$\text{FDS} \coloneq \min \left\{ t \geq 0 \st H(t) + F(t) > \beta_+ \right\} \; .$$
+
+Si noti che laddove una colonia ``inizia forte'' (cioè $H_0+F_0>\beta_+$) si ha $\text{FDS}=0$.
+
+\paragraph{}
+Il grafico in figura~\ref{img:expC-fds} mostra in ordinata il FDS delle diverse simulazioni; si osservi che una colonia
+che \emph{non diventa mai} forte ha $\text{FDS}=+\infty$ ed il corrispondente \emph{datapoint} non compare nel grafico.
+\begin{figure}[!h]
+    \centering
+    \includegraphics[keepaspectratio,width=\textwidth]{img/k11EC-fds-initPop}
+
+    \caption[Esperimento C, FDS vs.popolazione iniziale.]{Esperimento C.
+        Ogni punto alle coordinate $(x,y)$ è una simulazione con popolazione iniziale $N(0)=x$
+        che diventa ``forte'' ($N(t)>\beta_+$) al giorno $t=y$ per la prima volta.
+
+        Le linee tratteggiate delimitano le soglie $\beta_-$ (deboli) e $\beta_+$ (forti) in ascissa.
+
+        Il gradiente di colore corrisponde alla mortalità $m$ di ogni simulazione.
+    }
+    \label{img:expC-fds}
+\end{figure}
+
+\paragraph{}
+Stavolta si osserva una tendenza \emph{decrescente}, perlomeno nelle colonie che non \emph{iniziano già}
+forti (nella regione $x>\beta_+$), come è ragionevole attendersi.
+
+Si noti il flebile gradiente di colore in verticale, in cui sono del tutto assenti le mortalità medio--alte.
+
+
+\subsection{Primo giorno ``forte'' o ``debole'' e mortalità}
+Concludiamo questa sezione sull'esperimento C con il graficoi in figura~\ref{img:expC-fdx-m}, in
+cui l'ascissa rappresenta la mortalità $m$ e l'ordinata il FDW (cerchi) od il FDS (triangoli), il primo giorno
+in cui la colonia simulata diventa ``debole'' o ``forte'' rispettivamente, secondo le definizioni date sopra.
+\begin{figure}[!h]
+    \centering
+    \includegraphics[keepaspectratio,width=\textwidth]{img/k11EC-fdX-m}
+
+    \caption[Esperimento C, FDW e FDS vs. mortalità.]{Esperimento C.
+        Ogni punto alle coordinate $(x,y)$ è una simulazione con popolazione mortalità $m =x$
+        che diventa ``debole'' (cerchi) o ``forte'' (triangoli) per la prima volta al giorno $t=y$.
+
+        Il gradiente di colore corrisponde alla popolazione finale $N(T)$ dopo due anni di simulazione.
+    }
+    \label{img:expC-fdx-m}
+\end{figure}
+
+\paragraph{}
+A conferma del comportamento ``bifido'' del modello già commentato in precedenza, per cui l'unico equilibrio
+verso cui si dirige una colonia è determinato dai parametri -- in particolare dalla mortalità, si osservi la netta
+disposizione a destra dei cerchi (il FDW esiste per mortalità $m > m_2^*$) ed a sinistra dei triangoli
+(il FDS esiste per mortalità $m <m_1^*$).
+
+In particolare si osservi che la regione intermedia di netta separazione \emph{è un artefatto della simulazione},
+determinato dai parametri e in particolare dal tempo di simulazione ($T=2~\text{anni}$).
+
+Ciò nonostante, l'andamento tendenziale è chiaro, ed in questo semplice modello le famiglie diventano ``forti''
+o ``deboli'' (o peggio ancora, soccombono) in funzione esclusiva dei parametri, ancora una volta soprattutto
+della mortalità.
+
+Inoltre, tutti i FDW (punti circolari) sono rossi, indicando popolazioni finali pressoché nulle per tutte le
+colonie che prima o poi ``diventano deboli'' (effetto Allee).
+
+\paragraph{}
+Una tendenza opposta ai FDW (regione destra) si osserva per i FDS (a sinistra): come è lecito aspettarsi,
+le colonie gravate da stress maggiori impiegano più tempo a riprendersi (qualora ci riescano).
+
+Il gradiente di colore -- disposto perlopiù orizzontalmente -- indica ancora una volta che in questo modello
+il parametro $m$ gioca il ruolo principale nel determinare il fato di una colonia.
+
+
+
+

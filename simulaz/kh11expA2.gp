@@ -150,7 +150,7 @@ psf(x) = 0.2 + 2*(x-100)/99900
 set cbrange [0:*]
 set palette defined (0 "black", 0.5 "yellow", 1 "red")
 set output "k11EA2-mistarVSw.png"
-set arrow from 8000,0.01 to 8000,2 nohead dashtype 2 # evidenzia la soglia di 6b!
+set arrow from 8000,0.01 to 8000,2 nohead dashtype 2 # evidenzia la soglia di 6b
 plot aggrFname using 1:7 with points pointtype 7 pointsize 0.6 \
 linecolor "blue" title 'm_1', \
 aggrFname using 1:5:11 with points pointtype 7 pointsize 1 \
