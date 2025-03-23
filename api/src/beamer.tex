@@ -10,10 +10,17 @@
 \usepackage[bibstyle=alphabetic,citestyle=authortitle,backend=biber,backref]{biblatex}
 \bibliography{api}
 
+
+% rubate da comandi per non prenderlo tutto
+\newcommand{\st}{\,\mid\;}
+
+
 \usetheme{JuanLesPins}
 \useinnertheme{rounded}
 \useoutertheme{sidebar}
 \usecolortheme{crane}
+% \usefonttheme[stillsansseriflarge]{serif}
+\usefonttheme[]{serif}
 
 \title{Dinamica delle popolazioni di \emph{Apis mellifera}}
 \author[]{Martino De Leo}
@@ -24,7 +31,7 @@
 % Abbiamo block (neutro), alertblock (negativo) e exampleblock (positivo).
 % Magari è una buona idea chiamare il primo frame come la sezione, quando la si cambia.
 
-\section{Introduzione}
+\section{Introduzion}
 
 
 \begin{frame}
@@ -135,28 +142,494 @@
     \framesubtitle{Esempio: SIR e derivati}
 
     \begin{center}
-        \includegraphics[keepaspectratio]{img/SIRschema}
+        \includegraphics[keepaspectratio,width=0.7\textwidth]{img/SIRschema}
     \end{center}
 
     \pause
-    \begin{align}
+    \begin{align*}
     \diff{S}{t} &= - \beta I S \\
-    \pause
     \diff{I}{t} &= \beta I S - \gamma I \\
-    \pause
     \diff{R}{t} &= \gamma I
-\end{align}
+    \end{align*}
+\end{frame}
 
+\begin{frame}
+    \frametitle{Modelli a compartimenti}
+    \framesubtitle{Esempio: SIR e derivati}
+
+    SIRVD:
+    \pause
+    \begin{center}
+        \includegraphics[keepaspectratio,width=0.7\textwidth]{img/sirvd}
+    \end{center}
+\end{frame}
+
+\subsection{Api}
+
+
+\begin{frame}
+    \frametitle{Modelli matematici per \emph{A. mellifera}}
+    \framesubtitle{Modelli computazionali ed a compartimenti}
+
+    \begin{itemize}
+    \item Anni '70: arrivo della \emph{Varroa} in occidente, api africanizzate \pause
+        \\
+        $\rightarrow$ Primi modelli computazionali (VARROAPOP, BEEHIVE).
+    \item \pause Ecocidio degli impollinatori (2005-) \pause
+        \\
+        $\rightarrow$  Nuova spinta alla ricerca, che produce \emph{molti} modelli e
+        nuove tecniche specifiche per le api.
+    \end{itemize}
 \end{frame}
 
 
+\begin{frame}
+    \frametitle{Semplificazioni per le api}
+    \framesubtitle{Struttura eusociale}
+
+    $\rightarrow$ considera ogni famiglia come \emph{un unico} super--organismo.
+
+    \pause
+    \begin{alertblock}{Nei modelli matematici sulle api}
+        Il modello di una popolazione \emph{è} il modello di una famiglia.
+    \end{alertblock}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Semplificazioni per le api}
+    \framesubtitle{Ordini di grandezza tra le caste}
+
+    \begin{center}
+        \includegraphics[keepaspectratio,width=\textwidth]{img/qwd1}
+    \end{center}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Semplificazioni per le api}
+    \framesubtitle{Ordini di grandezza tra le caste}
+
+    \begin{center}
+        \includegraphics[keepaspectratio,width=\textwidth]{img/qwd2}
+    \end{center}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Semplificazioni per le api}
+    \framesubtitle{Ordini di grandezza tra le caste}
+
+    \begin{center}
+        \includegraphics[keepaspectratio,width=\textwidth]{img/qwd3}
+    \end{center}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Semplificazioni per le api}
+    \framesubtitle{Ordini di grandezza tra le caste}
+
+    \begin{center}
+        \includegraphics[keepaspectratio,width=\textwidth]{img/qwd4}
+    \end{center}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Semplificazioni per le api}
+    \framesubtitle{Sotto--caste di operaie}
+
+    \begin{center}
+        \includegraphics[keepaspectratio,width=0.75\textwidth]{img/fanning}
+    \end{center}
+
+    \begin{itemize}
+        \item operaie \textbf{di nido (giovani)}: \pause nutrici, ceraiole, guardiane, spazzine, \dots
+        \item \pause operaie \textbf{di campo (anziane)}: \pause esploratrici, bottinatrici.
+    \end{itemize}
+
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Semplificazioni per le api}
+    \framesubtitle{Conseguenze pratiche per tutti i modelli (*)}
+
+
+    \begin{itemize}
+        \item ignora del tutto i fuchi.
+        \item \pause ignora la regina, a parte:
+        \begin{itemize}
+            \item \pause il suo tasso di ovideposizione,
+            \item \pause le interazioni funzionali della covata coi compartimenti di operaie.
+        \end{itemize}
+        \item \pause ignora la sciamatura. (*)
+        \item \pause la risorsa cibo si può rappresentare implicitamente nelle relazioni funzionali tra
+            bottinatrici e operaie di casa. (*)
+    \end{itemize}
+\end{frame}
+
+
+\subsection{Dati}
+
+
+\begin{frame}
+    \frametitle{Modellazione matematica e dati sperimentali}
+    \framesubtitle{Ricerca accademica e comparto agricolo}
+
+    Mutui vantaggi nelle relazioni tra Matematica ed altre scienze e apicoltura:
+    \begin{itemize}
+        \item Indicazioni che accelerano la ricerca \pause (es. homing failure)
+        \item \pause \dots
+        \item Stima dei parametri
+    \end{itemize}
+
+    \pause
+    esempio: flightspan $\to$ mortalità \pause
+    $$ \sum_{k=1}^{\infty} k m {(1-m)}^k = \pause
+    m \underbrace{ \sum_{k=1}^{\infty} k {(1-m)}^k }_{m^{-2}}
+    \pause = \frac{1}{m}$$
+\end{frame}
+
+
+\section{2D (2011)} % Khoury et al. 2011
+
+
+\begin{frame}
+    \frametitle{Modello a due compartimenti}
+    \framesubtitle{Operaie di casa e operaie di campo}
+
+    \cite{khoury2011}
+
+    \pause
+    \begin{center}
+        \includegraphics[keepaspectratio,width=0.8\textwidth]{img/kh11schema}
+    \end{center}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Modello a due compartimenti}
+    \framesubtitle{Equazioni (I)}
+
+    Api di casa:
+    $$\diff{H}{t} = E(H,F) \pause - H \cdot R(H,F) $$
+
+    \pause
+    Api di campo:
+    $$\diff{F}{t} = H \cdot R(H,F)  \pause - m \cdot F $$
+
+    \pause
+    Oss.: manca la mortalità delle api di casa.
+\end{frame}
+
+
+\subsection{Risposte sociali}
+
+
+\begin{frame}
+    \frametitle{Modello a due compartimenti}
+    \framesubtitle{Tasso di schiusa}
+
+    Il tasso di ovideposizione della regina $L$ è modulato da una funzione di Holling (tipo II)
+    per modellare le necessità trofiche e sociali della covata (risposta funzionale).
+
+    \pause
+    $$E = L \frac{H+F}{w+H+F}$$
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Modello a due compartimenti}
+    \framesubtitle{Tasso di schiusa}
+
+    \begin{center}
+        \includegraphics[keepaspectratio,width=0.98\textwidth]{img/hollingTypeII-eclosion}
+    \end{center}
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Modello a due compartimenti}
+    \framesubtitle{Reclutamento sociale}
+
+    Il passaggio tra le mansioni da operaia di casa a quelle più complesse è regolato \emph{socialmente}
+    (trofallassi e feromoni):
+    \pause
+    risposta \emph{fisiologica} alle avversità,
+    \pause
+    fornisce resilienza alle famiglie \pause (\emph{quasi} sempre).
+
+    \pause
+    In questo modello il termine di trasferimento è $H R$, dove
+    $$R = \alpha - \sigma \frac{F}{H+F}$$
+\end{frame}
+
+\begin{frame}
+    \frametitle{Modello a due compartimenti}
+    \framesubtitle{Equazioni (II)}
+
+    Api di casa:
+    $$\diff{H}{t} = \overbrace{L \frac{H+F}{w+H+F}}^{\text{schiusa}} - H
+    \overbrace{\left( \alpha - \sigma \frac{F}{H+F} \right)}^{R} $$
+
+    \pause
+    Api di campo:
+    $$\diff{F}{t} = H \left( \alpha - \sigma \frac{F}{H+F} \right) - mF $$
+\end{frame}
+
+\begin{frame}
+    \frametitle{Modello a due compartimenti}
+    \framesubtitle{Esempio (simulazione)}
+
+    \begin{center}
+        \includegraphics[keepaspectratio,width=\textwidth]{img/alternativeC}
+    \end{center}
+\end{frame}
+
+
+\subsection{Risultati}
+
+
+\begin{frame}
+    \frametitle{Modello a due compartimenti}
+    \framesubtitle{Studio della stabilità}
+
+    \begin{itemize}
+        \item Criteri di esistenza di equilibri non banali.
+        \item \pause Criteri di stabilità. \pause Esempio:
+            nelle regioni in cui l'equilibrio banale è attrattivo, il collasso della colonia è inevitabile.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Modello a due compartimenti}
+    \framesubtitle{Studio della stabilità}
+
+    L'equilibrio banale esiste sempre. Se $\alpha -L/w>0$ e
+    $$m> \pause \frac{\alpha L}{w \alpha -L}$$
+    è anche asintoticamente stabile.
+\end{frame}
+
+\begin{frame}
+    \frametitle{Modello a due compartimenti}
+    \framesubtitle{Studio della stabilità}
+
+    Se la mortalità è contenuta:
+    $$m < \frac{L}{2w} \frac{ \alpha + \sigma + \sqrt{ {(\alpha - \sigma)}^2 + \frac{4 \sigma L}{w} } }{\alpha - L/w}$$
+    allora esiste anche un equilibrio (strett.) positivo, univocamente determinato dai parametri.
+
+    \pause
+    Quando esiste, è sempre asintoticamente stabile.
+\end{frame}
+
+\begin{frame}
+    \frametitle{Modello a due compartimenti}
+    \framesubtitle{Conclusioni (I)}
+
+    Quanto dimostrato conferma il comportamento ``semplice'' del modello:
+    \begin{center}
+        \includegraphics[keepaspectratio,width=0.6\textwidth]{img/pone.0018491.g003}
+    \end{center}
+
+    \pause
+    Limite evidente: parametri \emph{costanti}.
+\end{frame}
+
+\begin{frame}
+    \frametitle{Modello a due compartimenti}
+    \framesubtitle{Conclusioni (II)}
+
+    Alcuni pregi:
+    \begin{itemize}
+        \item \pause Elementi \emph{sociali} nelle risposte funzionali di $R$ ed $E$.
+        \item \pause Effetti secondari nelle variazioni di mortalità $m$ nel comparto $F$.
+        \item \pause Effetti di tipo \emph{Allee}.
+    \end{itemize}
+\end{frame}
+
+
+\subsection{Simulazioni}
+
+
+\begin{frame}
+    \frametitle{Esperimento A}
+
+    2304 simulazioni del modello,
+    durata $T=2~\text{anni}$ e passo di integrazione $\Delta t= 1~\text{giorno}$.
+
+    \pause
+    Tutte con parametri costanti, mantenendo fissi $L=2000, \alpha = \frac{1}{4} = 1-\sigma$
+
+    \pause
+    Parametri pseudorandom in ogni simulazione:
+    \begin{itemize}
+        \item $m$ mortalità: \pause $0,016 \leq m \leq 0,7$.
+        \item \pause $w$ risposta funz. nella $E$: \pause $3000 \leq w \leq 30000$.
+    \end{itemize}
+    \pause
+    Pseudorandom anche le condizioni iniziali $H(0)+F(0)$: \pause $50 \leq b \leq 9000$.
+\end{frame}
+
+\begin{frame}
+    \frametitle{Esperimento A}
+    \framesubtitle{Spazio dei parametri}
+
+    \begin{center}
+        \includegraphics[keepaspectratio,width=\textwidth]{img/k11EA2-parameterSpace3D}
+    \end{center}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Esperimento A}
+    \framesubtitle{Spazio dei parametri (proiezione)}
+
+    \begin{center}
+        \includegraphics[keepaspectratio,width=\textwidth]{img/k11EA2-parameterSpace2D}
+    \end{center}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Esperimento A}
+    \framesubtitle{\emph{FDOD} e mortalità}
+
+    $$\text{FDOD} = \min \left\{ t \geq 0 \st H(t) + F(t) < b_{thres} \right\}$$
+
+    \pause
+    \begin{center}
+        \includegraphics[keepaspectratio,width=\textwidth]{img/k11EA2-fdodVSm}
+    \end{center}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Esperimento A}
+    \framesubtitle{Popolazione iniziale e popolazione finale}
+
+    \begin{center}
+        \includegraphics[keepaspectratio,width=\textwidth]{img/k11EA2-fpopVSipop}
+    \end{center}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Esperimento A}
+    \framesubtitle{Popolazione finale e $w$}
+
+    \begin{center}
+        \includegraphics[keepaspectratio,width=\textwidth]{img/k11EA2-finpopVSw}
+    \end{center}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Esperimento B}
+    \framesubtitle{Parametri \emph{variabili}}
+
+    Varia soltanto $m$, per indagare:
+    \begin{itemize}
+        \item La risposta \emph{dinamica} della famiglia a diverse forme di stress.
+        \item \pause La stabilità dell'equilbrio non banale.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Esperimento B}
+    \framesubtitle{Crisi episodica}
+
+    \begin{center}
+        \includegraphics[keepaspectratio,width=\textwidth]{img/alternativeC}
+    \end{center}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Esperimento B}
+    \framesubtitle{Equilibrio endemico}
+
+    \begin{center}
+        \includegraphics[keepaspectratio,width=\textwidth]{img/alternativeD}
+    \end{center}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Esperimento B}
+    \framesubtitle{Equilibrio pandemico}
+
+    \begin{center}
+        \includegraphics[keepaspectratio,width=\textwidth]{img/alternativeE}
+    \end{center}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Esperimento C}
+    \framesubtitle{Famiglie ``forti'' e ``deboli''}
+
+    Studio della risposta \emph{numerica} ai fattori di stress.
+
+    Anche nella pratica si usa spesso la stima della popolazione $N(t)=H(t)+F(t)$
+    \pause
+    \emph{insieme} con altre (covata aperta/chiusa, meteo, cibo, patogeni, \dots)
+    \pause
+    e considerando anche il \emph{contesto} (stagione, postazione, trattamenti, \dots).
+
+    \pause
+    \vspace{0.5em}
+    1024 simulazioni impostate (praticamente) come in A,
+    variano soltanto le condizioni iniziali ed il parametro
+    $$ 0,006 \leq m \leq 0,7$$
+
+    \pause
+    $$\text{FDW} = \min \left\{ t \geq 0 \st H(t) + F(t) < 1000 \right\} $$
+    \pause
+    $$\text{FDS} = \min \left\{ t \geq 0 \st H(t) + F(t) > 40000 \right\} $$
+\end{frame}
+
+\begin{frame}
+    \frametitle{Esperimento C}
+    \framesubtitle{Popolazione finale e popolazione iniziale}
+
+    \begin{center}
+        \includegraphics[keepaspectratio,width=\textwidth]{img/k11EC-finalPop-initPop}
+    \end{center}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Esperimento C}
+    \framesubtitle{Primo giorno ``forti'' e popolazione iniziale}
+
+    \begin{center}
+        \includegraphics[keepaspectratio,width=\textwidth]{img/k11EC-fds-initPop}
+    \end{center}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Esperimento C}
+    \framesubtitle{Primo giorno ``deboli'' e popolazione iniziale}
+
+    \begin{center}
+        \includegraphics[keepaspectratio,width=\textwidth]{img/k11EC-fdw-initPop}
+    \end{center}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Esperimento C}
+    \framesubtitle{Primo giorno ``forti/deboli'' e mortalità}
+
+    \begin{center}
+        \includegraphics[keepaspectratio,width=\textwidth]{img/k11EC-fdX-m.png}
+    \end{center}
+\end{frame}
+
+
+\section{5D} % Ratti et al. 2017
 
 
 
 
 
 
+\begin{frame}
+    \frametitle{Modello a cinque compartimenti}
+    \framesubtitle{Studio della stabilità}
 
+    Gli stessi di prima, più
+    \begin{itemize}
+        \item Equilibri endemici
+        \item Equilibri senza patogeni
+    \end{itemize}
+\end{frame}
 
 
 \end{document}
