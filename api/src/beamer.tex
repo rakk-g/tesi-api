@@ -1,0 +1,162 @@
+\documentclass[]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[italian]{babel}
+% \usepackage{dsfont}
+\usepackage{csquotes}
+\usepackage{esdiff} % comandi per le derivate: \diff, \diffp, c'è anche la valutazione in un punto!
+
+
+\usepackage[bibstyle=alphabetic,citestyle=authortitle,backend=biber,backref]{biblatex}
+\bibliography{api}
+
+\usetheme{JuanLesPins}
+\useinnertheme{rounded}
+\useoutertheme{sidebar}
+\usecolortheme{crane}
+
+\title{Dinamica delle popolazioni di \emph{Apis mellifera}}
+\author[]{Martino De Leo}
+\date{25 Marzo 2025}
+\logo{\includegraphics[width=15mm]{img/unifiLogo}}
+
+\begin{document}
+% Abbiamo block (neutro), alertblock (negativo) e exampleblock (positivo).
+% Magari è una buona idea chiamare il primo frame come la sezione, quando la si cambia.
+
+\section{Introduzione}
+
+
+\begin{frame}
+    \maketitle
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Api e civiltà umana}
+    \framesubtitle{Una relazione interspecifica millenaria}
+
+    \begin{center}
+        \includegraphics[keepaspectratio,width=0.26\textwidth]{img/AranaCaves}
+    \end{center}
+
+    \begin{displayquote}[\cite{honeyreligion}]
+        ``Humans have eaten, and fixed their wounds with honey and traded with it since history has been recorded.''
+    \end{displayquote}
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Api e civiltà umana}
+    \framesubtitle{Importanza delle api oggi}
+
+    \begin{center}
+        \includegraphics[keepaspectratio,width=0.5\textwidth]{img/forager_bee}
+    \end{center}
+
+    Mercato diretto (apicoltura): $8 \times 10^9 \$$ annui.
+
+    \pause
+    Mercato indiretto (impollinazione): $570 \times 10^9 \$$ annui.
+\end{frame}
+
+
+\section{Modelli}
+\begin{frame}
+    \frametitle{Strumenti per i modelli biologici}
+    \framesubtitle{Due secoli di progressi}
+
+    Primi modelli (XIX sec.): risposta numerica.
+    \begin{itemize}
+        \item (Malthus) $\diff{P}{t} = rP$ \pause \quad $\rightarrow P(t) = P_0 \; e^{rt}$.
+        \item (Verlhust) $\diff{P}{t} = rP \left( 1 - \frac{P}{K} \right)$
+            \pause \quad $\rightarrow P(t) = \frac{K}{1+qe^{-rt}}$.
+    \end{itemize}
+
+    \pause
+    \begin{center}
+        \includegraphics[keepaspectratio,width=0.7\textwidth]{img/logisticF}
+    \end{center}
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Strumenti per i modelli biologici}
+    \framesubtitle{Modelli matematici moderni}
+
+    Limiti della risposta numerica: max. 2 o 3 specie, interazioni \emph{semplici}.
+
+    \pause
+    Risposta \emph{funzionale}: relazioni complesse infra-- ed inter--specifiche.
+
+    \pause
+    \begin{exampleblock}{Esempio}
+        Funzioni di Holling: $$f(x) = \frac{a x^k}{1 + a h x^k}$$
+    \end{exampleblock}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Strumenti per i modelli biologici}
+    \framesubtitle{Esempio: funzioni di Holling}
+
+    \begin{center}
+        \includegraphics[keepaspectratio,width=0.8\textwidth]{img/hollo}
+    \end{center}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Strumenti per i modelli biologici}
+    \framesubtitle{Esempio: funzioni di Holling (caso delle api)}
+
+    Schiusa delle larve in una colonia: Holling tipo II o III.
+    \begin{center}
+        \includegraphics[keepaspectratio,width=0.88\textwidth]{img/hollingTypeII-eclosion}
+    \end{center}
+\end{frame}
+
+
+\subsection{Epidemiologia}
+
+
+\begin{frame}
+    \frametitle{Modelli a compartimenti}
+
+    Popolazione nel compartimento $x_i$ al tempo $t$: $x_i(t)$.
+
+    \pause
+    Le $N$ equazioni differenziali
+    $$ \diff{x_i}{t} = G_i (x_1, \dots x_n, t) \qquad i=1, \dots, N$$
+    modellano le relazioni tra i compartimenti (omogenei o no).
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Modelli a compartimenti}
+    \framesubtitle{Esempio: SIR e derivati}
+
+    \begin{center}
+        \includegraphics[keepaspectratio]{img/SIRschema}
+    \end{center}
+
+    \pause
+    \begin{align}
+    \diff{S}{t} &= - \beta I S \\
+    \pause
+    \diff{I}{t} &= \beta I S - \gamma I \\
+    \pause
+    \diff{R}{t} &= \gamma I
+\end{align}
+
+\end{frame}
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
