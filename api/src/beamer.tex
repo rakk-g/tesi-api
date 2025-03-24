@@ -613,7 +613,201 @@
 \end{frame}
 
 
-\section{5D} % Ratti et al. 2017
+\section{5D (2017)} % Ratti et al. 2017
+
+
+\begin{frame}
+    \frametitle{Modello a cinque compartimenti}
+    \framesubtitle{Operaie di casa e di campo, acari e \emph{ABPV}}
+
+    \cite{ratti2017}
+
+    \vspace{1em}
+    Elementi--chiave:
+    \begin{itemize}
+        \item \pause relazioni complesse tra \emph{A.~mellifera}, \emph{V.~destructor} ed altri patogeni.
+        \item \pause \emph{homing failure}, trattamenti anti--acaro.
+%             \\ % TODO aggiustare
+%             \includegraphics[keepaspectratio,width=0.2\textwidth]{img/imidacloprid}
+        \item \pause analisi del sistema con parametri \emph{variabili} \pause (Teoria di Floquet).
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Modello a cinque compartimenti}
+    \framesubtitle{Fase riproduttiva delle varroe}
+
+    \begin{center}
+        \includegraphics[keepaspectratio,width=\textwidth]{img/varroa-in-brood}
+    \end{center}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Modello a cinque compartimenti}
+    \framesubtitle{Fase foretica delle varroe}
+
+    \begin{center}
+        \includegraphics[keepaspectratio,width=0.8\textwidth]{img/varroa-on-bee}
+    \end{center}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Modello a cinque compartimenti}
+    \framesubtitle{ABPV}
+
+    Le varroe trasmettono anche contagi batterici e virali.
+
+    \pause
+    \begin{center}
+        \includegraphics[keepaspectratio,width=0.8\textwidth]{img/iabpv}
+    \end{center}
+\end{frame}
+
+
+\subsection{Derivazione}
+
+
+\begin{frame}
+    \frametitle{Modello a cinque compartimenti}
+    \framesubtitle{Derivazione del modello}
+
+    Deriviamo le equazioni del sistema per i cinque compartimenti:
+    \begin{itemize}
+        \item \pause le operaie di casa $x_h$,
+        \item \pause le operaie di campo $x_f$,
+        \item \pause le operaie infette $y$,
+        \item \pause le varroe portatrici di ABPV $m$,
+        \item \pause le varroe senza virus $n$.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Modello a cinque compartimenti}
+    \framesubtitle{Formulazioni ereditate dal modello del 2011 (I)}
+
+    La risposta funzionale della schiusa deve verificare
+    $$g(0)=0 \; , \; \pause \diff{g}{x_h} \geq 0 \; , \; \diff{g}{x_f} \geq 0 \; , %
+    \pause \; \lim_{x_h+x_f \to \infty} g(x_h+x_f)=1 \; .$$
+
+    \pause
+    È una sigmoide di Hill (Holling tipo III):
+    $$g(x_h + x_f) = \frac{ (x_h+x_f)^i }{ K^i + (x_h+x_f)^i }$$
+
+    \pause Nel modello del 2011 era $\frac{H+F}{w+H+F}$ (Holling tipo II).
+\end{frame}
+
+\begin{frame}
+    \frametitle{Modello a cinque compartimenti}
+    \framesubtitle{Formulazioni ereditate dal modello del 2011 (I)}
+
+    \begin{center}
+            \includegraphics[keepaspectratio,width=0.9\textwidth]{img/hillSigmoid}
+    \end{center}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Modello a cinque compartimenti}
+    \framesubtitle{Formulazioni ereditate dal modello del 2011 (II)}
+
+    La risposta funzionale del \textbf{reclutamento sociale} è esattamente la stessa:
+    $$R = \sigma_1 - \sigma_2 \frac{x_f}{x_h+x_f} \quad (2017)$$
+    \pause
+    $$R = \alpha - \sigma \frac{F}{H+F} \quad (2011)$$
+\end{frame}
+
+\begin{frame}
+    \frametitle{Modello a cinque compartimenti}
+    \framesubtitle{Assunzioni (I)}
+
+    \begin{itemize}
+        \item \pause Le api infette $y$ sono \textbf{di casa}, \pause
+            e non vengono più reclutate per bottinare.
+        \item \pause Crescita logistica per le varroe.
+        \item \pause Il tasso massimale di crescita per le varroe \textbf{è lo stesso},
+            che siano portatrici o no.
+        \item \pause La regina non subisce la \emph{Varroa} né il virus.
+            \pause La trasmissione di ABPV è esclusivamente \textbf{orizzontale}.
+        \item \pause La \emph{Varroa} funge da vettore esclusivamente \textbf{meccanico} per il virus.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Modello a cinque compartimenti}
+    \framesubtitle{Assunzioni (II)}
+
+    \begin{itemize}
+        \item Le pupe che arrivano allo stadio adulto sono libere da virus.
+        \item \pause Effetto diretto della \emph{Varroa} che attacca le larve.
+        \item \pause Il virus non ha preferenze tra api di casa e di campo.
+        \item \pause Le varroe in fase foretica non hanno preferenze tra api di casa e di campo.
+        \item \pause I trattamenti anti--acaro danneggiano anche le api,
+            ma \textbf{molto meno} rispetto alle varroe. \pause (``per costruzione'')
+    \end{itemize}
+\end{frame}
+
+\subsection{Equazioni}
+
+\begin{frame}
+    \frametitle{Modello a cinque compartimenti}
+    \framesubtitle{Equazioni (I)}
+
+    Operaie di casa sane:
+    $$ \diff{x_h}{t} = \pause \mu \pause \overbrace{ g( x_h + x_f ) }^{E} %
+        \pause h(m) \pause - \overbrace{ \beta_1 m \frac{x_h}{x_h + x_f + y} }^{\text{infezioni} \pause \to y} %
+        \pause - \overbrace{ \left( d_1 + \delta_1 \right) x_h }^{\text{mortalità}} $$
+    \pause
+    $$ - \underbrace{ \gamma_1 (m+n) x_h }_{\text{varroe}} %
+        - \underbrace{ x_h \cdot R(x_h, x_f) }_{\text{reclutamento} \pause \to x_f}  $$
+\end{frame}
+
+\begin{frame}
+    \frametitle{Modello a cinque compartimenti}
+    \framesubtitle{Equazioni (II)}
+
+    Operaie di campo sane:
+    $$ \diff{x_f}{t} = \pause \overbrace{ x_h \cdot R(x_h, x_f) }^{\text{reclutamento}} %
+    \pause - \overbrace{ \beta_1 m \frac{x_f}{x_h + x_f + y} }^{\text{infezioni} \to y}$$
+    \pause
+    $$ - \underbrace{\left( p + d_2 + \delta_2 \right) x_f}_{\text{mortalità}} %
+    \pause - \underbrace{ \pause \gamma_2 (m+n) x_f }_{\text{varroe}}$$
+\end{frame}
+
+\begin{frame}
+    \frametitle{Modello a cinque compartimenti}
+    \framesubtitle{Equazioni (III)}
+
+    Operaie infette da ABPV (di casa):
+    $$\diff{y}{t} = \pause \overbrace{ \beta_1 m \frac{x_h + x_f}{x_h + x_f + y} }^{\text{nuove infezioni}} %
+    \pause - \underbrace{ \left( d_3 + \delta_3 \right) y }_{\text{mortalità}} %
+    \pause - \underbrace{ \gamma_3 (m+n) y }_{\text{varroe}}$$
+\end{frame}
+
+\begin{frame}
+    \frametitle{Modello a cinque compartimenti}
+    \framesubtitle{Equazioni (IV)}
+
+    Varroe portatrici di ABPV:
+    $$\diff{m}{t} = \pause \overbrace{ rm \left( 1 - \frac{m+n}{ \alpha (x_h + x_f + y) } \right) %
+        }^{\text{riproduzione logistica}}%
+        \pause + \overbrace{ \beta_2 n \frac{y}{x_h + x_f + y} }^{\text{acquisizione}}$$
+    \pause
+    $$- \underbrace{ \beta_3 m \frac{x_h + x_f}{x_h + x_f + y} }_{\text{perdita}} %
+        \pause -\underbrace{ \delta_4 m }_{\text{trattamenti}} $$
+\end{frame}
+
+\begin{frame}
+    \frametitle{Modello a cinque compartimenti}
+    \framesubtitle{Equazioni (V)}
+
+    Varroe senza virus:
+    $$\diff{n}{t} = rn \left( 1 - \frac{m+n}{ \alpha (x_h + x_f + y) } \right) - \beta_2 n \frac{y}{x_h + x_f + y}$$
+    $$+ \beta_3 m \frac{x_h + x_f}{x_h + x_f + y} - \delta_5 n$$
+\end{frame}
+
+
+
+
+
 
 
 
