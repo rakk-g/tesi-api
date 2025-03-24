@@ -31,7 +31,7 @@
 % Abbiamo block (neutro), alertblock (negativo) e exampleblock (positivo).
 % Magari è una buona idea chiamare il primo frame come la sezione, quando la si cambia.
 
-\section{Introduzion}
+\section{Intro}
 
 
 \begin{frame}
@@ -65,6 +65,14 @@
 
     \pause
     Mercato indiretto (impollinazione): $570 \times 10^9 \$$ annui.
+\end{frame}
+
+\begin{frame}
+    \frametitle{Api e scienze cognitive}
+
+    \begin{center}
+        \includegraphics[keepaspectratio,width=0.8\textwidth]{img/bee-brain}
+    \end{center}
 \end{frame}
 
 
@@ -191,8 +199,13 @@
 
     \pause
     \begin{alertblock}{Nei modelli matematici sulle api}
+        \centering
         Il modello di una popolazione \emph{è} il modello di una famiglia.
+
+        \includegraphics[keepaspectratio,width=0.34\textwidth]{img/arnia}
     \end{alertblock}
+
+
 \end{frame}
 
 \begin{frame}
@@ -240,7 +253,7 @@
     \end{center}
 
     \begin{itemize}
-        \item operaie \textbf{di nido (giovani)}: \pause nutrici, ceraiole, guardiane, spazzine, \dots
+        \item operaie \textbf{di nido (giovani)}: \pause nutrici, \pause ceraiole, guardiane, spazzine, \dots
         \item \pause operaie \textbf{di campo (anziane)}: \pause esploratrici, bottinatrici.
     \end{itemize}
 
@@ -249,17 +262,18 @@
 
 \begin{frame}
     \frametitle{Semplificazioni per le api}
-    \framesubtitle{Conseguenze pratiche per tutti i modelli (*)}
+    \framesubtitle{Conseguenze pratiche per tutti (*) i modelli}
 
 
     \begin{itemize}
         \item ignora del tutto i fuchi.
-        \item \pause ignora la regina, a parte:
+        \item \pause della regina considera soltanto:
         \begin{itemize}
             \item \pause il suo tasso di ovideposizione,
             \item \pause le interazioni funzionali della covata coi compartimenti di operaie.
         \end{itemize}
         \item \pause ignora la sciamatura. (*)
+        \item \pause effetto \emph{Allee}.
         \item \pause la risorsa cibo si può rappresentare implicitamente nelle relazioni funzionali tra
             bottinatrici e operaie di casa. (*)
     \end{itemize}
@@ -273,16 +287,16 @@
     \frametitle{Modellazione matematica e dati sperimentali}
     \framesubtitle{Ricerca accademica e comparto agricolo}
 
-    Mutui vantaggi nelle relazioni tra Matematica ed altre scienze e apicoltura:
+    Mutui vantaggi nelle relazioni tra Matematica ed altre scienze e reti di apicoltura professionale:
     \begin{itemize}
         \item Indicazioni che accelerano la ricerca \pause (es. homing failure)
         \item \pause \dots
-        \item Stima dei parametri
+        \item Stima dei parametri da misure dirette
     \end{itemize}
 
     \pause
-    esempio: flightspan $\to$ mortalità \pause
-    $$ \sum_{k=1}^{\infty} k m {(1-m)}^k = \pause
+    Esempio: flightspan $\to$ mortalità \pause
+    $$ \mathbb{E} = \sum_{k=1}^{\infty} k m {(1-m)}^k = \pause
     m \underbrace{ \sum_{k=1}^{\infty} k {(1-m)}^k }_{m^{-2}}
     \pause = \frac{1}{m}$$
 \end{frame}
@@ -391,7 +405,7 @@
     \framesubtitle{Studio della stabilità}
 
     \begin{itemize}
-        \item Criteri di esistenza di equilibri non banali.
+        \item \pause Criteri di esistenza di equilibri non banali.
         \item \pause Criteri di stabilità. \pause Esempio:
             nelle regioni in cui l'equilibrio banale è attrattivo, il collasso della colonia è inevitabile.
     \end{itemize}
@@ -410,8 +424,8 @@
     \frametitle{Modello a due compartimenti}
     \framesubtitle{Studio della stabilità}
 
-    Se la mortalità è contenuta:
-    $$m < \frac{L}{2w} \frac{ \alpha + \sigma + \sqrt{ {(\alpha - \sigma)}^2 + \frac{4 \sigma L}{w} } }{\alpha - L/w}$$
+    Se invece la mortalità è contenuta:
+    $$m < \frac{L}{2w} \cdot \frac{ \alpha + \sigma + \sqrt{ {(\alpha - \sigma)}^2 + \frac{4 \sigma L}{w} } }{\alpha - L/w}$$
     allora esiste anche un equilibrio (strett.) positivo, univocamente determinato dai parametri.
 
     \pause
@@ -805,25 +819,210 @@
 \end{frame}
 
 
-
-
-
-
-
-
-
-
+\subsection{Risultati}
 
 \begin{frame}
     \frametitle{Modello a cinque compartimenti}
-    \framesubtitle{Studio della stabilità}
+    \framesubtitle{Studio della stabilità (I)}
 
-    Gli stessi di prima, più
+    Gli stessi di prima (esistenza e stabilità equilibri (non) banali), \pause
+    ed anche
     \begin{itemize}
         \item Equilibri endemici
-        \item Equilibri senza patogeni
+        \item \pause Equilibri senza patogeni
     \end{itemize}
 \end{frame}
 
+\begin{frame}
+    \frametitle{Modello a cinque compartimenti}
+    \framesubtitle{Studio della stabilità (II)}
+
+    Parametri \textbf{costanti}:
+    \begin{enumerate}
+        \item \pause Modello ridotto alle sole api $(x_h, x_f)$.
+        \item \pause Modello ridotto senza virus $(x_h, x_f, n)$: + equilbrio \emph{senza varroe}.
+        \item \pause Modello completo $(x_h, x_f, y, m, n)$: + equilibrio \emph{senza patogeni}.
+    \end{enumerate}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Modello a cinque compartimenti}
+    \framesubtitle{Studio della stabilità (III)}
+
+    Riassunto: l'equilibrio banale esiste sempre ed è stabile.
+
+
+    \begin{block}{Modello ridotto senza patogeni}
+        Due equilibri $(x_h^*, x_f^*)$ non banali: esistono se
+        $$\frac{\sigma_2 F}{1+F} - d_1 - \sigma_1 <0 \; , \quad %
+            a > \frac{Ki}{1+F} (i-1)^{\frac{1}{i} -1}$$
+
+        \pause
+        Sono stabili se
+        $$\mu \frac{ i K^i (1+F)^{i-1}{x_h^*}^{i-1} }{ {\left[ K^i +(1+F)^i {x_h^*}^i \right]}^2 } %
+            < \frac{d_1 + (p+d_2)F}{1+F}$$
+    \end{block}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Modello a cinque compartimenti}
+    \framesubtitle{Studio della stabilità (IV)}
+
+    \begin{block}{Modello ridotto senza virus}
+        Due equilibri della forma $(x_h^*, F x_h^*, 0)$ esistono se
+        $$\frac{\sigma_2 F}{1+F} - d_1 -\delta_1 -\sigma_1 < 0 \; , \quad %
+            a > \frac{Ki}{1+F} {(i-1)}^{\frac{1}{i} -1}$$
+
+        \pause
+        Sono stabili se $r < \delta_5$ e
+        $$\mu \frac{ i K^i (1+F)^{i-1}{x_h^*}^{i-1} }{ {\left[ K^i +(1+F)^i {x_h^*}^i \right]}^2 }
+            < \frac{d_1 + \delta_1 + (p+d_2+\delta_2)F}{1+F}$$
+    \end{block}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Modello a cinque compartimenti}
+    \framesubtitle{Studio della stabilità (V)}
+
+    \begin{block}{Modello completo}
+        Due equilibri della forma $(x_h^*, F x_h^*, 0, 0, 0)$ esistono se
+        $$\frac{\sigma_2 F}{1+F} - d_1 -\delta_1 -\sigma_1 < 0 \; , \quad %
+        a > \frac{Ki}{1+F} {(i-1)}^{\frac{1}{i} -1}$$
+
+        \pause Sono stabili se $r - \beta_3 - \delta_4 < 0 , \; r - \delta_5 < 0$ e
+        $$\mu \frac{ i K^i (1+F)^{i-1}{x_h^*}^{i-1} }{ {\left[ K^i +(1+F)^i {x_h^*}^i \right]}^2 }
+            < \frac{d_1 + \delta_1 + (p+d_2+\delta_2)F}{1+F}$$
+    \end{block}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Modello a cinque compartimenti}
+    \framesubtitle{Teoria di Floquet (I)}
+
+    Parametri \emph{periodici}: Teoria di Floquet.
+
+    \vspace{1em}
+    Sistema omogeneo, lineare a coefficienti periodici
+    $$\diff{}{t} \mathbf{x} = A(t) \cdot \mathbf{x}$$
+
+    \pause
+    Sia $\Psi (t)$ la sua matrice fondamentale
+    \pause (s.p.g. $\Psi (0) = I_n$).
+
+    \pause
+    \vspace{1em}
+    Matrice di monodromia $C= \Psi^{-1} (0) \Psi (T)$:
+    \pause
+    i suoi autovalori sono i \emph{moltiplicatori di Floquet}.
+
+    \pause
+    \vspace{1em}
+    Forma normale di Floquet: $\Psi (t) = Q(t) e^{tB}$
+\end{frame}
+
+\begin{frame}
+    \frametitle{Modello a cinque compartimenti}
+    \framesubtitle{Teoria di Floquet (II)}
+
+    Conseguenza:
+
+    L'equilibrio $\mathbf{0}$ del sistema è
+    \begin{itemize}
+        \item \pause asintoticamente stabile sse tutti i moltiplicatori di Floquet stanno nella
+        parte interna di $D$;
+        \item \pause stabile se tutti i $\mu_j \in D$, e quelli sul bordo sono semisemplici;
+        \item \pause instabile altrimenti.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Modello a cinque compartimenti}
+    \framesubtitle{Studio della stabilità (VI)}
+
+    Linearizzando nel punto di equilibrio + Teoria di Floquet
+
+    \begin{exampleblock}{Modello completo, parametri periodici}
+        La soluzione periodica $\left( x_h^*(t), x_f^*(t), 0, 0, 0 \right)$
+        \pause per il modello completo è stabile se
+        \begin{enumerate}
+            \item \pause $\left( x_h^*(t), x_f^*(t) \right)$ è stabile per il modello ridotto alle sole api;
+            \item \pause $\int_0^T (r - \delta_5) dt \leq 0$;
+            \item \pause $\int_0^T (r -\beta_3 - \delta_4) dt \leq 0$.
+        \end{enumerate}
+    \end{exampleblock}
+\end{frame}
+
+
+\section{Conclusioni}
+
+
+\begin{frame}
+    \frametitle{Conclusioni}
+    \framesubtitle{Modelli esaminati}
+
+    \cite{khoury2011} introduce dinamiche \emph{sociali} nel reclutamento e nell'allevamento della covata.
+
+    \pause
+    \vspace{1em}
+    Riutilizzate in \cite{ratti2017}:
+    \begin{itemize}
+        \item \pause meccanismi complessi di contagio da \emph{Varroa} ed ABPV
+        \item \pause intervento umano ($\delta_i, p$)
+        \item \pause parametri periodici!
+    \end{itemize}
+
+    Aderenza alla stagionalità reale, \pause dinamica \emph{funzionale} della regina.
+\end{frame}
+
+\begin{frame}
+    \frametitle{Conclusioni}
+    \framesubtitle{Altri modelli}
+
+    Altri modelli per \emph{A.~mellifera} (2005--oggi):
+    \begin{itemize}
+        \item \pause termini di ritardo nelle equazioni
+        \item \pause compartimenti per cibo, cera, propoli, feromoni, \dots
+        \item \pause ``stomaco comune''
+        \item \pause immunità sociale
+        \item \pause spazialità
+        \item \pause sciamatura
+        \item \pause stagionalità, meteo, \dots
+    \end{itemize}
+
+    \pause Osservazioni:
+    \begin{enumerate}
+        \item Quasi tutti incorporano dinamiche sociali (2 caste di operaie) introdotte nel 2011.
+        \item \pause Se considerano \emph{più di un patogeno}, uno di essi è sempre \pause la \emph{Varroa}.
+    \end{enumerate}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Conclusioni}
+    \framesubtitle{Collaborazioni extra--matematiche}
+
+    La modellistica matematica è molto utile anche in questo ambito.
+
+    \pause
+    \vspace{1em}
+    Aziende, associazioni, istituzioni, \dots \emph{collaborano} nella ricerca accademica.
+
+    \pause
+    \vspace{1em}
+    O.P.
+\end{frame}
+
+
+\section{Fine}
+
+
+\begin{frame}
+
+    \vspace{4em}
+    \centering
+    Grazie per l'attenzione.
+
+    \vspace{4em}
+    Domande, interventi?
+\end{frame}
 
 \end{document}
