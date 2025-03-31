@@ -77,7 +77,7 @@ unset key
 fit [0.35:1] [0:800] line(x) aggrFname using 5:12 via m, q
 set xlabel "m"
 set title "First Day Of (colony) Death against mortality."
-set ylabel "FDOD"
+set ylabel "FDOD [days]"
 set ytics 100,100
 set yrange [10:*]
 # set logscale y

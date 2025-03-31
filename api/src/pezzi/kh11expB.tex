@@ -9,7 +9,7 @@ L'obiettivo dell'esperimento è studiare qualitativamente la risposta funzionale
 sottoposta a una mortalità \emph{variabile} nel tempo.
 
 \paragraph{}
-Gli autori affermano\footcite[2,3]{khoury2011} che la formulazione~\eqref{eq:Recr}
+Gli autori\footcite[2,3]{khoury2011} affermano che la formulazione~\eqref{eq:Recr}, ovvero
 $$R = \alpha - \sigma \frac{F}{H+F}$$
 rappresenta la risposta funzionale della colonia all'equilibrio/disequilibrio tra il numero di operaie in $H$ ed $F$,
 ad esempio accelerando il reclutamento precoce in caso di deficit di api bottinatrici.
@@ -24,7 +24,7 @@ la risposta del sistema a stimoli non costanti, bensì periodici.
 Sono state svolte diverse simulazioni di una singola colonia con parametri costanti
 $$w= 25000, \quad L=2000 \; , \quad \alpha=\frac{1}{4}, \quad \sigma= \frac{3}{4} \; ,$$
 fino a $T=750~\text{giorni}$, con passo $\Delta t = 1~\text{giorno}$.
-Si noti che per questa scelta dei parametri la condizione~\eqref{eq:cond6b} è vera.
+Si noti che per questa scelta dei parametri la condizione~\eqref{eq:cond6b} è verificata.
 
 Le condizioni iniziali della colonia sono sempre $(H_0, F_0) = (10000, 4000)$ in tutte le simulazioni.
 
@@ -48,7 +48,7 @@ Tali figure riportano nei grafici superiori le numerosità nei comparti $H, F$
 I grafici inferiori riportano invece grandezze consistenti, giacché la mortalità $m$ ed il tasso di
 reclutamento $R$ sono entrambi in unità di 1/die.
 
-Vediamo adesso nel dettaglio la risposta dell'alveare alle diverse forme esaminate di mortalità variabili.
+Nel seguito è analizzata nel dettaglio la risposta dell'alveare alle diverse forme esaminate di mortalità variabili.
 
 
 \subsection{Stimolo a scalino}
@@ -58,7 +58,7 @@ a mortalità $m= m_+ =0,55$, a partire dal trecentesimo giorno.
 Il risultato della simulazione (illustrato in figura~\ref{img:expB1}) conferma quanto affermato
 nella proposizione~\ref{teo:esistenzPosF} (sez.~\ref{sec:kh11}) e quanto visto nell'esperimento numerico
 della sezione~\ref{ssec:simSoglie}:
-per $m<m_2^*$ la colonia affronta con successo le avversità e la popolazione tende ad un equilibrio positivo.
+per $m<m_2^* =0,4$ la colonia affronta con successo le avversità e la popolazione tende ad un equilibrio positivo.
 \begin{figure}[!h]
     \centering
     \includegraphics[keepaspectratio,width=\textwidth]{img/alternativeA}
@@ -153,7 +153,7 @@ deficit nutrizionali o di patologie particolarmente invalidanti.
 Questa considerazione -- incorporata in molti
 modelli per \emph{A.~mellifera}\footcite{khoury2011,ratti2017,chen_review,betti2014} --
 è corroborata anche dall'esperimento con stimolo a scalino (visto sopra), e da quello descritto nella
-prossima sottosezione (figg.~\ref{img:expB4} e \ref{img:expB5}).
+prossima sottosezione (figure~\ref{img:expB4} e \ref{img:expB5}).
 
 
 \subsection{Stimolo periodico}
@@ -184,7 +184,7 @@ essere eradicato: la popolazione ed il patogeno coesistono in un equilibrio dina
 \end{figure}
 
 \paragraph{}
-Si può osservare che se l'incremento medio sul periodo porta la mortalità ad un livello inferiore ad $m_2^*$
+Si può osservare che se l'incremento medio sul periodo porta la mortalità ad un livello inferiore ad $m_2^*=0,4$
 (cfr. proposizione~\ref{teo:esistenzPosF}), la colonia risponde con successo ai fattori di stress, anche
 se la popolazione in entrambi i compartimenti ovviamente diminuisce quando incontra le avversità.
 
@@ -209,6 +209,17 @@ prolungato, e la popolazione declina inesorabilmente.
     \label{img:expB5}
 \end{figure}
 
+\paragraph{}
+In altre simulazioni (non riportate per brevità) si è variata la forma dello stimolo periodico, i massimi e minimi,
+l'ampiezza. I risultati confermano essenzialmente quanto già visto sperimentalmente e quanto affermato
+nel criterio di stabilità (proposizione~\ref{teo:esistenzPosF}): se la mortalità \emph{media sul periodo}
+(\ie analiticamente, la media integrale $\frac{1}{T} \int_0^T m \de t$) è inferiore alla soglia $m_2^*$ la colonia
+sopravvive, altrimenti la popolazione declina rapidamente.
+
+Nella simulazione corrente i valori dei parametri forniscono $m_2^*=0,4$.
+
+
+\paragraph{}
 Concludiamo la sezione osservando che la differenza qualitativa tra un equilibrio endemico ed un equilibrio banale
 (\ie in cui la popolazione di api tende a zero) è catturata in entrambi i modelli studiati nel capitolo~\ref{chap:modelz}
 (cfr. propp.~\ref{teo:esistenzPosF} e \ref{prop:exist5D}, rispettivamente), e motivata dalle considerazioni

@@ -61,31 +61,36 @@ Nella pseudo--sintassi di $\mathtt{ode45}$ nella~\eqref{eq:numSolutor} si vuole 
     \item ulteriori parametri $p$ quali: scelta del metodo di approssimazione numerica, di adattamento dinamico del passo
         $\Delta t$, dei criteri d'arresto, etc.
 \end{itemize}
-Generalmente una siffatta routine $\mathtt{ode45}$ ritorna un array di valori in virgola mobile\footnote{Più
+
+La routine $\mathtt{ode45}$ ritorna un array di valori in virgola mobile\footnote{Più
 precisamente: un array \emph{bidimensionale} (una matrice), in cui ogni colonna rappresenta
 il vettore--soluzione $\mathbf{x}(t)$ approssimato ad un certo tempo $t$.}
 \begin{equation}
-\mathbf{y} = \left( y_0, y_1, \dots y_N \right) \; ,
+\mathbf{y} = \left( \mathbf{y}_0, \mathbf{y}_1, \dots \mathbf{y}_N \right) \; ,
 \label{eq:approxSol}
 \end{equation}
-i quali verificano $y_0 \approx \mathbf{x}_0$ e
-$$\frac{y_i - y_{i-1}}{\Delta t} \approx F \left( y_i, i \cdot \Delta t \right) \, , \quad 0 < i \leq N.$$
+i quali verificano $\mathbf{y}_0 \approx \mathbf{x}_0$ ed ogni $\mathbf{y}_i$ rappresenta l'approssimazione
+numerica della soluzione al tempo $i \cdot \Delta t$.
+
+In particolare, la soluzione del problema di Cauchy~\eqref{eq:probCauchy} è approssimata come
+$$\frac{\mathbf{y}_i - \mathbf{y}_{i-1}}{\Delta t} \approx %
+F \left( \mathbf{y}_i, i \cdot \Delta t \right) \, , \quad 0 < i \leq N \; .$$
 
 \paragraph{}
 Ai fini della presente, si osservi che una soluzione del tipo~\eqref{eq:approxSol}, ottenuta applicando il solutore
 numerico~\eqref{eq:numSolutor} ai modelli di \emph{Apis} esposti nel capitolo~\ref{chap:modelz} fornisce l'andamento
 di una soluzione approssimata $\mathbf{y}$ sotto forma di matrice, in cui l'$i$-esimo
-vettore--colonna $y_i$ contiene il valore di
+vettore--colonna $\mathbf{y}_i$ contiene il valore di
 tutti i compartimenti (api ed eventuali patogeni) al tempo $t = i \cdot \Delta t$.
 
 Questo tipo di simulazione numerica è stato utilizzato anche dagli autori dei modelli\footcite{khoury2011,ratti2017},
 sia per validare empiricamente i risultati teorici dimostrati nei rispettivi articoli, sia per estendere
 quanto già stabilito ed indirizzare la ricerca futura. Vedasi in proposito le figure~\ref{img:kh11phasePlane} e
-\ref{img:r17sim}.
+\ref{img:r17sim}, tratte da \cite{khoury2011} e \cite{ratti2017}, rispettivamente.
 
 \paragraph{}
-Presentiamo adesso alcune nuove simulazioni svolte per il modello a due compartimenti\footcite{khoury2011}
-studiato nella sezione~\ref{sec:kh11}, che confermano ed estendono alcuni risultati degli autori.
+Presentiamo adesso alcune nuove simulazioni svolte per il modello a due compartimenti
+studiato nella sezione~\ref{sec:kh11}, che confermano ed estendono alcuni risultati degli autori.\footcite{khoury2011}
 
 È stato usato il software libero \texttt{GNU Octave}, versione \texttt{9.2.0} e nello specifico
 la routine \texttt{ode45} che implementa il metodo di Dormand--Prince al quarto ordine, un solutore

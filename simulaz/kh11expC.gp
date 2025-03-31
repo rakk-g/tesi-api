@@ -12,8 +12,9 @@ Nminus=1000
 # these draw distances (on various axes) are used in a number of things.
 minInitPop = 100
 maxInitPop = 42000
-minFinalPop = 1
+minFinalPop = 10
 maxFinalPop = 250000
+Tdays=720
 
 
 # 1. - Final population vs. initial population.
@@ -27,10 +28,10 @@ set logscale y
 set ylabel "Final population"
 set yrange [minFinalPop:maxFinalPop]
 # show weak/strong limits on both axes
-set arrow from Nminus,minFinalPop to Nminus,maxFinalPop nohead dashtype 2 linecolor "grey" # weak threshold on horizontal axis
-set arrow from Nplus,minFinalPop  to Nplus,maxFinalPop  nohead dashtype 2 linecolor "grey" # strong threshold on horizontal axis
-set arrow from minInitPop,Nminus to maxInitPop,Nminus  nohead dashtype 2 linecolor "grey" # weak threshold on vertical axis
-set arrow from minInitPop,Nplus  to maxInitPop,Nplus   nohead dashtype 2 linecolor "grey" # strong threshold on vertical axis
+set arrow from Nminus,minFinalPop to Nminus,maxFinalPop nohead dashtype 2 linecolor "black" # weak threshold on horizontal axis
+set arrow from Nplus,minFinalPop  to Nplus,maxFinalPop  nohead dashtype 2 linecolor "black" # strong threshold on horizontal axis
+set arrow from minInitPop,Nminus to maxInitPop,Nminus  nohead dashtype 2 linecolor "black" # weak threshold on vertical axis
+set arrow from minInitPop,Nplus  to maxInitPop,Nplus   nohead dashtype 2 linecolor "black" # strong threshold on vertical axis
 set palette defined (0 "green", 0.5 "blue", 1 "red") # this is good for mortality
 set cblabel "m"
 plot fName using 1:2:3 with points pointtype 7 linecolor palette
@@ -67,9 +68,9 @@ set output "k11EC-fdw-initPop.png"
 unset key
 set xlabel "Initial population"
 set xrange [minInitPop:maxInitPop]
-set arrow from Nminus,minFinalPop to Nminus,maxFinalPop nohead dashtype 2 linecolor "grey" # weak threshold on horizontal axis
-set arrow from Nplus,minFinalPop  to Nplus,maxFinalPop  nohead dashtype 2 linecolor "grey" # strong threshold on horizontal axis
-set ylabel "FDW"
+set arrow from Nminus,minFinalPop to Nminus,maxFinalPop nohead dashtype 2 linecolor "black" # weak threshold on horizontal axis
+set arrow from Nplus,minFinalPop  to Nplus,maxFinalPop  nohead dashtype 2 linecolor "black" # strong threshold on horizontal axis
+set ylabel "FDW [days]"
 set yrange [0:*]
 set palette defined (0 "green", 0.5 "blue", 1 "red") # this is good for mortality
 set cblabel "m"
@@ -84,9 +85,9 @@ set output "k11EC-fds-initPop.png"
 unset key
 set xlabel "Initial population"
 set xrange [minInitPop:maxInitPop]
-set arrow from Nminus,minFinalPop to Nminus,maxFinalPop nohead dashtype 2 linecolor "grey" # weak threshold on horizontal axis
-set arrow from Nplus,minFinalPop  to Nplus,maxFinalPop  nohead dashtype 2 linecolor "grey" # strong threshold on horizontal axis
-set ylabel "FDS"
+set arrow from Nminus,minFinalPop to Nminus,maxFinalPop nohead dashtype 2 linecolor "black" # weak threshold on horizontal axis
+set arrow from Nplus,minFinalPop  to Nplus,maxFinalPop  nohead dashtype 2 linecolor "black" # strong threshold on horizontal axis
+set ylabel "FDS [days]"
 set yrange [0:*]
 set palette defined (0 "green", 0.5 "blue", 1 "red") # this is good for mortality
 set cblabel "m"
@@ -101,9 +102,11 @@ set output "k11EC-fdX-m.png"
 # unset key
 set xlabel "m"
 set xrange [0:*]
-set ylabel "FDW, FDS"
-set yrange [1:*] # NOTE così tolgo quelle che *iniziano* forti o deboli
+set ylabel "FDW, FDS [days]"
+set yrange [1:Tdays] # NOTE così tolgo quelle che *iniziano* forti o deboli
 set palette defined (0 "red", 0.5 "blue", 1 "green") # this is good for populations (inverse of mortality)
 set cblabel "Final population"
+set arrow from 0.08,1 to 0.08,Tdays nohead dashtype 2 linecolor "black" #m1
+set arrow from 0.508,1 to 0.508,Tdays nohead dashtype 2 linecolor "black" #m2
 plot fName using 3:4:2 with points pointtype 7 linecolor palette title "FDW", \
 '' using 3:5:2 with points pointtype 9 linecolor palette title "FDS", \
