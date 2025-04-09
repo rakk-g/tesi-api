@@ -4,6 +4,7 @@ api/appti.md
 ## LATEX ##
 # keep only the main source(s)
 api/src/tesiApi*
+api/src/beamer*
 !api/src/bozza.tex
 # exclude more auxiliary files
 api/src/pezzi/*.aux

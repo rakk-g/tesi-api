@@ -1,4 +1,4 @@
-\documentclass[]{beamer}
+\documentclass[]{beamer} % you can't use 'compress' option until you load 'sidebar' as outer theme!
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[italian]{babel}
@@ -6,142 +6,50 @@
 \usepackage{csquotes}
 \usepackage{esdiff} % comandi per le derivate: \diff, \diffp, c'è anche la valutazione in un punto!
 
-
 \usepackage[bibstyle=alphabetic,citestyle=authortitle,backend=biber,backref]{biblatex}
 \bibliography{api}
-
 
 % rubate da comandi per non prenderlo tutto
 \newcommand{\st}{\,\mid\;}
 
-
-\usetheme{JuanLesPins}
+% \usetheme{Madrid} % Madrid and similar add the footline
 \useinnertheme{rounded}
-\useoutertheme{sidebar}
+\useoutertheme{default} % I don't want the footline bar
 \usecolortheme{crane}
 % \usefonttheme[stillsansseriflarge]{serif}
 \usefonttheme[]{serif}
 
-\title{Dinamica delle popolazioni di \emph{Apis mellifera}}
+\title[Modelli per \emph{A.~mellifera}]{Dinamica delle popolazioni di \emph{Apis mellifera}}
 \author[]{Martino De Leo}
-\date{25 Marzo 2025}
-\logo{\includegraphics[width=15mm]{img/unifiLogo}}
+\date{16 Aprile 2025}
+% \logo{\includegraphics[width=15mm]{img/unifiLogo}} % così lo mette in tutte le diapo
+\titlegraphic{\includegraphics[width=15mm]{img/unifiLogo}} % così soltanto nella diapo del titolo
 
 \begin{document}
 % Abbiamo block (neutro), alertblock (negativo) e exampleblock (positivo).
-% Magari è una buona idea chiamare il primo frame come la sezione, quando la si cambia.
-
-\section{Intro}
-
-
 \begin{frame}
     \maketitle
 \end{frame}
 
 
 \begin{frame}
-    \frametitle{Api e civiltà umana}
-    \framesubtitle{Una relazione interspecifica millenaria}
+    \frametitle{Perché proprio le api?}
+    \framesubtitle{Importanza ecologica, socio--culturale ed economica}
 
-    \begin{center}
-        \includegraphics[keepaspectratio,width=0.26\textwidth]{img/AranaCaves}
-    \end{center}
+    \begin{columns}
+        \begin{column}{0.45\textwidth}
+            \includegraphics[keepaspectratio,width=0.6\textwidth]{img/AranaCaves}
+        \end{column}
+        \pause
+        \begin{column}{0.45\textwidth}
+            \includegraphics[keepaspectratio,width=0.9\textwidth]{img/forager_bee}
 
-    \begin{displayquote}[\cite{honeyreligion}]
-        ``Humans have eaten, and fixed their wounds with honey and traded with it since history has been recorded.''
-    \end{displayquote}
-\end{frame}
+            Mercato diretto: $8 \times 10^9 \$$ annui.
 
-
-\begin{frame}
-    \frametitle{Api e civiltà umana}
-    \framesubtitle{Importanza delle api oggi}
-
-    \begin{center}
-        \includegraphics[keepaspectratio,width=0.5\textwidth]{img/forager_bee}
-    \end{center}
-
-    Mercato diretto (apicoltura): $8 \times 10^9 \$$ annui.
-
-    \pause
-    Mercato indiretto (impollinazione): $570 \times 10^9 \$$ annui.
-\end{frame}
-
-\begin{frame}
-    \frametitle{Api e scienze cognitive}
-
-    \begin{center}
-        \includegraphics[keepaspectratio,width=0.8\textwidth]{img/bee-brain}
-    \end{center}
-\end{frame}
-
-
-\section{Modelli}
-\begin{frame}
-    \frametitle{Strumenti per i modelli biologici}
-    \framesubtitle{Due secoli di progressi}
-
-    Primi modelli (XIX sec.): risposta numerica.
-    \begin{itemize}
-        \item (Malthus) $\diff{P}{t} = rP$ \pause \quad $\rightarrow P(t) = P_0 \; e^{rt}$.
-        \item (Verlhust) $\diff{P}{t} = rP \left( 1 - \frac{P}{K} \right)$
-            \pause \quad $\rightarrow P(t) = \frac{K}{1+qe^{-rt}}$.
-    \end{itemize}
-
-    \pause
-    \begin{center}
-        \includegraphics[keepaspectratio,width=0.7\textwidth]{img/logisticF}
-    \end{center}
-\end{frame}
-
-
-\begin{frame}
-    \frametitle{Strumenti per i modelli biologici}
-    \framesubtitle{Modelli matematici moderni}
-
-    Limiti della risposta numerica: max. 2 o 3 specie, interazioni \emph{semplici}.
-
-    \pause
-    Risposta \emph{funzionale}: relazioni complesse infra-- ed inter--specifiche.
-
-    \pause
-    \begin{exampleblock}{Esempio}
-        Funzioni di Holling: $$f(x) = \frac{a x^k}{1 + a h x^k}$$
-    \end{exampleblock}
-\end{frame}
-
-\begin{frame}
-    \frametitle{Strumenti per i modelli biologici}
-    \framesubtitle{Esempio: funzioni di Holling}
-
-    \begin{center}
-        \includegraphics[keepaspectratio,width=0.8\textwidth]{img/hollo}
-    \end{center}
-\end{frame}
-
-\begin{frame}
-    \frametitle{Strumenti per i modelli biologici}
-    \framesubtitle{Esempio: funzioni di Holling (caso delle api)}
-
-    Schiusa delle larve in una colonia: Holling tipo II o III.
-    \begin{center}
-        \includegraphics[keepaspectratio,width=0.88\textwidth]{img/hollingTypeII-eclosion}
-    \end{center}
-\end{frame}
-
-
-\subsection{Epidemiologia}
-
-
-\begin{frame}
-    \frametitle{Modelli a compartimenti}
-
-    Popolazione nel compartimento $x_i$ al tempo $t$: $x_i(t)$.
-
-    \pause
-    Le $N$ equazioni differenziali
-    $$ \diff{x_i}{t} = G_i (x_1, \dots x_n, t) \qquad i=1, \dots, N$$
-    modellano le relazioni tra i compartimenti (omogenei o no).
+            \pause
+            Indiretto: $570 \times 10^9 \$$ annui.
+        \end{column}
+    \end{columns}
 \end{frame}
 
 
@@ -170,24 +78,6 @@
     \begin{center}
         \includegraphics[keepaspectratio,width=0.7\textwidth]{img/sirvd}
     \end{center}
-\end{frame}
-
-\subsection{Api}
-
-
-\begin{frame}
-    \frametitle{Modelli matematici per \emph{A. mellifera}}
-    \framesubtitle{Modelli computazionali ed a compartimenti}
-
-    \begin{itemize}
-    \item Anni '70: arrivo della \emph{Varroa} in occidente, api africanizzate \pause
-        \\
-        $\rightarrow$ Primi modelli computazionali (VARROAPOP, BEEHIVE).
-    \item \pause Ecocidio degli impollinatori (2005-) \pause
-        \\
-        $\rightarrow$  Nuova spinta alla ricerca, che produce \emph{molti} modelli e
-        nuove tecniche specifiche per le api.
-    \end{itemize}
 \end{frame}
 
 
@@ -280,18 +170,18 @@
 \end{frame}
 
 
-\subsection{Dati}
 
 
 \begin{frame}
     \frametitle{Modellazione matematica e dati sperimentali}
     \framesubtitle{Ricerca accademica e comparto agricolo}
 
-    Mutui vantaggi nelle relazioni tra Matematica ed altre scienze e reti di apicoltura professionale:
+    Ecocidio degli impollinatori (2005--)
+
     \begin{itemize}
-        \item Indicazioni che accelerano la ricerca \pause (es. homing failure)
-        \item \pause \dots
-        \item Stima dei parametri da misure dirette
+        \item Homing failure da pesticidi
+        \item \pause Dinamiche complesse tra le caste di operaie e l'ambiente
+        \item \pause Stima dei parametri da misure dirette
     \end{itemize}
 
     \pause
@@ -302,7 +192,6 @@
 \end{frame}
 
 
-\section{2D (2011)} % Khoury et al. 2011
 
 
 \begin{frame}
@@ -322,7 +211,7 @@
     \framesubtitle{Equazioni (I)}
 
     Api di casa:
-    $$\diff{H}{t} = E(H,F) \pause - H \cdot R(H,F) $$
+    $$\diff{H}{t} = \overbrace{ E(H,F) }^{\text{schiusa}} \pause - H \cdot \overbrace{ R(H,F) }^{\text{reclutamento}} $$
 
     \pause
     Api di campo:
@@ -333,18 +222,15 @@
 \end{frame}
 
 
-\subsection{Risposte sociali}
-
-
 \begin{frame}
     \frametitle{Modello a due compartimenti}
     \framesubtitle{Tasso di schiusa}
 
-    Il tasso di ovideposizione della regina $L$ è modulato da una funzione di Holling (tipo II)
-    per modellare le necessità trofiche e sociali della covata (risposta funzionale).
+    Modulazione di $L$: necessità trofiche e sociali della covata (risposta funzionale).
 
-    \pause
-    $$E = L \frac{H+F}{w+H+F}$$
+    $$E = L \pause \frac{H+F}{w+H+F}$$
+
+    (Holling II)
 
 \end{frame}
 
@@ -362,16 +248,8 @@
     \frametitle{Modello a due compartimenti}
     \framesubtitle{Reclutamento sociale}
 
-    Il passaggio tra le mansioni da operaia di casa a quelle più complesse è regolato \emph{socialmente}
-    (trofallassi e feromoni):
-    \pause
-    risposta \emph{fisiologica} alle avversità,
-    \pause
-    fornisce resilienza alle famiglie \pause (\emph{quasi} sempre).
-
-    \pause
-    In questo modello il termine di trasferimento è $H R$, dove
-    $$R = \alpha - \sigma \frac{F}{H+F}$$
+    In questo modello il termine di trasferimento è
+    $$H R = \pause H \left( \alpha - \sigma \frac{F}{H+F} \right)$$
 \end{frame}
 
 \begin{frame}
@@ -382,7 +260,6 @@
     $$\diff{H}{t} = \overbrace{L \frac{H+F}{w+H+F}}^{\text{schiusa}} - H
     \overbrace{\left( \alpha - \sigma \frac{F}{H+F} \right)}^{R} $$
 
-    \pause
     Api di campo:
     $$\diff{F}{t} = H \left( \alpha - \sigma \frac{F}{H+F} \right) - mF $$
 \end{frame}
@@ -396,20 +273,6 @@
     \end{center}
 \end{frame}
 
-
-\subsection{Risultati}
-
-
-\begin{frame}
-    \frametitle{Modello a due compartimenti}
-    \framesubtitle{Studio della stabilità}
-
-    \begin{itemize}
-        \item \pause Criteri di esistenza di equilibri non banali.
-        \item \pause Criteri di stabilità. \pause Esempio:
-            nelle regioni in cui l'equilibrio banale è attrattivo, il collasso della colonia è inevitabile.
-    \end{itemize}
-\end{frame}
 
 \begin{frame}
     \frametitle{Modello a due compartimenti}
@@ -458,46 +321,6 @@
 \end{frame}
 
 
-\subsection{Simulazioni}
-
-
-\begin{frame}
-    \frametitle{Esperimento A}
-
-    2304 simulazioni del modello,
-    durata $T=2~\text{anni}$ e passo di integrazione $\Delta t= 1~\text{giorno}$.
-
-    \pause
-    Tutte con parametri costanti, mantenendo fissi $L=2000, \alpha = \frac{1}{4} = 1-\sigma$
-
-    \pause
-    Parametri pseudorandom in ogni simulazione:
-    \begin{itemize}
-        \item $m$ mortalità: \pause $0,016 \leq m \leq 0,7$.
-        \item \pause $w$ risposta funz. nella $E$: \pause $3000 \leq w \leq 30000$.
-    \end{itemize}
-    \pause
-    Pseudorandom anche le condizioni iniziali $H(0)+F(0)$: \pause $50 \leq b \leq 9000$.
-\end{frame}
-
-\begin{frame}
-    \frametitle{Esperimento A}
-    \framesubtitle{Spazio dei parametri}
-
-    \begin{center}
-        \includegraphics[keepaspectratio,width=\textwidth]{img/k11EA2-parameterSpace3D}
-    \end{center}
-\end{frame}
-
-\begin{frame}
-    \frametitle{Esperimento A}
-    \framesubtitle{Spazio dei parametri (proiezione)}
-
-    \begin{center}
-        \includegraphics[keepaspectratio,width=\textwidth]{img/k11EA2-parameterSpace2D}
-    \end{center}
-\end{frame}
-
 \begin{frame}
     \frametitle{Esperimento A}
     \framesubtitle{\emph{FDOD} e mortalità}
@@ -520,35 +343,6 @@
 \end{frame}
 
 \begin{frame}
-    \frametitle{Esperimento A}
-    \framesubtitle{Popolazione finale e $w$}
-
-    \begin{center}
-        \includegraphics[keepaspectratio,width=\textwidth]{img/k11EA2-finpopVSw}
-    \end{center}
-\end{frame}
-
-\begin{frame}
-    \frametitle{Esperimento B}
-    \framesubtitle{Parametri \emph{variabili}}
-
-    Varia soltanto $m$, per indagare:
-    \begin{itemize}
-        \item La risposta \emph{dinamica} della famiglia a diverse forme di stress.
-        \item \pause La stabilità dell'equilbrio non banale.
-    \end{itemize}
-\end{frame}
-
-\begin{frame}
-    \frametitle{Esperimento B}
-    \framesubtitle{Crisi episodica}
-
-    \begin{center}
-        \includegraphics[keepaspectratio,width=\textwidth]{img/alternativeC}
-    \end{center}
-\end{frame}
-
-\begin{frame}
     \frametitle{Esperimento B}
     \framesubtitle{Equilibrio endemico}
 
@@ -566,69 +360,6 @@
     \end{center}
 \end{frame}
 
-\begin{frame}
-    \frametitle{Esperimento C}
-    \framesubtitle{Famiglie ``forti'' e ``deboli''}
-
-    Studio della risposta \emph{numerica} ai fattori di stress.
-
-    Anche nella pratica si usa spesso la stima della popolazione $N(t)=H(t)+F(t)$
-    \pause
-    \emph{insieme} con altre (covata aperta/chiusa, meteo, cibo, patogeni, \dots)
-    \pause
-    e considerando anche il \emph{contesto} (stagione, postazione, trattamenti, \dots).
-
-    \pause
-    \vspace{0.5em}
-    1024 simulazioni impostate (praticamente) come in A,
-    variano soltanto le condizioni iniziali ed il parametro
-    $$ 0,006 \leq m \leq 0,7$$
-
-    \pause
-    $$\text{FDW} = \min \left\{ t \geq 0 \st H(t) + F(t) < 1000 \right\} $$
-    \pause
-    $$\text{FDS} = \min \left\{ t \geq 0 \st H(t) + F(t) > 40000 \right\} $$
-\end{frame}
-
-\begin{frame}
-    \frametitle{Esperimento C}
-    \framesubtitle{Popolazione finale e popolazione iniziale}
-
-    \begin{center}
-        \includegraphics[keepaspectratio,width=\textwidth]{img/k11EC-finalPop-initPop}
-    \end{center}
-\end{frame}
-
-\begin{frame}
-    \frametitle{Esperimento C}
-    \framesubtitle{Primo giorno ``forti'' e popolazione iniziale}
-
-    \begin{center}
-        \includegraphics[keepaspectratio,width=\textwidth]{img/k11EC-fds-initPop}
-    \end{center}
-\end{frame}
-
-\begin{frame}
-    \frametitle{Esperimento C}
-    \framesubtitle{Primo giorno ``deboli'' e popolazione iniziale}
-
-    \begin{center}
-        \includegraphics[keepaspectratio,width=\textwidth]{img/k11EC-fdw-initPop}
-    \end{center}
-\end{frame}
-
-\begin{frame}
-    \frametitle{Esperimento C}
-    \framesubtitle{Primo giorno ``forti/deboli'' e mortalità}
-
-    \begin{center}
-        \includegraphics[keepaspectratio,width=\textwidth]{img/k11EC-fdX-m.png}
-    \end{center}
-\end{frame}
-
-
-\section{5D (2017)} % Ratti et al. 2017
-
 
 \begin{frame}
     \frametitle{Modello a cinque compartimenti}
@@ -639,11 +370,11 @@
     \vspace{1em}
     Elementi--chiave:
     \begin{itemize}
-        \item \pause relazioni complesse tra \emph{A.~mellifera}, \emph{V.~destructor} ed altri patogeni.
+        \item \pause relazioni complesse tra \emph{A.~mellifera}, \emph{V.~destructor} ed \emph{ABPV}.
         \item \pause \emph{homing failure}, trattamenti anti--acaro.
 %             \\ % TODO aggiustare
 %             \includegraphics[keepaspectratio,width=0.2\textwidth]{img/imidacloprid}
-        \item \pause analisi del sistema con parametri \emph{variabili} \pause (Teoria di Floquet).
+        \item \pause analisi del sistema con parametri \emph{variabili} (Teoria di Floquet).
     \end{itemize}
 \end{frame}
 
@@ -671,23 +402,17 @@
 
     Le varroe trasmettono anche contagi batterici e virali.
 
-    \pause
     \begin{center}
         \includegraphics[keepaspectratio,width=0.8\textwidth]{img/iabpv}
     \end{center}
 \end{frame}
 
-
-\subsection{Derivazione}
-
-
 \begin{frame}
     \frametitle{Modello a cinque compartimenti}
     \framesubtitle{Derivazione del modello}
 
-    Deriviamo le equazioni del sistema per i cinque compartimenti:
     \begin{itemize}
-        \item \pause le operaie di casa $x_h$,
+        \item le operaie di casa $x_h$,
         \item \pause le operaie di campo $x_f$,
         \item \pause le operaie infette $y$,
         \item \pause le varroe portatrici di ABPV $m$,
@@ -699,15 +424,15 @@
     \frametitle{Modello a cinque compartimenti}
     \framesubtitle{Formulazioni ereditate dal modello del 2011 (I)}
 
-    La risposta funzionale della schiusa deve verificare
-    $$g(0)=0 \; , \; \pause \diff{g}{x_h} \geq 0 \; , \; \diff{g}{x_f} \geq 0 \; , %
-    \pause \; \lim_{x_h+x_f \to \infty} g(x_h+x_f)=1 \; .$$
+    Assunzioni standard per la risposta funzionlae della schiusa:
+    $$g(0)=0 \; , \; \diff{g}{x_h} \geq 0 \; , \; \diff{g}{x_f} \geq 0 \; , %
+        \; \lim_{x_h+x_f \to \infty} g(x_h+x_f)=1 \; .$$
 
     \pause
     È una sigmoide di Hill (Holling tipo III):
-    $$g(x_h + x_f) = \frac{ (x_h+x_f)^i }{ K^i + (x_h+x_f)^i }$$
+    $$g(x_h + x_f) = \frac{ (x_h+x_f)^i }{ K^i + (x_h+x_f)^i } \; , \quad i>1$$
 
-    \pause Nel modello del 2011 era $\frac{H+F}{w+H+F}$ (Holling tipo II).
+    Nel modello precedente era $\frac{H+F}{w+H+F}$ (Holling tipo II).
 \end{frame}
 
 \begin{frame}
@@ -728,13 +453,50 @@
     \pause
     $$R = \alpha - \sigma \frac{F}{H+F} \quad (2011)$$
 \end{frame}
+%
+
+%
+% \begin{frame}
+%     \frametitle{Modello a cinque compartimenti}
+%     \framesubtitle{Assunzioni (II)}
+%
+%     \begin{itemize}
+%         \item Le pupe che arrivano allo stadio adulto sono libere da virus.
+%         \item \pause Il virus non ha preferenze tra api di casa e di campo.
+%         \item \pause Le varroe in fase foretica non hanno preferenze tra api di casa e di campo.
+%         \item \pause I trattamenti anti--acaro danneggiano anche le api,
+%             ma \textbf{molto meno} rispetto alle varroe. \pause (``per costruzione'')
+%     \end{itemize}
+% \end{frame}
+
+
+\begin{frame}
+    \frametitle{Modello a cinque compartimenti}
+    \framesubtitle{Equazioni (I)}
+
+    % operaie di casa sane
+    $$ \diff{x_h}{t} = \mu \pause \overbrace{ g( x_h + x_f ) }^{\text{schiusa}} %
+        \pause \overbrace{ h(m) }^{\text{virus}} %
+        \pause - \overbrace{ \beta_1 m \frac{x_h}{x_h + x_f + y} }^{\text{infezioni} \pause \to y} %
+        \pause - \overbrace{ \left( d_1 + \delta_1 \right) x_h }^{\text{mortalità}} $$
+    \pause
+    $$ - \underbrace{ \gamma_1 (m+n) x_h }_{\text{varroe}} %
+        - \underbrace{ x_h \cdot R(x_h, x_f) }_{\text{reclutamento} \pause \to x_f}  $$
+
+    % operaie di campo sane
+    $$ \diff{x_f}{t} = \pause  x_h \cdot R(x_h, x_f)  %
+    \pause - \beta_1 m \frac{x_f}{x_h + x_f + y} $$
+    \pause
+    $$ - \left( p + d_2 + \delta_2 \right) x_f %
+    - \pause \gamma_2 (m+n) x_f $$
+\end{frame}
 
 \begin{frame}
     \frametitle{Modello a cinque compartimenti}
     \framesubtitle{Assunzioni (I)}
 
     \begin{itemize}
-        \item \pause Le api infette $y$ sono \textbf{di casa}, \pause
+        \item \pause Le api infette $y$ sono \textbf{di casa},
             e non vengono più reclutate per bottinare.
         \item \pause Crescita logistica per le varroe.
         \item \pause Il tasso massimale di crescita per le varroe \textbf{è lo stesso},
@@ -747,60 +509,14 @@
 
 \begin{frame}
     \frametitle{Modello a cinque compartimenti}
-    \framesubtitle{Assunzioni (II)}
-
-    \begin{itemize}
-        \item Le pupe che arrivano allo stadio adulto sono libere da virus.
-        \item \pause Il virus non ha preferenze tra api di casa e di campo.
-        \item \pause Le varroe in fase foretica non hanno preferenze tra api di casa e di campo.
-        \item \pause I trattamenti anti--acaro danneggiano anche le api,
-            ma \textbf{molto meno} rispetto alle varroe. \pause (``per costruzione'')
-    \end{itemize}
-\end{frame}
-
-\subsection{Equazioni}
-
-\begin{frame}
-    \frametitle{Modello a cinque compartimenti}
-    \framesubtitle{Equazioni (I)}
-
-    Operaie di casa sane:
-    $$ \diff{x_h}{t} = \pause \mu \pause \overbrace{ g( x_h + x_f ) }^{E} %
-        \pause \overbrace{ h(m) }^{\text{virus}} %
-        \pause - \overbrace{ \beta_1 m \frac{x_h}{x_h + x_f + y} }^{\text{infezioni} \pause \to y} %
-        \pause - \overbrace{ \left( d_1 + \delta_1 \right) x_h }^{\text{mortalità}} $$
-    \pause
-    $$ - \underbrace{ \gamma_1 (m+n) x_h }_{\text{varroe}} %
-        - \underbrace{ x_h \cdot R(x_h, x_f) }_{\text{reclutamento} \pause \to x_f}  $$
-\end{frame}
-
-\begin{frame}
-    \frametitle{Modello a cinque compartimenti}
     \framesubtitle{Equazioni (II)}
 
-    Operaie di campo sane:
-    $$ \diff{x_f}{t} = \pause \overbrace{ x_h \cdot R(x_h, x_f) }^{\text{reclutamento}} %
-    \pause - \overbrace{ \beta_1 m \frac{x_f}{x_h + x_f + y} }^{\text{infezioni} \to y}$$
-    \pause
-    $$ - \underbrace{\left( p + d_2 + \delta_2 \right) x_f}_{\text{mortalità}} %
-    \pause - \underbrace{ \pause \gamma_2 (m+n) x_f }_{\text{varroe}}$$
-\end{frame}
-
-\begin{frame}
-    \frametitle{Modello a cinque compartimenti}
-    \framesubtitle{Equazioni (III)}
-
-    Operaie infette da ABPV (di casa):
+    % operaje infette
     $$\diff{y}{t} = \pause \overbrace{ \beta_1 m \frac{x_h + x_f}{x_h + x_f + y} }^{\text{nuove infezioni}} %
-    \pause - \underbrace{ \left( d_3 + \delta_3 \right) y }_{\text{mortalità}} %
-    \pause - \underbrace{ \gamma_3 (m+n) y }_{\text{varroe}}$$
-\end{frame}
+    \pause - \left( d_3 + \delta_3 \right) y  %
+    \pause - \gamma_3 (m+n) y $$
 
-\begin{frame}
-    \frametitle{Modello a cinque compartimenti}
-    \framesubtitle{Equazioni (IV)}
-
-    Varroe portatrici di ABPV:
+    % varroe portatrici
     $$\diff{m}{t} = \pause \overbrace{ rm \left( 1 - \frac{m+n}{ \alpha (x_h + x_f + y) } \right) %
         }^{\text{riproduzione logistica}}%
         \pause + \overbrace{ \beta_2 n \frac{y}{x_h + x_f + y} }^{\text{acquisizione}}$$
@@ -809,17 +525,17 @@
         \pause -\underbrace{ \delta_4 m }_{\text{trattamenti}} $$
 \end{frame}
 
+
 \begin{frame}
     \frametitle{Modello a cinque compartimenti}
-    \framesubtitle{Equazioni (V)}
+    \framesubtitle{Equazioni (III)}
 
-    Varroe senza virus:
+    % varroe senza virus
     $$\diff{n}{t} = rn \left( 1 - \frac{m+n}{ \alpha (x_h + x_f + y) } \right) - \beta_2 n \frac{y}{x_h + x_f + y}$$
     $$+ \beta_3 m \frac{x_h + x_f}{x_h + x_f + y} - \delta_5 n$$
 \end{frame}
 
 
-\subsection{Risultati}
 
 \begin{frame}
     \frametitle{Modello a cinque compartimenti}
@@ -953,7 +669,6 @@
 \end{frame}
 
 
-\section{Conclusioni}
 
 
 \begin{frame}
@@ -1012,7 +727,6 @@
 \end{frame}
 
 
-\section{Fine}
 
 
 \begin{frame}
